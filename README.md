@@ -344,100 +344,110 @@ actionItemExecution.MaxDeadline = _obj.CoAssigneesDeadlineGD != null ? _obj.CoAs
 actionItemExecution.State.Properties.Deadline.IsRequired = false;
 actionItemExecution.State.Properties.CoAssigneesDeadlineGD.IsRequired = false;
 ```
-Заполнение поля "Факт. дата" в карточке задачи по исполнению поручения
-Описание
+### Заполнение поля "Факт. дата" в карточке задачи по исполнению поручения
+#### Описание
 В карточку задачи по исполнению поручения добавлено поле «Факт. дата». Поле автоматически заполняется фактической датой исполнения поручения.
- 
-Реализация
+<br/><br/>
+![Фактическая_дата](img/Фактическая_дата.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи по исполнению поручения в коллекции «ActionItemParts» добавить свойство:
-●	Факт. дата. Тип «Дата», имя свойства «ActualDate»;
-В перекрытии задачи по исполнению поручений в блоке «Исполнение поручения» перекрыть событие конец блока:
-    public override void EndBlock4(Sungero.RecordManagement.Server.ActionItemExecutionAssignmentEndBlockEventArguments e)
+* Факт. дата. Тип «Дата», имя свойства «ActualDate»;  
+В перекрытии задачи по исполнению поручений в блоке «Исполнение поручения» перекрыть событие конец блока:  
+```
+public override void EndBlock4(Sungero.RecordManagement.Server.ActionItemExecutionAssignmentEndBlockEventArguments e)
+{
+  base.EndBlock4(e);
+  // Заполнить фактическую дату завершения исполнения поручения.
+  var compoundActionItem = ActionItemExecutionTasks.GetAll(t => t.ActionItemParts.Any(p => p.ActionItemPartExecutionTask.Id == _obj.Id)).FirstOrDefault();
+  if (compoundActionItem != null)
+  {
+    var completed = e.CreatedAssignments.Select(a => a.Completed).OrderByDescending(a => a).FirstOrDefault();
+    if (completed != null)
     {
-      base.EndBlock4(e);
-      // Заполнить фактическую дату завершения исполнения поручения.
-      var compoundActionItem = ActionItemExecutionTasks.GetAll(t => t.ActionItemParts.Any(p => p.ActionItemPartExecutionTask.Id == _obj.Id)).FirstOrDefault();
-      if (compoundActionItem != null)
-      {
-        var completed = e.CreatedAssignments.Select(a => a.Completed).OrderByDescending(a => a).FirstOrDefault();
-        if (completed != null)
-        {
-          var str = compoundActionItem.ActionItemParts.Where(p => p.ActionItemPartExecutionTask.Id == _obj.Id).Cast<MainSolution.IActionItemExecutionTaskActionItemParts>().FirstOrDefault();
-          str.ActualDate = e.Block.AbsoluteDeadline.HasTime()
-            ? completed
-            : Calendar.GetUserToday(e.Block.Performers.FirstOrDefault());
-        }
-      }
+      var str = compoundActionItem.ActionItemParts.Where(p => p.ActionItemPartExecutionTask.Id == _obj.Id).Cast<MainSolution.IActionItemExecutionTaskActionItemParts>().FirstOrDefault();
+      str.ActualDate = e.Block.AbsoluteDeadline.HasTime()
+        ? completed
+        : Calendar.GetUserToday(e.Block.Performers.FirstOrDefault());
     }
-В текст поручения дополнительно вставлять информацию об исполнителях
-Описание
+  }
+}
+```
+### В текст поручения дополнительно вставлять информацию об исполнителях
+#### Описание
 При старте задачи дополнительно к тексту поручения добавляется информация об исполнителях по данному поручению для быстрого просмотра исполнителей по поручению. Формат добавляемой информации: Исполнитель/соисполнитель/отв. Исполнитель: <Фимилия И.О.> (<Код НОР>) (Если код НОР не заполнен, то указывается наименование НОР).
- 
-Реализация
+<br/><br/>
+![Доп_информация_о_исполнителях](img/Доп_информация_о_исполнителях.png)
+<br/><br/> 
+#### Реализация
 Доп. информация добавляется в поле поручение. Но что бы при копировании поручения доп. информация из копируемого поручения не подставлялась нужно сохранить текст поручения без доп. информации. Для этого нужно добавить новое скрытое свойство в перекрытии задачи по исполнению поручения:
-●	Исходный текст поручения. Тип «Строка(1000)», имя свойства «ActionItemHide»;
-В перекрытии задачи по исполнению поручений в событии до старта:
-  base.BeforeStart(e);
-  // Добавить исполнителя/соисполнителя/отв.исполнителя в поручение.
-  // Определить ведущю задачу
-  IActionItemExecutionTask mainTask;
-  if (_obj.ParentAssignment != null && ActionItemExecutionAssignments.Is(_obj.ParentAssignment) &&
-      ActionItemExecutionTasks.As(ActionItemExecutionAssignments.As(_obj.ParentAssignment).Task).CoAssignees.Where(x => Employees.Equals(x.Assignee, _obj.Assignee)).Any())
-  {
-    mainTask = ActionItemExecutionTasks.As(ActionItemExecutionAssignments.As(_obj.ParentAssignment).Task);
-  }
-  else if (_obj.ParentTask != null && ActionItemExecutionTasks.Is(_obj.ParentTask) &&
-           ActionItemExecutionTasks.As(_obj.ParentTask).ActionItemParts.Where(x => Employees.Equals(x.Assignee, _obj.Assignee)).Any())
-  {
-    mainTask = ActionItemExecutionTasks.As(_obj.ParentTask);
-  }
-  else
-  {
-    mainTask = _obj;
-  }
-  if (mainTask != null)
-  {
-    var assignee = _obj.Assignee != null && _obj.Assignee.Person != null ?
-      string.Format("{0} {1}{2}",
-                    _obj.Assignee.Person.LastName ?? string.Empty,
-                    _obj.Assignee.Person.Name != null ? _obj.Assignee.Person.FirstName.ToUpper()[0] + "." : string.Empty,
-                    _obj.Assignee.Person.MiddleName != null ? _obj.Assignee.Person.MiddleName.ToUpper()[0] + "." :  string.Empty) :
-      _obj.Assignee != null ? _obj.Assignee.ToString() : null;
-    var prefix = string.Empty;
-    // Тип исполнителя
-    if (mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == false && mainTask.CoAssignees.Any())
-      prefix = Sungero.Company.Employees.Equals(mainTask.Assignee, _obj.Assignee) ?
-        // отв. Исполнитель: {0} ({1}){2}
-        GD.MainSolution.ActionItemExecutionTasks.Resources.ResponsibleAssigneeFormat(assignee, assigneeBusinessUnitCode, "\n"):
-        // Соисполнитель: {0} ({1}){2}
-        GD.MainSolution.ActionItemExecutionTasks.Resources.CoAssigneeFormat(assignee, assigneeBusinessUnitCode, "\n");
-    
-    if ((mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == false && !mainTask.CoAssignees.Any()) ||
-        (mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == true && !Sungero.Company.BusinessUnits.Equals(mainTask, _obj)))
-      // Исполнитель: {0} ({1}){2} 
-      prefix = GD.MainSolution.ActionItemExecutionTasks.Resources.AssigneeFormat(assignee, assigneeBusinessUnitCode, "\n");
+●	Исходный текст поручения. Тип «Строка(1000)», имя свойства «ActionItemHide»;  
+В перекрытии задачи по исполнению поручений в событии до старта:  
+```
+base.BeforeStart(e);
+// Добавить исполнителя/соисполнителя/отв.исполнителя в поручение.
+// Определить ведущю задачу
+IActionItemExecutionTask mainTask;
+if (_obj.ParentAssignment != null && ActionItemExecutionAssignments.Is(_obj.ParentAssignment) &&
+    ActionItemExecutionTasks.As(ActionItemExecutionAssignments.As(_obj.ParentAssignment).Task).CoAssignees.Where(x => Employees.Equals(x.Assignee, _obj.Assignee)).Any())
+{
+  mainTask = ActionItemExecutionTasks.As(ActionItemExecutionAssignments.As(_obj.ParentAssignment).Task);
+}
+else if (_obj.ParentTask != null && ActionItemExecutionTasks.Is(_obj.ParentTask) &&
+         ActionItemExecutionTasks.As(_obj.ParentTask).ActionItemParts.Where(x => Employees.Equals(x.Assignee, _obj.Assignee)).Any())
+{
+  mainTask = ActionItemExecutionTasks.As(_obj.ParentTask);
+}
+else
+{
+  mainTask = _obj;
+}
+if (mainTask != null)
+{
+  var assignee = _obj.Assignee != null && _obj.Assignee.Person != null ?
+    string.Format("{0} {1}{2}",
+                  _obj.Assignee.Person.LastName ?? string.Empty,
+                  _obj.Assignee.Person.Name != null ? _obj.Assignee.Person.FirstName.ToUpper()[0] + "." : string.Empty,
+                  _obj.Assignee.Person.MiddleName != null ? _obj.Assignee.Person.MiddleName.ToUpper()[0] + "." :  string.Empty) :
+    _obj.Assignee != null ? _obj.Assignee.ToString() : null;
+  var prefix = string.Empty;
+  // Тип исполнителя
+  if (mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == false && mainTask.CoAssignees.Any())
+    prefix = Sungero.Company.Employees.Equals(mainTask.Assignee, _obj.Assignee) ?
+      // отв. Исполнитель: {0} ({1}){2}
+      GD.MainSolution.ActionItemExecutionTasks.Resources.ResponsibleAssigneeFormat(assignee, assigneeBusinessUnitCode, "\n"):
+      // Соисполнитель: {0} ({1}){2}
+      GD.MainSolution.ActionItemExecutionTasks.Resources.CoAssigneeFormat(assignee, assigneeBusinessUnitCode, "\n");
+  
+  if ((mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == false && !mainTask.CoAssignees.Any()) ||
+      (mainTask.IsCompoundActionItem.HasValue && mainTask.IsCompoundActionItem.Value == true && !Sungero.Company.BusinessUnits.Equals(mainTask, _obj)))
+    // Исполнитель: {0} ({1}){2} 
+    prefix = GD.MainSolution.ActionItemExecutionTasks.Resources.AssigneeFormat(assignee, assigneeBusinessUnitCode, "\n");
 
-    if (!string.IsNullOrEmpty(prefix))
+  if (!string.IsNullOrEmpty(prefix))
+  {
+    var maxPrefixLength = 1000 - _obj.ActionItem.Length;
+    if (maxPrefixLength > 0)
     {
-      var maxPrefixLength = 1000 - _obj.ActionItem.Length;
-      if (maxPrefixLength > 0)
-      {
-        // Сохранить исходный текст поручения
-        _obj.ActionItemHide = _obj.ActionItem;
-        _obj.ActionItem = prefix.Length > maxPrefixLength ? string.Format("{0}{1}", prefix.Remove(maxPrefixLength), "\n") : prefix + _obj.ActionItem;
-      }
+      // Сохранить исходный текст поручения
+      _obj.ActionItemHide = _obj.ActionItem;
+      _obj.ActionItem = prefix.Length > maxPrefixLength ? string.Format("{0}{1}", prefix.Remove(maxPrefixLength), "\n") : prefix + _obj.ActionItem;
     }
-    _obj.ActiveText = _obj.ActionItem;
-Восстановить исходный текст поручения при копировании. Для этого в перекрытии создания задачи по исполнению поручения:
+  }
+  _obj.ActiveText = _obj.ActionItem;
+```
+Восстановить исходный текст поручения при копировании. Для этого в перекрытии создания задачи по исполнению поручения:  
+```
 public override void Created(Sungero.Domain.CreatedEventArgs e)
-    {
-      base.Created(e);
-      if (_obj.State.IsCopied)
-      {
-        _obj.ReportForSL = null;
-        _obj.ActionItem = string.IsNullOrEmpty(_obj.ActionItemHide) ? _obj.ActionItem : _obj.ActionItemHide;
-      }
-    } 
+{
+  base.Created(e);
+  if (_obj.State.IsCopied)
+  {
+    _obj.ReportForSL = null;
+    _obj.ActionItem = string.IsNullOrEmpty(_obj.ActionItemHide) ? _obj.ActionItem : _obj.ActionItemHide;
+  }
+} 
+```
 Кнопка изменение сроков в карточке поручения после отправки поручения в работу 
 Описание
 Добавление в задачу по исполнению поручения кнопки для изменения срока. После отправки поручения в карточке задачи появляется кнопка «Изменение сроков».
