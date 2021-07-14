@@ -167,39 +167,51 @@ public static void AddRelationToAddendum(Sungero.Workflow.Interfaces.IWorkflowEn
   }
 }
 ```
-В задание на рассмотрение входящего документа помощником добавлена возможность вернуть регистратору документ
-Описание
+### В задание на рассмотрение входящего документа помощником добавлена возможность вернуть регистратору документ
+#### Описание
 В карточку задания на подготовку проекта резолюции в рамках задачи на рассмотрение документа добавлен результат выполнения «Вернуть регистратору». Для выполнения задания с данным результатом пользователю необходимо указать причины возврата в текст задания.
- 
+<br/><br/>
+![Вернуть_регистратору](img/Вернуть_регистратору.png)
+<br/><br/>
 При выполнении задания с данным результатом, делопроизводитель, отправивший документ на рассмотрение, получит задание исправить замечания:
-Задание на исправление замечании имеет 2 результата выполнения:
-•	При выполнении с результатом «Выполнить» сформируется задание на подготовку проекта резолюции;
-•	При выполнении с результатом «Прекратить» задача прекратится.
-Реализация
+<br/><br/>
+![Вернуть_регистратору2](img/Вернуть_регистратору2.png)
+<br/><br/>
+Задание на исправление замечании имеет 2 результата выполнения:  
+* При выполнении с результатом «Выполнить» сформируется задание на подготовку проекта резолюции;
+* При выполнении с результатом «Прекратить» задача прекратится.
+#### Реализация
 В перекрытии задачи на рассмотрение документа добавить задание
-
- 
- 
-
+<br/><br/>
+![Вернуть_регистратору3](img/Вернуть_регистратору3.png)
+<br/><br/>
+![Вернуть_регистратору4](img/Вернуть_регистратору4.png)
+<br/><br/>
 Перекрыть задание «Подготовка проекта резолюции» задачи на рассмотрение документа, добавить результат выполнения «Вернуть регистратору»:
-  
-Вычисления: 
-    public virtual void ReturnToAuthor(Sungero.Workflow.Client.ExecuteResultActionArgs e)
-    {
-      if (string.IsNullOrWhiteSpace(_obj.ActiveText))
-      {
-        e.AddError(GD.MainSolution.PreparingDraftResolutionAssignments.Resources.NeedTextToRework);
-        return;
-      }
-    }
+<br/><br/>
+![Вернуть_регистратору5](img/Вернуть_регистратору5.png)
+<br/><br/>
+Вычисления:
+```
+public virtual void ReturnToAuthor(Sungero.Workflow.Client.ExecuteResultActionArgs e)
+{
+  if (string.IsNullOrWhiteSpace(_obj.ActiveText))
+  {
+    e.AddError(GD.MainSolution.PreparingDraftResolutionAssignments.Resources.NeedTextToRework);
+    return;
+  }
+}
 
-    public virtual bool CanReturnToAuthor(Sungero.Workflow.Client.CanExecuteResultActionArgs e)
-    {
-      var task = DocumentReviewTasks.As(_obj.MainTask);
-      return !Sungero.Docflow.Memos.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()) && task.ClerkAddAI == null;
-    }
+public virtual bool CanReturnToAuthor(Sungero.Workflow.Client.CanExecuteResultActionArgs e)
+{
+  var task = DocumentReviewTasks.As(_obj.MainTask);
+  return !Sungero.Docflow.Memos.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()) && task.ClerkAddAI == null;
+}
+```
 Перекрыть схему задачи на рассмотрение документа:
- 
+<br/><br/>
+![Вернуть_регистратору6](img/Вернуть_регистратору6.png)
+<br/><br/> 
 В списке входящих на панель фильтрации добавлены параметры для фильтрации документов по годам
 Описание
 В список входящих писем добавлена возможность фильтрации документов по годам регистрации. С помощью фильтра в списке можно вывести список документов, зарегистрированных в текущем году, предыдущем, за всё время, либо указать интервал годов. 
