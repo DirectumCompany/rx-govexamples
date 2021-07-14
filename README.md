@@ -21,14 +21,16 @@ base.Showing(e);
 if (_obj.State.IsInserted && IncomingLetters.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()) && IncomingLetters.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()).IsUrgencyGD == true)
   _obj.Importance = Sungero.RecordManagement.ActionItemExecutionTask.Importance.High;
 ```
-Проверка на дубли во входящем письме
-Описание
+### Проверка на дубли во входящем письме
+#### Описание
 При заполнении полей карточки входящего письма: «Корреспондент», «Дата от», «№», «Наша орг.» производится проверка на наличие дублей по значениям данных полей. Если в результате проверки обнаружится карточка входящего письма с аналогичными значениями всех полей, то откроется диалоговое окно:
- 
+<br/><br/>
+![Дубли](img/Дубли.png)
+<br/><br/>
 При нажатии на кнопку «Да» откроется список дублей. Также данная проверка производится при открытии карточки входящего письма. 
-Реализация
+#### Реализация
 В перекрытии входящего письма в событии «Изменение значение контрола» свойств «Вид документа», «Корреспондент», «Наша организация», «Дата от», «№»:
-
+```
 // Не забыть вызвать base.XXX 
 if (Functions.IncomingLetter.HaveDuplicates(_obj,
                                            e.NewValue,
@@ -44,8 +46,9 @@ if (Functions.IncomingLetter.HaveDuplicates(_obj,
                                                       _obj.Dated,
                                                       _obj.Correspondent);
 }
-
+```
 Добавить в клиентские функции входящего письма:
+```
 /// <summary>
 /// Отобразить диалог для вывода дубликатов.
 /// </summary>
@@ -69,7 +72,9 @@ if (dialog.Show() == DialogButtons.Yes)
       Sungero.Core.Dialogs.NotifyMessage(IncomingLetters.Resources.DuplicateNotFound);
   }
 }
+```
 Добавить в серверные функции входящего письма:
+```
 /// <summary>
 /// Получить дубли письма.
 /// </summary>
@@ -96,6 +101,7 @@ public static IQueryable<IIncomingLetter> GetDuplicates(IIncomingLetter letter,
   .Where(l => correspondent != null && Equals(correspondent, l.Correspondent))
   .Where(l => !Equals(letter, l));
 }
+```
 Документы из области «Прочие», «Отмена» и «Основание» входящего письма автоматически попадают в область «Дополнительно» задачи на исполнение поручения
 Описание
 Есть копирование базового кода.
