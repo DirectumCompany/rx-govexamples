@@ -380,8 +380,8 @@ public override void EndBlock4(Sungero.RecordManagement.Server.ActionItemExecuti
 ![Доп_информация_о_исполнителях](img/Доп_информация_о_исполнителях.png)
 <br/><br/> 
 #### Реализация
-Доп. информация добавляется в поле поручение. Но что бы при копировании поручения доп. информация из копируемого поручения не подставлялась нужно сохранить текст поручения без доп. информации. Для этого нужно добавить новое скрытое свойство в перекрытии задачи по исполнению поручения:
-●	Исходный текст поручения. Тип «Строка(1000)», имя свойства «ActionItemHide»;  
+Доп. информация добавляется в поле поручение. Но что бы при копировании поручения доп. информация из копируемого поручения не подставлялась нужно сохранить текст поручения без доп. информации. Для этого нужно добавить новое скрытое свойство в перекрытии задачи по исполнению поручения:  
+* Исходный текст поручения. Тип «Строка(1000)», имя свойства «ActionItemHide»;  
 В перекрытии задачи по исполнению поручений в событии до старта:  
 ```
 base.BeforeStart(e);
@@ -448,248 +448,268 @@ public override void Created(Sungero.Domain.CreatedEventArgs e)
   }
 } 
 ```
-Кнопка изменение сроков в карточке поручения после отправки поручения в работу 
-Описание
+### Кнопка изменение сроков в карточке поручения после отправки поручения в работу 
+#### Описание
 Добавление в задачу по исполнению поручения кнопки для изменения срока. После отправки поручения в карточке задачи появляется кнопка «Изменение сроков».
- 
+<br/><br/>
+![Изменение_сроков](img/Изменение_сроков.png)
+<br/><br/> 
 При нажатии на кнопку открывается окно для ввода нового срока. После подтверждение нового срока, в поручении, а также в подчиненных поручениях срок автоматически меняется на новый.
- 
-Реализация
+<br/><br/>
+![Изменение_сроков2](img/Изменение_сроков2.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи на исполнение поручения добавить действие «Изменение сроков» и обработчики для него:
-    public virtual void ChangeDeadlineGD(Sungero.Domain.Client.ExecuteActionArgs e)
-    {
-      // Запросить новый срок.
-      var dialog = Dialogs.CreateInputDialog(GD.MainSolution.ActionItemExecutionTasks.Resources.NewDeadlineAssignment);
-      var data = dialog.AddDate(GD.MainSolution.ActionItemExecutionTasks.Resources.NewDeadlineAction, true);
-      dialog.SetOnRefresh((r) =>
-                          {
-                            var warnMessage = Sungero.Docflow.PublicFunctions.Module.CheckDeadlineByWorkCalendar(data.Value);
-                            if (!string.IsNullOrEmpty(warnMessage))
-                              r.AddWarning(warnMessage);
-                            
-                            // Проверить корректность срока.
-                            if (!Sungero.Docflow.PublicFunctions.Module.CheckDeadline(data.Value, Calendar.Now))
-                              r.AddError(Sungero.RecordManagement.Resources.ImpossibleSpecifyDeadlineLessThenToday);
-                            
-                            // Проверить корректность срока относительно главного поручения.
-                            if (!MainSolution.Module.RecordManagement.PublicFunctions.Module.Remote.CheckNewAssignmentDeadline(_obj, data.Value))
-                              r.AddError(GD.MainSolution.ActionItemExecutionTasks.Resources.InvalidNewDeadlineAssignment);
-                            
-                          });
-      if (dialog.Show() == DialogButtons.Ok)
-      {
-        var newDeadline = data.Value.Value;
-        // Изменить срок выполнения резолюции.
-        var performers = MainSolution.Module.RecordManagement.PublicFunctions.Module.Remote.ChangeDeadlineAssignment(_obj, newDeadline, Users.Current);
-        _obj.Save();
-        if (performers.Any())
-          // Сроки изменены для всех исполнителей, за исключением {0}, так как задание открыто на редактирование.
-          Dialogs.NotifyMessage(GD.MainSolution.ActionItemExecutionTasks.Resources.DeadlinesChangedPartiallyFormat(String.Join(", ", performers.ToArray())));
-        else
-          // Сроки изменены во всех заданиях.
-          Dialogs.NotifyMessage(GD.MainSolution.ActionItemExecutionTasks.Resources.DeadlinesChanged);
-      }
-    }
+```
+public virtual void ChangeDeadlineGD(Sungero.Domain.Client.ExecuteActionArgs e)
+{
+  // Запросить новый срок.
+  var dialog = Dialogs.CreateInputDialog(GD.MainSolution.ActionItemExecutionTasks.Resources.NewDeadlineAssignment);
+  var data = dialog.AddDate(GD.MainSolution.ActionItemExecutionTasks.Resources.NewDeadlineAction, true);
+  dialog.SetOnRefresh((r) =>
+                      {
+                        var warnMessage = Sungero.Docflow.PublicFunctions.Module.CheckDeadlineByWorkCalendar(data.Value);
+                        if (!string.IsNullOrEmpty(warnMessage))
+                          r.AddWarning(warnMessage);
+                        
+                        // Проверить корректность срока.
+                        if (!Sungero.Docflow.PublicFunctions.Module.CheckDeadline(data.Value, Calendar.Now))
+                          r.AddError(Sungero.RecordManagement.Resources.ImpossibleSpecifyDeadlineLessThenToday);
+                        
+                        // Проверить корректность срока относительно главного поручения.
+                        if (!MainSolution.Module.RecordManagement.PublicFunctions.Module.Remote.CheckNewAssignmentDeadline(_obj, data.Value))
+                          r.AddError(GD.MainSolution.ActionItemExecutionTasks.Resources.InvalidNewDeadlineAssignment);
+                        
+                      });
+  if (dialog.Show() == DialogButtons.Ok)
+  {
+    var newDeadline = data.Value.Value;
+    // Изменить срок выполнения резолюции.
+    var performers = MainSolution.Module.RecordManagement.PublicFunctions.Module.Remote.ChangeDeadlineAssignment(_obj, newDeadline, Users.Current);
+    _obj.Save();
+    if (performers.Any())
+      // Сроки изменены для всех исполнителей, за исключением {0}, так как задание открыто на редактирование.
+      Dialogs.NotifyMessage(GD.MainSolution.ActionItemExecutionTasks.Resources.DeadlinesChangedPartiallyFormat(String.Join(", ", performers.ToArray())));
+    else
+      // Сроки изменены во всех заданиях.
+      Dialogs.NotifyMessage(GD.MainSolution.ActionItemExecutionTasks.Resources.DeadlinesChanged);
+  }
+}
 
-    public virtual bool CanChangeDeadlineGD(Sungero.Domain.Client.CanExecuteActionArgs e)
-    {
-      // Права на изменение сроков имеют автор, помощник автора или контролер.
-      var currentEmployee = Sungero.Company.Employees.Current;
-      return currentEmployee != null &&
-        ((_obj.Author != null && (_obj.Author.Equals(currentEmployee) ||
-                                  Sungero.Company.ManagersAssistants.GetAll(x => (x.Manager.Equals(_obj.Author) && x.Assistant.Equals(currentEmployee))).Any())) ||
-         (_obj.Supervisor != null && _obj.Supervisor.Equals(currentEmployee))) &&
-        ((_obj.Status == ActionItemExecutionTask.Status.InProcess || _obj.Status == ActionItemExecutionTask.Status.UnderReview));
-    }
+public virtual bool CanChangeDeadlineGD(Sungero.Domain.Client.CanExecuteActionArgs e)
+{
+  // Права на изменение сроков имеют автор, помощник автора или контролер.
+  var currentEmployee = Sungero.Company.Employees.Current;
+  return currentEmployee != null &&
+    ((_obj.Author != null && (_obj.Author.Equals(currentEmployee) ||
+                              Sungero.Company.ManagersAssistants.GetAll(x => (x.Manager.Equals(_obj.Author) && x.Assistant.Equals(currentEmployee))).Any())) ||
+     (_obj.Supervisor != null && _obj.Supervisor.Equals(currentEmployee))) &&
+    ((_obj.Status == ActionItemExecutionTask.Status.InProcess || _obj.Status == ActionItemExecutionTask.Status.UnderReview));
+}
+```
 Функции в перекрытии модуля «Канцелярия»:
+```
+/// <summary>
+/// Проверить что новый срок поручения не превышает срок главного поручения.
+/// </summary>
+/// <param name="task">Поручение.</param>
+/// <param name="newDeadline">Срок, который нужно проверить.</param>
+[Public, Remote]
+public bool CheckNewAssignmentDeadline(IActionItemExecutionTask assignment, DateTime? newDeadline)
+{
+  var parentAssignment = ActionItemExecutionAssignments.As(assignment.ParentAssignment);
+  if (parentAssignment != null)
+  {
+    var deadline = parentAssignment.Deadline;
+    return Sungero.Docflow.PublicFunctions.Module.CheckDeadline(deadline, newDeadline);
+  }
+  else
+    return true;
+}
 
-    /// <summary>
-    /// Проверить что новый срок поручения не превышает срок главного поручения.
-    /// </summary>
-    /// <param name="task">Поручение.</param>
-    /// <param name="newDeadline">Срок, который нужно проверить.</param>
-    [Public, Remote]
-    public bool CheckNewAssignmentDeadline(IActionItemExecutionTask assignment, DateTime? newDeadline)
+/// <summary>
+/// Изменить срок поручения.
+/// </summary>
+/// <param name="assignment">Поручение.</param>
+/// <param name="newDeadline">Новый срок.</param>
+/// <param name="performer">Исполнитель.</param>
+/// <returns>Список исполнителей, для которых не удалось поменять срок задания.</returns>
+[Public,Remote]
+public List<string> ChangeDeadlineAssignment(IActionItemExecutionTask assignment, System.DateTime newDeadline, IUser performer)
+{
+  List<string> performers = new List<string>();
+  // Найти все задания у исполнителей в работе и обновить сроки.
+  var subTasks = MainSolution.Module.RecordManagement.PublicFunctions.Module.GetSubtasksForTaskRecursiveGD(assignment);
+  subTasks.Add(assignment);
+  foreach (var subTask in subTasks.Where(t => ActionItemExecutionTasks.Is(t)))
+  {
+    var assignmentSubTask = ActionItemExecutionTasks.As(subTask);
+    assignmentSubTask.MaxDeadline = newDeadline;
+    assignmentSubTask.Deadline = newDeadline;
+    
+    // Задание на исполнение поручения.
+    var assignmentsEx = ActionItemExecutionAssignments.GetAll(a => Equals(a.Task, assignmentSubTask)
+                                                              && a.Status == ActionItemExecutionTask.Status.InProcess &&
+                                                              Employees.As(a.Performer).Department.BusinessUnit == Employees.As(performer).Department.BusinessUnit);
+    foreach (var assignmentEx in assignmentsEx)
     {
-      var parentAssignment = ActionItemExecutionAssignments.As(assignment.ParentAssignment);
-      if (parentAssignment != null)
+      try
       {
-        var deadline = parentAssignment.Deadline;
-        return Sungero.Docflow.PublicFunctions.Module.CheckDeadline(deadline, newDeadline);
+        assignmentEx.Deadline = newDeadline;
+        assignmentEx.Save();
+        var notice = Sungero.Workflow.SimpleTasks.CreateWithNotices(subTask.Subject, assignmentEx.Performer);
+        notice.ActiveText = GD.MainSolution.Module.RecordManagement.Resources.NoticeActiveTextFormat(subTask.Subject, newDeadline.ToShortDateString());
+        notice.Save();
+        notice.Start();
       }
-      else
-        return true;
-    }
-
-
-    /// <summary>
-    /// Изменить срок поручения.
-    /// </summary>
-    /// <param name="assignment">Поручение.</param>
-    /// <param name="newDeadline">Новый срок.</param>
-    /// <param name="performer">Исполнитель.</param>
-    /// <returns>Список исполнителей, для которых не удалось поменять срок задания.</returns>
-    [Public,Remote]
-    public List<string> ChangeDeadlineAssignment(IActionItemExecutionTask assignment, System.DateTime newDeadline, IUser performer)
-    {
-      List<string> performers = new List<string>();
-      // Найти все задания у исполнителей в работе и обновить сроки.
-      var subTasks = MainSolution.Module.RecordManagement.PublicFunctions.Module.GetSubtasksForTaskRecursiveGD(assignment);
-      subTasks.Add(assignment);
-      foreach (var subTask in subTasks.Where(t => ActionItemExecutionTasks.Is(t)))
+      catch
       {
-        var assignmentSubTask = ActionItemExecutionTasks.As(subTask);
-        assignmentSubTask.MaxDeadline = newDeadline;
-        assignmentSubTask.Deadline = newDeadline;
-        
-        // Задание на исполнение поручения.
-        var assignmentsEx = ActionItemExecutionAssignments.GetAll(a => Equals(a.Task, assignmentSubTask)
+        if (!performers.Contains(assignmentEx.Performer.Name))
+          performers.Add(assignmentEx.Performer.Name);
+      }
+    }
+    
+    // Задание на приемку.
+    var assignmentsSuper = ActionItemSupervisorAssignments.GetAll(a => Equals(a.Task, assignmentSubTask)
                                                                   && a.Status == ActionItemExecutionTask.Status.InProcess &&
                                                                   Employees.As(a.Performer).Department.BusinessUnit == Employees.As(performer).Department.BusinessUnit);
-        foreach (var assignmentEx in assignmentsEx)
-        {
-          try
-          {
-            assignmentEx.Deadline = newDeadline;
-            assignmentEx.Save();
-            var notice = Sungero.Workflow.SimpleTasks.CreateWithNotices(subTask.Subject, assignmentEx.Performer);
-            notice.ActiveText = GD.MainSolution.Module.RecordManagement.Resources.NoticeActiveTextFormat(subTask.Subject, newDeadline.ToShortDateString());
-            notice.Save();
-            notice.Start();
-          }
-          catch
-          {
-            if (!performers.Contains(assignmentEx.Performer.Name))
-              performers.Add(assignmentEx.Performer.Name);
-          }
-        }
-        
-        // Задание на приемку.
-        var assignmentsSuper = ActionItemSupervisorAssignments.GetAll(a => Equals(a.Task, assignmentSubTask)
-                                                                      && a.Status == ActionItemExecutionTask.Status.InProcess &&
-                                                                      Employees.As(a.Performer).Department.BusinessUnit == Employees.As(performer).Department.BusinessUnit);
 
-        foreach (var assignmentSuper in assignmentsSuper)
-        {
-          try
-          {
-            assignmentSuper.Deadline = newDeadline;
-            assignmentSuper.Save();
-            var notice = Sungero.Workflow.SimpleTasks.CreateWithNotices(subTask.Subject, assignmentSuper.Performer);
-            notice.ActiveText = GD.MainSolution.Module.RecordManagement.Resources.NoticeActiveTextFormat(subTask.Subject, newDeadline.ToShortDateString());
-            notice.Save();
-            notice.Start();
-          }
-          catch
-          {
-            if (!performers.Contains(assignmentSuper.Performer.Name))
-              performers.Add(assignmentSuper.Performer.Name);
-          }
-        }
-      }
-      return performers;
-    }
-
-
-
-    // Непубличная функция превращается в публичную.
-    /// <summary>
-    /// Рекурсивно получить все незавершенные подзадачи.
-    /// </summary>
-    /// <param name="task">Задача, для которой необходимо получить незавершенные подзадачи.</param>
-    /// <returns>Список незавершенных подзадач.</returns>
-    [Public]
-    public static List<Sungero.Workflow.ITask> GetSubtasksForTaskRecursiveGD(Sungero.Workflow.ITask task)
+    foreach (var assignmentSuper in assignmentsSuper)
     {
-      return GetSubtasksForTaskRecursive(task);
+      try
+      {
+        assignmentSuper.Deadline = newDeadline;
+        assignmentSuper.Save();
+        var notice = Sungero.Workflow.SimpleTasks.CreateWithNotices(subTask.Subject, assignmentSuper.Performer);
+        notice.ActiveText = GD.MainSolution.Module.RecordManagement.Resources.NoticeActiveTextFormat(subTask.Subject, newDeadline.ToShortDateString());
+        notice.Save();
+        notice.Start();
+      }
+      catch
+      {
+        if (!performers.Contains(assignmentSuper.Performer.Name))
+          performers.Add(assignmentSuper.Performer.Name);
+      }
     }
-Для списка поручения добавлены поля исполнители, документ-основание, рег. номер документа, дата регистрации документа.
-Описание
+  }
+  return performers;
+}
+
+
+
+// Непубличная функция превращается в публичную.
+/// <summary>
+/// Рекурсивно получить все незавершенные подзадачи.
+/// </summary>
+/// <param name="task">Задача, для которой необходимо получить незавершенные подзадачи.</param>
+/// <returns>Список незавершенных подзадач.</returns>
+[Public]
+public static List<Sungero.Workflow.ITask> GetSubtasksForTaskRecursiveGD(Sungero.Workflow.ITask task)
+{
+  return GetSubtasksForTaskRecursive(task);
+}
+```
+### Для списка поручения добавлены поля исполнители, документ-основание, рег. номер документа, дата регистрации документа.
+#### Описание
 Для удобства просмотра списка поручений в задачу по исполнению поручений добавлены новые поля: «Исполнители», «Документ-основание», «Рег. №», «Дата документа».
- 
-Реализация
+<br/><br/>
+![Доп_поля_в_списке](img/Доп_поля_в_списке.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи на исполнение поручений добавить новые свойства: 
-●	Исполнители. Тип «Строка(250)», имя свойства «Performers»;
-●	Документ-основание. Тип «Ссылка», ссылается на сущность Sungero.Docflow.OfficialDocument, имя свойства «DocumentGD»;
-●	Рег. №. Тип «Строка(250)», имя свойства «RegNumberGD»;
-●	Дата рег. Тип «Строка(250)», имя свойства «RegDateGD».
+* Исполнители. Тип «Строка(250)», имя свойства «Performers»;
+* Документ-основание. Тип «Ссылка», ссылается на сущность Sungero.Docflow.OfficialDocument, имя свойства «DocumentGD»;
+* Рег. №. Тип «Строка(250)», имя свойства «RegNumberGD»;
+* Дата рег. Тип «Строка(250)», имя свойства «RegDateGD».  
 В перекрытии задачи на исполнение поручений изменить событие «До старта»:
-    public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
-    {            
-      var performers = string.Empty;
-      if (_obj.IsCompoundActionItem == true)
-      {
-        performers = string.Join("; ", _obj.ActionItemParts.Select( x => x.Assignee.Person.ShortName).ToArray());
-      }
-      else
-      {
-        performers = _obj.Assignee.Person.ShortName + "; ";
-        if (_obj.CoAssignees.Any())
-          performers += string.Join("; ", _obj.CoAssignees.Select( x => x.Assignee.Person.ShortName).ToArray());
-      }
-      if (!string.IsNullOrEmpty(performers))
-      {
-        if (performers.Length > 250)
-          performers = performers.Substring(0, 250);
-        _obj.Performers = performers;
-      }
-      base.BeforeStart(e);
-    }
-
+```
+public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
+{            
+  var performers = string.Empty;
+  if (_obj.IsCompoundActionItem == true)
+  {
+    performers = string.Join("; ", _obj.ActionItemParts.Select( x => x.Assignee.Person.ShortName).ToArray());
+  }
+  else
+  {
+    performers = _obj.Assignee.Person.ShortName + "; ";
+    if (_obj.CoAssignees.Any())
+      performers += string.Join("; ", _obj.CoAssignees.Select( x => x.Assignee.Person.ShortName).ToArray());
+  }
+  if (!string.IsNullOrEmpty(performers))
+  {
+    if (performers.Length > 250)
+      performers = performers.Substring(0, 250);
+    _obj.Performers = performers;
+  }
+  base.BeforeStart(e);
+}
+```
 В перекрытии задачи на исполнение поручений изменить обработчики для группы вложений «Документ для исполнения»:
-    public override void DocumentsGroupDeleted(Sungero.Workflow.Interfaces.AttachmentDeletedEventArgs e)
-    {
-      base.DocumentsGroupDeleted(e);
-      _obj.DocumentGD = null;
-      _obj.RegNumberGD = null;
-      _obj.RegDateGD = null;
-    }
+```
+public override void DocumentsGroupDeleted(Sungero.Workflow.Interfaces.AttachmentDeletedEventArgs e)
+{
+  base.DocumentsGroupDeleted(e);
+  _obj.DocumentGD = null;
+  _obj.RegNumberGD = null;
+  _obj.RegDateGD = null;
+}
 
-    public override void DocumentsGroupAdded(Sungero.Workflow.Interfaces.AttachmentAddedEventArgs e)
-    {
-      base.DocumentsGroupAdded(e);
-      var document = Sungero.Docflow.OfficialDocuments.As(e.Attachment);
-      _obj.DocumentGD = document;
-      _obj.RegNumberGD = document.RegistrationNumber;
-      _obj.RegDateGD = document.RegistrationDate;
-    }
-Выбор исполнителей в исполнении поручений при помощи указания НОР
-Описание
+public override void DocumentsGroupAdded(Sungero.Workflow.Interfaces.AttachmentAddedEventArgs e)
+{
+  base.DocumentsGroupAdded(e);
+  var document = Sungero.Docflow.OfficialDocuments.As(e.Attachment);
+  _obj.DocumentGD = document;
+  _obj.RegNumberGD = document.RegistrationNumber;
+  _obj.RegDateGD = document.RegistrationDate;
+}
+```
+### Выбор исполнителей в исполнении поручений при помощи указания НОР
+#### Описание
 При указании организации в табличной части составного поручения, поле «Исполнитель» заполняется автоматически руководителем данной организации.
- 
-Реализация
-В перекрытии задачи по исполнению поручения в коллекции «ActionItemParts» добавить свойство:
-●	Организация. Тип «Ссылка», ссылается на сущность Sungero.Company.BusinessUnit, имя свойства «BusinessUnit»;
+<br/><br/>
+![Выбор_исполнителя_НОР](img/Выбор_исполнителя_НОР.png)
+<br/><br/> 
+#### Реализация
+В перекрытии задачи по исполнению поручения в коллекции «ActionItemParts» добавить свойство:  
+* Организация. Тип «Ссылка», ссылается на сущность Sungero.Company.BusinessUnit, имя свойства «BusinessUnit»;  
 Добавить вычисления для нового свойства:
-    public virtual void ActionItemPartsBusinessUnitChanged(GD.MainSolution.Shared.ActionItemExecutionTaskActionItemPartsBusinessUnitChangedEventArgs e)
-    {
-      if (e.NewValue == e.OldValue)
-        return;
-      if (e.NewValue == null)
-        return;
-      
-      if (e.NewValue != null && _obj.Assignee == null)
-        _obj.Assignee = e.NewValue.CEO;
-    }
+```
+public virtual void ActionItemPartsBusinessUnitChanged(GD.MainSolution.Shared.ActionItemExecutionTaskActionItemPartsBusinessUnitChangedEventArgs e)
+{
+  if (e.NewValue == e.OldValue)
+    return;
+  if (e.NewValue == null)
+    return;
+  
+  if (e.NewValue != null && _obj.Assignee == null)
+    _obj.Assignee = e.NewValue.CEO;
+}
+```
 Добавить вычисления для свойства Assignee коллекции:
-    public override void ActionItemPartsAssigneeChanged(Sungero.RecordManagement.Shared.ActionItemExecutionTaskActionItemPartsAssigneeChangedEventArgs e)
-    {
-      base.ActionItemPartsAssigneeChanged(e);
-      if (e.NewValue == e.OldValue)
-        return;
-      
-      if (e.NewValue == null)
-        _obj.BusinessUnit = null;
-      
-      if (e.NewValue != null && e.NewValue.Department != null)
-        _obj.BusinessUnit = e.NewValue.Department.BusinessUnit;
-    }
-Заполнять по умолчанию в поле поручения текст "В работу" в карточке задачи на исполнение поручения
-Описание
+```
+public override void ActionItemPartsAssigneeChanged(Sungero.RecordManagement.Shared.ActionItemExecutionTaskActionItemPartsAssigneeChangedEventArgs e)
+{
+  base.ActionItemPartsAssigneeChanged(e);
+  if (e.NewValue == e.OldValue)
+    return;
+  
+  if (e.NewValue == null)
+    _obj.BusinessUnit = null;
+  
+  if (e.NewValue != null && e.NewValue.Department != null)
+    _obj.BusinessUnit = e.NewValue.Department.BusinessUnit;
+}
+```
+### Заполнять по умолчанию в поле поручения текст "В работу" в карточке задачи на исполнение поручения
+#### Описание
 При создании задачи на исполнение поручения, текст поручения автоматически заполняется значением «В работу». 
- 
-Реализация
+<br/><br/>
+![В_работу](img/В_работу.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи по исполнению поручения изменить обработчик события «Создание»:
+```
 public override void Created(Sungero.Domain.CreatedEventArgs e)
 {
   base.Created(e);
@@ -699,30 +719,35 @@ public override void Created(Sungero.Domain.CreatedEventArgs e)
     _obj.ActionItem = MainSolution.ActionItemExecutionTasks.Resources.ActionItemTextDefault;
   }
 }
-Закрытие карточки задания по исполнению поручения после отправки подчиненного поручения
-Описание
+```
+### Закрытие карточки задания по исполнению поручения после отправки подчиненного поручения
+#### Описание
 После отправки подчиненного поручения из задания на исполнение поручения карточка задания закрывается автоматически. В стандартной версии карточка задания не закрывается.
-Реализация
-Репозиторий: https://customdevtfs.directum.ru/tfs/GovernmentDepartmentsRX/_git/Tyumen
+#### Реализация
+Репозиторий: https://customdevtfs.directum.ru/tfs/GovernmentDepartmentsRX/_git/Tyumen  
 В перекрытии задания по исполнению поручения изменить обработчики действия «Создать подчиненное поручение»:
-    public override void CreateChildActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
-    {
-      e.CloseFormAfterAction = true;
-      base.CreateChildActionItem(e);
-    }
+```
+public override void CreateChildActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
+{
+  e.CloseFormAfterAction = true;
+  base.CreateChildActionItem(e);
+}
 
-    public override bool CanCreateChildActionItem(Sungero.Domain.Client.CanExecuteActionArgs e)
-    {
-      return base.CanCreateChildActionItem(e);
-    }
-
-Согласование
-Отображение ссылки на поручение в тексте задачи согласованию ответного письма 
-Описание
+public override bool CanCreateChildActionItem(Sungero.Domain.Client.CanExecuteActionArgs e)
+{
+  return base.CanCreateChildActionItem(e);
+}
+```
+## Согласование
+### Отображение ссылки на поручение в тексте задачи согласованию ответного письма 
+## Описание
 При отправке на согласование по регламенту исходящего документа, подготовленного по кнопке «Создать исх.письмо» из задания на исполнение поручения, в тексте задачи автоматически указывается ссылка на поручение.
- 
-Реализация
+<br/><br/>
+![Ссылка_на_поручение](img/Ссылка_на_поручение.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи на согласование по регламенту в событии до старта:
+```
 public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
 {
   base.BeforeStart(e);
@@ -733,7 +758,9 @@ public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
     _obj.ActiveText = string.Format("{0} {1}", GD.MainSolution.ApprovalTasks.Resources.AgreeDocumentOnActionItem, Sungero.Core.Hyperlinks.Get(actionItem));
   }
 }
+```
 В перекрытии задачи на согласование по регламенту добавить серверную функцию:
+```
 /// <summary>
 /// Получить поручение (связанное с вх.письмом/обращением) при создании задачи на согласование по регламенту.
 /// </summary>
@@ -781,15 +808,19 @@ public GD.GovernmentSolution.IActionItemExecutionAssignment GetActionItemFromInc
   
   return null;
 }
-
-Добавление вложений в группу «Приложения» в задаче на согласование по регламенту
-Описание
+```
+### Добавление вложений в группу «Приложения» в задаче на согласование по регламенту
+#### Описание
 Документы, вложенные в группу вложений «Приложения» в карточке задачи на согласование документа по регламенту, будут автоматически связаны с основным документом по типу связи "Приложения" при старте задачи.
- 
- 
-Реализация
-В перекрытии задачи на согласование по регламенту на форме найти группу вложения «AddendaGroup», установить галочку у параметра «Доступная». 
+<br/><br/>
+![Приложения](img/Приложения.png)
+<br/><br/> 
+![Приложения2](img/Приложения2.png)
+<br/><br/> 
+#### Реализация
+В перекрытии задачи на согласование по регламенту на форме найти группу вложения «AddendaGroup», установить галочку у параметра «Доступная».  
 В перекрытии задачи на согласование по регламенту изменить обработчик действия «Отправить»:
+```
 public override void Start(Sungero.Domain.Client.ExecuteActionArgs e)
 {
   foreach (var mainDoc in _obj.DocumentGroup.All)
@@ -809,66 +840,78 @@ public override void Start(Sungero.Domain.Client.ExecuteActionArgs e)
   }
   base.Start(e);
 }
-Возможность выбора типа согласования (параллельное/последовательное) на этапе старта задачи на согласование по регламенту
-Описание
+```
+### Возможность выбора типа согласования (параллельное/последовательное) на этапе старта задачи на согласование по регламенту
+#### Описание
 В карточку задачи на согласование по регламенту добавлен флажок «Параллельное согласование». Если флажок установлен, то согласующие получат задания на согласование документа одновременно, иначе последовательно.
- 
+<br/><br/>
+![Выбор_типа_согласования](img/Выбор_типа_согласования.png)
+<br/><br/> 
 Возможность выбора типа согласования настраивается в правиле согласования.
- 
-Реализация
-В перекрытии задачи на согласование по регламенту добавить свойство:
-●	Параллельное согласование. Тип «Логическое», имя свойства «ApprovalParallel»;
+<br/><br/>
+![Выбор_типа_согласования2](img/Выбор_типа_согласования2.png)
+<br/><br/> 
+#### Реализация
+В перекрытии задачи на согласование по регламенту добавить свойство:  
+* Параллельное согласование. Тип «Логическое», имя свойства «ApprovalParallel»;  
 Добавьте новый тип условия «Параллельное согласование» в условия согласования по регламенту. Описание этого процесс см:
-https://club.directum.ru/webhelp/directumrx/3.6/sds/index.html?sds_sozdanie_tipa_usloviia.htm (Шаг 7. Добавление условия согласования).
+https://club.directum.ru/webhelp/directumrx/3.6/sds/index.html?sds_sozdanie_tipa_usloviia.htm (Шаг 7. Добавление условия согласования).  
 Добавляемые вычисления в перекрытии функции CheckCondition будут такими:
-  // Получение значения выполненного условия "Параллельное согласование".
-  if (_obj.ConditionType == ConditionType.Parallel)
-  {
-    var mainTask = GD.MainSolution.ApprovalTasks.As(task);
-    return Sungero.Docflow.Structures.ConditionBase.ConditionResult.Create(
-      mainTask.ApprovalParallel == true,
-      string.Empty);
-  }
-Общее
-Скрытие модулей в зависимости от роли пользователя в системе
-Описание
-В зависимости от роли пользователь видит в проводнике только определенные модули. 
-Реализация данной функциональности является не желательным и рекомендуется к реализации только в случае острой необходимости. 
- 
-Реализация
-Рассмотрим решение задачи на примере модуля «Компания».
-Необходимо разработать справочник с любой функциональностью. Например, это может быть справочник заметок в который пользователи смогут записывать произвольную информацию.
+```
+// Получение значения выполненного условия "Параллельное согласование".
+if (_obj.ConditionType == ConditionType.Parallel)
+{
+  var mainTask = GD.MainSolution.ApprovalTasks.As(task);
+  return Sungero.Docflow.Structures.ConditionBase.ConditionResult.Create(
+    mainTask.ApprovalParallel == true,
+    string.Empty);
+}
+```
+## Общее
+### Скрытие модулей в зависимости от роли пользователя в системе
+#### Описание
+В зависимости от роли пользователь видит в проводнике только определенные модули.  
+Реализация данной функциональности является не желательным и рекомендуется к реализации только в случае острой необходимости.  
+<br/><br/>
+![Скрытие_модулей](img/Скрытие_модулей.png)
+<br/><br/> 
+#### Реализация
+Рассмотрим решение задачи на примере модуля «Компания».  
+Необходимо разработать справочник с любой функциональностью. Например, это может быть справочник заметок в который пользователи смогут записывать произвольную информацию.  
 Добавить свойства в справочник:
-●	Наименование. Тип «Строка», имя свойства «Name»;
-●	Текст. Тип «Текст», имя свойства «Text»;
-●	Автор. Тип «Ссылка» ссылается на сущность Sungero.Company.Employee, имя свойства «Author»;
-Задать способ авторизации: «Для типа сущности».
-
- 
-
+* Наименование. Тип «Строка», имя свойства «Name»;
+* Текст. Тип «Текст», имя свойства «Text»;
+* Автор. Тип «Ссылка» ссылается на сущность Sungero.Company.Employee, имя свойства «Author»;
+Задать способ авторизации: «Для типа сущности».  
+<br/><br/>
+![Скрытие_модулей2](img/Скрытие_модулей2.png)
+<br/><br/> 
 Вычисления справочника для фильтрации и при сохранении:
+```
 partial class NoteFilteringServerHandler<T>
+{
+
+  public override IQueryable<T> Filtering(IQueryable<T> query, Sungero.Domain.FilteringEventArgs e)
   {
-
-    public override IQueryable<T> Filtering(IQueryable<T> query, Sungero.Domain.FilteringEventArgs e)
-    {
-      return query.Where(x => x.Author == Sungero.Company.Employees.Current);
-    }
+    return query.Where(x => x.Author == Sungero.Company.Employees.Current);
   }
+}
+partial class NoteServerHandlers
+{
 
-  partial class NoteServerHandlers
+  public override void BeforeSave(Sungero.Domain.BeforeSaveEventArgs e)
   {
-
-    public override void BeforeSave(Sungero.Domain.BeforeSaveEventArgs e)
-    {
-      _obj.Author = Sungero.Company.Employees.Current;
-    }
+    _obj.Author = Sungero.Company.Employees.Current;
   }
-Перекрыть модуль «Компания», в настройках отображения модуля задать отображение только нового справочника «Заметки».
-Выдать права группам пользователей или пользователям на справочник «Заметки». Таким образом регулируя права на справочник заметки можно регулировать доступность модуля «компания»:
-      var clerks = Sungero.Docflow.PublicFunctions.DocumentRegister.Remote.GetClerks();
-      if (clerks == null)
-        return;      
-      // Справочник "Заметки".
-      Notes.AccessRights.Grant(clerks, DefaultAccessRightsTypes.Change);
-      Notes.AccessRights.Save();
+}
+```
+Перекрыть модуль «Компания», в настройках отображения модуля задать отображение только нового справочника «Заметки».  
+Выдать права группам пользователей или пользователям на справочник «Заметки». Таким образом регулируя права на справочник заметки можно регулировать доступность модуля «Компания»:
+```
+var clerks = Sungero.Docflow.PublicFunctions.DocumentRegister.Remote.GetClerks();
+if (clerks == null)
+  return;      
+// Справочник "Заметки".
+Notes.AccessRights.Grant(clerks, DefaultAccessRightsTypes.Change);
+Notes.AccessRights.Save();
+```
