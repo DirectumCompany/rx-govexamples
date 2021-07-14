@@ -212,18 +212,23 @@ public virtual bool CanReturnToAuthor(Sungero.Workflow.Client.CanExecuteResultAc
 <br/><br/>
 ![Вернуть_регистратору6](img/Вернуть_регистратору6.png)
 <br/><br/> 
-В списке входящих на панель фильтрации добавлены параметры для фильтрации документов по годам
-Описание
-В список входящих писем добавлена возможность фильтрации документов по годам регистрации. С помощью фильтра в списке можно вывести список документов, зарегистрированных в текущем году, предыдущем, за всё время, либо указать интервал годов. 
- 
-Реализация
+### В списке входящих на панель фильтрации добавлены параметры для фильтрации документов по годам
+#### Описание
+В список входящих писем добавлена возможность фильтрации документов по годам регистрации. С помощью фильтра в списке можно вывести список документов, зарегистрированных в текущем году, предыдущем, за всё время, либо указать интервал годов.
+<br/><br/>
+![Фильтрация_по_годам](img/Фильтрация_по_годам.png)
+<br/><br/> 
+#### Реализация
 В перекрытии входящего письма в панели фильтрации добавить новую группу контролов «YearsPeriod»:
-
- 
+<br/><br/>
+![Фильтрация_по_годам2](img/Фильтрация_по_годам2.png)
+<br/><br/> 
 Для контрола «Year» выбрать формат даты «Только год»:
- 
-
-Изменить вычисления панели фильтрации: 
+<br/><br/>
+![Фильтрация_по_годам3](img/Фильтрация_по_годам3.png)
+<br/><br/> 
+Изменить вычисления панели фильтрации:  
+```
 public override IQueryable<T> Filtering(IQueryable<T> query, Sungero.Domain.FilteringEventArgs e)
 {
   if (_filter == null)
@@ -248,88 +253,97 @@ public override IQueryable<T> Filtering(IQueryable<T> query, Sungero.Domain.Filt
   query = base.Filtering(query, e);
   return query;
 }
-
-Поручения
-Дополнительные сроки у соисполнителей
-Описание
+```
+## Поручения
+### Дополнительные сроки у соисполнителей
+#### Описание
 Есть копирование базового кода.
+<br/>
 Автоматическое вычисление сроков исполнения поручений для соисполнителей в зависимости от сроков, установленных основному исполнителю. В варианте, представленном ниже, срок исполнения поручения для соисполнителей автоматически устанавливается на 1 рабочий день меньше, чем для основного исполнителя.
- 
-Реализация
+<br/><br/>
+![Срок_соисполнители](img/Срок_соисполнители.png)
+<br/><br/> 
+#### Реализация
 В перекрытии задачи по исполнению поручений добавить свойство:
-●	Срок. Тип «Дата», имя свойства «CoAssigneesDeadlineGD»;
-
-В перекрытии события «Обновление формы» задачи по исполнению поручений:
+* Срок. Тип «Дата», имя свойства «CoAssigneesDeadlineGD»;  
+В перекрытии события «Обновление формы» задачи по исполнению поручений:  
+```
 var isCompoundActionItem = !(_obj.IsCompoundActionItem ?? false);
 _obj.State.Properties.CoAssigneesDeadlineGD.IsVisible = isCompoundActionItem;
-
-Изменение значения контрола CoAssigneesDeadlineGD:
-    public virtual void CoAssigneesDeadlineGDValueInput(Sungero.Presentation.DateTimeValueInputEventArgs e)
+```
+Изменение значения контрола CoAssigneesDeadlineGD:  
+```
+public virtual void CoAssigneesDeadlineGDValueInput(Sungero.Presentation.DateTimeValueInputEventArgs e)
+{
+  if (e.NewValue != e.OldValue && e.NewValue.HasValue)
+  {
+    if (e.NewValue > _obj.Deadline)
+      // Срок соисполнителей не может быть больше срока ответственного исполнителя.
+      e.AddError(ActionItemExecutionTasks.Resources.CoAssigneesDeadlineError);
+    
+    if (e.NewValue < Calendar.Today)
+      // Срок соисполнителей должен быть больше или равен текущей дате.
+      e.AddError(ActionItemExecutionTasks.Resources.DeadlineIsLessCurrentDate);
+    
+    if (!Calendar.IsWorkingDay(e.NewValue.Value))
+      // Срок выполнения соисполнителей выпадает на выходной день.
+      e.AddWarning(ActionItemExecutionTasks.Resources.DeadlineIsNotWorking);
+  }
+        
+  var parentAssignment = ActionItemExecutionAssignments.As(_obj.ParentAssignment);
+  if (parentAssignment != null && parentAssignment.Deadline.HasValue && e.NewValue.HasValue && e.NewValue != e.OldValue && e.NewValue.Value > parentAssignment.Deadline.Value)
+  {
+    var mainActionItemIsOverdue = true;
+    var deadline = _obj.CoAssigneesDeadlineGD;
+    if (deadline.HasValue && deadline.Value.Date.CompareTo(Calendar.Today) == 0 && (deadline.Value.CompareTo(Calendar.Now) > 0 || deadline.HasValue && string.Equals(deadline.Value.ToShortTimeString(), "0:00")))
+      mainActionItemIsOverdue = false;
+    
+    if (mainActionItemIsOverdue && Sungero.Docflow.PublicFunctions.Module.CheckDeadline(Calendar.Today, parentAssignment.Deadline))
     {
-      if (e.NewValue != e.OldValue && e.NewValue.HasValue)
-      {
-        if (e.NewValue > _obj.Deadline)
-          // Срок соисполнителей не может быть больше срока ответственного исполнителя.
-          e.AddError(ActionItemExecutionTasks.Resources.CoAssigneesDeadlineError);
-        
-        if (e.NewValue < Calendar.Today)
-          // Срок соисполнителей должен быть больше или равен текущей дате.
-          e.AddError(ActionItemExecutionTasks.Resources.DeadlineIsLessCurrentDate);
-        
-        if (!Calendar.IsWorkingDay(e.NewValue.Value))
-          // Срок выполнения соисполнителей выпадает на выходной день.
-          e.AddWarning(ActionItemExecutionTasks.Resources.DeadlineIsNotWorking);
-      }
-            
-      var parentAssignment = ActionItemExecutionAssignments.As(_obj.ParentAssignment);
-      if (parentAssignment != null && parentAssignment.Deadline.HasValue && e.NewValue.HasValue && e.NewValue != e.OldValue && e.NewValue.Value > parentAssignment.Deadline.Value)
-      {
-        var mainActionItemIsOverdue = true;
-        var deadline = _obj.CoAssigneesDeadlineGD;
-        if (deadline.HasValue && deadline.Value.Date.CompareTo(Calendar.Today) == 0 && (deadline.Value.CompareTo(Calendar.Now) > 0 || deadline.HasValue && string.Equals(deadline.Value.ToShortTimeString(), "0:00")))
-          mainActionItemIsOverdue = false;
-        
-        if (mainActionItemIsOverdue && Sungero.Docflow.PublicFunctions.Module.CheckDeadline(Calendar.Today, parentAssignment.Deadline))
-        {
-          // Основное поручение просрочено.  Дата проекта поручения превышает дату основного поручения - {0}.
-          e.AddWarning(GD.MainSolution.ActionItemExecutionTasks.Resources.MainActionItemIsOverdueFormat(parentAssignment.Deadline.Value.ToUserTime().ToShortDateString()));
-        }
-        else
-        { 
-          // Дата проекта поручения превышает дату основного поручения - {0}.  
-          e.AddWarning(ActionItemExecutionTasks.Resources.DeadlineSubDraftActionItemExecutionFormat(parentAssignment.Deadline.Value.ToUserTime().ToShortDateString()));
-        }
-      }
+      // Основное поручение просрочено.  Дата проекта поручения превышает дату основного поручения - {0}.
+      e.AddWarning(GD.MainSolution.ActionItemExecutionTasks.Resources.MainActionItemIsOverdueFormat(parentAssignment.Deadline.Value.ToUserTime().ToShortDateString()));
     }
+    else
+    { 
+      // Дата проекта поручения превышает дату основного поручения - {0}.  
+      e.AddWarning(ActionItemExecutionTasks.Resources.DeadlineSubDraftActionItemExecutionFormat(parentAssignment.Deadline.Value.ToUserTime().ToShortDateString()));
+    }
+  }
+}
+```
 Добавить разделяемую функцию в задаче по исполнению поручения:
-    public void FillCoAssigneesDeadline(DateTime maxDeadline)
-    {
-      _obj.CoAssigneesDeadlineGD = Calendar.AddWorkingDays(maxDeadline, -1) < Calendar.Today ? Calendar.Today : Calendar.AddWorkingDays(maxDeadline, -1);
-    }
-
+```
+public void FillCoAssigneesDeadline(DateTime maxDeadline)
+{
+  _obj.CoAssigneesDeadlineGD = Calendar.AddWorkingDays(maxDeadline, -1) < Calendar.Today ? Calendar.Today : Calendar.AddWorkingDays(maxDeadline, -1);
+}
+```
 В событии добавления в коллекцию соисполнителей: 
-    public override void CoAssigneesAdded(Sungero.Domain.Shared.CollectionPropertyAddedEventArgs e)
-    {
-      base.CoAssigneesAdded(e);
-      if (_obj.CoAssigneesDeadlineGD == null && _obj.Deadline != null)
-        Functions.ActionItemExecutionTask.FillCoAssigneesDeadline(_obj, _obj.Deadline.Value);
-    }
-
+```
+public override void CoAssigneesAdded(Sungero.Domain.Shared.CollectionPropertyAddedEventArgs e)
+{
+  base.CoAssigneesAdded(e);
+  if (_obj.CoAssigneesDeadlineGD == null && _obj.Deadline != null)
+    Functions.ActionItemExecutionTask.FillCoAssigneesDeadline(_obj, _obj.Deadline.Value);
+}
+```
 Изменение значения свойства «Срок» (Deadline):
-    public override void DeadlineChanged(Sungero.Domain.Shared.DateTimePropertyChangedEventArgs e)
-    {
-      base.DeadlineChanged(e);
-      if (e.NewValue != null && !_obj.IsCompoundActionItem.Value && _obj.CoAssignees != null && _obj.CoAssignees.Count() > 0)
-        Functions.ActionItemExecutionTask.FillCoAssigneesDeadline(_obj, e.NewValue.Value);
-    }
-
+```
+public override void DeadlineChanged(Sungero.Domain.Shared.DateTimePropertyChangedEventArgs e)
+{
+  base.DeadlineChanged(e);
+  if (e.NewValue != null && !_obj.IsCompoundActionItem.Value && _obj.CoAssignees != null && _obj.CoAssignees.Count() > 0)
+    Functions.ActionItemExecutionTask.FillCoAssigneesDeadline(_obj, e.NewValue.Value);
+}
+```
 Перекрыть блок «Задачи на соисполнение» задачи по исполнению поручения (10 блок). В перекрытии скопировать текст базового обработчика и до строки «actionItemExecution.Start();» добавить код:
-  actionItemExecution.Deadline = _obj.CoAssigneesDeadlineGD != null ? _obj.CoAssigneesDeadlineGD : _obj.Deadline;
-  actionItemExecution.MaxDeadline = _obj.CoAssigneesDeadlineGD != null ? _obj.CoAssigneesDeadlineGD : _obj.Deadline;
-        
-  actionItemExecution.State.Properties.Deadline.IsRequired = false;
-  actionItemExecution.State.Properties.CoAssigneesDeadlineGD.IsRequired = false;
-
+```
+actionItemExecution.Deadline = _obj.CoAssigneesDeadlineGD != null ? _obj.CoAssigneesDeadlineGD : _obj.Deadline;
+actionItemExecution.MaxDeadline = _obj.CoAssigneesDeadlineGD != null ? _obj.CoAssigneesDeadlineGD : _obj.Deadline;
+      
+actionItemExecution.State.Properties.Deadline.IsRequired = false;
+actionItemExecution.State.Properties.CoAssigneesDeadlineGD.IsRequired = false;
+```
 Заполнение поля "Факт. дата" в карточке задачи по исполнению поручения
 Описание
 В карточку задачи по исполнению поручения добавлено поле «Факт. дата». Поле автоматически заполняется фактической датой исполнения поручения.
