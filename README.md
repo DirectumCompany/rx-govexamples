@@ -102,29 +102,35 @@ public static IQueryable<IIncomingLetter> GetDuplicates(IIncomingLetter letter,
   .Where(l => !Equals(letter, l));
 }
 ```
-Документы из области «Прочие», «Отмена» и «Основание» входящего письма автоматически попадают в область «Дополнительно» задачи на исполнение поручения
-Описание
+### Документы из области «Прочие», «Отмена» и «Основание» входящего письма автоматически попадают в область «Дополнительно» задачи на исполнение поручения
+#### Описание
 Есть копирование базового кода.
-Документы, связанные с входящим письмом с типом связи «Основание», «Отмена» и «Прочие», автоматически вкладываются в область вложений задачи в раздел «Дополнительно» при отправке документа на рассмотрение или исполнение.
- 
-Реализация
+<br/>
+Документы, связанные с входящим письмом с типом связи «Основание», «Отмена» и «Прочие», автоматически вкладываются в область вложений задачи в раздел «Дополнительно» при отправке документа на рассмотрение или исполнение.  
+<br/><br/>
+![Дополнительно](img/Дополнительно.png)
+<br/><br/>
+#### Реализация
 В перекрытии входящего письма заменить обработчик действия «На исполнение поручением»:
-    public override void SendActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
-    {
-      // Принудительно сохранить документ, чтобы сохранились связи. Иначе они не попадут в задачу.
-      _obj.Save();
-      
-      var hackTask = Sungero.Docflow.PublicFunctions.Module.CreateActionItemExecution(_obj);
-      if (hackTask != null)
-      {
-        if (ActionItemExecutionTasks.Is(hackTask))
-          EDMS.PublicFunctions.Module.AddRelationToAddendum(ActionItemExecutionTasks.As(hackTask).OtherGroup,
-                                                               ActionItemExecutionTasks.As(hackTask).DocumentsGroup.OfficialDocuments.FirstOrDefault());
-        hackTask.Show();
-        e.CloseFormAfterAction = true;
-      }
-    }
+```
+public override void SendActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
+{
+  // Принудительно сохранить документ, чтобы сохранились связи. Иначе они не попадут в задачу.
+  _obj.Save();
+  
+  var hackTask = Sungero.Docflow.PublicFunctions.Module.CreateActionItemExecution(_obj);
+  if (hackTask != null)
+  {
+    if (ActionItemExecutionTasks.Is(hackTask))
+      EDMS.PublicFunctions.Module.AddRelationToAddendum(ActionItemExecutionTasks.As(hackTask).OtherGroup,
+                                                           ActionItemExecutionTasks.As(hackTask).DocumentsGroup.OfficialDocuments.FirstOrDefault());
+    hackTask.Show();
+    e.CloseFormAfterAction = true;
+  }
+}
+```
 Добавить публичную функцию в модуле:
+```
 /// <summary>
 /// Добавить в задачу все документы по связям кроме "Приложение" и документы с типом связи "Основание", "Отмена" и "Прочие".
 /// <param name="groupAttachments">Группа вложения задачи.</param>
@@ -160,6 +166,7 @@ public static void AddRelationToAddendum(Sungero.Workflow.Interfaces.IWorkflowEn
     }
   }
 }
+```
 В задание на рассмотрение входящего документа помощником добавлена возможность вернуть регистратору документ
 Описание
 В карточку задания на подготовку проекта резолюции в рамках задачи на рассмотрение документа добавлен результат выполнения «Вернуть регистратору». Для выполнения задания с данным результатом пользователю необходимо указать причины возврата в текст задания.
