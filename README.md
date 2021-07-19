@@ -918,3 +918,36 @@ if (clerks == null)
 Notes.AccessRights.Grant(clerks, DefaultAccessRightsTypes.Change);
 Notes.AccessRights.Save();
 ```
+### Запрет полного доступа на виды документов, журналы документов, настройки регистрации роли "Ответственные за настройку регистрации"
+#### Описание
+Бывает необходимость запретить полный доступ на виды документов, журналы документов, настройки регистрации роли "Ответственные за настройку регистрации" т.к. в данную роль зачастую входят делопроизводители, которые не осуществляют настройку. При этом настройку осуществляют администраторы.
+
+#### Реализация
+Перекрыть инициализацию модуля Docflow:
+```
+public override void Initializing(Sungero.Domain.ModuleInitializingEventArgs e)
+{
+   base.Initializing(e);
+   // Запрет полного доступа на виды документов, журналы документов, настройки регистрации роли "Ответственные за настройку регистрации"    
+   UpdateAccessRightsRegistrationManager();
+   
+   
+   /// <summary>
+   // Запрет полного доступа на виды документов, журналы документов, настройки регистрации роли "Ответственные за настройку регистрации"
+   /// </summary>
+   public static void UpdateAccessRightsRegistrationManager()
+   {
+     InitializationLogger.Debug("Init: Update rights on document kinds to registration managers.");
+     var registrationManagers = Roles.GetAll().SingleOrDefault(n => n.Sid == Sungero.Docflow.Constants.Module.RoleGuid.RegistrationManagersRole);
+     if (registrationManagers == null)
+       return;
+     Sungero.Docflow.DocumentKinds.AccessRights.RevokeAll(registrationManagers);
+     Sungero.Docflow.DocumentKinds.AccessRights.Save();
+     Sungero.Docflow.DocumentRegisters.AccessRights.RevokeAll(registrationManagers);
+     Sungero.Docflow.DocumentRegisters.AccessRights.Grant(registrationManagers, DefaultAccessRightsTypes.Change);
+     Sungero.Docflow.DocumentRegisters.AccessRights.Save();
+     Sungero.Docflow.RegistrationSettings.AccessRights.RevokeAll(registrationManagers);
+     Sungero.Docflow.RegistrationSettings.AccessRights.Save();
+   }   
+}
+```
