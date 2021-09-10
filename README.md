@@ -61,12 +61,15 @@ public void ShowDialogIfHaveDuplicates(Sungero.Docflow.IDocumentKind documentKin
                                                DateTime? dated,
                                                Sungero.Parties.ICounterparty correspondent)
 {
-var dialog = Dialogs.CreateTaskDialog(GD.MainSolution.IncomingLetters.Resources.ShowDublQuest, "", MessageType.Question, GD.MainSolution.IncomingLetters.Resources.Attention);
+  var dialog = Dialogs.CreateTaskDialog(GD.MainSolution.IncomingLetters.Resources.ShowDublQuest, "", MessageType.Question, GD.MainSolution.IncomingLetters.Resources.Attention);
+  // Строки локализации:
+  // ShowDublQuest: Найдены документы с таким же номером и датой, показать их?
+  // Attention: Внимание!
 
-dialog.Buttons.AddYes();
-dialog.Buttons.AddCancel();
+  dialog.Buttons.AddYes();
+  dialog.Buttons.AddCancel();
 
-if (dialog.Show() == DialogButtons.Yes)
+  if (dialog.Show() == DialogButtons.Yes)
   {
     var duplicates= Functions.IncomingLetter.Remote.GetDuplicates(_obj, documentKind, businessUnit, correspondentNumber, dated, correspondent);
     if (duplicates.Any())
@@ -90,11 +93,11 @@ if (dialog.Show() == DialogButtons.Yes)
 /// <returns>Письма, дублирующие текущее.</returns>
 [Remote(IsPure = true)]
 public static IQueryable<IIncomingLetter> GetDuplicates(IIncomingLetter letter,
-                                             Sungero.Docflow.IDocumentKind documentKind,
-                                             Sungero.Company.IBusinessUnit businessUnit,
-                                             string inNumber,
-                                             DateTime? dated,
-                                             Sungero.Parties.ICounterparty correspondent)
+                                          Sungero.Docflow.IDocumentKind documentKind,
+                                          Sungero.Company.IBusinessUnit businessUnit,
+                                          string inNumber,
+                                          DateTime? dated,
+                                          Sungero.Parties.ICounterparty correspondent)
 {
   return IncomingLetters.GetAll()
   .Where(l => documentKind != null && Equals(documentKind, l.DocumentKind))
@@ -103,6 +106,33 @@ public static IQueryable<IIncomingLetter> GetDuplicates(IIncomingLetter letter,
   .Where(l => !string.IsNullOrWhiteSpace(inNumber) && inNumber == l.InNumber)
   .Where(l => correspondent != null && Equals(correspondent, l.Correspondent))
   .Where(l => !Equals(letter, l));
+}
+```
+Добавить в разделяемые функции входящего письма:
+```
+/// <summary>
+/// Проверить письмо на дубликаты.
+/// </summary>
+/// <param name="documentKind">Вид документа.</param>
+/// <param name="businessUnit">Наша организация.</param>
+/// <param name="correspondentNumber">Номер корреспондента.</param>
+/// <param name="dated">Дата письма.</param>
+/// <param name="correspondent">Корреспондент.</param>
+/// <returns>True, если дубликаты имеются, иначе - false.</returns>
+public bool HaveDuplicates(Sungero.Docflow.IDocumentKind documentKind,
+                           Sungero.Company.IBusinessUnit businessUnit,
+                           string correspondentNumber,
+                           DateTime? dated,
+                           Sungero.Parties.ICounterparty correspondent)
+{
+  if (documentKind == null ||
+      businessUnit == null ||
+      string.IsNullOrEmpty(correspondentNumber) ||
+      !dated.HasValue ||
+      correspondent == null)
+    return false;
+
+  return Functions.IncomingLetter.Remote.GetDuplicates(_obj, documentKind, businessUnit, correspondentNumber, dated, correspondent).Any();
 }
 ```
 ### Документы из области «Прочие», «Отмена» и «Основание» входящего письма автоматически попадают в область «Дополнительно» задачи на исполнение поручения
