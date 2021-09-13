@@ -789,6 +789,7 @@ public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
   if (actionItem != null)
   {
     _obj.ActiveText = string.Format("{0} {1}", GD.MainSolution.ApprovalTasks.Resources.AgreeDocumentOnActionItem, Sungero.Core.Hyperlinks.Get(actionItem));
+    // Строка локализации AgreeDocumentOnActionItem: Прошу согласовать документ по поручению
   }
 }
 ```
