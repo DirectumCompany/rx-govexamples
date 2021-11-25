@@ -788,8 +788,8 @@ public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
   var actionItem = Functions.ApprovalTask.GetActionItemFromIncomingLetter(_obj);
   if (actionItem != null)
   {
-    _obj.ActiveText = string.Format("{0} {1}", GD.MainSolution.ApprovalTasks.Resources.AgreeDocumentOnActionItem, Sungero.Core.Hyperlinks.Get(actionItem));
-    // Строка локализации AgreeDocumentOnActionItem: Прошу согласовать документ по поручению
+    // Строка локализации AgreeDocumentOnActionItem: Прошу согласовать документ по поручению {0}
+    _obj.ActiveText = GD.MainSolution.ApprovalTasks.Resources.AgreeDocumentOnActionItemFormat(Sungero.Core.Hyperlinks.Get(actionItem))
   }
 }
 ```
@@ -857,21 +857,19 @@ public GD.GovernmentSolution.IActionItemExecutionAssignment GetActionItemFromInc
 ```
 public override void Start(Sungero.Domain.Client.ExecuteActionArgs e)
 {
-  foreach (var mainDoc in _obj.DocumentGroup.All)
+  var mainDoc = _obj.DocumentGroup.OfficialDocuments.FirstOrDefault();
+  if (mainDoc != null)
   {
-    var doc = Sungero.Content.ElectronicDocuments.As(mainDoc);
-    if (doc != null)
+    foreach (var addendaDoc in _obj.AddendaGroup.OfficialDocuments)
     {
-      foreach (var addendaDoc in _obj.AddendaGroup.OfficialDocuments)
+      if (!Equals(mainDoc, addendaDoc))
       {
-        if (Sungero.Content.ElectronicDocuments.Is(mainDoc) && !Equals(mainDoc, addendaDoc))
-        {
-          doc.Relations.Add(Sungero.Docflow.Constants.Module.AddendumRelationName, addendaDoc);
-        }
+        doc.Relations.Add(Sungero.Docflow.Constants.Module.AddendumRelationName, addendaDoc);
       }
-      doc.Relations.Save();
     }
+    doc.Relations.Save();
   }
+
   base.Start(e);
 }
 ```
