@@ -17,7 +17,7 @@
 ```
 _obj.IsUrgencyGD = false;
 ```
-В перекрытии события «Показ формы» задачи на исполнение поручения и задачи на рассмотрение документа:
+В перекрытии события «Показ формы» задачи на исполнение поручения:
 ```
 base.Showing(e);
 
@@ -857,17 +857,20 @@ public GD.GovernmentSolution.IActionItemExecutionAssignment GetActionItemFromInc
 ```
 public override void Start(Sungero.Domain.Client.ExecuteActionArgs e)
 {
-  var mainDoc = _obj.DocumentGroup.OfficialDocuments.FirstOrDefault();
-  if (mainDoc != null)
-  {
-    foreach (var addendaDoc in _obj.AddendaGroup.OfficialDocuments)
+ foreach (var mainDoc in _obj.DocumentGroup.All)
+ {
+    var doc = Sungero.Content.ElectronicDocuments.As(mainDoc);
+    if (doc != null)
     {
-      if (!Equals(mainDoc, addendaDoc))
-      {
-        doc.Relations.Add(Sungero.Docflow.Constants.Module.AddendumRelationName, addendaDoc);
+        foreach (var addendaDoc in _obj.AddendaGroup.OfficialDocuments)
+        {
+          if (Sungero.Content.ElectronicDocuments.Is(mainDoc) && !Equals(mainDoc, addendaDoc))
+          {
+            doc.Relations.Add(Sungero.Docflow.Constants.Module.AddendumRelationName, addendaDoc);
+          }
+        }
+        doc.Relations.Save();
       }
-    }
-    doc.Relations.Save();
   }
 
   base.Start(e);
@@ -967,7 +970,7 @@ public override void Initializing(Sungero.Domain.ModuleInitializingEventArgs e)
    public static void UpdateAccessRightsRegistrationManager()
    {
      InitializationLogger.Debug("Init: Update rights on document kinds to registration managers.");
-     var registrationManagers = Roles.GetAll().SingleOrDefault(n => n.Sid == Sungero.Docflow.Constants.Module.RoleGuid.RegistrationManagersRole);
+     var registrationManagers = Roles.GetAll().FirstOrDefault(n => n.Sid == Sungero.Docflow.Constants.Module.RoleGuid.RegistrationManagersRole);
      if (registrationManagers == null)
        return;
      Sungero.Docflow.DocumentKinds.AccessRights.RevokeAll(registrationManagers);
