@@ -1,0 +1,57 @@
+{
+  "$type": "Sungero.Metadata.SolutionMetadata, Sungero.Metadata",
+  "NameGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+  "Name": "MainSolution",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "GD.MainSolution.Client",
+  "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
+  "ClientBaseNamespace": "GD.MainSolution.ClientBase",
+  "ClientNamespace": "GD.MainSolution.Client",
+  "Code": "MainSol",
+  "CompanyCode": "GD",
+  "Cover": {
+    "NameGuid": "ecd45b03-8dcd-4113-baa7-a7b7678745c1",
+    "Actions": [],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "7c192cfc-2e9d-45ee-8324-8a0b3450e4f4",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [],
+    "Header": {
+      "NameGuid": "02d62bfb-7227-4758-9317-c0577b50fe82",
+      "BackgroundPosition": "Stretch"
+    }
+  },
+  "DesktopViews": [],
+  "IconResourcesKeys": [],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "GD.MainSolution",
+  "OrderedSpecialFolders": [],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainSolution",
+  "ResourcesKeys": [],
+  "ServerAssemblyName": "GD.MainSolution.Server",
+  "ServerNamespace": "GD.MainSolution.Server",
+  "SharedAssemblyName": "GD.MainSolution.Shared",
+  "SharedNamespace": "GD.MainSolution.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "SolutionMetadata",
+      "Number": 6
+    },
+    {
+      "Type": "ModuleMetadata",
+      "Number": 6
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}
