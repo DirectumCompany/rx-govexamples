@@ -193,6 +193,7 @@
   "Code": "Docflow",
   "CompanyCode": "Sungero",
   "ExplorerTreeOrder": [],
+  "IconResourcesKeys": [],
   "Importance": "Low",
   "Jobs": [
     {
@@ -236,6 +237,7 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
+  "ResourcesKeys": [],
   "SpecialFolders": [],
   "Version": "4.3.23.0",
   "Widgets": [],
