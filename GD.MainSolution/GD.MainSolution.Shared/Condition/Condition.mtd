@@ -24,6 +24,23 @@
   "OperationsClass": "",
   "Properties": [
     {
+      "$type": "Sungero.Metadata.EnumPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "1285cb01-22f6-4373-8371-b61b71b20072",
+      "Name": "ConditionType",
+      "DirectValues": [
+        {
+          "NameGuid": "584c6543-a5d6-4f4c-b574-b0bf8a1ebf85",
+          "Name": "IsParallel",
+          "Code": "IsParallel"
+        }
+      ],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "Values"
+      ],
+      "Versions": []
+    },
+    {
       "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
       "NameGuid": "d8d691a7-91ee-4c84-9b01-f3f3214c20f2",
       "Name": "Addressees",
@@ -80,7 +97,9 @@
     }
   ],
   "PublicStructures": [],
-  "ResourcesKeys": [],
+  "ResourcesKeys": [
+    "IsParallel"
+  ],
   "RibbonCardMetadata": {
     "NameGuid": "1d1a3ebe-096a-4450-9120-8612170c3aad",
     "Name": "RibbonCard",
