@@ -757,7 +757,6 @@ public override void Created(Sungero.Domain.CreatedEventArgs e)
 #### Описание
 После отправки подчиненного поручения из задания на исполнение поручения карточка задания закрывается автоматически. В стандартной версии карточка задания не закрывается.
 #### Реализация
-Репозиторий: https://customdevtfs.directum.ru/tfs/GovernmentDepartmentsRX/_git/Tyumen  
 В перекрытии задания по исполнению поручения изменить обработчики действия «Создать подчиненное поручение»:
 ```
 public override void CreateChildActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
