@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Property_DocumentGD" xml:space="preserve">
+    <value>Документ-основание</value>
+  </data>
+  <data name="Property_PerformersGD" xml:space="preserve">
+    <value>Исполнители</value>
+  </data>
+  <data name="Property_RegNumberGD" xml:space="preserve">
+    <value>Рег. №</value>
+  </data>
+  <data name="Property_RegDateGD" xml:space="preserve">
+    <value>Дата рег.</value>
+  </data>
 </root>
