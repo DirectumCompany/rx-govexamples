@@ -13,6 +13,10 @@ namespace GD.MainSolution
     public override IQueryable<T> Filtering(IQueryable<T> query, Sungero.Domain.FilteringEventArgs e)
     {
       query = base.Filtering(query, e);
+      
+      if (_filter == null)
+        return query;
+      
       // Фильтрация по году.
       if (_filter.CurrentYear)
       {
