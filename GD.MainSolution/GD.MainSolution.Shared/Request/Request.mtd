@@ -15,7 +15,38 @@
   "FilterPanel": {
     "NameGuid": "80d3ce1a-9a72-443a-8b6c-6c6eef0c8d0f",
     "Name": "FilterPanel",
-    "Controls": [],
+    "Controls": [
+      {
+        "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
+        "NameGuid": "ddb819a0-dc09-4fe0-a3c3-9c1c2dfd4dc7",
+        "Name": "Period",
+        "IsAncestorMetadata": true,
+        "Overridden": [
+          "PreviousGuid"
+        ],
+        "PreviousGuid": "7dfda6a1-b1f9-4d60-bbbd-6d8bbd40f236"
+      },
+      {
+        "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
+        "NameGuid": "f7dc9826-59cb-430d-b876-820545a55de9",
+        "Name": "GroupPeriod",
+        "IsAncestorMetadata": true,
+        "Overridden": [
+          "PreviousGuid"
+        ],
+        "PreviousGuid": "61762b96-5b39-4987-828f-52d059688db9"
+      },
+      {
+        "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
+        "NameGuid": "61762b96-5b39-4987-828f-52d059688db9",
+        "Name": "YearsPeriod",
+        "IsAncestorMetadata": true,
+        "Overridden": [
+          "PreviousGuid"
+        ],
+        "PreviousGuid": "1ab30114-66a0-405e-8764-6206730149c1"
+      }
+    ],
     "IsAncestorMetadata": true
   },
   "IconResourcesKeys": [],
