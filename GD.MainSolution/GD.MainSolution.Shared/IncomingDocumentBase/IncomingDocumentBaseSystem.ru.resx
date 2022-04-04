@@ -58,4 +58,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FilterPanel_YearsPeriod_61762b965b394987828f52d059688db9" xml:space="preserve">
+    <value>Период</value>
+  </data>
+  <data name="FilterPanel_CurrentYear_d16563fcad084af5b79a095c3f334a28" xml:space="preserve">
+    <value>Текущий год</value>
+  </data>
+  <data name="FilterPanel_PreviousYear_c24706b16bac442d97b7e22a2eafbe69" xml:space="preserve">
+    <value>Предыдущий год</value>
+  </data>
+  <data name="FilterPanel_AllYear_86d1f6d61db240fe9d690ab4c888f19e" xml:space="preserve">
+    <value>Все года</value>
+  </data>
+  <data name="FilterPanel_PeriodYear_b4c8781215a84115a89e9f25ffea1cb9" xml:space="preserve">
+    <value>По годам:</value>
+  </data>
 </root>
