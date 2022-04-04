@@ -1,0 +1,148 @@
+{
+  "$type": "Sungero.Metadata.DocumentMetadata, Sungero.Content.Shared",
+  "NameGuid": "632a4f68-b676-46cb-80a5-239ed547d50d",
+  "Name": "Request",
+  "AccessRightsMode": "Both",
+  "BaseGuid": "77300c65-4db1-4baf-9321-7e8efb7805cb",
+  "CanBeNavigationPropertyType": true,
+  "CreationAreaMetadata": {
+    "NameGuid": "6d8d7f46-e63b-420b-b07b-f25b7662c590",
+    "Name": "CreationArea",
+    "Buttons": [],
+    "IsAncestorMetadata": true
+  },
+  "ExtraSearchProperties": [],
+  "FilterPanel": {
+    "NameGuid": "80d3ce1a-9a72-443a-8b6c-6c6eef0c8d0f",
+    "Name": "FilterPanel",
+    "Controls": [],
+    "IsAncestorMetadata": true
+  },
+  "IconResourcesKeys": [],
+  "LayeredFromGuid": "77300c65-4db1-4baf-9321-7e8efb7805cb",
+  "OpenCardByDefaultInCollection": true,
+  "OperationsClass": "",
+  "Properties": [
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "56cbe741-880f-4e6f-9567-343d08494b59",
+      "Name": "Versions",
+      "EntityGuid": "60742dbc-ff2e-49cf-ace8-35abaa1d4728",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "15280407-331e-42f6-b263-041a495b66cd",
+      "Name": "Tracking",
+      "EntityGuid": "317bd21a-d5af-4f3c-8908-fca2acd6f9c0",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "f7f3e614-0c89-4160-8b18-de70093e2e9d",
+      "Name": "SocialPositions",
+      "EntityGuid": "ce1129fd-3df6-4944-95ce-3a634cd28b24",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "9265d794-49d6-48d0-ac35-b3e1ac10ef6e",
+      "Name": "BenefitCategories",
+      "EntityGuid": "caaee809-bd2d-4e66-8311-0c85e3ff9c1f",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "827b1907-a46d-45e9-90cc-f8c80d83963b",
+      "Name": "Questions",
+      "EntityGuid": "1c153031-d658-4c97-8928-c5b65f535495",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "08abe52f-72f0-4239-8076-bbe7d1eea4ca",
+      "Name": "ProlongationDeadline",
+      "EntityGuid": "ae2886a3-9c30-480f-8796-8dca29afdb65",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "10db5a53-3c7f-42e7-ac7b-572f5bf6f80a",
+      "Name": "SendedNotices",
+      "EntityGuid": "6a3b572d-39fe-4b02-a42b-5e86e2372c39",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "f5e92201-4e45-4440-abda-fa1276c18cf6",
+      "Name": "Interview",
+      "EntityGuid": "aff222f1-cd29-48b1-9e5f-a18acc2d03c9",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "f81f9dc6-b08a-45d0-887a-8f6fb4a557d2",
+      "Name": "Addressees",
+      "EntityGuid": "291563f9-a2d6-4ba5-a121-beab42f3d3d5",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    }
+  ],
+  "PublicStructures": [],
+  "ResourcesKeys": [],
+  "RibbonCardMetadata": {
+    "NameGuid": "1477f64f-c5ed-46e2-9623-84c5c174fa11",
+    "Name": "RibbonCard",
+    "Categories": [],
+    "Elements": [],
+    "Groups": [],
+    "IsAncestorMetadata": true,
+    "Pages": [],
+    "RibbonKind": "Card"
+  },
+  "RibbonCollectionMetadata": {
+    "NameGuid": "69badb04-a4a8-4fcd-96b4-f24167bb8d75",
+    "Name": "RibbonCollection",
+    "Categories": [],
+    "Elements": [],
+    "Groups": [],
+    "IsAncestorMetadata": true,
+    "Pages": []
+  },
+  "Versions": [
+    {
+      "Type": "DocumentMetadata",
+      "Number": 2
+    },
+    {
+      "Type": "EntityMetadata",
+      "Number": 11
+    }
+  ]
+}
