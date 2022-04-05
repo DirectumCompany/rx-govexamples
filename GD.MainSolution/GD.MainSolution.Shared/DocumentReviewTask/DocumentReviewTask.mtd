@@ -3,6 +3,23 @@
   "NameGuid": "1a97f7ad-d861-44bd-8b72-b467c996d8ed",
   "Name": "DocumentReviewTask",
   "AccessRightsMode": "Both",
+  "AttachmentGroups": [
+    {
+      "NameGuid": "88ec82fb-d8a8-4a36-a0d8-5c0bf42ff820",
+      "Name": "DocumentForReviewGroup",
+      "Constraints": [],
+      "HandledEvents": [
+        "AddedShared",
+        "DeletedShared"
+      ],
+      "IsAncestorMetadata": true,
+      "IsRequired": true,
+      "Overridden": [
+        "HandledEvents"
+      ],
+      "Versions": []
+    }
+  ],
   "BaseGuid": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
   "BlockIds": [
     "23"
