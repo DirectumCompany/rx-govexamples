@@ -17,6 +17,8 @@ namespace GD.MainSolution
       _obj.DocumentGD = document;
       _obj.RegNumberGD = document.RegistrationNumber;
       _obj.RegDateGD = document.RegistrationDate;
+      if (IncomingDocumentBases.Is(document))
+        Functions.Module.AddRelationToAddendum(_obj.OtherGroup, document);
     }
 
     public override void DocumentsGroupDeleted(Sungero.Workflow.Interfaces.AttachmentDeletedEventArgs e)
@@ -25,7 +27,8 @@ namespace GD.MainSolution
       _obj.DocumentGD = null;
       _obj.RegNumberGD = null;
       _obj.RegDateGD = null;
+      foreach (var relatedDoc in _obj.OtherGroup.All)
+        _obj.OtherGroup.All.Remove(relatedDoc);
     }
-
   }
 }
