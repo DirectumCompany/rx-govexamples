@@ -22,7 +22,7 @@ namespace GD.MainSolution
 
     public virtual void ActionItemPartsBusinessUnitGDValueInput(GD.MainSolution.Client.ActionItemExecutionTaskActionItemPartsBusinessUnitGDValueInputEventArgs e)
     {
-      if (e.NewValue != null && _obj.Assignee == null)
+      if (e.NewValue != null && (_obj.Assignee == null || _obj.Assignee.Department != null && !Equals(_obj.Assignee.Department.BusinessUnit, e.NewValue)))
         _obj.Assignee = e.NewValue.CEO;
     }
   }
