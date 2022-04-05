@@ -41,7 +41,8 @@
     "IsAncestorMetadata": true
   },
   "HandledEvents": [
-    "BeforeStartServer"
+    "BeforeStartServer",
+    "CreatedServer"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
