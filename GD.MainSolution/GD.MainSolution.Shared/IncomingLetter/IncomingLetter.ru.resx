@@ -58,4 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ShowDuplicates" xml:space="preserve">
+    <value>Найдены документы с таким же номером и датой, показать их?</value>
+  </data>
+  <data name="Attention" xml:space="preserve">
+    <value>Внимание!</value>
+  </data>
 </root>
