@@ -3,6 +3,18 @@
   "NameGuid": "07c72bfa-1f0d-4aa5-8cbc-86bfdb005d62",
   "Name": "ActionItemExecutionAssignment",
   "AccessRightsMode": "Instance",
+  "Actions": [
+    {
+      "NameGuid": "331ce81d-0e6d-465e-9228-bab46e3bbbbe",
+      "Name": "CreateChildActionItem",
+      "GenerateHandler": true,
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "GenerateHandler"
+      ],
+      "Versions": []
+    }
+  ],
   "AssociatedGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
   "BaseGuid": "54860ff9-079f-4dba-b606-ab2e1701f812",
   "CanBeNavigationPropertyType": true,
