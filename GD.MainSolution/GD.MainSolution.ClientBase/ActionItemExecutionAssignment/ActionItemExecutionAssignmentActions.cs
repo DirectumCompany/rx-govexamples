@@ -9,6 +9,38 @@ namespace GD.MainSolution.Client
 {
   partial class ActionItemExecutionAssignmentActions
   {
+    public override void CreateCoverLetterGD(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      base.CreateCoverLetterGD(e);
+      var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      if (_obj.ResultGroup.OfficialDocuments.Any() && IncomingDocumentBases.Is(document) && IncomingDocumentBases.As(document).ActionItemGD == null)
+      {
+        IncomingDocumentBases.As(document).ActionItemGD = _obj;
+        document.Save();
+      }
+    }
+
+    public override bool CanCreateCoverLetterGD(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return base.CanCreateCoverLetterGD(e);
+    }
+
+    public override void CreateReplyLetter(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      base.CreateReplyLetter(e);
+      var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      if (_obj.ResultGroup.OfficialDocuments.Any() && IncomingDocumentBases.Is(document) && IncomingDocumentBases.As(document).ActionItemGD == null)
+      {
+        IncomingDocumentBases.As(document).ActionItemGD = _obj;
+        document.Save();
+      }
+    }
+
+    public override bool CanCreateReplyLetter(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return base.CanCreateReplyLetter(e);
+    }
+
     public override void CreateChildActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       e.CloseFormAfterAction = true;

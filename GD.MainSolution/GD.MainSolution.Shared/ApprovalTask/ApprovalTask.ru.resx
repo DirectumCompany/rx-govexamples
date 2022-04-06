@@ -58,4 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ApprovalTextWithActionItem" xml:space="preserve">
+    <value>Согласуйте документ по поручению {0}</value>
+  </data>
 </root>

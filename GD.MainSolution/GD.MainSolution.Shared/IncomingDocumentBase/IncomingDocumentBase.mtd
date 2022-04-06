@@ -124,6 +124,19 @@
       "Overridden": [
         "EntityGuid"
       ]
+    },
+    {
+      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "0b858508-8bd6-4178-9978-e2d248583954",
+      "Name": "ActionItemGD",
+      "CanBeSearch": false,
+      "Code": "ActionItemGD",
+      "EntityGuid": "07c72bfa-1f0d-4aa5-8cbc-86bfdb005d62",
+      "FlatListInStandaloneLookup": true,
+      "IsShowedInList": false,
+      "IsVisibility": false,
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
+      "PreviousPropertyGuid": "becdf0d9-d274-4f49-b145-31755ffb600d"
     }
   ],
   "PublicStructures": [],
