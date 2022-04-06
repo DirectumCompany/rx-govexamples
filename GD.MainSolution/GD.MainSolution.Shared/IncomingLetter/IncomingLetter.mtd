@@ -32,10 +32,10 @@
           "Name": "MainGD",
           "ColumnDefinitions": [
             {
-              "Percentage": 79.64
+              "Percentage": 82.45
             },
             {
-              "Percentage": 16.95
+              "Percentage": 17.55
             }
           ],
           "GroupType": "WithTitleNoBorder",

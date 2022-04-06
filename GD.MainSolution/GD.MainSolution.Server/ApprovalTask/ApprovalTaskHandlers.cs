@@ -10,6 +10,14 @@ namespace GD.MainSolution
   partial class ApprovalTaskServerHandlers
   {
 
+    public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
+    {
+      base.BeforeStart(e);
+      var actionItem = Functions.ApprovalTask.GetActionItemFromIncomingLetter(_obj);
+      if (actionItem != null)
+        _obj.ActiveText = ApprovalTasks.Resources.ApprovalTextWithActionItemFormat(Sungero.Core.Hyperlinks.Get(actionItem));
+    }
+
     public override void Created(Sungero.Domain.CreatedEventArgs e)
     {
       base.Created(e);

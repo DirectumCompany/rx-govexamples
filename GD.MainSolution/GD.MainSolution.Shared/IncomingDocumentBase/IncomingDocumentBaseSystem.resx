@@ -73,4 +73,7 @@
   <data name="FilterPanel_PeriodYear_b4c8781215a84115a89e9f25ffea1cb9" xml:space="preserve">
     <value>Period of years:</value>
   </data>
+  <data name="Property_ActionItemGD" xml:space="preserve">
+    <value>Action item</value>
+  </data>
 </root>
