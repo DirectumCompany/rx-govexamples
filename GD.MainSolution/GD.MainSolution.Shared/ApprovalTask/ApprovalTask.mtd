@@ -276,7 +276,8 @@
   ],
   "PublicStructures": [],
   "ResourcesKeys": [
-    "ApprovalTextWithActionItem"
+    "ApprovalTextWithActionItem",
+    "RegistrationSettingNotFoundError"
   ],
   "RibbonCardMetadata": {
     "NameGuid": "b531f4bc-7084-4f72-9c42-edb9e79f644a",

@@ -61,4 +61,7 @@
   <data name="ApprovalTextWithActionItem" xml:space="preserve">
     <value>Согласуйте документ по поручению {0}</value>
   </data>
+  <data name="RegistrationSettingNotFoundError" xml:space="preserve">
+    <value>Для документа не найдено подходящей настройки регистрации. Обратитесь к администратору системы.</value>
+  </data>
 </root>

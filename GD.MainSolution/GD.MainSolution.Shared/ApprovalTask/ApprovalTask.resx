@@ -61,4 +61,7 @@
   <data name="ApprovalTextWithActionItem" xml:space="preserve">
     <value>Approve the document on action item {0}</value>
   </data>
+  <data name="RegistrationSettingNotFoundError" xml:space="preserve">
+    <value>No matching registration setting was found for the document. Contact your system administrator.</value>
+  </data>
 </root>
