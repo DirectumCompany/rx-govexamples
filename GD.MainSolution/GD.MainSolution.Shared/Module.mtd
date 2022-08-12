@@ -21,7 +21,8 @@
     "Header": {
       "NameGuid": "02d62bfb-7227-4758-9317-c0577b50fe82",
       "BackgroundPosition": "Stretch"
-    }
+    },
+    "Tabs": []
   },
   "DesktopViews": [],
   "ExplorerTreeOrder": [
@@ -155,6 +156,10 @@
     {
       "ItemId": "9c8ba90c-2617-4a02-a183-b4582e07209a",
       "PreviousItemId": "41d3b642-4047-4e49-8011-c1cb44438ce9"
+    },
+    {
+      "ItemId": "fe0f476d-c55b-48d1-8cc3-0f27df7935d7",
+      "PreviousItemId": "9c8ba90c-2617-4a02-a183-b4582e07209a"
     }
   ],
   "IconResourcesKeys": [],
@@ -176,11 +181,11 @@
   "Versions": [
     {
       "Type": "SolutionMetadata",
-      "Number": 6
+      "Number": 8
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 6
+      "Number": 8
     },
     {
       "Type": "DomainApi",
