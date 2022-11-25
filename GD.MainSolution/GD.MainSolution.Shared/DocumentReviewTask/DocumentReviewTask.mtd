@@ -30,6 +30,18 @@
       ],
       "PreviousGroupId": "88ec82fb-d8a8-4a36-a0d8-5c0bf42ff820",
       "Versions": []
+    },
+    {
+      "NameGuid": "4cee386f-c292-4735-af4c-3e2069c6b057",
+      "Name": "OtherGroup",
+      "CanDeleteTaskFamilyAttachments": true,
+      "Constraints": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "PreviousGroupId"
+      ],
+      "PreviousGroupId": "5320f83f-1364-4035-a7ab-44e457b9b388",
+      "Versions": []
     }
   ],
   "BaseGuid": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
