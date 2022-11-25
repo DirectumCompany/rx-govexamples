@@ -18,6 +18,18 @@
         "HandledEvents"
       ],
       "Versions": []
+    },
+    {
+      "NameGuid": "5320f83f-1364-4035-a7ab-44e457b9b388",
+      "Name": "AddendaGroup",
+      "CanDeleteTaskFamilyAttachments": true,
+      "Constraints": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "PreviousGroupId"
+      ],
+      "PreviousGroupId": "88ec82fb-d8a8-4a36-a0d8-5c0bf42ff820",
+      "Versions": []
     }
   ],
   "BaseGuid": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
