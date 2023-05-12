@@ -4,7 +4,7 @@
   "Name": "ReviewObserverNotification",
   "AccessRightsMode": "Instance",
   "AssociatedGuid": "1a97f7ad-d861-44bd-8b72-b467c996d8ed",
-  "BaseGuid": "75d6c458-7725-4133-8ff4-848e16ec5bd3",
+  "BaseGuid": "e076d18c-46dc-4e96-914a-cec7eac13c2d",
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "40a94ba4-9aec-4a66-bf00-2453750994d1",
