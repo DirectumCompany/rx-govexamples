@@ -13,6 +13,7 @@ namespace GD.MainSolution.Shared
     /// <param name="groupAttachments">Группа вложения задачи.</param>
     /// <param name="document">Документ.</param>
     /// </summary>
+    [Public]
     public void AddRelationToAddendum(Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup groupAttachments, Sungero.Docflow.IOfficialDocument document)
     {
       if (document == null)

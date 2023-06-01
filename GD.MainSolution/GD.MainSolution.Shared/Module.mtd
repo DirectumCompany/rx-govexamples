@@ -166,7 +166,28 @@
   "Importance": "Medium",
   "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "InterfaceNamespace": "GD.MainSolution",
+  "IsolatedAssemblyName": "GD.MainSolution.Isolated",
+  "IsolatedNamespace": "GD.MainSolution.Isolated",
   "OrderedSpecialFolders": [],
+  "PublicFunctions": [
+    {
+      "Name": "AddRelationToAddendum",
+      "Parameters": [
+        {
+          "Name": "groupAttachments",
+          "ParameterType": "Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup"
+        },
+        {
+          "Name": "document",
+          "ParameterType": "global::Sungero.Docflow.IOfficialDocument",
+          "ParameterTypeFullName": "Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    }
+  ],
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution",
