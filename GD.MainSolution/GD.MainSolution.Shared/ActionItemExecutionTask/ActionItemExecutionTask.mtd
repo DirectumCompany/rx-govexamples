@@ -77,6 +77,17 @@
   },
   "Forms": [
     {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "88924e94-83aa-4017-9474-9ec1f27e5188",
+      "Name": "State",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
+      "Versions": []
+    },
+    {
       "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
       "NameGuid": "02fae1ba-d7a8-4205-ace1-b3b605572b4c",
       "Name": "Card",

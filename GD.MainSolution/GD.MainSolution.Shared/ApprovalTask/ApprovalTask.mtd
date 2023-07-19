@@ -63,6 +63,17 @@
   },
   "Forms": [
     {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "9592daf2-ec2b-4477-812b-6e2aed084643",
+      "Name": "StatusStages",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
+      "Versions": []
+    },
+    {
       "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
       "NameGuid": "0af3329c-3670-4c30-a431-40396e83f2a0",
       "Name": "Card",
@@ -148,7 +159,9 @@
         }
       ],
       "IsAncestorMetadata": true,
-      "Overridden": [],
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
       "Versions": []
     }
   ],

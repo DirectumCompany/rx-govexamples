@@ -22,6 +22,49 @@
   },
   "Forms": [
     {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "30d15053-0c64-40f2-89b8-b68c0c9fd574",
+      "Name": "Tracking",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
+      "Versions": []
+    },
+    {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "a1ced6b8-fe17-4f61-8310-0fb8faf6b263",
+      "Name": "State",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
+      "Versions": []
+    },
+    {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "eeaa90b9-0d3c-49ba-b72c-a7f682f78996",
+      "Name": "Addressees",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ]
+    },
+    {
+      "$type": "Sungero.Metadata.InplaceFormMetadata, Sungero.Metadata",
+      "NameGuid": "520df4ea-e554-4745-8d4f-018b6d022962",
+      "Name": "PreviewPage",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
+      "Versions": []
+    },
+    {
       "$type": "Sungero.Metadata.StandaloneFormMetadata, Sungero.Metadata",
       "NameGuid": "fa03f748-4397-42ef-bdc2-22119af7bf7f",
       "Name": "Card",
@@ -241,7 +284,9 @@
         }
       ],
       "IsAncestorMetadata": true,
-      "Overridden": [],
+      "Overridden": [
+        "SettingsResourceKey"
+      ],
       "Versions": []
     }
   ],

@@ -344,7 +344,7 @@
       ]
     }
   ],
-  "BaseGuid": "4e25caec-c722-4740-bcfd-c4f803840ac6",
+  "BaseGuid": "8a870bb6-d668-4266-b9ce-23257d878a30",
   "Blocks": [],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.RecordManagement.ClientBase",
