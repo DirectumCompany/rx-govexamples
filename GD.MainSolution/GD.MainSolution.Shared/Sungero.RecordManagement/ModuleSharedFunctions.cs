@@ -20,8 +20,8 @@ namespace GD.MainSolution.Module.RecordManagement.Shared
     [Public]
     public override void SynchronizeAttachmentsToActionItem(Sungero.Docflow.IOfficialDocument primaryDocument,
                                                             List<Sungero.Content.IElectronicDocument> addenda,
-                                                            List<int> addedAddendaIds,
-                                                            List<int> removedAddendaIds,
+                                                            List<long> addedAddendaIds,
+                                                            List<long> removedAddendaIds,
                                                             List<Sungero.Domain.Shared.IEntity> otherAttachments,
                                                             Sungero.RecordManagement.IActionItemExecutionTask actionItem)
     {

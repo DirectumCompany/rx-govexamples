@@ -48,6 +48,7 @@
   "BlockIds": [
     "23"
   ],
+  "Blocks": [],
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "4ad90e92-6238-41e2-a503-898aa29aec15",
@@ -134,10 +135,11 @@
     "IsAncestorMetadata": true,
     "VersionsCounter": 0
   },
+  "UseSchemeFromSettings": true,
   "Versions": [
     {
       "Type": "TaskMetadata",
-      "Number": 1
+      "Number": 2
     },
     {
       "Type": "WorkflowEntityMetadata",
@@ -145,7 +147,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 11
+      "Number": 12
     }
   ]
 }

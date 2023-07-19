@@ -14,7 +14,7 @@
   ],
   "Properties": [
     {
-      "$type": "Sungero.Metadata.IntegerPropertyMetadata, Sungero.Metadata",
+      "$type": "Sungero.Metadata.LongIntegerPropertyMetadata, Sungero.Metadata",
       "NameGuid": "d7319199-3333-49cc-a7b9-8467617ccf20",
       "Name": "Id",
       "IsAncestorMetadata": true,
@@ -60,7 +60,7 @@
   "Versions": [
     {
       "Type": "EntityMetadata",
-      "Number": 11
+      "Number": 12
     },
     {
       "Type": "DomainApi",
