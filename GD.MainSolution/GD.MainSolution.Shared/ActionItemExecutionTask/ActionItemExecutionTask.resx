@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ReworkPrepareDraftActionItem" xml:space="preserve">
+    <value>Rework draft action item: {0}</value>
+  </data>
+  <data name="PrepareDraftActionItem" xml:space="preserve">
+    <value>Prepare draft action item: {0}</value>
+  </data>
+  <data name="PerformerDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Adjust the timing of the instructions in the draft resolution. The due date for the performer must be greater than or equal to the current date.</value>
+  </data>
+  <data name="CoexecutorDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Adjust the timing of the instructions in the draft resolution. The term for the co-executor must be greater than or equal to the current date.</value>
+  </data>
 </root>

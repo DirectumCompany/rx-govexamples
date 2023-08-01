@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Property_AssignmentStatusGD" xml:space="preserve">
+    <value>У исполнителя есть секретарь</value>
+  </data>
+  <data name="Enum_AssignmentStatusGD_InWorkGD" xml:space="preserve">
+    <value>В работе</value>
+  </data>
+  <data name="Enum_AssignmentStatusGD_PrepareDraftGD" xml:space="preserve">
+    <value>Подготовка проекта поручения</value>
+  </data>
+  <data name="Enum_AssignmentStatusGD_ReviewDraftGD" xml:space="preserve">
+    <value>Рассмотрение проекта поручения</value>
+  </data>
 </root>

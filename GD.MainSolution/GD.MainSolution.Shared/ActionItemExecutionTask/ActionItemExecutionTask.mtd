@@ -14,7 +14,9 @@
       ],
       "IsAncestorMetadata": true,
       "Overridden": [
-        "HandledEvents"
+        "HandledEvents",
+        "Title",
+        "Description"
       ],
       "Versions": []
     },
@@ -25,7 +27,9 @@
       "Constraints": [],
       "IsAncestorMetadata": true,
       "Overridden": [
-        "PreviousGroupId"
+        "PreviousGroupId",
+        "Title",
+        "Description"
       ],
       "PreviousGroupId": "804f50fe-f3da-411b-bb2e-e5373936e029",
       "Versions": []
@@ -37,7 +41,9 @@
       "Constraints": [],
       "IsAncestorMetadata": true,
       "Overridden": [
-        "PreviousGroupId"
+        "PreviousGroupId",
+        "Title",
+        "Description"
       ],
       "Versions": []
     },
@@ -47,7 +53,9 @@
       "Constraints": [],
       "IsAncestorMetadata": true,
       "Overridden": [
-        "PreviousGroupId"
+        "PreviousGroupId",
+        "Title",
+        "Description"
       ],
       "PreviousGroupId": "13a98dcd-c5ec-4fd0-a682-424613f615d4",
       "Versions": []
@@ -60,7 +68,42 @@
     "110",
     "113"
   ],
-  "Blocks": [],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "78992dba-daad-48ae-a36f-be7065851d90",
+      "Name": "ExecuteActionItemBlock",
+      "BaseGuid": "c3edb03d-7de8-43b0-bdf1-91cc92630e0a",
+      "EntityType": "d238ef51-607e-46a5-b86a-ede4482f7f19",
+      "HandledEvents": [
+        "ExecuteActionItemBlockStart",
+        "ExecuteActionItemBlockStartAssignment",
+        "ExecuteActionItemBlockEnd",
+        "ExecuteActionItemBlockCompleteAssignment"
+      ],
+      "LayeredFromGuid": "d7933064-9ea2-4fd1-861d-bb5ec9ae8487",
+      "Overridden": [
+        "HandledEvents",
+        "IsAncestorMetadata",
+        "LayeredFromGuid",
+        "IsGenerated"
+      ],
+      "Properties": []
+    },
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "28e7cdc6-a9a9-423b-84ff-f27d006ac548",
+      "Name": "PrepareDraftActionItemAssignmentGD",
+      "BaseGuid": "9cc122a7-f93b-4053-9219-cd2f22af0365",
+      "EntityType": "ab2c30c0-072f-4595-ac10-312f59223cda",
+      "HandledEvents": [
+        "PrepareDraftActionItemAssignmentGDStart",
+        "PrepareDraftActionItemAssignmentGDStartAssignment",
+        "PrepareDraftActionItemAssignmentGDCompleteAssignment"
+      ],
+      "Properties": []
+    }
+  ],
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "3a710e98-f782-4479-b7ce-e07b8fc8d6eb",
@@ -203,10 +246,71 @@
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DateTimeEditorToDateTimeBinder",
       "PreviousPropertyGuid": "5e45f27d-cb42-4f69-aaf1-c86e6c58beb9"
+    },
+    {
+      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81",
+      "Name": "DraftActionItemGD",
+      "Code": "DrftActionItem",
+      "EntityGuid": "c290b098-12c7-487d-bb38-73e2c98f9789",
+      "FlatListInStandaloneLookup": true,
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
+      "PreviousPropertyGuid": "7224e0f9-5545-460c-bcb8-f13e8a44e470"
+    },
+    {
+      "$type": "Sungero.Metadata.BooleanPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "ef6c6222-ca60-48bf-853b-82a35e5f3607",
+      "Name": "WasCorrectionsGD",
+      "CanBeSearch": false,
+      "Code": "WasCorrections",
+      "IsShowedInList": false,
+      "IsVisibility": false,
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.BooleanEditorToBooleanBinder",
+      "PreviousPropertyGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81"
+    }
+  ],
+  "PublicFunctions": [
+    {
+      "Name": "CheckDeadlineInResolution",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    },
+    {
+      "Name": "StartActionItemsFromDraft",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "parentAssignment",
+          "ParameterType": "global::Sungero.Workflow.IAssignment",
+          "ParameterTypeFullName": "Sungero.Workflow.IAssignment, Sungero.Workflow.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
     }
   ],
   "PublicStructures": [],
-  "ResourcesKeys": [],
+  "ResourcesKeys": [
+    "ReworkPrepareDraftActionItem",
+    "PrepareDraftActionItem",
+    "PerformerDeadlineLessThenTodayCorrectIt",
+    "CoexecutorDeadlineLessThenTodayCorrectIt"
+  ],
   "RibbonCardMetadata": {
     "NameGuid": "b51026b7-2404-4ccb-9bc9-2c183bca08c3",
     "Name": "RibbonCard",

@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Enum_Result_SendForReview" xml:space="preserve">
+    <value>SendForReview</value>
+  </data>
+  <data name="Action_SendForReviewDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "SendForReview"</value>
+  </data>
+  <data name="Action_SendForReviewConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "SendForReview"?</value>
+  </data>
+  <data name="Action_SendForReview" xml:space="preserve">
+    <value>Отправить на рассмотрение</value>
+  </data>
+  <data name="Action_SendForReviewHint" xml:space="preserve">
+    <value>Выполнить с результатом "SendForReview"</value>
+  </data>
+  <data name="CollectionDisplayName" xml:space="preserve">
+    <value>Задания на подготовку проекта поручения</value>
+  </data>
+  <data name="AccusativeDisplayName" xml:space="preserve">
+    <value>Подготовку проекта поручения</value>
+  </data>
+  <data name="DisplayName" xml:space="preserve">
+    <value>Подготовка проекта поручения</value>
+  </data>
+  <data name="Enum_Result_Explored" xml:space="preserve">
+    <value>Explored</value>
+  </data>
+  <data name="Action_Explored" xml:space="preserve">
+    <value>Принято к сведению</value>
+  </data>
+  <data name="Action_ExploredHint" xml:space="preserve">
+    <value>Выполнить с результатом "Explored"</value>
+  </data>
+  <data name="Action_ExploredConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "Explored"?</value>
+  </data>
+  <data name="Action_ExploredDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "Explored"</value>
+  </data>
+  <data name="Enum_Result_SendForExecute" xml:space="preserve">
+    <value>SendForExecute</value>
+  </data>
+  <data name="Action_SendForExecute" xml:space="preserve">
+    <value>Отправить на исполнение</value>
+  </data>
+  <data name="Action_SendForExecuteHint" xml:space="preserve">
+    <value>Выполнить с результатом "SendForExecute"</value>
+  </data>
+  <data name="Action_SendForExecuteConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "SendForExecute"?</value>
+  </data>
+  <data name="Action_SendForExecuteDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "SendForExecute"</value>
+  </data>
+  <data name="AttachmentGroup_DraftActionItemGroupTitle" xml:space="preserve">
+    <value>Проект поручения</value>
+  </data>
+  <data name="Action_AddActionItem" xml:space="preserve">
+    <value>Создать подчиненное поручение</value>
+  </data>
+  <data name="Action_AddActionItemHint" xml:space="preserve">
+    <value>Создать проект подчиненного поручения</value>
+  </data>
+  <data name="Action_AddActionItemDescription" xml:space="preserve">
+    <value>Добавление проекта поручения.
+
+Все созданные поручения будут отправлены на рассмотрение руководителю.
+</value>
+  </data>
+  <data name="Ribbon_DraftActionItemGroup_3fada9fb4e204397ac7dcd792c5d963c" xml:space="preserve">
+    <value>Проект поручения</value>
+  </data>
+  <data name="Property_NeedAbortChildActionItems" xml:space="preserve">
+    <value>Необходимо прекратить подчиненные поручения</value>
+  </data>
+</root>

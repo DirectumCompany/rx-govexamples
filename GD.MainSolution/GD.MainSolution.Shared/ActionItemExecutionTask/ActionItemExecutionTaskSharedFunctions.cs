@@ -9,6 +9,10 @@ namespace GD.MainSolution.Shared
 {
   partial class ActionItemExecutionTaskFunctions
   {
-
+    public static string GetActionItemExecutionSubjectGD(IActionItemExecutionTask task, CommonLibrary.LocalizedString beginningSubject)
+    {
+      var subject = GetActionItemExecutionSubject(task, beginningSubject);
+      return subject.Substring(0, subject.Length > 250 ? 250 : subject.Length);
+    }
   }
 }
