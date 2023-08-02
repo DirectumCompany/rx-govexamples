@@ -58,4 +58,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ActionItemLocked" xml:space="preserve">
+    <value>Проект поручения заблокирован пользователем "{0}". Снимите блокировку с поручения и попробуйте выполнить задание снова.</value>
+  </data>
+  <data name="DoneActionItem" xml:space="preserve">
+    <value>Выполнить поручение?</value>
+  </data>
 </root>

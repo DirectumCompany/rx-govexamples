@@ -59,19 +59,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Enum_Result_SendForReview" xml:space="preserve">
-    <value>SendForReview</value>
+    <value>Send for review</value>
   </data>
   <data name="Action_SendForReviewDescription" xml:space="preserve">
-    <value>Complete the assignment with result "SendForReview"</value>
+    <value>Complete the assignment with result "Send for review"</value>
   </data>
   <data name="Action_SendForReviewConfirmationMessage" xml:space="preserve">
     <value>Complete the assignment with result "SendForReview"?</value>
   </data>
   <data name="Action_SendForReview" xml:space="preserve">
-    <value>SendForReview</value>
+    <value>Send for review</value>
   </data>
   <data name="Action_SendForReviewHint" xml:space="preserve">
-    <value>Complete with Result "SendForReview"</value>
+    <value>Complete with Result "Send for review"</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
     <value>Prepare draft action item</value>
@@ -98,19 +98,19 @@
     <value>Complete the assignment with result "Explored"</value>
   </data>
   <data name="Enum_Result_SendForExecute" xml:space="preserve">
-    <value>SendForExecute</value>
+    <value>Send for execute</value>
   </data>
   <data name="Action_SendForExecute" xml:space="preserve">
-    <value>SendForExecute</value>
+    <value>Send for execute</value>
   </data>
   <data name="Action_SendForExecuteHint" xml:space="preserve">
-    <value>Complete with Result "SendForExecute"</value>
+    <value>Complete with Result "Send for execute"</value>
   </data>
   <data name="Action_SendForExecuteConfirmationMessage" xml:space="preserve">
     <value>Complete the assignment with result "SendForExecute"?</value>
   </data>
   <data name="Action_SendForExecuteDescription" xml:space="preserve">
-    <value>Complete the assignment with result "SendForExecute"</value>
+    <value>Complete the assignment with result "Send for execute"</value>
   </data>
   <data name="AttachmentGroup_DraftActionItemGroupTitle" xml:space="preserve">
     <value>Draft action item</value>
@@ -140,5 +140,20 @@ All created action items will be sent for review by manager.</value>
   </data>
   <data name="Property_NeedAbortChildActionItems" xml:space="preserve">
     <value>Abort execution of child action items</value>
+  </data>
+  <data name="Action_OpenActionItem" xml:space="preserve">
+    <value>Open action item</value>
+  </data>
+  <data name="Action_OpenActionItemDescription" xml:space="preserve">
+    <value>Open action item</value>
+  </data>
+  <data name="Action_OpenActionItemHint" xml:space="preserve">
+    <value>Open action item</value>
+  </data>
+  <data name="Action_OpenActionItemConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_OpenActionItemConfirmationDescription" xml:space="preserve">
+    <value />
   </data>
 </root>

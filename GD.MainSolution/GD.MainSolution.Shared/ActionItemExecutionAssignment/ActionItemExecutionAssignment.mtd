@@ -51,7 +51,6 @@
     "IsAncestorMetadata": true
   },
   "HandledEvents": [
-    "CreatedServer",
     "ShowingClient"
   ],
   "IconResourcesKeys": [],

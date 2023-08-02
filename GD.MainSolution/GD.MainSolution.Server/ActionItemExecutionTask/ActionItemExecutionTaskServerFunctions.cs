@@ -11,6 +11,23 @@ namespace GD.MainSolution.Server
   partial class ActionItemExecutionTaskFunctions
   {
     /// <summary>
+    /// Получить незавершенные подчиненные поручения по ведущему заданию.
+    /// </summary>
+    /// <param name="entity"> Поручение, для которого требуется получить незавершенные.</param>
+    /// <returns>Список незавершенных подчиненных поручений.</returns>
+    [Remote(IsPure = true)]
+    public static List<IActionItemExecutionTask> GetSubActionItemExecutions(IActionItemExecutionAssignment entity)
+    {
+      // TODO Котегов: есть бага платформы 19850.
+      return ActionItemExecutionTasks.GetAll()
+        .Where(t => entity != null && t.ParentAssignment == entity)
+        .Where(t => t.ActionItemType == Sungero.RecordManagement.ActionItemExecutionTask.ActionItemType.Additional ||
+               t.ActionItemType == Sungero.RecordManagement.ActionItemExecutionTask.ActionItemType.Main)
+        .Where(t => t.Status.Value == Sungero.Workflow.Task.Status.InProcess)
+        .ToList();
+    }
+    
+    /// <summary>
     /// Переадресовать задание новому исполнителю и попытаться прекратить задание старому.
     /// </summary>
     /// <param name="assignment">Задание.</param>
@@ -142,7 +159,6 @@ namespace GD.MainSolution.Server
       draftResolution.Start();
     }
     
-    //Кораблёв А.А.
     /// <summary>
     /// Проверка сроков исолнителя и соисполнителя перед стартом проекта поручения
     /// </summary>

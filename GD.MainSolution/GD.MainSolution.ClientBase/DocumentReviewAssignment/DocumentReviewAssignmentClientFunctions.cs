@@ -9,6 +9,5 @@ namespace GD.MainSolution.Client
 {
   partial class DocumentReviewAssignmentFunctions
   {
-
   }
 }

@@ -41,6 +41,14 @@
       "GenerateHandler": true,
       "LargeIconName": "Action_AddActionItem_large_9d8606b32834468eb44f4a0182026571.png",
       "SmallIconName": "Action_AddActionItem_small_9d8606b32834468eb44f4a0182026571.png"
+    },
+    {
+      "NameGuid": "247c5289-053b-4106-a7fe-bd495a051b5c",
+      "Name": "OpenActionItem",
+      "ActionArea": "Card",
+      "GenerateHandler": true,
+      "LargeIconName": null,
+      "SmallIconName": null
     }
   ],
   "AssociatedGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
@@ -198,7 +206,10 @@
     }
   ],
   "PublicStructures": [],
-  "ResourcesKeys": [],
+  "ResourcesKeys": [
+    "ActionItemLocked",
+    "DoneActionItem"
+  ],
   "RibbonCardMetadata": {
     "NameGuid": "a5701b78-cf34-4687-9c3c-65b664d261a6",
     "Name": "RibbonCard",

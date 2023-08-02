@@ -59,10 +59,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Enum_Result_SendForReview" xml:space="preserve">
-    <value>SendForReview</value>
+    <value>Отправить на рассмотрение</value>
   </data>
   <data name="Action_SendForReviewDescription" xml:space="preserve">
-    <value>Выполнение задания с результатом "SendForReview"</value>
+    <value>Выполнение задания с результатом "Отправить на рассмотрение"</value>
   </data>
   <data name="Action_SendForReviewConfirmationMessage" xml:space="preserve">
     <value>Выполнить задание с результатом "SendForReview"?</value>
@@ -71,7 +71,7 @@
     <value>Отправить на рассмотрение</value>
   </data>
   <data name="Action_SendForReviewHint" xml:space="preserve">
-    <value>Выполнить с результатом "SendForReview"</value>
+    <value>Выполнить с результатом "Отправить на рассмотрение"</value>
   </data>
   <data name="CollectionDisplayName" xml:space="preserve">
     <value>Задания на подготовку проекта поручения</value>
@@ -83,34 +83,34 @@
     <value>Подготовка проекта поручения</value>
   </data>
   <data name="Enum_Result_Explored" xml:space="preserve">
-    <value>Explored</value>
+    <value>Принято к сведению</value>
   </data>
   <data name="Action_Explored" xml:space="preserve">
     <value>Принято к сведению</value>
   </data>
   <data name="Action_ExploredHint" xml:space="preserve">
-    <value>Выполнить с результатом "Explored"</value>
+    <value>Выполнить с результатом "Принято к сведению"</value>
   </data>
   <data name="Action_ExploredConfirmationMessage" xml:space="preserve">
     <value>Выполнить задание с результатом "Explored"?</value>
   </data>
   <data name="Action_ExploredDescription" xml:space="preserve">
-    <value>Выполнение задания с результатом "Explored"</value>
+    <value>Выполнение задания с результатом "Принято к сведению"</value>
   </data>
   <data name="Enum_Result_SendForExecute" xml:space="preserve">
-    <value>SendForExecute</value>
+    <value>Отправить на исполнение</value>
   </data>
   <data name="Action_SendForExecute" xml:space="preserve">
     <value>Отправить на исполнение</value>
   </data>
   <data name="Action_SendForExecuteHint" xml:space="preserve">
-    <value>Выполнить с результатом "SendForExecute"</value>
+    <value>Выполнить с результатом "Отправить на исполнение"</value>
   </data>
   <data name="Action_SendForExecuteConfirmationMessage" xml:space="preserve">
     <value>Выполнить задание с результатом "SendForExecute"?</value>
   </data>
   <data name="Action_SendForExecuteDescription" xml:space="preserve">
-    <value>Выполнение задания с результатом "SendForExecute"</value>
+    <value>Выполнение задания с результатом "Отправить на исполнение"</value>
   </data>
   <data name="AttachmentGroup_DraftActionItemGroupTitle" xml:space="preserve">
     <value>Проект поручения</value>
@@ -132,5 +132,14 @@
   </data>
   <data name="Property_NeedAbortChildActionItems" xml:space="preserve">
     <value>Необходимо прекратить подчиненные поручения</value>
+  </data>
+  <data name="Action_OpenActionItem" xml:space="preserve">
+    <value>Открыть поручение</value>
+  </data>
+  <data name="Action_OpenActionItemHint" xml:space="preserve">
+    <value>Открыть поручение</value>
+  </data>
+  <data name="Action_OpenActionItemDescription" xml:space="preserve">
+    <value>Открыть поручение</value>
   </data>
 </root>
