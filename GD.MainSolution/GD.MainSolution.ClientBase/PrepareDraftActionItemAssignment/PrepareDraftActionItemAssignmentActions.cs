@@ -84,9 +84,9 @@ namespace GD.MainSolution.Client
         e.Cancel();
       }
       
-      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => j.Task == _obj.Task &&
+      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj.Task) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                        j.Performer == ActionItemExecutionTasks.As(_obj.Task).Assignee);
+                                                                                        Equals(j.Performer, ActionItemExecutionTasks.As(_obj.Task).Assignee));
       if (executionAssignment != null)
       {
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
@@ -134,12 +134,20 @@ namespace GD.MainSolution.Client
 
     public virtual void SendForReview(Sungero.Workflow.Client.ExecuteResultActionArgs e)
     {
-      
+      var draftActionItem = _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
+      var error = string.Empty;
+      if (GD.MainSolution.ActionItemExecutionTasks.Is(draftActionItem))
+        error = PublicFunctions.ActionItemExecutionTask.Remote.CheckDeadlineInResolution(GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem));
+      if (!string.IsNullOrEmpty(error))
+      {
+        e.AddError(error);
+        e.Cancel();
+      }
     }
 
     public virtual bool CanSendForReview(Sungero.Workflow.Client.CanExecuteResultActionArgs e)
     {
-      return true;
+      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() != null;
     }
 
   }

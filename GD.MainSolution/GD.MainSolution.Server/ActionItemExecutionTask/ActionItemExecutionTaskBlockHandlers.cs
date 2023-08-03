@@ -85,9 +85,9 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     {
       var secretary = Sungero.Company.PublicFunctions.Employee.GetManagerAssistantsWhoPrepareDraftResolution(_obj.Assignee);
       
-      if (secretary != null)
+      if (secretary.Any())
       {
-        ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD =  GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
+        ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
       }
       
       base.ExecuteActionItemBlockStartAssignment(assignment);
@@ -112,9 +112,9 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     {
       _obj.DraftActionItemGD = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
       
-      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => j.Task == _obj &&
+      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                        j.Performer == _obj.Assignee);
+                                                                                        Equals(j.Performer, _obj.Assignee));
       
       if (_obj.WasCorrectionsGD != true && executionAssignment != null && assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.Explored)
         executionAssignment.Complete(Sungero.RecordManagement.ActionItemExecutionAssignment.Result.Done);
@@ -137,9 +137,9 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     {
       Logger.DebugFormat("Задача на исполнение поручения. Старт задания подготовка проекта резолюции. ИД задачи = {0} до", _obj.Id);
       
-      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => j.Task == _obj &&
+      var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                        j.Performer == _obj.Assignee);
+                                                                                        Equals(j.Performer, _obj.Assignee));
       if (executionAssignment != null)
         executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.ReviewDraftGD;
       
