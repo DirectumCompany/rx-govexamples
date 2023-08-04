@@ -96,6 +96,9 @@ namespace GD.MainSolution.Server
           assignment.Forward(performer, deadline);
         else
           assignment.Forward(performer);
+        
+        if (!Locks.GetLockInfo(assignment).IsLocked)
+          assignment.Abort();
       }
     }
     

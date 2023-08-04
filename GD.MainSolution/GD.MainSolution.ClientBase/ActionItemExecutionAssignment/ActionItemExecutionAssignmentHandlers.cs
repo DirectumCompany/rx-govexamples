@@ -22,6 +22,5 @@ namespace GD.MainSolution
         e.HideAction(_obj.Info.Actions.CreateChildActionItem);
       }
     }
-
   }
 }

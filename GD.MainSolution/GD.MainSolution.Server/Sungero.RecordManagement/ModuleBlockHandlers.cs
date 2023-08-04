@@ -44,9 +44,9 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
       
       if (actionItemTask != null)
       {
-        var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => j.Task == _obj &&
+        var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
                                                                                           j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                          j.Performer == actionItemTask.Assignee);
+                                                                                          Equals(j.Performer, actionItemTask.Assignee));
         if (executionAssignment != null)
           executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.ReviewDraftGD;
         
@@ -63,7 +63,7 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
       base.DocumentReviewBlockCompleteAssignment(assignment);
       var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, assignment.Task) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                        j.Performer == ActionItemExecutionTasks.As(assignment.Task).Assignee);
+                                                                                        Equals(j.Performer, ActionItemExecutionTasks.As(assignment.Task).Assignee));
       if (executionAssignment != null)
       {
         if (assignment.Result == DocumentReviewAssignment.Result.Informed)

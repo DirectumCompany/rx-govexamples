@@ -18,7 +18,7 @@ namespace GD.MainSolution.Server
         () =>
         {
           var rootTask = ActionItemExecutionTasks.As(_obj.Task);
-          var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => j.Task == rootTask &&
+          var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, rootTask) &&
                                                                                             j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
                                                                                             Equals(j.Performer, rootTask.Assignee));
           if (executionAssignment != null)
