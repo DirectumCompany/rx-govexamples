@@ -76,7 +76,6 @@
       "BaseGuid": "c3edb03d-7de8-43b0-bdf1-91cc92630e0a",
       "EntityType": "d238ef51-607e-46a5-b86a-ede4482f7f19",
       "HandledEvents": [
-        "ExecuteActionItemBlockStart",
         "ExecuteActionItemBlockStartAssignment",
         "ExecuteActionItemBlockEnd",
         "ExecuteActionItemBlockCompleteAssignment"

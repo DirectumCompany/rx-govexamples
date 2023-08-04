@@ -184,5 +184,10 @@ namespace GD.MainSolution.Server
         return GD.MainSolution.ActionItemExecutionTasks.Resources.CoexecutorDeadlineLessThenTodayCorrectIt;
       return string.Empty;
     }
+    
+    public static Sungero.Company.IEmployee GetSecretary(Sungero.Company.IEmployee manager)
+    {
+      return Sungero.Company.PublicFunctions.Employee.GetManagerAssistantsWhoPrepareDraftResolution(manager).Select(m => m.Assistant).FirstOrDefault();
+    }
   }
 }

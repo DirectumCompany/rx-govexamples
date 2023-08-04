@@ -14,7 +14,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
     public override void ExecuteActionItemBlockCompleteAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
-      if (Sungero.Company.PublicFunctions.Employee.GetManagerAssistants(_obj.Assignee).Any(x => x.PreparesResolution == true))
+      if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
       {
         Logger.DebugFormat("!!! CompleteAssignment4 with secretaries as task id {0}", _obj.Id.ToString());
         // Переписка.
@@ -61,7 +61,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       }
       
       //Выполнить задание на подготовку проекта резолюции помощником руководителя.
-      var assistant = Sungero.Docflow.PublicFunctions.Module.GetSecretary(Employees.As(assignment.Performer));
+      var assistant = Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer));
       var prepareDraftAI = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
                                                                     Equals(x.Performer, assistant) &&
                                                                     x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
@@ -83,9 +83,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
     public override void ExecuteActionItemBlockStartAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
-      var secretary = Sungero.Company.PublicFunctions.Employee.GetManagerAssistantsWhoPrepareDraftResolution(_obj.Assignee);
-      
-      if (secretary.Any())
+      if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
       {
         ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
       }
@@ -95,13 +93,6 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       //Снять признак корректировки если нет помощника.
       _obj.WasCorrectionsGD = false;
       _obj.Save();
-    }
-
-    public override void ExecuteActionItemBlockStart()
-    {
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока. ИД задачи = {0} до", _obj.Id);
-      base.ExecuteActionItemBlockStart();
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока. ИД задачи = {0} после", _obj.Id);
     }
   }
 
@@ -128,15 +119,9 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       if (assignment.NeedAbortChildActionItems ?? false)
         GD.MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(_obj, assignment.Performer, ActionItemExecutionTasks.Resources.AutoAbortingReason);
     }
-    public static Sungero.Company.IEmployee GetSecretary(Sungero.Company.IEmployee manager)
-    {
-      return Sungero.Company.PublicFunctions.Employee.GetManagerAssistants(manager).Where(x => x.PreparesResolution == true).Select(m => m.Assistant).FirstOrDefault();
-    }
 
     public virtual void PrepareDraftActionItemAssignmentGDStartAssignment(GD.MainSolution.IPrepareDraftActionItemAssignment assignment)
     {
-      Logger.DebugFormat("Задача на исполнение поручения. Старт задания подготовка проекта резолюции. ИД задачи = {0} до", _obj.Id);
-      
       var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
                                                                                         Equals(j.Performer, _obj.Assignee));
@@ -148,15 +133,13 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
         assignment.DraftActionItemGroup.ActionItemExecutionTasks.Clear();
         assignment.DraftActionItemGroup.ActionItemExecutionTasks.Add(_obj.DraftActionItemGD);
       }
-      
-      Logger.DebugFormat("Задача на исполнение поручения. Старт задания подготовка проекта резолюции. ИД задачи = {0} после", _obj.Id);
     }
-
+    
     public virtual void PrepareDraftActionItemAssignmentGDStart()
     {
       Logger.DebugFormat("Задача на исполнение поручения. Старт блока подготовка проекта резолюции. ИД задачи = {0} до", _obj.Id);
       var assignee = _obj.Assignee;
-      var assistant = GetSecretary(assignee);
+      var assistant = Functions.ActionItemExecutionTask.GetSecretary(assignee);
       
       if (assistant != null)
       {
