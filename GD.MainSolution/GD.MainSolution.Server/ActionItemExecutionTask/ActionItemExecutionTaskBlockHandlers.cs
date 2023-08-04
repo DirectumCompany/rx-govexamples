@@ -162,11 +162,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       {
         // Добавить помощника в качестве исполнителя.
         _block.Performers.Add(assistant);
-        
-        // Вычислить срок задания.
-        // На подготовку проекта поручения 4 часа.
-        _block.RelativeDeadlineHours = 4;
-        
+
         var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
         
         // Проставляем признак того, что задание для доработки.
