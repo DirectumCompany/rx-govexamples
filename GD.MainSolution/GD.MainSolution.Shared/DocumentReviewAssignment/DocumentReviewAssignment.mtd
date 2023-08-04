@@ -5,6 +5,24 @@
   "AccessRightsMode": "Instance",
   "Actions": [
     {
+      "NameGuid": "c52d5a6e-5b80-437a-b1f5-0f60d968a54b",
+      "Name": "CreateCoverLetterForTransferGD",
+      "GenerateHandler": true,
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "GenerateHandler"
+      ]
+    },
+    {
+      "NameGuid": "ae0e4698-71f8-43f8-9423-e9da05a5e1fd",
+      "Name": "CreateNotificationForTransferGD",
+      "GenerateHandler": true,
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "GenerateHandler"
+      ]
+    },
+    {
       "$type": "Sungero.Workflow.Shared.ExecutionResultActionMetadata, Sungero.Workflow.Shared",
       "NameGuid": "15a894ef-15aa-4bae-a5d2-7d25aee7dbaf",
       "Name": "Forward",

@@ -142,4 +142,26 @@
   <data name="Action_OpenActionItemDescription" xml:space="preserve">
     <value>Открыть поручение</value>
   </data>
+  <data name="Action_CreateCoverLetterForTransfer" xml:space="preserve">
+    <value>Сформировать сопр. письмо</value>
+  </data>
+  <data name="Action_CreateCoverLetterForTransferHint" xml:space="preserve">
+    <value>Сформировать сопроводительное письмо</value>
+  </data>
+  <data name="Action_CreateCoverLetterForTransferDescription" xml:space="preserve">
+    <value>Сформирование сопроводительного письма для перенаправления вопросов обращения в другую организацию.
+
+Повторное нажате переформирует сопроводительное письмо, если были изменения.</value>
+  </data>
+  <data name="Action_CreateNotificationForTransfer" xml:space="preserve">
+    <value>Сформировать уведомление</value>
+  </data>
+  <data name="Action_CreateNotificationForTransferHint" xml:space="preserve">
+    <value>Сформировать уведомление заявителю о перенаправлении вопросов обращения</value>
+  </data>
+  <data name="Action_CreateNotificationForTransferDescription" xml:space="preserve">
+    <value>Сформирование уведомления заявителю о перенаправлении вопросов обращения в другую организацию.
+
+Повторное нажате переформирует уведомление, если были изменения.</value>
+  </data>
 </root>

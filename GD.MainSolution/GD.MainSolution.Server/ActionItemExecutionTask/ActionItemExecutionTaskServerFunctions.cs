@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -10,6 +10,38 @@ namespace GD.MainSolution.Server
 {
   partial class ActionItemExecutionTaskFunctions
   {
+    /// <summary>
+    /// Обработать перенаправление.
+    /// </summary>
+    /// <param name="task">Задача на испролнение поручения.</param>
+    /// <param name="assignment">Задание.</param>
+    [Public]
+    public virtual void TransferEndBlockActionForExecution(MainSolution.IActionItemExecutionTask task, MainSolution.IPrepareDraftActionItemAssignment assignment)
+    {
+      var document = currentTask.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      if (CitizenRequests.Requests.Is(document))
+      {
+        // Синхронизировать пункты поручения в вопросы обращения.
+        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.Any() ?
+          MainSolution.ActionItemExecutionTasks.As(assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()) :
+          MainSolution.PublicFunctions.Module. Remote.GetActualActionItemExecutionTask(currentTask);
+        if (actionItem != null)
+        {
+          if (GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))
+          {
+            CitizenRequests.PublicFunctions.Module.Remote.StartSynchronizeResolutionToRequest(CitizenRequests.Requests.As(document), actionItem);
+            // Отправить задачу на отправку и регистрацию писем по перенаправлению.
+            var coverLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
+            var coverLetter = currentTask.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
+            var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
+            var notification = currentTask.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
+            CitizenRequests.PublicFunctions.Module.Remote.StartRegisterAndSendTransferDocument(CitizenRequests.Requests.As(document),
+                                                                                               CitizenRequests.OutgoingRequestLetters.As(coverLetter),
+                                                                                               CitizenRequests.OutgoingRequestLetters.As(notification), currentTask);
+          }
+        }
+      }
+    }
     /// <summary>
     /// Получить незавершенные подчиненные поручения по ведущему заданию.
     /// </summary>
@@ -104,7 +136,7 @@ namespace GD.MainSolution.Server
     
     /// <summary>
     /// Выдать права на вложения поручения.
-    /// </summary> 
+    /// </summary>
     /// <param name="attachmentGroup"> Группа вложения.</param>
     /// <param name="needGrantAccessRightsToPerformer"> Нужно ли выдать права исполнителю.</param>
     public virtual void GrantRightsToAttachmentsGD(List<Sungero.Domain.Shared.IEntity> attachmentGroup, bool needGrantRightToPerformer)

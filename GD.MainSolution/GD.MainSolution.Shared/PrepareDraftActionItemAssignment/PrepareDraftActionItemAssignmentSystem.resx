@@ -156,4 +156,38 @@ All created action items will be sent for review by manager.</value>
   <data name="Action_OpenActionItemConfirmationDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Action_CreateCoverLetterForTransfer" xml:space="preserve">
+    <value>Create cover letter</value>
+  </data>
+  <data name="Action_CreateCoverLetterForTransferDescription" xml:space="preserve">
+    <value>Generate a cover letter to redirect questions of the appeal to another organization.
+
+Pressing it again will rebuild the cover letter if there have been changes.</value>
+  </data>
+  <data name="Action_CreateCoverLetterForTransferHint" xml:space="preserve">
+    <value>Create cover letter</value>
+  </data>
+  <data name="Action_CreateCoverLetterForTransferConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_CreateCoverLetterForTransferConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_CreateNotificationForTransfer" xml:space="preserve">
+    <value>Create transfer notification</value>
+  </data>
+  <data name="Action_CreateNotificationForTransferDescription" xml:space="preserve">
+    <value>Generate a notification to the applicant about redirecting the issues of the appeal to another organization.
+
+Pressing it again will re-format the notification if there have been changes.</value>
+  </data>
+  <data name="Action_CreateNotificationForTransferHint" xml:space="preserve">
+    <value>Generate a notification to the applicant about the redirection of questions of the appeal</value>
+  </data>
+  <data name="Action_CreateNotificationForTransferConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_CreateNotificationForTransferConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

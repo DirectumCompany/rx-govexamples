@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -22,7 +22,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
         
         // Завершить задание на продление срока, если оно есть.
         var extendDeadlineTasks = Sungero.Docflow.DeadlineExtensionTasks.GetAll(j => Equals(j.ParentAssignment, assignment) &&
-                                                                j.Status == Sungero.Workflow.Task.Status.InProcess);
+                                                                                j.Status == Sungero.Workflow.Task.Status.InProcess);
         foreach (var extendDeadlineTask in extendDeadlineTasks)
           extendDeadlineTask.Abort();
         
@@ -70,7 +70,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       
       //Прекратить задания на рассмотрение проекта резолюции руководителем.
       var reviewDraft = DocumentReviewAssignments.GetAll(a => Equals(a.Task, assignment.Task) &&
-                                                                a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
+                                                         a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
       
       if (reviewDraft != null)
         reviewDraft.Abort();
@@ -107,6 +107,13 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
   partial class PrepareDraftActionItemAssignmentGDHandlers
   {
+
+    public virtual void PrepareDraftActionItemAssignmentGDEnd(System.Collections.Generic.IEnumerable<GD.MainSolution.IPrepareDraftActionItemAssignment> createdAssignments)
+    {
+      var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
+      if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
+        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, assignment);
+    }
 
     public virtual void PrepareDraftActionItemAssignmentGDCompleteAssignment(GD.MainSolution.IPrepareDraftActionItemAssignment assignment)
     {

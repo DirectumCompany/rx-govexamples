@@ -9,6 +9,28 @@ namespace GD.MainSolution.Client
 {
   partial class PrepareDraftActionItemAssignmentActions
   {
+    public virtual void CreateNotificationForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(_obj, e);
+    }
+
+    public virtual bool CanCreateNotificationForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return !_obj.State.IsInserted && _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && _obj.Status == ActionItemExecutionTask.Status.Draft &&
+        CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+    }
+
+    public virtual void CreateCoverLetterForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(_obj, e);
+    }
+
+    public virtual bool CanCreateCoverLetterForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return !_obj.State.IsInserted && _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && _obj.Status == ActionItemExecutionTask.Status.Draft &&
+        CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+    }
+
     public virtual void OpenActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       var draftActionItem = _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
@@ -46,7 +68,6 @@ namespace GD.MainSolution.Client
     public virtual void SendForExecute(Sungero.Workflow.Client.ExecuteResultActionArgs e)
     {
       var draftActionItem = _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
-
       if (Sungero.RecordManagement.PublicFunctions.ActionItemExecutionTask.CheckOverdueActionItemExecutionTask(draftActionItem))
       {
         e.AddError(GD.MainSolution.ActionItemExecutionTasks.Resources.PerformerDeadlineLessThenTodayCorrectIt);
@@ -68,6 +89,28 @@ namespace GD.MainSolution.Client
         e.AddError(GD.MainSolution.PrepareDraftActionItemAssignments.Resources.ActionItemLockedFormat(lockInfo.OwnerName),
                    _obj.Info.Actions.OpenActionItem);
         e.Cancel();
+      }
+      
+      if (CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+      {
+        var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTask.Any() ? GovernmentSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
+          CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(task);
+        if (resolution != null)
+        {
+          // Р’С‹РїРѕР»РЅРёС‚СЊ РїСЂРѕРІРµСЂРєРё РґР»СЏ РїРµСЂРµРЅР°РїСЂР°РІР»РµРЅРёСЏ.
+          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+            e.Cancel();
+          
+          // РџРѕРґРїРёСЃР°С‚СЊ РґРѕРєСѓРјРµРЅС‚С‹.
+          var errorText = CitizenRequests.PublicFunctions.Module.SignatureTransferDocuments(task);
+          if (!string.IsNullOrEmpty(errorText))
+          {
+            e.AddError(errorText);
+            e.Cancel();
+          }
+        }
       }
     }
 
@@ -92,7 +135,7 @@ namespace GD.MainSolution.Client
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
         if (subActionItemExecutions.Any())
         {
-          // Кораблёв А.А. 4.3 Диалог с выбором действий для подчиненных поручений
+          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ. 4.3 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
           var dialog = Dialogs.CreateTaskDialog(ActionItemExecutionTasks.Resources.StopAdditionalActionItemExecutions,
                                                 MessageType.Question);
           Action showNotCompletedExecutionSubTasksHandler = () =>

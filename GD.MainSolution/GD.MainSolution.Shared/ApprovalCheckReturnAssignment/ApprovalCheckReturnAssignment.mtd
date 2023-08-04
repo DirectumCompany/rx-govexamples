@@ -4,7 +4,7 @@
   "Name": "ApprovalCheckReturnAssignment",
   "AccessRightsMode": "Instance",
   "AssociatedGuid": "728f00be-a8d2-438d-b9b5-b24ba51a02c6",
-  "BaseGuid": "8cb7c65e-19a9-495d-bee7-a6f8a92ac5d5",
+  "BaseGuid": "f40f1e48-b0f7-4c53-9658-ebefa07fe094",
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "e7afe22a-fbef-463a-87f4-107afd62e26e",

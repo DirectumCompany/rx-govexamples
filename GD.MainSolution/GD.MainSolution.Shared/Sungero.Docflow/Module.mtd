@@ -311,7 +311,7 @@
       ]
     }
   ],
-  "BaseGuid": "396f86bf-ab4c-46b7-b02c-a0c5f0627680",
+  "BaseGuid": "df83a2ea-8d43-4ec4-a34a-2e61863014df",
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.Docflow.ClientBase",
   "Code": "Docflow",
@@ -388,7 +388,7 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.7.32.0",
+  "Version": "4.7.34.0",
   "Widgets": [],
   "Versions": [
     {

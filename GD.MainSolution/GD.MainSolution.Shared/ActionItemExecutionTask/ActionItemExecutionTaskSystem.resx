@@ -79,4 +79,10 @@
   <data name="Property_DraftActionItemGD" xml:space="preserve">
     <value>DraftActionItem</value>
   </data>
+  <data name="AttachmentGroup_CoverDocumentsGroupTitle" xml:space="preserve">
+    <value>Cover documents</value>
+  </data>
+  <data name="AttachmentGroup_CoverDocumentsGroupInformationMessage" xml:space="preserve">
+    <value />
+  </data>
 </root>

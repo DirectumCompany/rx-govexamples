@@ -9,6 +9,32 @@ namespace GD.MainSolution.Client
 {
   partial class DocumentReviewAssignmentActions
   {
+    public override void CreateNotificationForTransferGD(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      if MainSolution.DocumentReviewTasks.Is(_obj.Task)
+        base.CreateNotificationForTransferGD(e);
+      else
+        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(_obj, e);
+    }
+
+    public override bool CanCreateNotificationForTransferGD(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return base.CanCreateNotificationForTransferGD(e);
+    }
+
+    public override void CreateCoverLetterForTransferGD(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      if MainSolution.DocumentReviewTasks.Is(_obj.Task)
+        base.CreateCoverLetterForTransferGD(e);
+      else
+        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(_obj, e);
+    }
+
+    public override bool CanCreateCoverLetterForTransferGD(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return base.CanCreateCoverLetterForTransferGD(e);
+    }
+
     public virtual void OpenActionItemGD(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       if (_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault() != null)
