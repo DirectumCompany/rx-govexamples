@@ -11,6 +11,42 @@ namespace GD.MainSolution.Server
   partial class ActionItemExecutionTaskFunctions
   {
     /// <summary>
+    /// Получить тему по умолчанию для задания "Подготовка проекта поручения".
+    /// </summary>
+    /// <param name="task">Задача на исполнение поручения.</param>
+    /// <returns>Тема для задания "Подготовка проекта поручения".</returns>
+    [ExpressionElement("PrepareDraftActionItemAssignmentDefaultSubject", "")]
+    public static string GetPrepareDraftActionItemAssignmentDefaultSubject(IActionItemExecutionTask task)
+    {
+      if (task.DraftActionItemGD != null)
+        return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.FinalizeDraftOrderActionItem);  
+      else
+        return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.PrepareDraftOrder);
+    }
+    
+    /// <summary>
+    /// Вернуть помощника по задаче на исполнение поручения, который готовит проект резолюции.
+    /// </summary>
+    /// <param name="task">Задача на исполнение поручения.</param>
+    /// <returns>Помощник.</returns>
+    [ExpressionElement("AssistantPreparesActionItem", "")]
+    public static Sungero.Company.IEmployee GetAssistantsWhoPrepareDraftResolution(IActionItemExecutionTask task)
+    {
+      return Sungero.Company.PublicFunctions.Employee.GetManagerAssistantsWhoPrepareDraftResolution(task.Assignee).Select(m => m.Assistant).FirstOrDefault();
+    }
+    
+    /// <summary>
+    /// Получить тему по умолчанию для задания "Рассмотрение проекта поручения".
+    /// </summary>
+    /// <param name="task">Задача на исполнение поручения.</param>
+    /// <returns>Тема для задания "Рассмотрение проекта поручения".</returns>
+    [ExpressionElement("DocumentReviewAssignmentDefaultSubject", "")]
+    public static string GetDocumentReviewAssignmentDefaultSubject(IActionItemExecutionTask task)
+    {
+      return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.ReviewDraftActionItem);
+    }
+    
+    /// <summary>
     /// Получить незавершенные подчиненные поручения по ведущему заданию.
     /// </summary>
     /// <param name="entity"> Поручение, для которого требуется получить незавершенные.</param>

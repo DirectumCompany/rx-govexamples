@@ -18,21 +18,10 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
       
       if (actionItemTask != null)
       {
-        var assignee = actionItemTask.Assignee;
-        
-        // Установить срок и тему.
-        if (actionItemTask.Deadline.HasValue && _obj.Started.HasValue)
-        {
-          var deadline = Sungero.Docflow.PublicFunctions.Module.GetDateWithTime(actionItemTask.Deadline.Value, assignee);
-          var deadlineInHour = WorkingTime.GetDurationInWorkingHours(_obj.Started.Value, deadline, assignee);
-          _block.RelativeDeadlineHours = deadlineInHour > 0 ? deadlineInHour : 1;
-        }
         var document = actionItemTask.DocumentsGroup.OfficialDocuments.FirstOrDefault();
         
         if (document != null)
-        {
           Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(actionItemTask.AddendaGroup, document);
-        }
       }
     }
 

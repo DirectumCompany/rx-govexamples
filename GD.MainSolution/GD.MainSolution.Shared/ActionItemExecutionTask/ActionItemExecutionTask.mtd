@@ -308,7 +308,13 @@
     "ReworkPrepareDraftActionItem",
     "PrepareDraftActionItem",
     "PerformerDeadlineLessThenTodayCorrectIt",
-    "CoexecutorDeadlineLessThenTodayCorrectIt"
+    "CoexecutorDeadlineLessThenTodayCorrectIt",
+    "PrepareDraftActionItemAssignmentDefaultSubject",
+    "DocumentReviewAssignmentDefaultSubject",
+    "PrepareDraftOrder",
+    "ReviewDraftActionItem",
+    "AssistantPreparesActionItem",
+    "FinalizeDraftOrderActionItem"
   ],
   "RibbonCardMetadata": {
     "NameGuid": "b51026b7-2404-4ccb-9bc9-2c183bca08c3",
