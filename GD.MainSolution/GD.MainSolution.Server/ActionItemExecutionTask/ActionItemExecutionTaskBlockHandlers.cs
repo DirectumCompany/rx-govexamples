@@ -16,7 +16,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     {
       if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
       {
-        Logger.DebugFormat("!!! CompleteAssignment4 with secretaries as task id {0}", _obj.Id.ToString());
+        Logger.DebugFormat("ExecuteActionItemBlockCompleteAssignment with secretaries as task id {0}", _obj.Id.ToString());
         // Переписка.
         _obj.Report = assignment.ActiveText;
         
@@ -37,9 +37,11 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
                                                                                           r.Status == Sungero.Workflow.Task.Status.InProcess);
         foreach (var reportRequestTask in reportRequestTasks)
           reportRequestTask.Abort();
+        
         // Рекурсивно прекратить подзадачи.
         if (assignment.NeedAbortChildActionItems ?? false)
           MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(_obj, assignment.Performer, ActionItemExecutionTasks.Resources.AutoAbortingReason);
+        
         // Выдать права на вложенные документы.
         Functions.ActionItemExecutionTask.GrantRightsToAttachmentsGD(_obj, _obj.ResultGroup.All.ToList(), false);
         
@@ -56,19 +58,19 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       }
       else
       {
-        Logger.DebugFormat("!!! CompleteAssignment4 without secretaries as task id {0}", _obj.Id.ToString());
+        Logger.DebugFormat("ExecuteActionItemBlockCompleteAssignment without secretaries as task id {0}", _obj.Id.ToString());
         base.ExecuteActionItemBlockCompleteAssignment(assignment);
       }
       
-      //Выполнить задание на подготовку проекта резолюции помощником руководителя.
+      // Выполнить задание на подготовку проекта резолюции помощником руководителя.
       var assistant = Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer));
-      var prepareDraftAI = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
+      var prepareDraft = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
                                                                     Equals(x.Performer, assistant) &&
                                                                     x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
-      if (prepareDraftAI != null)
-        prepareDraftAI.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
+      if (prepareDraft != null)
+        prepareDraft.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
       
-      //Прекратить задания на рассмотрение проекта резолюции руководителем.
+      // Прекратить задания на рассмотрение проекта резолюции руководителем.
       var reviewDraft = DocumentReviewAssignments.GetAll(a => Equals(a.Task, assignment.Task) &&
                                                                 a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
       
@@ -84,13 +86,11 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     public override void ExecuteActionItemBlockStartAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
       if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
-      {
         ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
-      }
       
       base.ExecuteActionItemBlockStartAssignment(assignment);
       
-      //Снять признак корректировки если нет помощника.
+      // Снять признак корректировки если нет помощника.
       _obj.WasCorrectionsGD = false;
       _obj.Save();
     }
@@ -172,7 +172,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     
     public virtual void PrepareDraftActionItemAssignmentGDStart()
     {
-      //Снять признак корректировки если есть помощник.
+      // Снять признак корректировки если есть помощник.
       _obj.WasCorrectionsGD = false;
       _obj.Save();
     }

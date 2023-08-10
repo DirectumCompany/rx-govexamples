@@ -65,7 +65,7 @@
     <value>Выполнение задания с результатом "Отправить на рассмотрение"</value>
   </data>
   <data name="Action_SendForReviewConfirmationMessage" xml:space="preserve">
-    <value>Выполнить задание с результатом "SendForReview"?</value>
+    <value>Выполнить задание с результатом "Отправить на рассмотрение"?</value>
   </data>
   <data name="Action_SendForReview" xml:space="preserve">
     <value>Отправить на рассмотрение</value>
@@ -92,7 +92,7 @@
     <value>Выполнить с результатом "Принято к сведению"</value>
   </data>
   <data name="Action_ExploredConfirmationMessage" xml:space="preserve">
-    <value>Выполнить задание с результатом "Explored"?</value>
+    <value>Выполнить задание с результатом "Принято к сведению"?</value>
   </data>
   <data name="Action_ExploredDescription" xml:space="preserve">
     <value>Выполнение задания с результатом "Принято к сведению"</value>
@@ -107,7 +107,7 @@
     <value>Выполнить с результатом "Отправить на исполнение"</value>
   </data>
   <data name="Action_SendForExecuteConfirmationMessage" xml:space="preserve">
-    <value>Выполнить задание с результатом "SendForExecute"?</value>
+    <value>Выполнить задание с результатом "Отправить на исполнение"?</value>
   </data>
   <data name="Action_SendForExecuteDescription" xml:space="preserve">
     <value>Выполнение задания с результатом "Отправить на исполнение"</value>

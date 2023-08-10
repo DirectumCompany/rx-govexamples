@@ -7,14 +7,6 @@ using GD.MainSolution.DocumentReviewAssignment;
 
 namespace GD.MainSolution
 {
-  partial class DocumentReviewAssignmentClientHandlers
-  {
-
-    public override void Refresh(Sungero.Presentation.FormRefreshEventArgs e)
-    {
-      base.Refresh(e);
-    }
-  }
 
 
 }

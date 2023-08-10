@@ -16,7 +16,7 @@ namespace GD.MainSolution.Shared
     [Public]
     public override bool HasDocumentAndCanRead()
     {
-      // Для задачи на исполнение поручения убираем данное требование т.к. документа может не быть Хафизов И.И.
+      // Для задачи на исполнение поручения убираем данное требование т.к. документа может.
       var isActionItemExecutionTask = ActionItemExecutionTasks.Is(_obj.Task);
       return isActionItemExecutionTask || base.HasDocumentAndCanRead();
     }

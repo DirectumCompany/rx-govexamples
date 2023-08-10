@@ -15,7 +15,6 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
       base.DocumentReviewBlockStart();
       
       var actionItemTask = ActionItemExecutionTasks.As(_obj);
-      
       if (actionItemTask != null)
       {
         var document = actionItemTask.DocumentsGroup.OfficialDocuments.FirstOrDefault();
@@ -30,7 +29,6 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
       base.DocumentReviewBlockStartAssignment(assignment);
       
       var actionItemTask = ActionItemExecutionTasks.As(_obj);
-      
       if (actionItemTask != null)
       {
         var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
@@ -39,7 +37,7 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
         if (executionAssignment != null)
           executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.ReviewDraftGD;
         
-        if (actionItemTask.DraftActionItemGD != null )
+        if (actionItemTask.DraftActionItemGD != null)
         {
           assignment.ResolutionGroup.ActionItemExecutionTasks.Clear();
           assignment.ResolutionGroup.ActionItemExecutionTasks.Add(actionItemTask.DraftActionItemGD);

@@ -18,10 +18,8 @@ namespace GD.MainSolution.Server
     [ExpressionElement("PrepareDraftActionItemAssignmentDefaultSubject", "")]
     public static string GetPrepareDraftActionItemAssignmentDefaultSubject(IActionItemExecutionTask task)
     {
-      if (task.DraftActionItemGD != null)
-        return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.FinalizeDraftOrderActionItem);  
-      else
-        return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.PrepareDraftOrder);
+      var subject = task.DraftActionItemGD != null ? ActionItemExecutionTasks.Resources.FinalizeDraftOrderActionItem : ActionItemExecutionTasks.Resources.PrepareDraftOrder;
+      return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, subject);
     }
     
     /// <summary>
@@ -90,7 +88,7 @@ namespace GD.MainSolution.Server
     
     /// <summary>
     /// Переадресовать задание новому исполнителю и попытаться прекратить задание старому.
-    /// Удалить проекты резолюции из заданий на подготовку и рассмотрение проекта резолюции
+    /// Удалить проекты резолюции из заданий на подготовку и рассмотрение проекта резолюции.
     /// </summary>
     /// <param name="assignment">Задание исполнителю</param>
     /// <param name="performer">Исполнитель</param>
@@ -98,31 +96,31 @@ namespace GD.MainSolution.Server
     public void ForwardAssignmentGD(IAssignment assignment, IUser performer, DateTime? deadline)
     {
 
-      //Перенаправить поручение на нового исполнителя и зачитстиь область вложений "Проект резолюции"
+      // Перенаправить поручение на нового исполнителя и зачитстиь область вложений "Проект резолюции".
       if (GD.MainSolution.ActionItemExecutionAssignments.Is(assignment))
       {
         _obj.DraftActionItemGD = null;
         _obj.WasCorrectionsGD = true;
         _obj.Save();
         
-        //Найти все задания на подготовку проекта резолюции и удалить из областей вложений проект резолюции
-        var allPrepareDraftAI = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task));
+        // Найти все задания на подготовку проекта резолюции и удалить из областей вложений проект резолюции.
+        var allPrepareDraft = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task));
         
-        foreach (IPrepareDraftActionItemAssignment prepareDraftAI in allPrepareDraftAI)
+        foreach (IPrepareDraftActionItemAssignment prepareDraft in allPrepareDraft)
         {
-          prepareDraftAI.DraftActionItemGroup.ActionItemExecutionTasks.Clear();
-          prepareDraftAI.Save();
+          prepareDraft.DraftActionItemGroup.ActionItemExecutionTasks.Clear();
+          prepareDraft.Save();
         }
         
-        //Найти все задания на рассмотрение проекта резолюции и удалить из областей вложений проект резолюции
-        var allReviewDraftAI = DocumentReviewAssignments.GetAll(x => Equals(x.Task, assignment.Task));
-        foreach (IDocumentReviewAssignment reviewDraftAI in allReviewDraftAI)
+        // Найти все задания на рассмотрение проекта резолюции и удалить из областей вложений проект резолюции.
+        var allReviewDraft = DocumentReviewAssignments.GetAll(x => Equals(x.Task, assignment.Task));
+        foreach (IDocumentReviewAssignment reviewDraft in allReviewDraft)
         {
-          reviewDraftAI.ResolutionGroup.ActionItemExecutionTasks.Clear();
-          reviewDraftAI.Save();
+          reviewDraft.ResolutionGroup.ActionItemExecutionTasks.Clear();
+          reviewDraft.Save();
         }
         
-        //Прекратить задаине старому исполнителю
+        // Прекратить задаине старому исполнителю.
         if (!Locks.GetLockInfo(assignment).IsLocked)
           assignment.Abort();
       }
@@ -156,7 +154,6 @@ namespace GD.MainSolution.Server
     {
       foreach (var item in _obj.AddendaGroup.All.Where(x => Sungero.Content.ElectronicDocuments.Is(x)))
       {
-        
         var accessRights = item.AccessRights;
         
         if (employee != null && !accessRights.IsGrantedDirectly(DefaultAccessRightsTypes.Read, employee))
@@ -168,7 +165,6 @@ namespace GD.MainSolution.Server
       
       foreach (var item in _obj.OtherGroup.All.Where(x => Sungero.Content.ElectronicDocuments.Is(x)))
       {
-        
         var accessRights = item.AccessRights;
         
         if (employee != null && !accessRights.IsGrantedDirectly(DefaultAccessRightsTypes.Read, employee))
@@ -199,24 +195,18 @@ namespace GD.MainSolution.Server
     }
     
     /// <summary>
-    /// Проверка сроков исолнителя и соисполнителя перед стартом проекта поручения
+    /// Проверка сроков исолнителя и соисполнителя перед стартом проекта поручения.
     /// </summary>
     [Public, Remote]
     public string CheckDeadlineInResolution()
     {
       if (Sungero.RecordManagement.PublicFunctions.ActionItemExecutionTask.CheckOverdueActionItemExecutionTask(_obj))
         return GD.MainSolution.ActionItemExecutionTasks.Resources.PerformerDeadlineLessThenTodayCorrectIt;
-      else if ((_obj.CoAssignees.Any() &&
-                _obj.CoAssigneesDeadline != null &&
-                ((_obj.CoAssigneesDeadline.Value.HasTime() &&
-                  _obj.CoAssigneesDeadline < Calendar.Now) ||
-                 (!_obj.CoAssigneesDeadline.Value.HasTime() &&
-                  _obj.CoAssigneesDeadline < Calendar.Now.Date))) ||
-               _obj.ActionItemParts.Any(x => x.CoAssigneesDeadline != null &&
-                                        ((x.CoAssigneesDeadline.Value.HasTime() &&
-                                          x.CoAssigneesDeadline < Calendar.Now) ||
-                                         (!x.CoAssigneesDeadline.Value.HasTime() &&
-                                          x.CoAssigneesDeadline < Calendar.Now.Date))))
+      else if ((_obj.CoAssignees.Any() && _obj.CoAssigneesDeadline != null &&
+                ((_obj.CoAssigneesDeadline.Value.HasTime() && _obj.CoAssigneesDeadline < Calendar.Now) ||
+                 (!_obj.CoAssigneesDeadline.Value.HasTime() && _obj.CoAssigneesDeadline < Calendar.Now.Date))) ||
+               _obj.ActionItemParts.Any(x => x.CoAssigneesDeadline != null && ((x.CoAssigneesDeadline.Value.HasTime() &&  x.CoAssigneesDeadline < Calendar.Now) ||
+                                                                               (!x.CoAssigneesDeadline.Value.HasTime() && x.CoAssigneesDeadline < Calendar.Now.Date))))
         return GD.MainSolution.ActionItemExecutionTasks.Resources.CoexecutorDeadlineLessThenTodayCorrectIt;
       return string.Empty;
     }

@@ -92,7 +92,7 @@ namespace GD.MainSolution.Client
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
         if (subActionItemExecutions.Any())
         {
-          // Кораблёв А.А. 4.3 Диалог с выбором действий для подчиненных поручений
+          // Диалог с выбором действий для подчиненных поручений.
           var dialog = Dialogs.CreateTaskDialog(ActionItemExecutionTasks.Resources.StopAdditionalActionItemExecutions,
                                                 MessageType.Question);
           Action showNotCompletedExecutionSubTasksHandler = () =>
@@ -109,9 +109,7 @@ namespace GD.MainSolution.Client
           var dialogResult = dialog.Show();
           
           if (dialogResult == notAbort)
-          {
             return;
-          }
           
           if (dialogResult == abort)
           {
@@ -120,9 +118,7 @@ namespace GD.MainSolution.Client
           }
           
           if (dialogResult == DialogButtons.Cancel)
-          {
             e.Cancel();
-          }
         }
       }
     }
