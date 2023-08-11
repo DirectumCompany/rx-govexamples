@@ -34,9 +34,7 @@ namespace GD.MainSolution
       base.BeforeStart(e);
       var performers = string.Empty;
       if (_obj.IsCompoundActionItem == true)
-      {
         performers = string.Join("; ", _obj.ActionItemParts.Select( x => x.Assignee.Person.ShortName).ToArray());
-      }
       else
       {
         performers = _obj.Assignee.Person.ShortName + "; ";
@@ -47,7 +45,7 @@ namespace GD.MainSolution
         performers = performers.Substring(0, 250);
       _obj.PerformersGD = performers;
 
-      // Восстанавливаем значение типа
+      // Восстанавливаем значение типа.
       if (isAdditionalType)
         _obj.ActionItemType = ActionItemType.Additional;
       _obj.AssignedBy = assignedBy;      

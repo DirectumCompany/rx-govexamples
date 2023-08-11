@@ -155,7 +155,6 @@ namespace GD.MainSolution.Server
       foreach (var item in _obj.AddendaGroup.All.Where(x => Sungero.Content.ElectronicDocuments.Is(x)))
       {
         var accessRights = item.AccessRights;
-        
         if (employee != null && !accessRights.IsGrantedDirectly(DefaultAccessRightsTypes.Read, employee))
         {
           accessRights.Grant(employee, DefaultAccessRightsTypes.Read);
@@ -166,7 +165,6 @@ namespace GD.MainSolution.Server
       foreach (var item in _obj.OtherGroup.All.Where(x => Sungero.Content.ElectronicDocuments.Is(x)))
       {
         var accessRights = item.AccessRights;
-        
         if (employee != null && !accessRights.IsGrantedDirectly(DefaultAccessRightsTypes.Read, employee))
         {
           accessRights.Grant(employee, DefaultAccessRightsTypes.Read);

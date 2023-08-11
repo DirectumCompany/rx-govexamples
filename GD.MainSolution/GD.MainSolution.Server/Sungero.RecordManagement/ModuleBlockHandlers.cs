@@ -13,12 +13,10 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
     public override void DocumentReviewBlockStart()
     {
       base.DocumentReviewBlockStart();
-      
       var actionItemTask = ActionItemExecutionTasks.As(_obj);
       if (actionItemTask != null)
       {
         var document = actionItemTask.DocumentsGroup.OfficialDocuments.FirstOrDefault();
-        
         if (document != null)
           Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(actionItemTask.AddendaGroup, document);
       }
