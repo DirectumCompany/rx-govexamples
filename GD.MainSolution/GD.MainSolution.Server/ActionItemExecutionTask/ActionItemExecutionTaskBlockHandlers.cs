@@ -86,8 +86,10 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     public override void ExecuteActionItemBlockStartAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
       if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
+      {
         ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
-      
+        assignment.IsRead = true;
+      }
       base.ExecuteActionItemBlockStartAssignment(assignment);
       
       // Снять признак корректировки если нет помощника.
