@@ -64,8 +64,21 @@
         }
       ],
       "Placement": "Shared",
-      "ReturnType": "global::GD.GovernmentSolution.IActionItemExecutionTask",
-      "ReturnTypeFullName": "GD.GovernmentSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+      "ReturnType": "global::GD.MainSolution.IActionItemExecutionTask",
+      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "SignatureTransferDocumentsForExecution",
+      "Parameters": [
+        {
+          "Name": "task",
+          "ParameterType": "global::Sungero.Workflow.ITask",
+          "ParameterTypeFullName": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
     }
   ],
   "PublicStructures": [],

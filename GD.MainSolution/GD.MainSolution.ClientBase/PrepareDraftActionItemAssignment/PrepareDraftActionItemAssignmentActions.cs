@@ -9,23 +9,14 @@ namespace GD.MainSolution.Client
 {
   partial class PrepareDraftActionItemAssignmentActions
   {
-    public virtual void CreateNotificationForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
-    {
-      MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(_obj, e);
-    }
 
-    public virtual bool CanCreateNotificationForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
-    {
-      return !_obj.State.IsInserted && _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && _obj.Status == ActionItemExecutionTask.Status.Draft &&
-        CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
-    }
-
-    public virtual void CreateCoverLetterForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
+    public virtual void CreateCoverLettersForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(_obj, e);
+      MainSolution.Functions.ActionItemExecutionTask.CreateTransferDocumentsForExecution(_obj, e);
     }
 
-    public virtual bool CanCreateCoverLetterForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
+    public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
     {
       return !_obj.State.IsInserted && _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && _obj.Status == ActionItemExecutionTask.Status.Draft &&
         CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
@@ -99,11 +90,11 @@ namespace GD.MainSolution.Client
           CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(task);
         if (resolution != null)
         {
-          // ¬˚ÔÓÎÌËÚ¸ ÔÓ‚ÂÍË ‰Îˇ ÔÂÂÌ‡Ô‡‚ÎÂÌËˇ.
+          // –í—ã–ø–æ–ª–Ω–∏—Ç—å –ø—Ä–æ–≤–µ—Ä–∫–∏ –¥–ª—è –ø–µ—Ä–µ–Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏—è.
           if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
             e.Cancel();
           
-          // œÓ‰ÔËÒ‡Ú¸ ‰ÓÍÛÏÂÌÚ˚.
+          // –ü–æ–¥–ø–∏—Å–∞—Ç—å –¥–æ–∫—É–º–µ–Ω—Ç—ã.
           var errorText = CitizenRequests.PublicFunctions.Module.SignatureTransferDocuments(task);
           if (!string.IsNullOrEmpty(errorText))
           {
@@ -135,7 +126,7 @@ namespace GD.MainSolution.Client
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
         if (subActionItemExecutions.Any())
         {
-          // ƒË‡ÎÓ„ Ò ‚˚·ÓÓÏ ‰ÂÈÒÚ‚ËÈ ‰Îˇ ÔÓ‰˜ËÌÂÌÌ˚ı ÔÓÛ˜ÂÌËÈ.
+          // –î–∏–∞–ª–æ–≥ —Å –≤—ã–±–æ—Ä–æ–º –¥–µ–π—Å—Ç–≤–∏–π –¥–ª—è –ø–æ–¥—á–∏–Ω–µ–Ω–Ω—ã—Ö –ø–æ—Ä—É—á–µ–Ω–∏–π.
           var dialog = Dialogs.CreateTaskDialog(ActionItemExecutionTasks.Resources.StopAdditionalActionItemExecutions,
                                                 MessageType.Question);
           Action showNotCompletedExecutionSubTasksHandler = () =>
@@ -182,6 +173,22 @@ namespace GD.MainSolution.Client
         e.AddError(error);
         e.Cancel();
       }
+      
+      if (CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+      {
+        // –í—ã–ø–æ–ª–Ω–∏—Ç—å –ø—Ä–æ–≤–µ—Ä–∫–∏ –¥–ª—è –ø–µ—Ä–µ–Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏—è.
+        var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTask.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+        if (resolution != null)
+        {
+          // –í—ã–ø–æ–ª–Ω–∏—Ç—å –ø—Ä–æ–≤–µ—Ä–∫–∏ –¥–ª—è –ø–µ—Ä–µ–Ω–∞–ø—Ä–∞–≤–ª–µ–Ω–∏—è.
+          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+            e.Cancel();
+        }
+      }
+      
     }
 
     public virtual bool CanSendForReview(Sungero.Workflow.Client.CanExecuteResultActionArgs e)

@@ -14,7 +14,7 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
     /// <param name="task">Задача на исполненеие.</param>
     /// <returns>Задание на приемку.</returns>
     [Public, Remote]
-    public virtual GovernmentSolution.IActionItemExecutionTask GetActualActionItemExecutionTask(MainSolution.IActionItemExecutionTask task)
+    public virtual MainSolution.IActionItemExecutionTask GetActualActionItemExecutionTask(MainSolution.IActionItemExecutionTask task)
     {
       return MainSolution.ActionItemExecutionTasks.GetAll()
         .Where(t => t.AttachmentDetails.Any(at => at.EntityTypeGuid == Guid.Parse(GD.CitizenRequests.PublicConstants.Request.RequestGuid) &&
