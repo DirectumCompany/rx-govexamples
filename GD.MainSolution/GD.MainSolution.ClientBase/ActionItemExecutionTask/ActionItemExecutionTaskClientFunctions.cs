@@ -38,9 +38,9 @@ namespace GD.MainSolution.Client
       {
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
-          CreateCoverLetterForExecution(_obj, eventArgs);
+          CreateCoverLetterForExecution(eventArgs);
         if (!string.IsNullOrEmpty(errorNotification))
-          CreateTransferNotificationForExecution(_obj, eventArgs);
+          CreateTransferNotificationForExecution(eventArgs);
         return true;
       }
       else
@@ -56,11 +56,11 @@ namespace GD.MainSolution.Client
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var letter = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coveringLetterKind)).FirstOrDefault());
       
-      var request = CitizenRequests.Requests.As(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault());
+      var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       
-      var resolution = _obj.ResolutionGroup.ActionItemExecutionTasks.Any() ?
-        GovernmentSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-        CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(_obj);
+      var resolution = _obj.Gro ActionItemExecutionTasks.Any() ?
+        MainSolution.ActionItemExecutionTasks.As(_obj..ActionItemExecutionTasks.FirstOrDefault()) :
+        MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);
       
       var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, resolution);
       if (!string.IsNullOrEmpty(errorText))
@@ -89,11 +89,11 @@ namespace GD.MainSolution.Client
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.TransferNotificationKind);
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
       
-      var request = CitizenRequests.Requests.As(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault());
+      var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       
       var resolution = _obj.ResolutionGroup.ActionItemExecutionTasks.Any() ?
-        GovernmentSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-        CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(_obj);
+        MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault()) :
+        MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);;
       
       var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, resolution);
       if (!string.IsNullOrEmpty(errorText))

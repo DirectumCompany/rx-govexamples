@@ -66,7 +66,11 @@ namespace GD.MainSolution.Client
       if (MainSolution.DocumentReviewTasks.Is(_obj.Task))
         base.CreateNotificationForTransferGD(e);
       else
-        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(_obj, e);
+      {
+        var resolution =  MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        if (resolution != null)
+          MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, e);
+      }
     }
 
     public override bool CanCreateNotificationForTransferGD(Sungero.Domain.Client.CanExecuteActionArgs e)
@@ -79,7 +83,11 @@ namespace GD.MainSolution.Client
       if (MainSolution.DocumentReviewTasks.Is(_obj.Task))
         base.CreateCoverLetterForTransferGD(e);
       else
-        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(_obj, e);
+      {
+        var resolution =  MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        if (resolution != null)
+          MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, e);
+      }
     }
 
     public override bool CanCreateCoverLetterForTransferGD(Sungero.Domain.Client.CanExecuteActionArgs e)
@@ -126,7 +134,7 @@ namespace GD.MainSolution.Client
           if (draftActionItem != null)
           {
             // Выполнить проверки для перенаправления.
-            if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+            if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, draftActionItem, e))
               e.Cancel();
             
             // Подписать документы.

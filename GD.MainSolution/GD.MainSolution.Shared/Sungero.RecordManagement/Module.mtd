@@ -355,7 +355,8 @@
       "HandledEvents": [
         "DocumentReviewBlockCompleteAssignment",
         "DocumentReviewBlockStartAssignment",
-        "DocumentReviewBlockStart"
+        "DocumentReviewBlockStart",
+        "DocumentReviewBlockEnd"
       ],
       "LayeredFromGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
       "Overridden": [

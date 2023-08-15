@@ -12,8 +12,12 @@ namespace GD.MainSolution.Client
 
     public virtual void CreateCoverLettersForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
     {
-      MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(_obj, e);
-      MainSolution.Functions.ActionItemExecutionTask.CreateTransferDocumentsForExecution(_obj, e);
+      var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+      if (resolution!=null)
+      {
+        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, e);
+        MainSolution.Functions.ActionItemExecutionTask.CreateTransferDocumentsForExecution(resolution, e);
+      }
     }
 
     public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
@@ -87,7 +91,7 @@ namespace GD.MainSolution.Client
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
         var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
         var resolution = actionItemTask.Any() ? GovernmentSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
-          CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(task);
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (resolution != null)
         {
           // Выполнить проверки для перенаправления.

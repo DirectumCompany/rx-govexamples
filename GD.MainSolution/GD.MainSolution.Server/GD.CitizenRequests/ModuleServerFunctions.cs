@@ -22,7 +22,7 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
         .Where(t => (t.Status == Sungero.RecordManagement.ActionItemExecutionTask.Status.InProcess) ||
                (t.Status == Sungero.RecordManagement.ActionItemExecutionTask.Status.Draft) ||
                (t.Status == Sungero.RecordManagement.ActionItemExecutionTask.Status.Completed))
-        .Where(t => Equals(t.AssignedBy, task.Addressee))
+        .Where(t => Equals(t.AssignedBy, task.Assignee))
         .Where(t => t.IsTransferGD == true)
         .OrderByDescending(t => t.Created)
         .FirstOrDefault();

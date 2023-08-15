@@ -11,6 +11,24 @@ namespace GD.MainSolution.Server
   partial class ActionItemExecutionTaskFunctions
   {
     /// <summary>
+    /// Выдать права на сопроводительные документы.
+    /// </summary>
+    /// <param name="assignees">Исполнители.</param>
+    public virtual void GrantAccessRightsOnCoverDocument(List<IRecipient> assignees)
+    {
+      var coverDocuments = _obj.CoverDocumentsGroup.OfficialDocuments;
+      if (coverDocuments.Any())
+      {
+        foreach (var assignee in assignees)
+        {
+          foreach (var document in coverDocuments)
+          {
+            Sungero.Docflow.PublicFunctions.Module.GrantAccessRightsOnEntity(document, assignee, DefaultAccessRightsTypes.Change);
+          }
+        }
+      }
+    }
+    /// <summary>
     /// Получить тему по умолчанию для задания "Подготовка проекта поручения".
     /// </summary>
     /// <param name="task">Задача на исполнение поручения.</param>
@@ -47,18 +65,17 @@ namespace GD.MainSolution.Server
     /// <summary>
     /// Обработать перенаправление.
     /// </summary>
-    /// <param name="task">Задача на испролнение поручения.</param>
     /// <param name="assignment">Задание.</param>
     [Public]
-    public virtual void TransferEndBlockActionForExecution(MainSolution.IActionItemExecutionTask task, MainSolution.IPrepareDraftActionItemAssignment assignment)
+    public virtual void TransferEndBlockActionForExecution(MainSolution.IPrepareDraftActionItemAssignment assignment)
     {
-      var document = currentTask.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
       if (CitizenRequests.Requests.Is(document))
       {
         // Синхронизировать пункты поручения в вопросы обращения.
         var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.Any() ?
           MainSolution.ActionItemExecutionTasks.As(assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);
         if (actionItem != null)
         {
           if (GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))
@@ -66,12 +83,12 @@ namespace GD.MainSolution.Server
             CitizenRequests.PublicFunctions.Module.Remote.StartSynchronizeResolutionToRequest(CitizenRequests.Requests.As(document), actionItem);
             // Отправить задачу на отправку и регистрацию писем по перенаправлению.
             var coverLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
-            var coverLetter = currentTask.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
+            var coverLetter = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
             var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
-            var notification = currentTask.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
+            var notification = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
             CitizenRequests.PublicFunctions.Module.Remote.StartRegisterAndSendTransferDocument(CitizenRequests.Requests.As(document),
                                                                                                CitizenRequests.OutgoingRequestLetters.As(coverLetter),
-                                                                                               CitizenRequests.OutgoingRequestLetters.As(notification), currentTask);
+                                                                                               CitizenRequests.OutgoingRequestLetters.As(notification), _obj);
           }
         }
       }

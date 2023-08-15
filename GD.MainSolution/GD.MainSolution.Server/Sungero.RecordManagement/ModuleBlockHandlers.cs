@@ -10,6 +10,19 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
   partial class DocumentReviewBlockHandlers
   {
 
+    public override void DocumentReviewBlockEnd(System.Collections.Generic.IEnumerable<Sungero.RecordManagement.IDocumentReviewAssignment> createdAssignments)
+    {
+      var actionItemTask = ActionItemExecutionTasks.As(_obj);
+      if (actionItemTask != null)
+      {
+        var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
+        // Если результат выполнения равен "Отправлено на исполнение" или "Утвердить проект резолюции".
+        if (assignment.Result == GovernmentSolution.DocumentReviewAssignment.Result.DraftResApprove || assignment.Result == GovernmentSolution.DocumentReviewAssignment.Result.ActionItemsSent)
+          MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, assignment);
+      }
+      base.DocumentReviewBlockEnd(createdAssignments);
+    }
+
     public override void DocumentReviewBlockStart()
     {
       base.DocumentReviewBlockStart();
@@ -39,6 +52,8 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
           assignment.ResolutionGroup.ActionItemExecutionTasks.Clear();
           assignment.ResolutionGroup.ActionItemExecutionTasks.Add(actionItemTask.DraftActionItemGD);
         }
+
+        MainSolution.Functions.ActionItemExecutionTask.GrantAccessRightsOnCoverDocument(actionItemTask, _block.Performers.ToList());
       }
     }
 
