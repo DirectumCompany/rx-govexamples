@@ -119,9 +119,6 @@
     "Controls": [],
     "IsAncestorMetadata": true
   },
-  "HandledEvents": [
-    "RefreshClient"
-  ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "50e39d87-4fc6-4847-8bad-20847b9ba020",

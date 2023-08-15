@@ -39,7 +39,6 @@ namespace GD.MainSolution.Server
                  !executionAssignment.Deadline.Value.HasTime() && executionAssignment.Deadline >= Calendar.Today))
               task.Deadline = executionAssignment.Deadline;
           }
-
         });
 
       return task;

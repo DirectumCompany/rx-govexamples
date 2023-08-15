@@ -99,7 +99,6 @@
       "BaseGuid": "c3edb03d-7de8-43b0-bdf1-91cc92630e0a",
       "EntityType": "d238ef51-607e-46a5-b86a-ede4482f7f19",
       "HandledEvents": [
-        "ExecuteActionItemBlockStart",
         "ExecuteActionItemBlockStartAssignment",
         "ExecuteActionItemBlockEnd",
         "ExecuteActionItemBlockCompleteAssignment"
@@ -356,7 +355,13 @@
     "ReworkPrepareDraftActionItem",
     "PrepareDraftActionItem",
     "PerformerDeadlineLessThenTodayCorrectIt",
-    "CoexecutorDeadlineLessThenTodayCorrectIt"
+    "CoexecutorDeadlineLessThenTodayCorrectIt",
+    "PrepareDraftActionItemAssignmentDefaultSubject",
+    "DocumentReviewAssignmentDefaultSubject",
+    "PrepareDraftOrder",
+    "ReviewDraftActionItem",
+    "AssistantPreparesActionItem",
+    "FinalizeDraftOrderActionItem"
   ],
   "RibbonCardMetadata": {
     "NameGuid": "b51026b7-2404-4ccb-9bc9-2c183bca08c3",

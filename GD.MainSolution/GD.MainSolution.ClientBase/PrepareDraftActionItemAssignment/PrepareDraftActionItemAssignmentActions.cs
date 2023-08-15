@@ -99,11 +99,11 @@ namespace GD.MainSolution.Client
           CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTaskByReview(task);
         if (resolution != null)
         {
-          // Р’С‹РїРѕР»РЅРёС‚СЊ РїСЂРѕРІРµСЂРєРё РґР»СЏ РїРµСЂРµРЅР°РїСЂР°РІР»РµРЅРёСЏ.
+          // Выполнить проверки для перенаправления.
           if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
             e.Cancel();
           
-          // РџРѕРґРїРёСЃР°С‚СЊ РґРѕРєСѓРјРµРЅС‚С‹.
+          // Подписать документы.
           var errorText = CitizenRequests.PublicFunctions.Module.SignatureTransferDocuments(task);
           if (!string.IsNullOrEmpty(errorText))
           {
@@ -135,7 +135,7 @@ namespace GD.MainSolution.Client
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
         if (subActionItemExecutions.Any())
         {
-          // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ.пїЅ. 4.3 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+          // Диалог с выбором действий для подчиненных поручений.
           var dialog = Dialogs.CreateTaskDialog(ActionItemExecutionTasks.Resources.StopAdditionalActionItemExecutions,
                                                 MessageType.Question);
           Action showNotCompletedExecutionSubTasksHandler = () =>
@@ -152,9 +152,7 @@ namespace GD.MainSolution.Client
           var dialogResult = dialog.Show();
           
           if (dialogResult == notAbort)
-          {
             return;
-          }
           
           if (dialogResult == abort)
           {
@@ -163,9 +161,7 @@ namespace GD.MainSolution.Client
           }
           
           if (dialogResult == DialogButtons.Cancel)
-          {
             e.Cancel();
-          }
         }
       }
     }

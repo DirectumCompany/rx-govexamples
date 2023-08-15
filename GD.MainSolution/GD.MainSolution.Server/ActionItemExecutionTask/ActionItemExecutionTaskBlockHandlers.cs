@@ -14,9 +14,9 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
     public override void ExecuteActionItemBlockCompleteAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
-      if (Sungero.Company.PublicFunctions.Employee.GetManagerAssistants(_obj.Assignee).Any(x => x.PreparesResolution == true))
+      if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
       {
-        Logger.DebugFormat("!!! CompleteAssignment4 with secretaries as task id {0}", _obj.Id.ToString());
+        Logger.DebugFormat("ExecuteActionItemBlockCompleteAssignment with secretaries as task id {0}", _obj.Id.ToString());
         // Переписка.
         _obj.Report = assignment.ActiveText;
         
@@ -37,9 +37,11 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
                                                                                           r.Status == Sungero.Workflow.Task.Status.InProcess);
         foreach (var reportRequestTask in reportRequestTasks)
           reportRequestTask.Abort();
+        
         // Рекурсивно прекратить подзадачи.
         if (assignment.NeedAbortChildActionItems ?? false)
           MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(_obj, assignment.Performer, ActionItemExecutionTasks.Resources.AutoAbortingReason);
+        
         // Выдать права на вложенные документы.
         Functions.ActionItemExecutionTask.GrantRightsToAttachmentsGD(_obj, _obj.ResultGroup.All.ToList(), false);
         
@@ -56,19 +58,19 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       }
       else
       {
-        Logger.DebugFormat("!!! CompleteAssignment4 without secretaries as task id {0}", _obj.Id.ToString());
+        Logger.DebugFormat("ExecuteActionItemBlockCompleteAssignment without secretaries as task id {0}", _obj.Id.ToString());
         base.ExecuteActionItemBlockCompleteAssignment(assignment);
       }
       
-      //Выполнить задание на подготовку проекта резолюции помощником руководителя.
-      var assistant = Sungero.Docflow.PublicFunctions.Module.GetSecretary(Employees.As(assignment.Performer));
-      var prepareDraftAI = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
+      // Выполнить задание на подготовку проекта резолюции помощником руководителя.
+      var assistant = Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer));
+      var prepareDraft = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
                                                                     Equals(x.Performer, assistant) &&
                                                                     x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
-      if (prepareDraftAI != null)
-        prepareDraftAI.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
+      if (prepareDraft != null)
+        prepareDraft.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
       
-      //Прекратить задания на рассмотрение проекта резолюции руководителем.
+      // Прекратить задания на рассмотрение проекта резолюции руководителем.
       var reviewDraft = DocumentReviewAssignments.GetAll(a => Equals(a.Task, assignment.Task) &&
                                                          a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
       
@@ -83,25 +85,16 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
     public override void ExecuteActionItemBlockStartAssignment(Sungero.RecordManagement.IActionItemExecutionAssignment assignment)
     {
-      var secretary = Sungero.Company.PublicFunctions.Employee.GetManagerAssistantsWhoPrepareDraftResolution(_obj.Assignee);
-      
-      if (secretary.Any())
+      if (Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer)) != null)
       {
         ActionItemExecutionAssignments.As(assignment).AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.PrepareDraftGD;
+        assignment.IsRead = true;
       }
-      
       base.ExecuteActionItemBlockStartAssignment(assignment);
       
-      //Снять признак корректировки если нет помощника.
+      // Снять признак корректировки если нет помощника.
       _obj.WasCorrectionsGD = false;
       _obj.Save();
-    }
-
-    public override void ExecuteActionItemBlockStart()
-    {
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока. ИД задачи = {0} до", _obj.Id);
-      base.ExecuteActionItemBlockStart();
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока. ИД задачи = {0} после", _obj.Id);
     }
   }
 
@@ -135,105 +128,62 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       if (assignment.NeedAbortChildActionItems ?? false)
         GD.MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(_obj, assignment.Performer, ActionItemExecutionTasks.Resources.AutoAbortingReason);
     }
-    public static Sungero.Company.IEmployee GetSecretary(Sungero.Company.IEmployee manager)
-    {
-      return Sungero.Company.PublicFunctions.Employee.GetManagerAssistants(manager).Where(x => x.PreparesResolution == true).Select(m => m.Assistant).FirstOrDefault();
-    }
 
     public virtual void PrepareDraftActionItemAssignmentGDStartAssignment(GD.MainSolution.IPrepareDraftActionItemAssignment assignment)
     {
-      Logger.DebugFormat("Задача на исполнение поручения. Старт задания подготовка проекта резолюции. ИД задачи = {0} до", _obj.Id);
-      
       var executionAssignment =  ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj) &&
                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
                                                                                         Equals(j.Performer, _obj.Assignee));
       if (executionAssignment != null)
         executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.ReviewDraftGD;
       
-      if (_obj.DraftActionItemGD != null )
+      if (_obj.DraftActionItemGD != null)
       {
         assignment.DraftActionItemGroup.ActionItemExecutionTasks.Clear();
         assignment.DraftActionItemGroup.ActionItemExecutionTasks.Add(_obj.DraftActionItemGD);
       }
       
-      Logger.DebugFormat("Задача на исполнение поручения. Старт задания подготовка проекта резолюции. ИД задачи = {0} после", _obj.Id);
-    }
-
-    public virtual void PrepareDraftActionItemAssignmentGDStart()
-    {
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока подготовка проекта резолюции. ИД задачи = {0} до", _obj.Id);
-      var assignee = _obj.Assignee;
-      var assistant = GetSecretary(assignee);
+      var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      var performer = assignment.Performer;
       
-      if (assistant != null)
+      if (document != null)
       {
-        // Добавить помощника в качестве исполнителя.
-        _block.Performers.Add(assistant);
+        Sungero.Docflow.PublicFunctions.OfficialDocument.GrantAccessRightsToActionItemAttachment(document, Sungero.Company.Employees.As(performer));
+        Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(_obj.AddendaGroup, document);
+      }      
+      
+      // Выдать права на основную задачу на рассмотрение.
+      if (DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(performer))
+      {
+        _obj.MainTask.AccessRights.Grant(performer, DefaultAccessRightsTypes.Change);
         
-        // Вычислить срок задания.
-        // На подготовку проекта поручения 4 часа.
-        _block.RelativeDeadlineHours = 4;
+        if (!_obj.MainTask.AccessRights.CanUpdate(performer))
+          _obj.MainTask.AccessRights.Grant(performer, DefaultAccessRightsTypes.Change);
         
-        var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+        _obj.MainTask.AccessRights.Save();
+      }
+      else
+      {
+        Sungero.Workflow.ITask currentTask = _obj;
         
-        // Проставляем признак того, что задание для доработки.
-        var lastReview = Assignments
-          .GetAll(a => Equals(a.Task, _obj) && Equals(a.TaskStartId, _obj.StartId))
-          .OrderByDescending(a => a.Created)
-          .FirstOrDefault();
-        var actionItemSubject = document != null ? document.Name : _obj.ActionItem;
-        var subject = string.Empty;
-        if (lastReview != null && Sungero.RecordManagement.DocumentReviewAssignments.Is(lastReview) &&
-            lastReview.Result == Sungero.RecordManagement.DocumentReviewAssignment.Result.DraftResRework)
+        while (currentTask.ParentTask != null || currentTask.ParentAssignment != null)
         {
-          subject = Sungero.Docflow.PublicFunctions.Module.TrimSpecialSymbols(GD.MainSolution.ActionItemExecutionTasks.Resources.ReworkPrepareDraftActionItem, actionItemSubject);
-        }
-        else
-        {
-          subject = Sungero.Docflow.PublicFunctions.Module.TrimSpecialSymbols(GD.MainSolution.ActionItemExecutionTasks.Resources.PrepareDraftActionItem, actionItemSubject);
-        }
-        
-        _block.Subject = subject.Substring(0, subject.Length > 250 ? 250 : subject.Length);
-        if (document != null)
-        {
-          Sungero.Docflow.PublicFunctions.OfficialDocument.GrantAccessRightsToActionItemAttachment(document, assistant);
-          Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(_obj.AddendaGroup, document);
-        }
-        
-        GD.MainSolution.Functions.ActionItemExecutionTask.GrantRightsToAttachments(_obj, assistant);
-        
-        // Выдать права на основную задачу на рассмотрение.
-        if (DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(assignee))
-        {
-          _obj.MainTask.AccessRights.Grant(assignee, DefaultAccessRightsTypes.Change);
+          currentTask = currentTask.ParentTask ?? currentTask.ParentAssignment.Task;
           
-          if (!_obj.MainTask.AccessRights.CanUpdate(assistant))
-            _obj.MainTask.AccessRights.Grant(assistant, DefaultAccessRightsTypes.Change);
-          
-          _obj.MainTask.AccessRights.Save();
-        }
-        else
-        {
-          Sungero.Workflow.ITask currentTask = _obj;
-          
-          while (currentTask.ParentTask != null || currentTask.ParentAssignment != null)
+          if (DocumentReviewTasks.Is(currentTask) && !currentTask.AccessRights.CanUpdate(performer))
           {
-            currentTask = currentTask.ParentTask ?? currentTask.ParentAssignment.Task;
-            
-            if (DocumentReviewTasks.Is(currentTask) && !currentTask.AccessRights.CanUpdate(assistant))
-            {
-              currentTask.AccessRights.Grant(assistant, DefaultAccessRightsTypes.Change);
-              currentTask.AccessRights.Save();
-            }
+            currentTask.AccessRights.Grant(performer, DefaultAccessRightsTypes.Change);
+            currentTask.AccessRights.Save();
           }
         }
-        
-        //Снять признак корректировки если есть помощник.
-        _obj.WasCorrectionsGD = false;
-        _obj.Save();
       }
-      
-      Logger.DebugFormat("Задача на исполнение поручения. Старт блока подготовка проекта резолюции. ИД задачи = {0} после", _obj.Id);
+    }
+    
+    public virtual void PrepareDraftActionItemAssignmentGDStart()
+    {
+      // Снять признак корректировки если есть помощник.
+      _obj.WasCorrectionsGD = false;
+      _obj.Save();
     }
   }
 }

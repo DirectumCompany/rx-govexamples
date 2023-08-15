@@ -72,7 +72,12 @@
   },
   "Subject_SE_60": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
-    "default": "Рассмотрите проект поручения по документу",
-    "ru-RU": "Рассмотрите проект поручения по документу"
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "Subject_SE_55": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
   }
 }
