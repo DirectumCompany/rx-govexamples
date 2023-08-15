@@ -5,6 +5,16 @@
   "AccessRightsMode": "Instance",
   "Actions": [
     {
+      "$type": "Sungero.Workflow.Shared.ExecutionResultActionMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "efd122c4-9bde-4e54-a053-c1e87a044416",
+      "Name": "ActionItemsSent",
+      "GenerateHandler": true,
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "GenerateHandler"
+      ]
+    },
+    {
       "NameGuid": "c52d5a6e-5b80-437a-b1f5-0f60d968a54b",
       "Name": "CreateCoverLetterForTransferGD",
       "GenerateHandler": true,

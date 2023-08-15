@@ -58,7 +58,7 @@ namespace GD.MainSolution.Server
         // Синхронизировать пункты поручения в вопросы обращения.
         var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.Any() ?
           MainSolution.ActionItemExecutionTasks.As(assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-          MainSolution.PublicFunctions.Module. Remote.GetActualActionItemExecutionTask(currentTask);
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (actionItem != null)
         {
           if (GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))

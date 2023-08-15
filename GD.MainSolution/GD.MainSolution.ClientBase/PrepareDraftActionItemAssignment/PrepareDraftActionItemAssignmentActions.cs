@@ -95,7 +95,7 @@ namespace GD.MainSolution.Client
             e.Cancel();
           
           // Подписать документы.
-          var errorText = CitizenRequests.PublicFunctions.Module.SignatureTransferDocuments(task);
+          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task);
           if (!string.IsNullOrEmpty(errorText))
           {
             e.AddError(errorText);

@@ -16,7 +16,7 @@ namespace GD.MainSolution.Shared
     /// <param name="args">Аргумент события.</param>
     public override void CheckQuestionsforReviewOtherAddressee(List<string> questionGuids, Sungero.Core.IValidationArgs args)
     {
-      base.CheckQuestionsforReviewOtherAddressee;
+      base.CheckQuestionsforReviewOtherAddressee(questionGuids, args);
     }
     
     /// <summary>
@@ -24,7 +24,7 @@ namespace GD.MainSolution.Shared
     /// </summary>
     public override void FillQuestionsFromRequestTransfer()
     {
-      base.FillQuestionsFromRequestTransfer;
+      base.FillQuestionsFromRequestTransfer();
     }
     
     /// <summary>

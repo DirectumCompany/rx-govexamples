@@ -53,7 +53,7 @@ namespace GD.MainSolution.Client
     {
       return (_obj.State.IsInserted || Locks.GetLockInfo(_obj).IsLockedByMe) &&
         _obj.Status == Sungero.Workflow.Task.Status.Draft &&
-        (_obj.IsDraftResolution == true || CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+        (_obj.IsDraftResolution == true || CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()));
       }
 
   }
