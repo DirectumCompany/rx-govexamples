@@ -12,9 +12,10 @@ namespace GD.MainSolution.Module.CitizenRequests.Client
     /// Подписать документы для перенаправления.
     /// </summary>
     /// <param name="task">Задача.</param>
+    /// <param name="actionItemExecution">Поручение.</param>
     /// <returns>Текст ошибки, если было исключение, иначе пустая строка.</returns>
     [Public]
-    public virtual string SignatureTransferDocumentsForExecution(Sungero.Workflow.ITask task)
+    public virtual string SignatureTransferDocumentsForExecution(Sungero.Workflow.ITask task, IActionItemExecutionTask actionItemExecution)
     {
       var errorText = string.Empty;
       var currentTask = MainSolution.ActionItemExecutionTasks.As(task);
@@ -22,10 +23,7 @@ namespace GD.MainSolution.Module.CitizenRequests.Client
       {
         if (GD.CitizenRequests.Requests.Is(currentTask.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
         {
-          var resolution = MainSolution.ActionItemExecutionTasks.As(currentTask..ActionItemExecutionTasks.FirstOrDefault()) ??
-            MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(currentTask);
-          
-          if (resolution != null && GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(resolution))
+          if (actionItemExecution != null && GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItemExecution))
           {
             var documentList = new List<Sungero.Docflow.IOfficialDocument>();
             var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);

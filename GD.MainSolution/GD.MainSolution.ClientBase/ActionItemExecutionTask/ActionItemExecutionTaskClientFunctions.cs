@@ -4,6 +4,7 @@ using System.Linq;
 using Sungero.Core;
 using Sungero.CoreEntities;
 using GD.MainSolution.ActionItemExecutionTask;
+using System.Text;
 
 namespace GD.MainSolution.Client
 {
@@ -12,12 +13,12 @@ namespace GD.MainSolution.Client
     /// <summary>
     /// Создать диалог для формирования сопроводительных документов.
     /// </summary>
-    /// <param name="task">Задача.</param>
+    /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="errorLetter">Ошибки для сопроводительного письма.</param>
     /// <param name="errorNotice">Ошибки для уведомления.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>True, если диалог был, иначе false.</returns>
-    public virtual bool CreateTransferDocumentsForExecution(string errorCoverLetter, string errorNotification,  Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual bool CreateTransferDocumentsForExecution(IActionItemExecutionTask actionItemExecution, string errorCoverLetter, string errorNotification,  Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       // Сформировать текст диалога.
       var dialogText = new StringBuilder();
@@ -50,25 +51,21 @@ namespace GD.MainSolution.Client
     /// <summary>
     /// Создать сопроводительное письмо.
     /// </summary>
+    /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     public virtual void CreateCoverLetterForExecution(Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var letter = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coveringLetterKind)).FirstOrDefault());
-      
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       
-      var resolution = _obj.Gro ActionItemExecutionTasks.Any() ?
-        MainSolution.ActionItemExecutionTasks.As(_obj..ActionItemExecutionTasks.FirstOrDefault()) :
-        MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);
-      
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, resolution);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, _obj);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
         return;
       }
-      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(resolution, letter);
+      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(_obj, letter);
       if (coverLetter != null)
       {
         if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
@@ -83,6 +80,7 @@ namespace GD.MainSolution.Client
     /// <summary>
     /// Создать уведомление о перенаправлении.
     /// </summary>
+    /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     public virtual void CreateTransferNotificationForExecution(Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
@@ -90,19 +88,14 @@ namespace GD.MainSolution.Client
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
       
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
-      
-      var resolution = _obj.ResolutionGroup.ActionItemExecutionTasks.Any() ?
-        MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-        MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);;
-      
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, resolution);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, _obj);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
         return;
       }
       
-      var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(resolution, notification);
+      var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(_obj, notification);
       if (notificationTransfer != null)
       {
         if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
@@ -121,7 +114,7 @@ namespace GD.MainSolution.Client
     /// <param name="resolution">Задача на исполнение поручений.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>True, если нет ошибок или документы перегенерили, иначе false.</returns>
-    public virtual bool CheckActualityLettersForExecution(GovernmentSolution.IActionItemExecutionTask resolution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual bool CheckActualityLettersForExecution(MainSolution.IActionItemExecutionTask resolution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
@@ -136,7 +129,7 @@ namespace GD.MainSolution.Client
       
       // Вызвать диалог.
       if (!string.IsNullOrEmpty(errorCoverLetter) || !string.IsNullOrEmpty(errorNotification))
-        return CreateTransferDocumentsForExecution(errorCoverLetter, errorNotification, eventArgs);
+        return CreateTransferDocumentsForExecution(resolution, errorCoverLetter, errorNotification, eventArgs);
       else
         return true;
       

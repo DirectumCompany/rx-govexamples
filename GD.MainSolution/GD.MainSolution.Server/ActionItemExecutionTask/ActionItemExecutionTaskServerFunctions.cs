@@ -65,17 +65,14 @@ namespace GD.MainSolution.Server
     /// <summary>
     /// Обработать перенаправление.
     /// </summary>
-    /// <param name="assignment">Задание.</param>
+    /// <param name="actionItem">Поручение.</param>
     [Public]
-    public virtual void TransferEndBlockActionForExecution(MainSolution.IPrepareDraftActionItemAssignment assignment)
+    public virtual void TransferEndBlockActionForExecution(IActionItemExecutionTask actionItem)
     {
       var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
       if (CitizenRequests.Requests.Is(document))
       {
         // Синхронизировать пункты поручения в вопросы обращения.
-        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.Any() ?
-          MainSolution.ActionItemExecutionTasks.As(assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()) :
-          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(_obj);
         if (actionItem != null)
         {
           if (GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))

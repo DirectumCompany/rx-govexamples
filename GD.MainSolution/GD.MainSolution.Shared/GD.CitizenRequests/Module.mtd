@@ -74,6 +74,11 @@
           "Name": "task",
           "ParameterType": "global::Sungero.Workflow.ITask",
           "ParameterTypeFullName": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
+        },
+        {
+          "Name": "actionItemExecution",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
         }
       ],
       "Placement": "Client",

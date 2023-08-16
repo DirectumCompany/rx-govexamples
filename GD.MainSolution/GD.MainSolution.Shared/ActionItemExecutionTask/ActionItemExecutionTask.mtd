@@ -336,9 +336,9 @@
           "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
         },
         {
-          "Name": "assignment",
-          "ParameterType": "global::GD.MainSolution.IPrepareDraftActionItemAssignment",
-          "ParameterTypeFullName": "GD.MainSolution.IPrepareDraftActionItemAssignment, Sungero.Domain.Interfaces"
+          "Name": "actionItem",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
         }
       ],
       "ReturnType": "void",

@@ -16,7 +16,7 @@ namespace GD.MainSolution.Client
       if (resolution!=null)
       {
         MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, e);
-        MainSolution.Functions.ActionItemExecutionTask.CreateTransferDocumentsForExecution(resolution, e);
+        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, e);
       }
     }
 
@@ -90,7 +90,7 @@ namespace GD.MainSolution.Client
       {
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
         var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
-        var resolution = actionItemTask.Any() ? GovernmentSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
+        var resolution = actionItemTask.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (resolution != null)
         {
@@ -99,7 +99,7 @@ namespace GD.MainSolution.Client
             e.Cancel();
           
           // Подписать документы.
-          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task);
+          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, resolution);
           if (!string.IsNullOrEmpty(errorText))
           {
             e.AddError(errorText);

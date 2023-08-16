@@ -19,7 +19,7 @@ namespace GD.MainSolution.Client
         if (task != null)
         {
           var actionItemTasks = _obj.ResolutionGroup.ActionItemExecutionTasks;
-          var resolution = actionItemTasks.Any() ? GovernmentSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
+          var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
             MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
           if (resolution != null)
           {
@@ -28,7 +28,7 @@ namespace GD.MainSolution.Client
               e.Cancel();
             
             // Подписать документы.
-            var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task);
+            var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, resolution);
             if (!string.IsNullOrEmpty(errorText))
             {
               e.AddError(errorText);
@@ -131,14 +131,15 @@ namespace GD.MainSolution.Client
         if (CitizenRequests.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
         {
           var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-          if (draftActionItem != null)
+          var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem); 
+          if (actionItem != null)
           {
             // Выполнить проверки для перенаправления.
-            if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, draftActionItem, e))
+            if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, actionItem, e))
               e.Cancel();
             
             // Подписать документы.
-            var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task);
+            var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, actionItem);
             if (!string.IsNullOrEmpty(errorText))
             {
               e.AddError(errorText);

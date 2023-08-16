@@ -105,7 +105,10 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     {
       var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
       if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
-        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, assignment);
+      {
+        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
+        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
+      }
     }
 
     public virtual void PrepareDraftActionItemAssignmentGDCompleteAssignment(GD.MainSolution.IPrepareDraftActionItemAssignment assignment)
