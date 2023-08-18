@@ -10,29 +10,28 @@ namespace GD.MainSolution.Shared
   partial class ActionItemExecutionTaskFunctions
   {
     /// <summary>
-    /// Проверить вопросы по обращению на рассмотрение другими адресатами или на исполнение.
+    /// Создать список код вопроса, вопрос из обращения по guid.
     /// </summary>
-    /// <param name="questionGuids">Список guid вопросов по обращению.</param>
-    /// <param name="args">Аргумент события.</param>
-    public override void CheckQuestionsforReviewOtherAddressee(List<string> questionGuids, Sungero.Core.IValidationArgs args)
+    /// <param name="questionGuids">Список guid строк табличной части вопросов обращения.</param>
+    /// <param name="request">Обращение.</param>
+    /// <param name="isDetailedData">Детальные данные.</param>
+    public override List<string> GetQuestionListByGuids(List<string> questionGuids, CitizenRequests.IRequest request, bool isDetailedData)
     {
-      base.CheckQuestionsforReviewOtherAddressee(questionGuids, args);
+      return base.GetQuestionListByGuids(questionGuids, request, isDetailedData);
     }
-    
     /// <summary>
     /// Заполнить вопросы из пунктов поручения резолюции в проект поручения.
     /// </summary>
-    public override void FillQuestionsFromRequestTransfer()
+    public override void FillQuestionsFromRequestTransfer(List<string> excludeQuestionsGuids)
     {
-      base.FillQuestionsFromRequestTransfer();
+      base.FillQuestionsFromRequestTransfer(excludeQuestionsGuids);
     }
-    
     /// <summary>
     /// Заполнить вопросы из пунктов поручения резолюции в проект поручения.
     /// </summary>
     /// <param name="resolution">Резолюция.</param>
     public virtual void FillQuestionsFromResolution(MainSolution.IActionItemExecutionTask resolution)
-    {      
+    {
       // Заполнить ТЧ перенаправление из резолюции.
       var actionItemParts = resolution.ActionItemParts.Where(a => Equals(a.Assignee, _obj.AssignedBy));
       foreach (var row in actionItemParts.Cast<IActionItemExecutionTaskActionItemParts>())

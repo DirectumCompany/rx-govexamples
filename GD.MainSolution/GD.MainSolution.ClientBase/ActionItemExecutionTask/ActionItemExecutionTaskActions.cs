@@ -42,9 +42,19 @@ namespace GD.MainSolution.Client
           else
           {
             // Заполнить табличную часть впросами из обращения.
-            Functions.ActionItemExecutionTask.FillQuestionsFromRequestTransfer(_obj);
+            var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+            var excludeQuestionsGuids = CitizenRequests.PublicFunctions.Request.Remote.GetListQuestionRowGuidsSentForReview(request, _obj);
+            Functions.ActionItemExecutionTask.FillQuestionsFromRequestTransfer(_obj, excludeQuestionsGuids);
+            
             // Проверить вопросы на рассмотрение другим адресатом.
-            Functions.ActionItemExecutionTask.CheckQuestionsforReviewOtherAddressee(_obj, null, e);
+            if (excludeQuestionsGuids.Any())
+            {
+              var excludeQuestions = Functions.ActionItemExecutionTask.GetQuestionListByGuids(_obj, excludeQuestionsGuids, request, false);
+              if (excludeQuestions.Any())
+                e.AddWarning(ActionItemExecutionTasks.Resources.QuestionsNotAddedToDraftResolutionFormat(string.Join(", ", excludeQuestions)),
+                             _obj.Info.Actions.ShowQuestionsOtherAddresseeGD);
+              
+            }
           }
         }
       }
