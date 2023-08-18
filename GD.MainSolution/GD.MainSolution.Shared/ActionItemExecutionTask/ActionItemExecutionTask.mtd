@@ -3,17 +3,6 @@
   "NameGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
   "Name": "ActionItemExecutionTask",
   "AccessRightsMode": "Both",
-  "Actions": [
-    {
-      "NameGuid": "fdebfc12-ed20-465d-8b66-1700fb1d371a",
-      "Name": "ChangeTransferActionItemGD",
-      "GenerateHandler": true,
-      "IsAncestorMetadata": true,
-      "Overridden": [
-        "GenerateHandler"
-      ]
-    }
-  ],
   "AttachmentGroups": [
     {
       "NameGuid": "804f50fe-f3da-411b-bb2e-e5373936e029",

@@ -19,13 +19,7 @@ namespace GD.MainSolution.Shared
     {
       return base.GetQuestionListByGuids(questionGuids, request, isDetailedData);
     }
-    /// <summary>
-    /// Заполнить вопросы из пунктов поручения резолюции в проект поручения.
-    /// </summary>
-    public override void FillQuestionsFromRequestTransfer(List<string> excludeQuestionsGuids)
-    {
-      base.FillQuestionsFromRequestTransfer(excludeQuestionsGuids);
-    }
+    
     /// <summary>
     /// Заполнить вопросы из пунктов поручения резолюции в проект поручения.
     /// </summary>
