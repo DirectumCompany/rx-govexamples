@@ -39,9 +39,9 @@ namespace GD.MainSolution.Client
       {
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
-          CreateCoverLetterForExecution(eventArgs);
+          CreateCoverLetterForExecution(actionItemExecution, eventArgs);
         if (!string.IsNullOrEmpty(errorNotification))
-          CreateTransferNotificationForExecution(eventArgs);
+          CreateTransferNotificationForExecution(actionItemExecution, eventArgs);
         return true;
       }
       else
@@ -53,19 +53,19 @@ namespace GD.MainSolution.Client
     /// </summary>
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
-    public virtual void CreateCoverLetterForExecution(Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual void CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var letter = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coveringLetterKind)).FirstOrDefault());
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, _obj);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, actionItemExecution);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
         return;
       }
-      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(_obj, letter);
+      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(actionItemExecution, letter);
       if (coverLetter != null)
       {
         if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
@@ -82,20 +82,20 @@ namespace GD.MainSolution.Client
     /// </summary>
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
-    public virtual void CreateTransferNotificationForExecution(Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual void CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.TransferNotificationKind);
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
       
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, _obj);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, actionItemExecution);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
         return;
       }
       
-      var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(_obj, notification);
+      var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification);
       if (notificationTransfer != null)
       {
         if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))

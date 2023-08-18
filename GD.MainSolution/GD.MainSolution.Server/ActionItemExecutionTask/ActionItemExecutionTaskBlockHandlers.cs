@@ -65,8 +65,8 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       // Выполнить задание на подготовку проекта резолюции помощником руководителя.
       var assistant = Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer));
       var prepareDraft = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
-                                                                    Equals(x.Performer, assistant) &&
-                                                                    x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
+                                                                  Equals(x.Performer, assistant) &&
+                                                                  x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
       if (prepareDraft != null)
         prepareDraft.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
       
@@ -104,10 +104,13 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     public virtual void PrepareDraftActionItemAssignmentGDEnd(System.Collections.Generic.IEnumerable<GD.MainSolution.IPrepareDraftActionItemAssignment> createdAssignments)
     {
       var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
-      if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
+      if (assignment != null)
       {
-        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
-        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
+        if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
+        {
+          var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
+          MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
+        }
       }
     }
 
@@ -153,7 +156,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       {
         Sungero.Docflow.PublicFunctions.OfficialDocument.GrantAccessRightsToActionItemAttachment(document, Sungero.Company.Employees.As(performer));
         Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(_obj.AddendaGroup, document);
-      }      
+      }
       
       // Выдать права на основную задачу на рассмотрение.
       if (DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(performer))

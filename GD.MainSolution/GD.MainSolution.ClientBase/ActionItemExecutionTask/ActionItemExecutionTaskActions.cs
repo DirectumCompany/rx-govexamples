@@ -32,11 +32,12 @@ namespace GD.MainSolution.Client
         {
           _obj.IsCompoundActionItem = true;
           _obj.IsTransferGD = true;
-         
-          var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.ParentTask);
-          if (resolution != null)
+          
+          if (_obj.ParentAssignment != null)
           {
-            Functions.ActionItemExecutionTask.FillQuestionsFromResolution(_obj, resolution);
+            var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.ParentAssignment.Task.ParentTask);
+            if (resolution!=null)
+              Functions.ActionItemExecutionTask.FillQuestionsFromResolution(_obj, resolution);
           }
           else
           {
@@ -54,7 +55,7 @@ namespace GD.MainSolution.Client
       return (_obj.State.IsInserted || Locks.GetLockInfo(_obj).IsLockedByMe) &&
         _obj.Status == Sungero.Workflow.Task.Status.Draft &&
         (_obj.IsDraftResolution == true || CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()));
-      }
+    }
 
   }
 

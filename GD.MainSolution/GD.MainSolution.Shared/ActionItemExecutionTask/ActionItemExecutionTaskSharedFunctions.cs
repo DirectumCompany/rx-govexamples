@@ -32,24 +32,18 @@ namespace GD.MainSolution.Shared
     /// </summary>
     /// <param name="resolution">Резолюция.</param>
     public virtual void FillQuestionsFromResolution(MainSolution.IActionItemExecutionTask resolution)
-    {
-      
-      // Заполнить ТЧ на исполнение из резолюции.
+    {      
+      // Заполнить ТЧ перенаправление из резолюции.
       var actionItemParts = resolution.ActionItemParts.Where(a => Equals(a.Assignee, _obj.AssignedBy));
       foreach (var row in actionItemParts.Cast<IActionItemExecutionTaskActionItemParts>())
       {
-        var part = _obj.ActionItemParts.AddNew() as IActionItemExecutionTaskActionItemParts;
-        part.RequestQuestionGD = row.RequestQuestionGD;
-        part.RequestSubQuestionGD = row.RequestSubQuestionGD;
-        part.QuestionRowGuidGD = row.QuestionRowGuidGD;
-        part.ActionItemPart = row.ActionItemPart;
-        part.Deadline = row.Deadline;
-        
-        // Добавить соисполнителей.
-        if (!string.IsNullOrEmpty(row.CoAssignees))
+        if (row.QuestionRowGuidGD !=null)
         {
-          var coAssignees = GovernmentSolution.PublicFunctions.ActionItemExecutionTask.GetPartCoAssignees(resolution, row.PartGuid);
-          Sungero.RecordManagement.PublicFunctions.ActionItemExecutionTask.AddPartsCoAssignees(_obj, part, coAssignees);
+          var part = _obj.QuestionsForTransferGD.AddNew();
+          part.Question = row.RequestQuestionGD;
+          part.SubQuestion = row.RequestSubQuestionGD;
+          part.QuestionRowGuid = row.QuestionRowGuidGD;
+          part.ActionItemPart = row.ActionItemPart;
         }
       }
     }

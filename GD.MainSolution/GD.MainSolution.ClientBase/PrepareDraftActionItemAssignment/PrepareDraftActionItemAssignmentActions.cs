@@ -15,15 +15,17 @@ namespace GD.MainSolution.Client
       var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
       if (resolution!=null)
       {
-        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, e);
-        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, e);
+        var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault());
+        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
       }
     }
 
     public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
     {
-      return !_obj.State.IsInserted && _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && _obj.Status == ActionItemExecutionTask.Status.Draft &&
-        CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && 
+        MainSolution.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+
     }
 
     public virtual void OpenActionItem(Sungero.Domain.Client.ExecuteActionArgs e)

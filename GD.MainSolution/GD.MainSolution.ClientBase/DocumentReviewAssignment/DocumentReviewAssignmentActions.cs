@@ -69,7 +69,10 @@ namespace GD.MainSolution.Client
       {
         var resolution =  MainSolution.ActionItemExecutionTasks.As(_obj.Task);
         if (resolution != null)
-          MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, e);
+        {
+          var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
+          MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        }
       }
     }
 
@@ -86,7 +89,10 @@ namespace GD.MainSolution.Client
       {
         var resolution =  MainSolution.ActionItemExecutionTasks.As(_obj.Task);
         if (resolution != null)
-          MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, e);
+        {
+          var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
+          MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        }
       }
     }
 
@@ -131,7 +137,7 @@ namespace GD.MainSolution.Client
         if (CitizenRequests.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
         {
           var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-          var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem); 
+          var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem);
           if (actionItem != null)
           {
             // Выполнить проверки для перенаправления.
