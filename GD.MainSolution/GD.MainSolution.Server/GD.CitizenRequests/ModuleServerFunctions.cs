@@ -9,6 +9,29 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
   partial class ModuleFunctions
   {
     /// <summary>
+    /// Сформировать отчет проект резолюции.
+    /// </summary>
+    /// <param name="task">Задача.</param>
+    [Public]
+    public virtual void AddDraftResolutionDocumentForExecution(Sungero.RecordManagement.IDocumentReviewAssignment assignment)
+    {
+      if (MainSolution.ActionItemExecutionTasks.As(assignment.Task) != null)
+      {
+        var request = GD.CitizenRequests.Requests.As(assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault());
+        if (request != null)
+        {
+          var actionItem = GD.GovernmentSolution.ActionItemExecutionTasks.As(assignment.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
+          var documentKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(Sungero.Docflow.PublicConstants.Module.Initialize.SimpleDocumentKind);
+          var report = assignment.AddendaGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, documentKind)).FirstOrDefault();
+          var addressee = Sungero.Company.PublicFunctions.Employee.Remote.GetEmployeeByName(assignment.Performer.Name);
+
+          var document = AddDraftResolutionDocument(assignment.Task, request, actionItem, report.CreateVersion(),  addressee);
+          if (report == null)
+            assignment.AddendaGroup.OfficialDocuments.Add(document);
+        }
+      }
+    }
+    /// <summary>
     /// Получить активное задание на исполнение поручений по документу.
     /// </summary>
     /// <param name="task">Задача на исполненеие.</param>

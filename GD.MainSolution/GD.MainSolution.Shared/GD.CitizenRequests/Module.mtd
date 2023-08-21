@@ -54,6 +54,18 @@
   "LayeredFromGuid": "011a7117-3db8-44ae-963a-74568896c47f",
   "PublicFunctions": [
     {
+      "Name": "AddDraftResolutionDocumentForExecution",
+      "Parameters": [
+        {
+          "Name": "assignment",
+          "ParameterType": "global::Sungero.RecordManagement.IDocumentReviewAssignment",
+          "ParameterTypeFullName": "Sungero.RecordManagement.IDocumentReviewAssignment, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
       "Name": "GetActualActionItemExecutionTask",
       "IsRemote": true,
       "Parameters": [

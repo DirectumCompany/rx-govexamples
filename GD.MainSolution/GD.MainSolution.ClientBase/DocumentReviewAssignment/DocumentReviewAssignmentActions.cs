@@ -13,7 +13,7 @@ namespace GD.MainSolution.Client
     {
       var callBaseAction = true;
       
-      if (CitizenRequests.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+      if (MainSolution.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
       {
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
         if (task != null)
@@ -134,7 +134,7 @@ namespace GD.MainSolution.Client
           e.Cancel();
         }
         
-        if (CitizenRequests.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+        if (MainSolution.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
         {
           var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
           var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem);
