@@ -60,7 +60,7 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
         }
 
         MainSolution.Functions.ActionItemExecutionTask.GrantAccessRightsOnCoverDocument(actionItemTask, _block.Performers.ToList());
-        if (assignment.ResolutionGroup.ActionItemExecutionTasks.Any())
+        if (assignment.ResolutionGroup.ActionItemExecutionTasks.Any() && MainSolution.Requests.Is(actionItemTask.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
           CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocumentForExecution(assignment);
       }
     }
