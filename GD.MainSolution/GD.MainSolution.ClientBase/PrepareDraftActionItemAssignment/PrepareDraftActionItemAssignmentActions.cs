@@ -16,8 +16,19 @@ namespace GD.MainSolution.Client
       if (resolution!=null)
       {
         var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault());
-        MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
-        MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        var coverLetter =  MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
+          _obj.Save();
+        }
+        
+        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
+          _obj.Save();
+        }
       }
     }
 

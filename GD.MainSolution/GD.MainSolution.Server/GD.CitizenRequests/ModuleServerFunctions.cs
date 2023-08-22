@@ -15,13 +15,13 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
     [Public]
     public virtual void AddDraftResolutionDocumentForExecution(Sungero.RecordManagement.IDocumentReviewAssignment assignment)
     {
-      if (CitizenRequests.Requests.Is(assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+      if (MainSolution.Requests.Is(assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
       {
         var actionItem = GD.GovernmentSolution.ActionItemExecutionTasks.As(assignment.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
         var report = Sungero.Docflow.OfficialDocuments.As(assignment.OtherGroup.All.FirstOrDefault());
         var addressee = Sungero.Company.PublicFunctions.Employee.Remote.GetEmployeeByName(assignment.Performer.Name);
 
-        var document = AddDraftResolutionDocument(assignment.Task, assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault(), actionItem, report,  addressee);
+        var document = GD.CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocument(assignment.Task, assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault(), actionItem, report,  addressee);
         if (report == null && document != null)
           assignment.OtherGroup.All.Add(document);
       }

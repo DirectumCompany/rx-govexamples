@@ -53,7 +53,8 @@ namespace GD.MainSolution.Client
     /// </summary>
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
-    public virtual void CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    /// <returns>Сопроводительное письмо.</returns>
+    public virtual CitizenRequests.IOutgoingRequestLetter CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var letter = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coveringLetterKind)).FirstOrDefault());
@@ -63,18 +64,13 @@ namespace GD.MainSolution.Client
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
-        return;
+        return null;
       }
       var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(actionItemExecution, letter);
       if (coverLetter != null)
-      {
-        if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
-        {
-          _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
-          _obj.Save();
-        }
         Dialogs.NotifyMessage(GD.CitizenRequests.Resources.TransferCoverLetterGeneratedSuccessfully);
-      }
+      
+      return coverLetter;
     }
     
     /// <summary>
@@ -82,7 +78,8 @@ namespace GD.MainSolution.Client
     /// </summary>
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
-    public virtual void CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    /// <returns>Уведомление заявителю.</returns>
+    public virtual CitizenRequests.IOutgoingRequestLetter CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.TransferNotificationKind);
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
@@ -92,20 +89,13 @@ namespace GD.MainSolution.Client
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
-        return;
+        return null;
       }
       
       var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification);
       if (notificationTransfer != null)
-      {
-        if (!_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
-        {
-          _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
-          _obj.Save();
-        }
-        
         Dialogs.NotifyMessage(GD.CitizenRequests.Resources.NotificationTransferSuccessfullyGenerated);
-      }
+     return notificationTransfer;
     }
     
     /// <summary>
