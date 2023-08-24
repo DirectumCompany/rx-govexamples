@@ -15,8 +15,7 @@ namespace GD.MainSolution.Client
       var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
       if (_obj.ResultGroup.OfficialDocuments.Any() && IncomingDocumentBases.Is(document) && IncomingDocumentBases.As(document).ActionItemGD == null)
       {
-        IncomingDocumentBases.As(document).ActionItemGD = _obj;
-        document.Save();
+        Functions.ActionItemExecutionAssignment.Remote.FillActionItemInIncomingDocumentIgnoreRights(_obj, IncomingDocumentBases.As(document));
       }
     }
 
@@ -31,8 +30,7 @@ namespace GD.MainSolution.Client
       var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
       if (_obj.ResultGroup.OfficialDocuments.Any() && IncomingDocumentBases.Is(document) && IncomingDocumentBases.As(document).ActionItemGD == null)
       {
-        IncomingDocumentBases.As(document).ActionItemGD = _obj;
-        document.Save();
+        Functions.ActionItemExecutionAssignment.Remote.FillActionItemInIncomingDocumentIgnoreRights(_obj, IncomingDocumentBases.As(document));
       }
     }
 
