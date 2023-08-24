@@ -34,18 +34,36 @@ namespace GD.MainSolution.Client
                                             MessageType.Question);
       var onReviewButton = dialog.Buttons.AddCustom(GD.CitizenRequests.Resources.GenerateTransferLetter);
       var cancelButton = dialog.Buttons.AddCancel();
-      var result = dialog.Show();
+      var result = dialog.Show();      
       if (result == onReviewButton)
       {
+        var isCreateCoverLetter = true;
+        var isCreateNotification = true;
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
-          CreateCoverLetterForExecution(actionItemExecution, eventArgs);
+        {
+          var coverLetter = CreateCoverLetterForExecution(actionItemExecution, eventArgs);
+          if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
+          {
+            _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
+            _obj.Save();
+          }
+          isCreateCoverLetter = coverLetter != null;
+        }
         
-        var isCreateCoverLetter = !string.IsNullOrEmpty(errorCoverLetter) ? CreateCoverLetterForExecution(actionItemExecution, eventArgs) != null : true;
-        var isCreateNotification = !string.IsNullOrEmpty(errorNotification) ? CreateTransferNotificationForExecution(actionItemExecution, eventArgs) != null : true;
-        
+        if (!string.IsNullOrEmpty(errorNotification))
+        {
+          var notificationTransfer = CreateTransferNotificationForExecution(actionItemExecution, eventArgs);
+          if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
+          {
+            _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
+            _obj.Save();
+          }          
+          isCreateNotification = notificationTransfer != null;
+        }
         return isCreateCoverLetter && isCreateNotification;
       }
+      
       else
         return false;
     }
