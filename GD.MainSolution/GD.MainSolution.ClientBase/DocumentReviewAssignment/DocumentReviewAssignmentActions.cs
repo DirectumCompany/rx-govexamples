@@ -12,26 +12,27 @@ namespace GD.MainSolution.Client
     public override void CreateCoverLettersForTransferGD(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       if (MainSolution.DocumentReviewTasks.Is(_obj.Task))
-        base.CreateCoverLettersForTransferGD(e);
-      else
       {
-        var resolution =  MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-        if (resolution!=null)
+        base.CreateCoverLettersForTransferGD(e);
+        return;
+      }
+
+      var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+      if (resolution != null)
+      {
+        var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
+        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
         {
-          var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
-          var coverLetter =  MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
-          if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
-          {
-            _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
-            _obj.Save();
-          }
-          
-          var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
-          if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
-          {
-            _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
-            _obj.Save();
-          }
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
+          _obj.Save();
+        }
+        
+        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
+          _obj.Save();
         }
       }
     }

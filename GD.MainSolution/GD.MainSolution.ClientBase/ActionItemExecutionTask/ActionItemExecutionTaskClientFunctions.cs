@@ -26,7 +26,7 @@ namespace GD.MainSolution.Client
         dialogText.AppendLine(errorCoverLetter);
       if (!string.IsNullOrEmpty(errorNotification))
         dialogText.AppendLine(errorNotification);
-      dialogText.AppendLine(Environment.NewLine);
+      dialogText.AppendLine();
       dialogText.AppendLine(GD.CitizenRequests.Resources.GenerateCoverLetters);
       
       var dialog = Dialogs.CreateTaskDialog(GD.CitizenRequests.Resources.NecessaryToGenerateCoverLetters,
@@ -40,9 +40,11 @@ namespace GD.MainSolution.Client
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
           CreateCoverLetterForExecution(actionItemExecution, eventArgs);
-        if (!string.IsNullOrEmpty(errorNotification))
-          CreateTransferNotificationForExecution(actionItemExecution, eventArgs);
-        return true;
+        
+        var isCreateCoverLetter = !string.IsNullOrEmpty(errorCoverLetter) ? CreateCoverLetterForExecution(actionItemExecution, eventArgs) != null : true;
+        var isCreateNotification = !string.IsNullOrEmpty(errorNotification) ? CreateTransferNotificationForExecution(actionItemExecution, eventArgs) != null : true;
+        
+        return isCreateCoverLetter && isCreateNotification;
       }
       else
         return false;
@@ -92,10 +94,11 @@ namespace GD.MainSolution.Client
         return null;
       }
       
-      var  notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification);
+      var notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification);
       if (notificationTransfer != null)
         Dialogs.NotifyMessage(GD.CitizenRequests.Resources.NotificationTransferSuccessfullyGenerated);
-     return notificationTransfer;
+      
+      return notificationTransfer;
     }
     
     /// <summary>

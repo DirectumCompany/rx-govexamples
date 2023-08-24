@@ -30,7 +30,7 @@ namespace GD.MainSolution.Shared
       var actionItemParts = resolution.ActionItemParts.Where(a => Equals(a.Assignee, _obj.AssignedBy));
       foreach (var row in actionItemParts.Cast<IActionItemExecutionTaskActionItemParts>())
       {
-        if (row.QuestionRowGuidGD !=null)
+        if (row.QuestionRowGuidGD != null)
         {
           var part = _obj.QuestionsForTransferGD.AddNew();
           part.Question = row.RequestQuestionGD;

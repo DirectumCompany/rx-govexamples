@@ -13,10 +13,10 @@ namespace GD.MainSolution.Client
     public virtual void CreateCoverLettersForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-      if (resolution!=null)
+      if (resolution != null)
       {
         var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault());
-        var coverLetter =  MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
         if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
         {
           _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
@@ -34,7 +34,7 @@ namespace GD.MainSolution.Client
 
     public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
     {
-      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() && 
+      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() &&
         MainSolution.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
 
     }
@@ -102,8 +102,8 @@ namespace GD.MainSolution.Client
       if (CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
       {
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-        var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
-        var resolution = actionItemTask.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
+        var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (resolution != null)
         {
@@ -195,8 +195,8 @@ namespace GD.MainSolution.Client
       {
         // Выполнить проверки для перенаправления.
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-        var actionItemTask = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
-        var resolution = actionItemTask.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTask.FirstOrDefault()) :
+        var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (resolution != null)
         {

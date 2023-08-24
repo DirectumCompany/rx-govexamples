@@ -18,12 +18,14 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
       if (MainSolution.Requests.Is(assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
       {
         var actionItem = GD.GovernmentSolution.ActionItemExecutionTasks.As(assignment.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
-        var report = Sungero.Docflow.OfficialDocuments.As(assignment.OtherGroup.All.FirstOrDefault());
-        var addressee = Sungero.Company.PublicFunctions.Employee.Remote.GetEmployeeByName(assignment.Performer.Name);
+        var currentReport = Sungero.Docflow.OfficialDocuments.As(assignment.OtherGroup.All.FirstOrDefault());
+        var addressee = Sungero.Company.Employees.As(assignment.Performer);
 
-        var document = GD.CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocument(assignment.Task, assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault(), actionItem, report,  addressee);
-        if (report == null && document != null)
-          assignment.OtherGroup.All.Add(document);
+        var report = GD.CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocument(assignment.Task, assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault(),         
+                                                                                            actionItem, currentReport, addressee);
+        // Добавить отчет в группу вложений Дополнительно, если его там нет.
+        if (currentReport == null && report != null)
+          assignment.OtherGroup.All.Add(report);
       }
     }
     /// <summary>
