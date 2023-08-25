@@ -70,12 +70,12 @@
     "default": "Execution of action item",
     "ru-RU": "Исполнение поручения"
   },
-  "Subject_SE_60": {
+  "Subject_SE_55": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
     "default": "{0}",
     "ru-RU": "{0}"
   },
-  "Subject_SE_55": {
+  "Subject_SE_60": {
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
     "default": "{0}",
     "ru-RU": "{0}"

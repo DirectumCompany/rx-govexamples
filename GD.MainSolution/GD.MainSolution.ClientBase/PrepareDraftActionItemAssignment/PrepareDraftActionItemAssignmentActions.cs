@@ -9,6 +9,36 @@ namespace GD.MainSolution.Client
 {
   partial class PrepareDraftActionItemAssignmentActions
   {
+
+    public virtual void CreateCoverLettersForTransfer(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+      if (resolution != null)
+      {
+        var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault());
+        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
+          _obj.Save();
+        }
+        
+        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
+          _obj.Save();
+        }
+      }
+    }
+
+    public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() &&
+        MainSolution.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+
+    }
+
     public virtual void OpenActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       var draftActionItem = _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
@@ -46,7 +76,6 @@ namespace GD.MainSolution.Client
     public virtual void SendForExecute(Sungero.Workflow.Client.ExecuteResultActionArgs e)
     {
       var draftActionItem = _obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
-
       if (Sungero.RecordManagement.PublicFunctions.ActionItemExecutionTask.CheckOverdueActionItemExecutionTask(draftActionItem))
       {
         e.AddError(GD.MainSolution.ActionItemExecutionTasks.Resources.PerformerDeadlineLessThenTodayCorrectIt);
@@ -68,6 +97,28 @@ namespace GD.MainSolution.Client
         e.AddError(GD.MainSolution.PrepareDraftActionItemAssignments.Resources.ActionItemLockedFormat(lockInfo.OwnerName),
                    _obj.Info.Actions.OpenActionItem);
         e.Cancel();
+      }
+      
+      if (CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+      {
+        var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+        if (resolution != null)
+        {
+          // Выполнить проверки для перенаправления.
+          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+            e.Cancel();
+          
+          // Подписать документы.
+          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, resolution);
+          if (!string.IsNullOrEmpty(errorText))
+          {
+            e.AddError(errorText);
+            e.Cancel();
+          }
+        }
       }
     }
 
@@ -92,7 +143,7 @@ namespace GD.MainSolution.Client
         var subActionItemExecutions = Functions.ActionItemExecutionTask.Remote.GetSubActionItemExecutions(executionAssignment);
         if (subActionItemExecutions.Any())
         {
-          // ������ � ������� �������� ��� ����������� ���������.
+          // Диалог с выбором действий для подчиненных поручений.
           var dialog = Dialogs.CreateTaskDialog(ActionItemExecutionTasks.Resources.StopAdditionalActionItemExecutions,
                                                 MessageType.Question);
           Action showNotCompletedExecutionSubTasksHandler = () =>
@@ -139,6 +190,19 @@ namespace GD.MainSolution.Client
         e.AddError(error);
         e.Cancel();
       }
+      
+      if (CitizenRequests.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+      {
+        // Выполнить проверки для перенаправления.
+        var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+        
+        if (resolution != null && !MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+          e.Cancel();
+      }
+      
     }
 
     public virtual bool CanSendForReview(Sungero.Workflow.Client.CanExecuteResultActionArgs e)

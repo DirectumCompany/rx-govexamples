@@ -15,15 +15,6 @@
       "Versions": []
     },
     {
-      "NameGuid": "bf0608fa-af4f-454c-81e3-ae446cdd16cd",
-      "Name": "CreateCoverLetterGD",
-      "GenerateHandler": true,
-      "IsAncestorMetadata": true,
-      "Overridden": [
-        "GenerateHandler"
-      ]
-    },
-    {
       "NameGuid": "331ce81d-0e6d-465e-9228-bab46e3bbbbe",
       "Name": "CreateChildActionItem",
       "GenerateHandler": true,

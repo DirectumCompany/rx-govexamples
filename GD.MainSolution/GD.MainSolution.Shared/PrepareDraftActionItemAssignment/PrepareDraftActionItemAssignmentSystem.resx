@@ -156,4 +156,21 @@ All created action items will be sent for review by manager.</value>
   <data name="Action_OpenActionItemConfirmationDescription" xml:space="preserve">
     <value />
   </data>
+  <data name="Action_CreateCoverLettersForTransfer" xml:space="preserve">
+    <value>Create cover letters</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferDescription" xml:space="preserve">
+    <value>Generate a cover letter to redirect questions of the appeal to another organization.
+
+Pressing it again will rebuild the cover letter if there have been changes.</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferHint" xml:space="preserve">
+    <value>Create cover letters</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferConfirmationMessage" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Action_CreateCoverLettersForTransferConfirmationDescription" xml:space="preserve">
+    <value />
+  </data>
 </root>

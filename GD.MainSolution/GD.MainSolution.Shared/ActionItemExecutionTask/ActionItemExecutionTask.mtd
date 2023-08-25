@@ -59,6 +59,18 @@
       ],
       "PreviousGroupId": "13a98dcd-c5ec-4fd0-a682-424613f615d4",
       "Versions": []
+    },
+    {
+      "NameGuid": "38e4a888-02f2-4b2f-8e74-87ca88c7ada4",
+      "Name": "CoverDocumentsGroup",
+      "Constraints": [
+        {
+          "NameGuid": "61254323-9a88-4cb1-92ed-f7b1f4a987c5",
+          "Name": "OfficialDocuments",
+          "ConstraintTypeId": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1"
+        }
+      ],
+      "PreviousGroupId": "6977b087-9b93-4527-9d0f-24d0e8b7ce88"
     }
   ],
   "BaseGuid": "8a5bbde4-9328-475e-bd97-e2e7d26538d4",
@@ -98,7 +110,8 @@
       "HandledEvents": [
         "PrepareDraftActionItemAssignmentGDStart",
         "PrepareDraftActionItemAssignmentGDStartAssignment",
-        "PrepareDraftActionItemAssignmentGDCompleteAssignment"
+        "PrepareDraftActionItemAssignmentGDCompleteAssignment",
+        "PrepareDraftActionItemAssignmentGDEnd"
       ],
       "Properties": []
     }
@@ -144,7 +157,8 @@
   ],
   "HandledEvents": [
     "BeforeStartServer",
-    "CreatedServer"
+    "CreatedServer",
+    "RefreshClient"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
@@ -299,6 +313,23 @@
         }
       ],
       "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "TransferEndBlockActionForExecution",
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "actionItem",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
       "ReturnType": "void",
       "ReturnTypeFullName": "System.Void"
     }

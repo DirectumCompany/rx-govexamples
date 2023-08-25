@@ -142,4 +142,15 @@
   <data name="Action_OpenActionItemDescription" xml:space="preserve">
     <value>Открыть поручение</value>
   </data>
+  <data name="Action_CreateCoverLettersForTransfer" xml:space="preserve">
+    <value>Сформировать сопр. документы</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferHint" xml:space="preserve">
+    <value>Сформировать сопроводительные документы</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferDescription" xml:space="preserve">
+    <value>Формирование сопроводительного письма для направления по компетенции вопросов обращения в другую организацию и уведомления о направлении по компетенции заявителю.
+
+Повторное нажате переформирует сопроводительные документы, если были изменения.</value>
+  </data>
 </root>

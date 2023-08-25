@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -10,6 +10,24 @@ namespace GD.MainSolution.Server
 {
   partial class ActionItemExecutionTaskFunctions
   {
+    /// <summary>
+    /// Выдать права на сопроводительные документы.
+    /// </summary>
+    /// <param name="assignees">Исполнители.</param>
+    public virtual void GrantAccessRightsOnCoverDocument(List<IRecipient> assignees)
+    {
+      var coverDocuments = _obj.CoverDocumentsGroup.OfficialDocuments;
+      if (coverDocuments.Any())
+      {
+        foreach (var assignee in assignees)
+        {
+          foreach (var document in coverDocuments)
+          {
+            Sungero.Docflow.PublicFunctions.Module.GrantAccessRightsOnEntity(document, assignee, DefaultAccessRightsTypes.Change);
+          }
+        }
+      }
+    }
     /// <summary>
     /// Получить тему по умолчанию для задания "Подготовка проекта поручения".
     /// </summary>
@@ -44,6 +62,31 @@ namespace GD.MainSolution.Server
       return Sungero.RecordManagement.Shared.ActionItemExecutionTaskFunctions.GetActionItemExecutionSubject(task, ActionItemExecutionTasks.Resources.ReviewDraftActionItem);
     }
     
+    /// <summary>
+    /// Обработать перенаправление.
+    /// </summary>
+    /// <param name="actionItem">Поручение.</param>
+    [Public]
+    public virtual void TransferEndBlockActionForExecution(IActionItemExecutionTask actionItem)
+    {
+      var document = _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault();
+      if (CitizenRequests.Requests.Is(document))
+      {
+        // Синхронизировать пункты поручения в вопросы обращения.
+        if (actionItem != null && GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))
+        {
+          CitizenRequests.PublicFunctions.Module.Remote.StartSynchronizeResolutionToRequest(CitizenRequests.Requests.As(document), actionItem);
+          // Отправить задачу на отправку и регистрацию писем по перенаправлению.
+          var coverLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
+          var coverLetter = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
+          var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
+          var notification = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
+          CitizenRequests.PublicFunctions.Module.Remote.StartRegisterAndSendTransferDocument(CitizenRequests.Requests.As(document),
+                                                                                             CitizenRequests.OutgoingRequestLetters.As(coverLetter),
+                                                                                             CitizenRequests.OutgoingRequestLetters.As(notification), _obj);
+        }
+      }
+    }
     /// <summary>
     /// Получить незавершенные подчиненные поручения по ведущему заданию.
     /// </summary>
@@ -138,7 +181,7 @@ namespace GD.MainSolution.Server
     
     /// <summary>
     /// Выдать права на вложения поручения.
-    /// </summary> 
+    /// </summary>
     /// <param name="attachmentGroup"> Группа вложения.</param>
     /// <param name="needGrantAccessRightsToPerformer"> Нужно ли выдать права исполнителю.</param>
     public virtual void GrantRightsToAttachmentsGD(List<Sungero.Domain.Shared.IEntity> attachmentGroup, bool needGrantRightToPerformer)

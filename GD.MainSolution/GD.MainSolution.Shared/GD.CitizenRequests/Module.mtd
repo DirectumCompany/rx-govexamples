@@ -1,0 +1,118 @@
+{
+  "$type": "Sungero.Metadata.LayerModuleMetadata, Sungero.Metadata",
+  "NameGuid": "aabf068b-e4c9-433e-bb46-e6341dc8ff30",
+  "Name": "CitizenRequests",
+  "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+  "AsyncHandlers": [
+    {
+      "NameGuid": "1f747f23-afef-46fb-b20b-bd0fe3d61c86",
+      "Name": "SynchronizeResolutionToRequest",
+      "DelayPeriod": 15,
+      "DelayStrategy": "ExponentialDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "006d2c18-1e6d-470f-ae8e-3a93a47836bf",
+          "Name": "RequestId",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "49bb5797-9b81-4def-9ff4-5841602597c8",
+          "Name": "ActionItemTaskId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    }
+  ],
+  "BaseGuid": "011a7117-3db8-44ae-963a-74568896c47f",
+  "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
+  "ClientBaseNamespace": "GD.MainSolution.Module.CitizenRequests.ClientBase",
+  "Code": "Citizen",
+  "CompanyCode": "GD",
+  "ExplorerTreeOrder": [],
+  "IconResourcesKeys": [],
+  "Importance": "High",
+  "IsLicensed": true,
+  "Jobs": [
+    {
+      "NameGuid": "5a943f1d-a706-49b0-ac05-8107f3913987",
+      "Name": "SendRequestMailNotification",
+      "Daily": "Repeat",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "TimePeriod": 30
+    },
+    {
+      "NameGuid": "a5631415-642c-4b77-a8a5-4765398ee1ef",
+      "Name": "CloseCitizenRequests",
+      "Daily": "Repeat",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "TimePeriod": 10
+    }
+  ],
+  "LayeredFromGuid": "011a7117-3db8-44ae-963a-74568896c47f",
+  "PublicFunctions": [
+    {
+      "Name": "AddDraftResolutionDocumentForExecution",
+      "Parameters": [
+        {
+          "Name": "assignment",
+          "ParameterType": "global::Sungero.RecordManagement.IDocumentReviewAssignment",
+          "ParameterTypeFullName": "Sungero.RecordManagement.IDocumentReviewAssignment, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "GetActualActionItemExecutionTask",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "task",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::GD.MainSolution.IActionItemExecutionTask",
+      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "SignatureTransferDocumentsForExecution",
+      "Parameters": [
+        {
+          "Name": "task",
+          "ParameterType": "global::Sungero.Workflow.ITask",
+          "ParameterTypeFullName": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
+        },
+        {
+          "Name": "actionItemExecution",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::System.String",
+      "ReturnTypeFullName": "System.String"
+    }
+  ],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
+  "ResourcesKeys": [],
+  "SpecialFolders": [],
+  "Version": "4.7.100.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "LayerModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    }
+  ]
+}

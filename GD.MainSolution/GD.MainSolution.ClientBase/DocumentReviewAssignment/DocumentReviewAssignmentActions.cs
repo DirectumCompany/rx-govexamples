@@ -9,6 +9,87 @@ namespace GD.MainSolution.Client
 {
   partial class DocumentReviewAssignmentActions
   {
+    public override void CreateCoverLettersForTransferGD(Sungero.Domain.Client.ExecuteActionArgs e)
+    {
+      if (MainSolution.DocumentReviewTasks.Is(_obj.Task))
+      {
+        base.CreateCoverLettersForTransferGD(e);
+        return;
+      }
+
+      var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+      if (resolution != null)
+      {
+        var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
+        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
+          _obj.Save();
+        }
+        
+        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
+        {
+          _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
+          _obj.Save();
+        }
+      }
+    }
+
+    public override bool CanCreateCoverLettersForTransferGD(Sungero.Domain.Client.CanExecuteActionArgs e)
+    {
+      return base.CanCreateCoverLettersForTransferGD(e);
+    }
+
+    public override void ActionItemsSent(Sungero.Workflow.Client.ExecuteResultActionArgs e)
+    {
+      var callBaseAction = true;
+      var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+      if (task != null && MainSolution.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+      {
+        var actionItemTasks = _obj.ResolutionGroup.ActionItemExecutionTasks;
+        var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
+          MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+        if (resolution != null)
+        {
+          // Выполнить проверки для перенаправления.
+          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+            e.Cancel();
+          
+          // Подписать документы.
+          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, resolution);
+          if (!string.IsNullOrEmpty(errorText))
+          {
+            e.AddError(errorText);
+            e.Cancel();
+          }
+          
+          // Если рассматривается обращение и оно полностью перенаправлено, то не показываем диалог подтверждения выполнения без отправки поручений.
+          if (resolution.IsTransferGD == true && !resolution.ActionItemParts.Any())
+          {
+            #region Копия base.ActionItemsSent(e), но без вызова ShowConfirmationDialogCreationActionItem
+            if (!Sungero.Docflow.PublicFunctions.Module
+                .ShowDialogGrantAccessRightsWithConfirmationDialog(_obj, _obj.OtherGroup.All.ToList(),
+                                                                   e.Action,
+                                                                   Sungero.RecordManagement.Constants.DocumentReviewTask.ReviewManagerAssignmentConfirmDialogID.AddAssignment))
+              e.Cancel();
+            #endregion
+            callBaseAction = false;
+          }
+        }
+      }
+      
+      if (callBaseAction)
+        base.ActionItemsSent(e);
+      
+    }
+
+    public override bool CanActionItemsSent(Sungero.Workflow.Client.CanExecuteResultActionArgs e)
+    {
+      return base.CanActionItemsSent(e);
+    }
+    
     public virtual void OpenActionItemGD(Sungero.Domain.Client.ExecuteActionArgs e)
     {
       if (_obj.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault() != null)
@@ -40,6 +121,25 @@ namespace GD.MainSolution.Client
           e.AddError(GD.MainSolution.DocumentReviewAssignments.Resources.ActionItemLockedFormat(lockInfo.OwnerName),
                      _obj.Info.Actions.OpenActionItemGD);
           e.Cancel();
+        }
+        var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
+        if (MainSolution.Requests.Is(task.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+        {
+          var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem);
+          if (actionItem != null)
+          {
+            // Выполнить проверки для перенаправления.
+            if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, actionItem, e))
+              e.Cancel();
+            
+            // Подписать документы.
+            var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, actionItem);
+            if (!string.IsNullOrEmpty(errorText))
+            {
+              e.AddError(errorText);
+              e.Cancel();
+            }
+          }
         }
       }
       else

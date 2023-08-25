@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -22,7 +22,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
         
         // Завершить задание на продление срока, если оно есть.
         var extendDeadlineTasks = Sungero.Docflow.DeadlineExtensionTasks.GetAll(j => Equals(j.ParentAssignment, assignment) &&
-                                                                j.Status == Sungero.Workflow.Task.Status.InProcess);
+                                                                                j.Status == Sungero.Workflow.Task.Status.InProcess);
         foreach (var extendDeadlineTask in extendDeadlineTasks)
           extendDeadlineTask.Abort();
         
@@ -65,14 +65,14 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       // Выполнить задание на подготовку проекта резолюции помощником руководителя.
       var assistant = Functions.ActionItemExecutionTask.GetSecretary(Employees.As(assignment.Performer));
       var prepareDraft = PrepareDraftActionItemAssignments.GetAll(x => Equals(x.Task, assignment.Task) &&
-                                                                    Equals(x.Performer, assistant) &&
-                                                                    x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
+                                                                  Equals(x.Performer, assistant) &&
+                                                                  x.Status == GD.MainSolution.PrepareDraftActionItemAssignment.Status.InProcess).FirstOrDefault();
       if (prepareDraft != null)
         prepareDraft.Complete(GD.MainSolution.PrepareDraftActionItemAssignment.Result.Explored);
       
       // Прекратить задания на рассмотрение проекта резолюции руководителем.
       var reviewDraft = DocumentReviewAssignments.GetAll(a => Equals(a.Task, assignment.Task) &&
-                                                                a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
+                                                         a.Status == GD.MainSolution.DocumentReviewAssignment.Status.InProcess).FirstOrDefault();
       
       if (reviewDraft != null)
         reviewDraft.Abort();
@@ -100,6 +100,16 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 
   partial class PrepareDraftActionItemAssignmentGDHandlers
   {
+
+    public virtual void PrepareDraftActionItemAssignmentGDEnd(System.Collections.Generic.IEnumerable<GD.MainSolution.IPrepareDraftActionItemAssignment> createdAssignments)
+    {
+      var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
+      if (assignment != null && assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
+      {
+        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
+        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
+      }
+    }
 
     public virtual void PrepareDraftActionItemAssignmentGDCompleteAssignment(GD.MainSolution.IPrepareDraftActionItemAssignment assignment)
     {
@@ -143,7 +153,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       {
         Sungero.Docflow.PublicFunctions.OfficialDocument.GrantAccessRightsToActionItemAttachment(document, Sungero.Company.Employees.As(performer));
         Sungero.Docflow.PublicFunctions.Module.SynchronizeAddendaAndAttachmentsGroup(_obj.AddendaGroup, document);
-      }      
+      }
       
       // Выдать права на основную задачу на рассмотрение.
       if (DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(performer))
