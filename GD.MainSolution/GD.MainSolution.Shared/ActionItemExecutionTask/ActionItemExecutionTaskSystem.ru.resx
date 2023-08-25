@@ -70,4 +70,13 @@
   <data name="Property_RegDateGD" xml:space="preserve">
     <value>Дата рег.</value>
   </data>
+  <data name="Block_28e7cdc6a9a9423b84fff27d006ac548" xml:space="preserve">
+    <value>Подготовка проекта поручения</value>
+  </data>
+  <data name="Property_WasCorrectionsGD" xml:space="preserve">
+    <value>Было скорректировано</value>
+  </data>
+  <data name="AttachmentGroup_CoverDocumentsGroupTitle" xml:space="preserve">
+    <value>Сопроводительные документы</value>
+  </data>
 </root>

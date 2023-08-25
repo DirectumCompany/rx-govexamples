@@ -58,4 +58,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ReworkPrepareDraftActionItem" xml:space="preserve">
+    <value>Rework draft action item: {0}</value>
+  </data>
+  <data name="PrepareDraftActionItem" xml:space="preserve">
+    <value>Prepare draft action item: {0}</value>
+  </data>
+  <data name="PerformerDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Adjust the timing of the instructions in the draft resolution. The due date for the performer must be greater than or equal to the current date.</value>
+  </data>
+  <data name="CoexecutorDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Adjust the timing of the instructions in the draft resolution. The term for the co-executor must be greater than or equal to the current date.</value>
+  </data>
+  <data name="PrepareDraftActionItemAssignmentDefaultSubject" xml:space="preserve">
+    <value>The topic of the task of preparing the draft assignment</value>
+  </data>
+  <data name="DocumentReviewAssignmentDefaultSubject" xml:space="preserve">
+    <value>Subject of the assignment for consideration draft action item</value>
+  </data>
+  <data name="PrepareDraftOrder" xml:space="preserve">
+    <value>Prepare a draft order:</value>
+  </data>
+  <data name="ReviewDraftActionItem" xml:space="preserve">
+    <value>Consider the draft action item:</value>
+  </data>
+  <data name="AssistantPreparesActionItem" xml:space="preserve">
+    <value>Assistant prepares a action item</value>
+  </data>
+  <data name="FinalizeDraftOrderActionItem" xml:space="preserve">
+    <value>Finalize the draft action item:</value>
+  </data>
 </root>

@@ -58,4 +58,34 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ReworkPrepareDraftActionItem" xml:space="preserve">
+    <value>Доработайте проект поручения: {0}</value>
+  </data>
+  <data name="PrepareDraftActionItem" xml:space="preserve">
+    <value>Подготовьте проект поручения: {0}</value>
+  </data>
+  <data name="PerformerDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Скорректируйте сроки поручений в проекте резолюции. Срок для исполнителя должен быть больше или равен текущей дате.</value>
+  </data>
+  <data name="CoexecutorDeadlineLessThenTodayCorrectIt" xml:space="preserve">
+    <value>Скорректируйте сроки поручений в проекте резолюции. Срок для соисполнителя должен быть больше или равен текущей дате.</value>
+  </data>
+  <data name="PrepareDraftActionItemAssignmentDefaultSubject" xml:space="preserve">
+    <value>Тема задания подготовки проекта поручения</value>
+  </data>
+  <data name="DocumentReviewAssignmentDefaultSubject" xml:space="preserve">
+    <value>Тема задания на рассмотрение проект поручения</value>
+  </data>
+  <data name="PrepareDraftOrder" xml:space="preserve">
+    <value>Подготовьте проект поручения:</value>
+  </data>
+  <data name="ReviewDraftActionItem" xml:space="preserve">
+    <value>Рассмотрите проект поручения:</value>
+  </data>
+  <data name="AssistantPreparesActionItem" xml:space="preserve">
+    <value>Помощник готовит проект поручения</value>
+  </data>
+  <data name="FinalizeDraftOrderActionItem" xml:space="preserve">
+    <value>Доработайте проект поручения: </value>
+  </data>
 </root>

@@ -345,7 +345,29 @@
     }
   ],
   "BaseGuid": "8a870bb6-d668-4266-b9ce-23257d878a30",
-  "Blocks": [],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "9f8f547f-4587-4994-a92a-fff3576f0e48",
+      "Name": "DocumentReviewBlock",
+      "BaseGuid": "ff989722-6e21-4c23-a908-ba23467a15a8",
+      "EntityType": "50e39d87-4fc6-4847-8bad-20847b9ba020",
+      "HandledEvents": [
+        "DocumentReviewBlockCompleteAssignment",
+        "DocumentReviewBlockStartAssignment",
+        "DocumentReviewBlockStart",
+        "DocumentReviewBlockEnd"
+      ],
+      "LayeredFromGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
+      "Overridden": [
+        "HandledEvents",
+        "IsAncestorMetadata",
+        "LayeredFromGuid",
+        "IsGenerated"
+      ],
+      "Properties": []
+    }
+  ],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.RecordManagement.ClientBase",
   "Code": "RecMan",
@@ -356,6 +378,42 @@
   "IsVisible": false,
   "LayeredFromGuid": "4e25caec-c722-4740-bcfd-c4f803840ac6",
   "PublicFunctions": [
+    {
+      "Name": "AbortSubtasksAndSendNoticesGD",
+      "Parameters": [
+        {
+          "Name": "actionItem",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "performer",
+          "ParameterType": "global::Sungero.CoreEntities.IUser",
+          "ParameterTypeFullName": "Sungero.CoreEntities.IUser, Sungero.Domain.Shared"
+        },
+        {
+          "Name": "abortingReason",
+          "ParameterType": "global::System.String",
+          "ParameterTypeFullName": "System.String"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
+      "Name": "CreateActionItemExecutionWithoutDoc",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "parentAssignment",
+          "ParameterType": "global::Sungero.Workflow.IAssignment",
+          "ParameterTypeFullName": "Sungero.Workflow.IAssignment, Sungero.Workflow.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::GD.MainSolution.IActionItemExecutionTask",
+      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+    },
     {
       "Name": "SynchronizeAttachmentsToActionItem",
       "Parameters": [
@@ -399,8 +457,57 @@
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.RecordManagement",
   "ResourcesKeys": [],
-  "SpecialFolders": [],
-  "Version": "4.7.33.0",
+  "SpecialFolders": [
+    {
+      "NameGuid": "c21fa108-1570-4155-8a0c-0d04957bc72b",
+      "Name": "ForExecution",
+      "DisplayType": "Inbox",
+      "FilterPanel": {
+        "NameGuid": "85f548e5-ca98-4d1a-9537-8baef3da0d46",
+        "Name": "FilterPanel",
+        "Controls": [
+          {
+            "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
+            "NameGuid": "99ead040-fe73-4bd0-8564-4d0c5e67d4e8",
+            "Name": "AssistantAssignmentGroupGD",
+            "PreviousGuid": "f63464d4-fec5-4381-b450-19a886f66bfb"
+          },
+          {
+            "$type": "Sungero.Metadata.FilterListMetadata, Sungero.Metadata",
+            "NameGuid": "6c4dd0c7-21a2-4611-86f3-21ca1f447c17",
+            "Name": "AssistantAssignmentFlagListGD",
+            "IsMultiSelect": true,
+            "ParentGuid": "99ead040-fe73-4bd0-8564-4d0c5e67d4e8"
+          },
+          {
+            "$type": "Sungero.Metadata.FilterListItemMetadata, Sungero.Metadata",
+            "NameGuid": "5d33e9fb-0d10-4700-af67-6d05c7754361",
+            "Name": "ShowAssistantAssignmentGD",
+            "ParentGuid": "6c4dd0c7-21a2-4611-86f3-21ca1f447c17"
+          }
+        ],
+        "IsAncestorMetadata": true,
+        "Overridden": [
+          "Controls"
+        ],
+        "Versions": []
+      },
+      "HandledEvents": [
+        "DataQueryServer"
+      ],
+      "IconPath": "ForExecution_c21fa108157041558a0c0d04957bc72b.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FilterPanel",
+        "HandledEvents"
+      ],
+      "Versions": []
+    }
+  ],
+  "Version": "4.7.34.0",
   "Widgets": [],
   "Versions": [
     {

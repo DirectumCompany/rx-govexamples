@@ -58,4 +58,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="FilterPanel_ShowAssistantAssignmentGD_5d33e9fb0d104700af676d05c7754361" xml:space="preserve">
+    <value>Show assistant assignment</value>
+  </data>
 </root>

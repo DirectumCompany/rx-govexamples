@@ -19,12 +19,22 @@ namespace GD.MainSolution
 
     public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
     {
+      if (_obj.IsDraftResolution == true && !_obj.DocumentsGroup.OfficialDocuments.Any() && ActionItemExecutionTasks.Is(_obj.ParentAssignment.Task))
+        _obj.IsDraftResolution = false;
+      
+      // Сохранение значения поля Выдал и обнуление, чтобы избежать проверки в базовом коде.
+      var assignedBy = _obj.AssignedBy;
+      _obj.AssignedBy = null;
+      
+      // Чтобы не затирался текст поручения у соисполнителей _obj.ActionItemType затирается.
+      var isAdditionalType = _obj.ActionItemType == ActionItemType.Additional;
+      if (isAdditionalType)
+        _obj.ActionItemType = null;
+      
       base.BeforeStart(e);
       var performers = string.Empty;
       if (_obj.IsCompoundActionItem == true)
-      {
         performers = string.Join("; ", _obj.ActionItemParts.Select( x => x.Assignee.Person.ShortName).ToArray());
-      }
       else
       {
         performers = _obj.Assignee.Person.ShortName + "; ";
@@ -33,7 +43,12 @@ namespace GD.MainSolution
       }
       if (!string.IsNullOrEmpty(performers) && performers.Length > 250)
         performers = performers.Substring(0, 250);
-      _obj.PerformersGD = performers;      
+      _obj.PerformersGD = performers;
+
+      // Восстанавливаем значение типа.
+      if (isAdditionalType)
+        _obj.ActionItemType = ActionItemType.Additional;
+      _obj.AssignedBy = assignedBy;      
     }
   }
 

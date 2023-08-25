@@ -70,4 +70,19 @@
   <data name="Property_RegDateGD" xml:space="preserve">
     <value>Reg. date</value>
   </data>
+  <data name="Block_28e7cdc6a9a9423b84fff27d006ac548" xml:space="preserve">
+    <value>Prepare draft action item assignment</value>
+  </data>
+  <data name="Property_WasCorrectionsGD" xml:space="preserve">
+    <value>Was corrections</value>
+  </data>
+  <data name="Property_DraftActionItemGD" xml:space="preserve">
+    <value>DraftActionItem</value>
+  </data>
+  <data name="AttachmentGroup_CoverDocumentsGroupTitle" xml:space="preserve">
+    <value>Cover documents</value>
+  </data>
+  <data name="AttachmentGroup_CoverDocumentsGroupInformationMessage" xml:space="preserve">
+    <value />
+  </data>
 </root>

@@ -1,0 +1,53 @@
+{
+  "$type": "Sungero.Metadata.LayerModuleMetadata, Sungero.Metadata",
+  "NameGuid": "e36a218a-8fb6-46a9-b9a7-d2f0059ca76a",
+  "Name": "Shell",
+  "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+  "AsyncHandlers": [],
+  "BaseGuid": "279ca87d-8461-49b5-a324-49aba071f850",
+  "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
+  "ClientBaseNamespace": "GD.MainSolution.Module.Shell.ClientBase",
+  "Code": "Shell",
+  "CompanyCode": "Sungero",
+  "ExplorerTreeOrder": [],
+  "IconResourcesKeys": [],
+  "Importance": "Low",
+  "LayeredFromGuid": "fcc573ab-5f4e-4b20-88e8-7b1e11a7a59a",
+  "NeedResetAppliedCache": true,
+  "NeedResetTags": true,
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainSolution.Module.Shell",
+  "ResourcesKeys": [],
+  "SpecialFolders": [
+    {
+      "NameGuid": "1ead1abe-1b7e-4833-9e01-ee7f8404537a",
+      "Name": "OnDocumentProcessing",
+      "DisplayType": "Inbox",
+      "HandledEvents": [
+        "DataQueryServer"
+      ],
+      "IconPath": "OnDocumentProcessing_1ead1abe1b7e48339e01ee7f8404537a.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "HandledEvents"
+      ],
+      "Versions": []
+    }
+  ],
+  "Version": "4.7.34.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "LayerModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    }
+  ]
+}
