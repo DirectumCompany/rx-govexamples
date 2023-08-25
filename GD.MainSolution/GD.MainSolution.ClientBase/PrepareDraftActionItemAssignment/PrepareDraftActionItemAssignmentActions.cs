@@ -198,12 +198,9 @@ namespace GD.MainSolution.Client
         var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
         var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
-        if (resolution != null)
-        {
-          // Выполнить проверки для перенаправления.
-          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
-            e.Cancel();
-        }
+        
+        if (resolution != null && !MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+          e.Cancel();
       }
       
     }

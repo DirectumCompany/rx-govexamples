@@ -104,13 +104,10 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
     public virtual void PrepareDraftActionItemAssignmentGDEnd(System.Collections.Generic.IEnumerable<GD.MainSolution.IPrepareDraftActionItemAssignment> createdAssignments)
     {
       var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
-      if (assignment != null)
+      if (assignment != null && assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
       {
-        if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
-        {
-          var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
-          MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
-        }
+        var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItemGD;
+        MainSolution.Functions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj, MainSolution.ActionItemExecutionTasks.As(actionItem));
       }
     }
 

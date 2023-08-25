@@ -34,11 +34,12 @@ namespace GD.MainSolution.Client
                                             MessageType.Question);
       var onReviewButton = dialog.Buttons.AddCustom(GD.CitizenRequests.Resources.GenerateTransferLetter);
       var cancelButton = dialog.Buttons.AddCancel();
-      var result = dialog.Show();      
+      var result = dialog.Show();
       if (result == onReviewButton)
       {
-        var isCreateCoverLetter = true;
-        var isCreateNotification = true;
+        var isProblemCreatingCoverLetter = false;
+        var isProblemCreatingNotification = false;
+        
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
         {
@@ -48,7 +49,7 @@ namespace GD.MainSolution.Client
             _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
             _obj.Save();
           }
-          isCreateCoverLetter = coverLetter != null;
+          isProblemCreatingCoverLetter = coverLetter == null;
         }
         
         if (!string.IsNullOrEmpty(errorNotification))
@@ -58,10 +59,10 @@ namespace GD.MainSolution.Client
           {
             _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
             _obj.Save();
-          }          
-          isCreateNotification = notificationTransfer != null;
+          }
+          isProblemCreatingNotification = notificationTransfer == null;
         }
-        return isCreateCoverLetter && isCreateNotification;
+        return !isProblemCreatingCoverLetter && !isProblemCreatingNotification;
       }
       
       else

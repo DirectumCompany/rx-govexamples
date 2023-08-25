@@ -15,13 +15,14 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
     [Public]
     public virtual void AddDraftResolutionDocumentForExecution(Sungero.RecordManagement.IDocumentReviewAssignment assignment)
     {
-      if (MainSolution.Requests.Is(assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+      var documentForReview = assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault();
+      if (MainSolution.Requests.Is(documentForReview))
       {
         var actionItem = GD.GovernmentSolution.ActionItemExecutionTasks.As(assignment.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
         var currentReport = Sungero.Docflow.OfficialDocuments.As(assignment.OtherGroup.All.FirstOrDefault());
         var addressee = Sungero.Company.Employees.As(assignment.Performer);
 
-        var report = GD.CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocument(assignment.Task, assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault(),         
+        var report = GD.CitizenRequests.PublicFunctions.Module.AddDraftResolutionDocument(assignment.Task, documentForReview,         
                                                                                             actionItem, currentReport, addressee);
         // Добавить отчет в группу вложений Дополнительно, если его там нет.
         if (currentReport == null && report != null)

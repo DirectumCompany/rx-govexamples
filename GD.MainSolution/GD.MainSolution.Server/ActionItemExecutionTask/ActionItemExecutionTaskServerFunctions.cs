@@ -73,20 +73,17 @@ namespace GD.MainSolution.Server
       if (CitizenRequests.Requests.Is(document))
       {
         // Синхронизировать пункты поручения в вопросы обращения.
-        if (actionItem != null)
+        if (actionItem != null && GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))
         {
-          if (GovernmentSolution.PublicFunctions.ActionItemExecutionTask.IsTransfer(actionItem))
-          {
-            CitizenRequests.PublicFunctions.Module.Remote.StartSynchronizeResolutionToRequest(CitizenRequests.Requests.As(document), actionItem);
-            // Отправить задачу на отправку и регистрацию писем по перенаправлению.
-            var coverLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
-            var coverLetter = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
-            var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
-            var notification = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
-            CitizenRequests.PublicFunctions.Module.Remote.StartRegisterAndSendTransferDocument(CitizenRequests.Requests.As(document),
-                                                                                               CitizenRequests.OutgoingRequestLetters.As(coverLetter),
-                                                                                               CitizenRequests.OutgoingRequestLetters.As(notification), _obj);
-          }
+          CitizenRequests.PublicFunctions.Module.Remote.StartSynchronizeResolutionToRequest(CitizenRequests.Requests.As(document), actionItem);
+          // Отправить задачу на отправку и регистрацию писем по перенаправлению.
+          var coverLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
+          var coverLetter = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coverLetterKind)).FirstOrDefault();
+          var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.GetNativeDocumentKind(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
+          var notification = _obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault();
+          CitizenRequests.PublicFunctions.Module.Remote.StartRegisterAndSendTransferDocument(CitizenRequests.Requests.As(document),
+                                                                                             CitizenRequests.OutgoingRequestLetters.As(coverLetter),
+                                                                                             CitizenRequests.OutgoingRequestLetters.As(notification), _obj);
         }
       }
     }
