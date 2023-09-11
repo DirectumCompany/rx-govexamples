@@ -38,7 +38,7 @@ namespace GD.MainSolution.Module.CitizenRequests.Client
             // Подписать документы.
             try
             {
-              GD.CitizenRequests.PublicFunctions.Module.SignDocuments(documentList, currentTask.AssignedBy);
+              GD.CitizenRequests.PublicFunctions.Module.SignDocuments(documentList, currentTask.Assignee);
             }
             catch (CommonLibrary.Exceptions.PlatformException ex)
             {
