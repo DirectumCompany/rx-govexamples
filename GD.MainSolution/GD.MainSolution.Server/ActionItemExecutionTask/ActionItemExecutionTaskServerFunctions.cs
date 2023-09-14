@@ -11,6 +11,29 @@ namespace GD.MainSolution.Server
   partial class ActionItemExecutionTaskFunctions
   {
     /// <summary>
+    /// Проверить возможность изменения поручения перед показом диалога корректировки.
+    /// </summary>
+    /// <returns>Текст ошибки или пустую строку, если ошибок нет.</returns>
+    [Remote(IsPure = true)]
+    public override string CheckActionItemEditBeforeDialog()
+    {
+      var checkResult = base.CheckActionItemEditBeforeDialog();
+      if (checkResult == null)
+      {
+        // Найти все задания на рассмотрение проекта резолюции.
+        var allReviewDraft = DocumentReviewAssignments.GetAll(x => Equals(x.Task, _obj));
+        foreach (IDocumentReviewAssignment reviewDraft in allReviewDraft)
+        {
+          var lockInfo = Locks.GetLockInfo(reviewDraft);
+          if (lockInfo.IsLocked)
+            checkResult = GD.MainSolution.ActionItemExecutionTasks.Resources.DraftOrderIsBlockedFormat(lockInfo.OwnerName);
+
+        }
+      }
+      return checkResult;
+    }
+    
+    /// <summary>
     /// Выдать права на сопроводительные документы.
     /// </summary>
     /// <param name="assignees">Исполнители.</param>

@@ -88,4 +88,7 @@
   <data name="FinalizeDraftOrderActionItem" xml:space="preserve">
     <value>Доработайте проект поручения: </value>
   </data>
+  <data name="DraftOrderIsBlocked" xml:space="preserve">
+    <value>Проект поручения заблокирован пользователем {0}. Скорректируйте его позднее.</value>
+  </data>
 </root>

@@ -62,6 +62,6 @@
     <value>Для отправки на доработку необходимо написать замечания в текст задания</value>
   </data>
   <data name="ActionItemLocked" xml:space="preserve">
-    <value>The draft order is blocked by the user "{0}". Remove the block from the assignment and try to complete the task again.</value>
+    <value>Проект поручения заблокирован пользователем "{0}". Снимите блокировку с поручения и попробуйте выполнить задание снова.</value>
   </data>
 </root>

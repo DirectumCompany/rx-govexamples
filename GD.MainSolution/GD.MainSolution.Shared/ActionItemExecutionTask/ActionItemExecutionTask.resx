@@ -88,4 +88,7 @@
   <data name="FinalizeDraftOrderActionItem" xml:space="preserve">
     <value>Finalize the draft action item:</value>
   </data>
+  <data name="DraftOrderIsBlocked" xml:space="preserve">
+    <value>The draft order is blocked by user {0}. Please adjust later.</value>
+  </data>
 </root>
