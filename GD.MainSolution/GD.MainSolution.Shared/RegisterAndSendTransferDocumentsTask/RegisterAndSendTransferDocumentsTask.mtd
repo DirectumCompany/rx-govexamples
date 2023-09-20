@@ -5,7 +5,25 @@
   "AccessRightsMode": "Both",
   "BaseGuid": "8caf9507-03d4-4afb-bd49-73cc6fb14d19",
   "BlockIds": [],
-  "Blocks": [],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "dc733ea1-f7df-4951-9ba7-dbc1b0478a17",
+      "Name": "RegisterAndSend",
+      "BaseGuid": "f1a373f8-1f22-4e0f-b37b-e19221a4e13b",
+      "EntityType": "70b4bad9-604f-46f2-b438-0cc6ec594484",
+      "HandledEvents": [
+        "RegisterAndSendEnd"
+      ],
+      "LayeredFromGuid": "f1a373f8-1f22-4e0f-b37b-e19221a4e13b",
+      "Overridden": [
+        "HandledEvents",
+        "LayeredFromGuid",
+        "IsGenerated"
+      ],
+      "Properties": []
+    }
+  ],
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "8d829390-c6cf-4b00-b846-412f2d086650",
