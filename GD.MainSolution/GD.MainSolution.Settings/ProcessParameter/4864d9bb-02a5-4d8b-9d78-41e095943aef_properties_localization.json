@@ -1,0 +1,13 @@
+{
+  "$type": "Sungero.NoCode.Settings.Models.SettingsLayerLocalization, Sungero.NoCode.Settings.Interfaces",
+  "Name": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Автор поручения",
+    "ru-RU": "Автор поручения"
+  },
+  "Description": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Сотрудник, подготовивший проект резолюции",
+    "ru-RU": "Сотрудник, от имени которого подготовлен проект резолюции"
+  }
+}

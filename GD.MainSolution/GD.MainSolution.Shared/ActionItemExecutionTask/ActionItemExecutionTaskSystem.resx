@@ -85,4 +85,10 @@
   <data name="AttachmentGroup_CoverDocumentsGroupInformationMessage" xml:space="preserve">
     <value />
   </data>
+  <data name="Block_8b0f5a4f55d84b8481617365d6c0149e" xml:space="preserve">
+    <value>Delete draft resolution</value>
+  </data>
+  <data name="Block_8b0f5a4f55d84b8481617365d6c0149e_Property_a5230eec28a14f55a5861eaeaf67d697" xml:space="preserve">
+    <value>Except for prepared on behalf of the addressee</value>
+  </data>
 </root>
