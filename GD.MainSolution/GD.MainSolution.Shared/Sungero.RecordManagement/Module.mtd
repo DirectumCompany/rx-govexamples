@@ -415,6 +415,18 @@
       "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
     },
     {
+      "Name": "DeleteActionItemExecutionTasks",
+      "Parameters": [
+        {
+          "Name": "actionItems",
+          "ParameterType": "global::System.Collections.Generic.List<global::GD.MainSolution.IActionItemExecutionTask>",
+          "ParameterTypeFullName": "System.Collections.Generic.List"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
       "Name": "SynchronizeAttachmentsToActionItem",
       "Parameters": [
         {

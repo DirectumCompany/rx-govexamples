@@ -79,4 +79,10 @@
   <data name="AttachmentGroup_CoverDocumentsGroupTitle" xml:space="preserve">
     <value>Сопроводительные документы</value>
   </data>
+  <data name="Block_8b0f5a4f55d84b8481617365d6c0149e" xml:space="preserve">
+    <value>Удаление проекта резолюции</value>
+  </data>
+  <data name="Block_8b0f5a4f55d84b8481617365d6c0149e_Property_a5230eec28a14f55a5861eaeaf67d697" xml:space="preserve">
+    <value>Кроме подготовленного от имени адресата</value>
+  </data>
 </root>

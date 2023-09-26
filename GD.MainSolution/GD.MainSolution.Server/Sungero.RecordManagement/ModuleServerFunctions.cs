@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -42,6 +42,18 @@ namespace GD.MainSolution.Module.RecordManagement.Server
       }
       
       return task;
+    }
+    
+    // Копия DeleteActionItemExecutionTasks.
+    /// <summary>
+    /// Удалить поручения.
+    /// </summary>
+    /// <param name="actionItems">Список поручений.</param>
+    [Public]
+    public virtual void DeleteActionItemExecutionTasks(List<IActionItemExecutionTask> actionItems)
+    {
+      foreach (var draftResolution in actionItems)
+        ActionItemExecutionTasks.Delete(draftResolution);
     }
   }
 }

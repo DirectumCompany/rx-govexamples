@@ -114,6 +114,25 @@
         "PrepareDraftActionItemAssignmentGDEnd"
       ],
       "Properties": []
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "8b0f5a4f-55d8-4b84-8161-7365d6c0149e",
+      "Name": "DeleteDraftResolutionsBlockGD",
+      "BaseGuid": "1f76cc5d-f096-4062-b34a-51b3c02269f2",
+      "HandledEvents": [
+        "DeleteDraftResolutionsBlockGDExecute"
+      ],
+      "Properties": [
+        {
+          "$type": "Sungero.Metadata.NavigationBlockPropertyMetadata, Sungero.Metadata",
+          "NameGuid": "a5230eec-28a1-4f55-a586-1eaeaf67d697",
+          "Name": "ActualFromAddresseesGD",
+          "EntityGuid": "b7905516-2be5-4931-961c-cb38d5677565",
+          "IsCollection": true,
+          "PreviousPropertyGuid": "5dc92a72-3a65-4872-bc04-0aa7ec353b05"
+        }
+      ]
     }
   ],
   "CanBeNavigationPropertyType": true,

@@ -38,6 +38,12 @@ namespace GD.MainSolution.Server
                 (executionAssignment.Deadline.Value.HasTime() && executionAssignment.Deadline >= Calendar.Now ||
                  !executionAssignment.Deadline.Value.HasTime() && executionAssignment.Deadline >= Calendar.Today))
               task.Deadline = executionAssignment.Deadline;
+          
+              var settings = Sungero.Docflow.PublicFunctions.PersonalSetting.GetPersonalSettings(Sungero.Company.Employees.As(task.Author));
+              task.IsAutoExec = settings != null && (task.IsUnderControl != true || !Equals(task.Supervisor, task.Author))
+                ? settings.IsAutoExecLeadingActionItem
+                : false;
+
           }
         });
 

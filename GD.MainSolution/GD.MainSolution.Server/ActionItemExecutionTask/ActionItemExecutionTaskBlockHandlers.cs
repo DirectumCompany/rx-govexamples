@@ -9,6 +9,24 @@ using GD.MainSolution.ActionItemExecutionTask;
 
 namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 {
+  partial class DeleteDraftResolutionsBlockGDHandlers
+  {
+
+    public virtual void DeleteDraftResolutionsBlockGDExecute()
+    {
+      Logger.DebugFormat("ActionItemExecutionTask({0}) DeleteDraftResolutionsBlockExecute", _obj.Id);
+      var draftActionItem = _obj.DraftActionItemGD;
+      var actionItems = new List<MainSolution.IActionItemExecutionTask>();
+      if (draftActionItem != null && draftActionItem.Status == Sungero.RecordManagement.ActionItemExecutionTask.Status.Draft &&
+          !_block.ActualFromAddresseesGD.Contains(draftActionItem.AssignedBy))
+      {
+        actionItems.Add(MainSolution.ActionItemExecutionTasks.As(draftActionItem));
+        _obj.DraftActionItemGD = null;
+        MainSolution.Module.RecordManagement.PublicFunctions.Module.DeleteActionItemExecutionTasks(actionItems);
+      }
+    }
+  }
+
   partial class ExecuteActionItemBlockHandlers
   {
 
