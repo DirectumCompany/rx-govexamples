@@ -189,6 +189,19 @@
   ],
   "Properties": [
     {
+      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "57ae3670-578d-455f-8dd6-65638b9e912a",
+      "Name": "AssignedBy",
+      "HandledEvents": [
+        "ChangedShared"
+      ],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "HandledEvents"
+      ],
+      "Versions": []
+    },
+    {
       "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
       "NameGuid": "d9d93210-c04f-4ae8-b334-423fce711630",
       "Name": "PartsCoAssignees",
