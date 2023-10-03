@@ -24,6 +24,13 @@
     },
     "Tabs": []
   },
+  "Dependencies": [
+    {
+      "Id": "0a1f9eec-945a-4785-a5d6-abae8f671a21",
+      "MaxVersion": "",
+      "MinVersion": "4.7.100.0"
+    }
+  ],
   "DesktopViews": [],
   "ExplorerTreeOrder": [
     {
