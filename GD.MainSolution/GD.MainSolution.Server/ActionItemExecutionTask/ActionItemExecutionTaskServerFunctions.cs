@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -10,6 +10,31 @@ namespace GD.MainSolution.Server
 {
   partial class ActionItemExecutionTaskFunctions
   {
+    /// <summary>
+    /// После выполнения ведущего задания на исполнение поручения заполнить в нем свойство "Выполнил" исполнителем задания.
+    /// </summary>
+    [Public, Remote]
+    public override void SetCompletedByInParentAssignment()
+    {
+      var assignment = Sungero.RecordManagement.PublicFunctions.ActionItemExecutionTask.GetParentAssignment(_obj);
+      if (assignment != null)
+      {
+        var currentUser = Users.Current;
+        var performer = assignment.Performer;
+        if (assignment.Status == Sungero.Workflow.Assignment.Status.Completed &&
+            currentUser != null && currentUser.IsSystem == true && Equals(currentUser, assignment.CompletedBy))
+        {
+          Logger.DebugFormat("ActionItemExecutionAssignment(ID={0}) performer: {1}(ID={2}).", assignment.Id, performer.DisplayValue, performer.Id);
+          Logger.DebugFormat("ActionItemExecutionAssignment(ID={0}) completed by {1}(ID={2}). Set CompletedBy to {3}(ID={4}).",
+                             assignment.Id,
+                             currentUser.DisplayValue, currentUser.Id,
+                             performer.DisplayValue, performer.Id);
+          assignment.CompletedBy = performer;
+          assignment.Save();
+        }
+      }
+    }
+    
     /// <summary>
     /// Проверить возможность изменения поручения перед показом диалога корректировки.
     /// </summary>

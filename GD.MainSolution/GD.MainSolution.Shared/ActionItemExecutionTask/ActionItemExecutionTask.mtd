@@ -330,6 +330,20 @@
       "ReturnTypeFullName": "System.String"
     },
     {
+      "Name": "SetCompletedByInParentAssignment",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    },
+    {
       "Name": "StartActionItemsFromDraft",
       "IsRemote": true,
       "Parameters": [
