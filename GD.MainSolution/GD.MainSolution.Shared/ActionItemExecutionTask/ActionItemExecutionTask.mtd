@@ -296,9 +296,13 @@
       "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
       "NameGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81",
       "Name": "DraftActionItemGD",
+      "CanBeSearch": false,
       "Code": "DrftActionItem",
       "EntityGuid": "c290b098-12c7-487d-bb38-73e2c98f9789",
       "FlatListInStandaloneLookup": true,
+      "IsEnabled": false,
+      "IsShowedInList": false,
+      "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
       "PreviousPropertyGuid": "7224e0f9-5545-460c-bcb8-f13e8a44e470"
     },
