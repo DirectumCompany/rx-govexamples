@@ -1,0 +1,83 @@
+{
+  "$type": "Sungero.NoCode.Settings.Models.SettingsLayerLocalization, Sungero.NoCode.Settings.Interfaces",
+  "ThreadSubject_SE_25": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "ru-RU": "Уведомление о создании поручения",
+    "default": "Notice of action item execution"
+  },
+  "Subject_SE_25": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_27": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Notice to supervisor",
+    "ru-RU": "Уведомление контролеру"
+  },
+  "Subject_SE_27": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_36": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "ru-RU": "Уведомление о приемке работ",
+    "default": "Work acceptance notice"
+  },
+  "Subject_SE_36": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_39": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "ru-RU": "Уведомление об исполнении поручения",
+    "default": "Notice about action item execution"
+  },
+  "Subject_SE_39": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_45": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "ru-RU": "Уведомление об исполнении поручения",
+    "default": "Notice about action item execution"
+  },
+  "Subject_SE_45": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "Subject_SE_6": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_6": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Accept work by supervisor",
+    "ru-RU": "Приемка работ контролером"
+  },
+  "Subject_SE_1": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "ThreadSubject_SE_1": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Execution of action item",
+    "ru-RU": "Исполнение поручения"
+  },
+  "Subject_SE_55": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  },
+  "Subject_SE_60": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "{0}",
+    "ru-RU": "{0}"
+  }
+}
