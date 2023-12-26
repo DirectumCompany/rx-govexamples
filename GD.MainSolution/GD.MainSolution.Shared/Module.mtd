@@ -1,0 +1,239 @@
+{
+  "$type": "Sungero.Metadata.SolutionMetadata, Sungero.Metadata",
+  "NameGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+  "Name": "MainSolution",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "GD.MainSolution.Client",
+  "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
+  "ClientBaseNamespace": "GD.MainSolution.ClientBase",
+  "ClientNamespace": "GD.MainSolution.Client",
+  "Code": "MainSol",
+  "CompanyCode": "GD",
+  "Cover": {
+    "NameGuid": "ecd45b03-8dcd-4113-baa7-a7b7678745c1",
+    "Actions": [],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "7c192cfc-2e9d-45ee-8324-8a0b3450e4f4",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [],
+    "Header": {
+      "NameGuid": "02d62bfb-7227-4758-9317-c0577b50fe82",
+      "BackgroundPosition": "Stretch"
+    },
+    "Tabs": []
+  },
+  "Dependencies": [
+    {
+      "Id": "0a1f9eec-945a-4785-a5d6-abae8f671a21",
+      "MaxVersion": "",
+      "MinVersion": "4.7.100.0"
+    }
+  ],
+  "DesktopViews": [],
+  "ExplorerTreeOrder": [
+    {
+      "ItemId": "728f00be-a8d2-438d-b9b5-b24ba51a02c6"
+    },
+    {
+      "ItemId": "e2fabfd2-e421-410a-900f-449301bc9158",
+      "PreviousItemId": "728f00be-a8d2-438d-b9b5-b24ba51a02c6"
+    },
+    {
+      "ItemId": "6d6c0c6e-1be4-4bf6-ab23-267fda8623bd",
+      "PreviousItemId": "e2fabfd2-e421-410a-900f-449301bc9158"
+    },
+    {
+      "ItemId": "8179c2be-2dcd-48fc-9e65-4c5ff47c5730",
+      "PreviousItemId": "6d6c0c6e-1be4-4bf6-ab23-267fda8623bd"
+    },
+    {
+      "ItemId": "596a477e-a3ce-4da3-bdf4-c734bb240213",
+      "PreviousItemId": "8179c2be-2dcd-48fc-9e65-4c5ff47c5730"
+    },
+    {
+      "ItemId": "b92909c4-b94f-4344-8054-6e12724b73b3",
+      "PreviousItemId": "596a477e-a3ce-4da3-bdf4-c734bb240213"
+    },
+    {
+      "ItemId": "6bfcd1e3-322f-48c8-8a37-dbe0450505f0",
+      "PreviousItemId": "b92909c4-b94f-4344-8054-6e12724b73b3"
+    },
+    {
+      "ItemId": "65b57dd4-5453-4e20-b941-5ba592d34b5d",
+      "PreviousItemId": "6bfcd1e3-322f-48c8-8a37-dbe0450505f0"
+    },
+    {
+      "ItemId": "17abade6-1ce5-43d6-8a05-c08a27604def",
+      "PreviousItemId": "65b57dd4-5453-4e20-b941-5ba592d34b5d"
+    },
+    {
+      "ItemId": "5ac05ff2-2392-4f33-a9ae-03374c9749a2",
+      "PreviousItemId": "17abade6-1ce5-43d6-8a05-c08a27604def"
+    },
+    {
+      "ItemId": "36f40f73-97d2-473c-8d3a-e6f508759a09",
+      "PreviousItemId": "5ac05ff2-2392-4f33-a9ae-03374c9749a2"
+    },
+    {
+      "ItemId": "7fcadc3a-8b85-4950-8197-e913df390afa",
+      "PreviousItemId": "36f40f73-97d2-473c-8d3a-e6f508759a09"
+    },
+    {
+      "ItemId": "e743940f-ae43-49c8-9ed6-99e172b1fa94",
+      "PreviousItemId": "7fcadc3a-8b85-4950-8197-e913df390afa"
+    },
+    {
+      "ItemId": "663399f9-0773-4f17-86ec-e61cf965c7e3",
+      "PreviousItemId": "e743940f-ae43-49c8-9ed6-99e172b1fa94"
+    },
+    {
+      "ItemId": "b412d2d4-5956-4668-a0d8-8e803440a35f",
+      "PreviousItemId": "663399f9-0773-4f17-86ec-e61cf965c7e3"
+    },
+    {
+      "ItemId": "8be11125-6253-48cd-8260-659598761bb3",
+      "PreviousItemId": "b412d2d4-5956-4668-a0d8-8e803440a35f"
+    },
+    {
+      "ItemId": "16123ea5-aa04-4980-b750-cd406379dac4",
+      "PreviousItemId": "8be11125-6253-48cd-8260-659598761bb3"
+    },
+    {
+      "ItemId": "e332c611-d9dd-4600-b002-71c07f823611",
+      "PreviousItemId": "16123ea5-aa04-4980-b750-cd406379dac4"
+    },
+    {
+      "ItemId": "7274a71a-9d64-4618-bacf-b886b295fb48",
+      "PreviousItemId": "e332c611-d9dd-4600-b002-71c07f823611"
+    },
+    {
+      "ItemId": "07c72bfa-1f0d-4aa5-8cbc-86bfdb005d62",
+      "PreviousItemId": "7274a71a-9d64-4618-bacf-b886b295fb48"
+    },
+    {
+      "ItemId": "242834c7-be55-4190-a487-f275d8ac2cb6",
+      "PreviousItemId": "07c72bfa-1f0d-4aa5-8cbc-86bfdb005d62"
+    },
+    {
+      "ItemId": "8b25d8d6-1851-4f3b-808c-765e0d4de2da",
+      "PreviousItemId": "242834c7-be55-4190-a487-f275d8ac2cb6"
+    },
+    {
+      "ItemId": "d4896d79-4c3c-4f86-8287-c930241857cb",
+      "PreviousItemId": "8b25d8d6-1851-4f3b-808c-765e0d4de2da"
+    },
+    {
+      "ItemId": "cfc41969-6e38-43a6-9a49-d59420f7ed82",
+      "PreviousItemId": "d4896d79-4c3c-4f86-8287-c930241857cb"
+    },
+    {
+      "ItemId": "632a4f68-b676-46cb-80a5-239ed547d50d",
+      "PreviousItemId": "cfc41969-6e38-43a6-9a49-d59420f7ed82"
+    },
+    {
+      "ItemId": "1a97f7ad-d861-44bd-8b72-b467c996d8ed",
+      "PreviousItemId": "632a4f68-b676-46cb-80a5-239ed547d50d"
+    },
+    {
+      "ItemId": "199527a0-03f0-48f9-bf01-eb9825b8ef48",
+      "PreviousItemId": "1a97f7ad-d861-44bd-8b72-b467c996d8ed"
+    },
+    {
+      "ItemId": "5cfc4046-ec5b-41b0-a220-1e1293372a08",
+      "PreviousItemId": "199527a0-03f0-48f9-bf01-eb9825b8ef48"
+    },
+    {
+      "ItemId": "d2f662b3-a7f9-4002-904e-e94886f615e1",
+      "PreviousItemId": "5cfc4046-ec5b-41b0-a220-1e1293372a08"
+    },
+    {
+      "ItemId": "d3b30768-f171-47c1-bf99-3407a0d2e5ee",
+      "PreviousItemId": "d2f662b3-a7f9-4002-904e-e94886f615e1"
+    },
+    {
+      "ItemId": "d44c8583-8068-46b1-82e5-06104ebf0a35",
+      "PreviousItemId": "d3b30768-f171-47c1-bf99-3407a0d2e5ee"
+    },
+    {
+      "ItemId": "41d3b642-4047-4e49-8011-c1cb44438ce9",
+      "PreviousItemId": "d44c8583-8068-46b1-82e5-06104ebf0a35"
+    },
+    {
+      "ItemId": "9c8ba90c-2617-4a02-a183-b4582e07209a",
+      "PreviousItemId": "41d3b642-4047-4e49-8011-c1cb44438ce9"
+    },
+    {
+      "ItemId": "2e6ad240-fd66-4b8b-b147-15bb1b2f90c1",
+      "PreviousItemId": "9c8ba90c-2617-4a02-a183-b4582e07209a"
+    },
+    {
+      "ItemId": "ab2c30c0-072f-4595-ac10-312f59223cda",
+      "PreviousItemId": "2e6ad240-fd66-4b8b-b147-15bb1b2f90c1"
+    },
+    {
+      "ItemId": "94444fdc-d626-4077-9b84-1f73c4836b3b",
+      "PreviousItemId": "ab2c30c0-072f-4595-ac10-312f59223cda"
+    },
+    {
+      "ItemId": "914d67ad-4ea1-4cf3-acbe-0a3c36cc90f9",
+      "PreviousItemId": "94444fdc-d626-4077-9b84-1f73c4836b3b"
+    },
+    {
+      "ItemId": "9ee07b99-fa73-400b-911f-2e24be6cfa71",
+      "PreviousItemId": "914d67ad-4ea1-4cf3-acbe-0a3c36cc90f9"
+    }
+  ],
+  "IconResourcesKeys": [],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "GD.MainSolution",
+  "IsolatedAssemblyName": "GD.MainSolution.Isolated",
+  "IsolatedNamespace": "GD.MainSolution.Isolated",
+  "OrderedSpecialFolders": [],
+  "PublicFunctions": [
+    {
+      "Name": "AddRelationToAddendum",
+      "Parameters": [
+        {
+          "Name": "groupAttachments",
+          "ParameterType": "Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup"
+        },
+        {
+          "Name": "document",
+          "ParameterType": "global::Sungero.Docflow.IOfficialDocument",
+          "ParameterTypeFullName": "Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    }
+  ],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainSolution",
+  "ResourcesKeys": [],
+  "ServerAssemblyName": "GD.MainSolution.Server",
+  "ServerNamespace": "GD.MainSolution.Server",
+  "SharedAssemblyName": "GD.MainSolution.Shared",
+  "SharedNamespace": "GD.MainSolution.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "SolutionMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}
