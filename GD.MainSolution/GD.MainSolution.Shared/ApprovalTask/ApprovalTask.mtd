@@ -321,7 +321,7 @@
   "Versions": [
     {
       "Type": "TaskMetadata",
-      "Number": 2
+      "Number": 3
     },
     {
       "Type": "WorkflowEntityMetadata",

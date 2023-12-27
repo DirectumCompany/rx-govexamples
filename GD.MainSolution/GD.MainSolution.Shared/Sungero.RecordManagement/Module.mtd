@@ -5,6 +5,21 @@
   "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
   "AsyncHandlers": [
     {
+      "NameGuid": "32701eac-fad4-47dc-9762-36cb518abf2c",
+      "Name": "WaitAndFinalizeAIAssistantTraining",
+      "DelayPeriod": 5,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsAncestorMetadata": true,
+      "MaxRetryCount": 50,
+      "Parameters": [
+        {
+          "NameGuid": "1d69dbf9-6b5b-4cad-b092-43630ad6a4cc",
+          "Name": "ArioTaskId",
+          "ParameterType": "Integer"
+        }
+      ]
+    },
+    {
       "NameGuid": "b7a99a41-01d5-4599-ace0-1df2ad2fd7b5",
       "Name": "StartActionItemExecutionTasks",
       "DelayPeriod": 15,
@@ -376,6 +391,23 @@
   "IconResourcesKeys": [],
   "Importance": "High",
   "IsVisible": false,
+  "Jobs": [
+    {
+      "NameGuid": "b0c59ce7-500a-41f4-8064-891445930821",
+      "Name": "PrepareDataForAIAssistantTraining",
+      "Daily": "Repeat",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "TimePeriod": 15
+    },
+    {
+      "NameGuid": "665b09ed-643e-4f9b-8a30-dd97b0d34c96",
+      "Name": "StartAIAssistantTraining",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "StartAt": "1753-01-01T05:00:00"
+    }
+  ],
   "LayeredFromGuid": "4e25caec-c722-4740-bcfd-c4f803840ac6",
   "PublicFunctions": [
     {
@@ -519,7 +551,7 @@
       "Versions": []
     }
   ],
-  "Version": "4.7.28.0",
+  "Version": "4.8.34.0",
   "Widgets": [],
   "Versions": [
     {
