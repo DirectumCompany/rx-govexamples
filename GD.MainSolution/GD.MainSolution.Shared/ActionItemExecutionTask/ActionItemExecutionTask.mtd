@@ -176,7 +176,6 @@
   ],
   "HandledEvents": [
     "BeforeStartServer",
-    "CreatedServer",
     "RefreshClient"
   ],
   "IconResourcesKeys": [],
