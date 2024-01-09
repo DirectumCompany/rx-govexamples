@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -10,26 +10,10 @@ namespace GD.MainSolution
   partial class ActionItemExecutionTaskServerHandlers
   {
 
-    public override void Created(Sungero.Domain.CreatedEventArgs e)
-    {
-      base.Created(e);
-      if (!_obj.State.IsCopied)
-        _obj.ActiveText = Sungero.RecordManagement.ActionItemExecutionTasks.Resources.DefaultActionItem;
-    }
-
     public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
     {
       if (_obj.IsDraftResolution == true && !_obj.DocumentsGroup.OfficialDocuments.Any() && ActionItemExecutionTasks.Is(_obj.ParentAssignment.Task))
         _obj.IsDraftResolution = false;
-      
-      // Сохранение значения поля Выдал и обнуление, чтобы избежать проверки в базовом коде.
-      var assignedBy = _obj.AssignedBy;
-      _obj.AssignedBy = null;
-      
-      // Чтобы не затирался текст поручения у соисполнителей _obj.ActionItemType затирается.
-      var isAdditionalType = _obj.ActionItemType == ActionItemType.Additional;
-      if (isAdditionalType)
-        _obj.ActionItemType = null;
       
       base.BeforeStart(e);
       var performers = string.Empty;
@@ -43,12 +27,7 @@ namespace GD.MainSolution
       }
       if (!string.IsNullOrEmpty(performers) && performers.Length > 250)
         performers = performers.Substring(0, 250);
-      _obj.PerformersGD = performers;
-
-      // Восстанавливаем значение типа.
-      if (isAdditionalType)
-        _obj.ActionItemType = ActionItemType.Additional;
-      _obj.AssignedBy = assignedBy;      
+      _obj.PerformersGD = performers;  
     }
   }
 
