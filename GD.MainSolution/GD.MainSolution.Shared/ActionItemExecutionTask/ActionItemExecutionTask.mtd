@@ -165,7 +165,26 @@
       "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
       "NameGuid": "02fae1ba-d7a8-4205-ace1-b3b605572b4c",
       "Name": "Card",
-      "Controls": [],
+      "Controls": [
+        {
+          "$type": "Sungero.Metadata.ControlGroupMetadata, Sungero.Metadata",
+          "NameGuid": "ae98972b-4d86-49b4-b20b-0e940962659b",
+          "Name": "TaskGroup",
+          "ColumnDefinitions": [
+            {
+              "Percentage": 66.68
+            },
+            {
+              "Percentage": 33.33
+            }
+          ],
+          "IsAncestorMetadata": true,
+          "Overridden": [
+            "ColumnDefinitions"
+          ],
+          "Versions": []
+        }
+      ],
       "IsAncestorMetadata": true,
       "Overridden": [
         "UseAncestorControls",
@@ -176,7 +195,8 @@
   ],
   "HandledEvents": [
     "BeforeStartServer",
-    "RefreshClient"
+    "RefreshClient",
+    "BeforeSaveServer"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
@@ -332,6 +352,18 @@
       "Placement": "Shared",
       "ReturnType": "global::System.String",
       "ReturnTypeFullName": "System.String"
+    },
+    {
+      "Name": "PerformersUpdate",
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
     },
     {
       "Name": "SetCompletedByInParentAssignment",

@@ -61,4 +61,10 @@
   <data name="FilterPanel_ShowAssistantAssignmentGD_5d33e9fb0d104700af676d05c7754361" xml:space="preserve">
     <value>Show assistant assignment</value>
   </data>
+  <data name="AsyncHandler_Description_1422195966974d5692851821d45ec9c0" xml:space="preserve">
+    <value>UpdateDocumentDataInActionItemGD</value>
+  </data>
+  <data name="AsyncHandler_Description_109cffdb2ac54e208702646cf13977b0" xml:space="preserve">
+    <value>UpdateDocumentDataInActionItemAssignment</value>
+  </data>
 </root>

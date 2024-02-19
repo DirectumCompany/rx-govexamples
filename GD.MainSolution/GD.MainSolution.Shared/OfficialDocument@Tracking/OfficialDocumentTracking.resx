@@ -58,13 +58,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FilterPanel_ShowAssistantAssignmentGD_5d33e9fb0d104700af676d05c7754361" xml:space="preserve">
-    <value>В работе у помощника</value>
-  </data>
-  <data name="AsyncHandler_Description_1422195966974d5692851821d45ec9c0" xml:space="preserve">
-    <value>AsyncHandlerGD</value>
-  </data>
-  <data name="AsyncHandler_Description_109cffdb2ac54e208702646cf13977b0" xml:space="preserve">
-    <value>AsyncHandlerGD</value>
-  </data>
 </root>

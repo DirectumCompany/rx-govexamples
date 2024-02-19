@@ -10,6 +10,13 @@ namespace GD.MainSolution
   partial class ActionItemExecutionTaskServerHandlers
   {
 
+    public override void BeforeSave(Sungero.Domain.BeforeSaveEventArgs e)
+    {
+      base.BeforeSave(e);
+      
+      PublicFunctions.ActionItemExecutionTask.PerformersUpdate(_obj);
+    }
+
     public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
     {
       if (_obj.IsDraftResolution == true && !_obj.DocumentsGroup.OfficialDocuments.Any() && ActionItemExecutionTasks.Is(_obj.ParentAssignment.Task))
