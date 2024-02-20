@@ -62,9 +62,9 @@
     <value>Show assistant assignment</value>
   </data>
   <data name="AsyncHandler_Description_1422195966974d5692851821d45ec9c0" xml:space="preserve">
-    <value>UpdateDocumentDataInActionItemGD</value>
+    <value>Update document properties in action items</value>
   </data>
   <data name="AsyncHandler_Description_109cffdb2ac54e208702646cf13977b0" xml:space="preserve">
-    <value>UpdateDocumentDataInActionItemAssignment</value>
+    <value>Update document properties in action item assignments</value>
   </data>
 </root>

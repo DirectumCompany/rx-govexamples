@@ -62,9 +62,9 @@
     <value>В работе у помощника</value>
   </data>
   <data name="AsyncHandler_Description_1422195966974d5692851821d45ec9c0" xml:space="preserve">
-    <value>AsyncHandlerGD</value>
+    <value>Обновить значения свойств документа в задачах рассмотрения</value>
   </data>
   <data name="AsyncHandler_Description_109cffdb2ac54e208702646cf13977b0" xml:space="preserve">
-    <value>AsyncHandlerGD</value>
+    <value>Обновить значения свойств исполняемого документа в заданиях на исполнение поручения по нему</value>
   </data>
 </root>
