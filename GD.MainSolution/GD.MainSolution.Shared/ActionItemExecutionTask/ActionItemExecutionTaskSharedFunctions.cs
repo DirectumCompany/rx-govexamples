@@ -9,6 +9,7 @@ namespace GD.MainSolution.Shared
 {
   partial class ActionItemExecutionTaskFunctions
   {
+
     /// <summary>
     /// Создать список код вопроса, вопрос из обращения по guid.
     /// </summary>

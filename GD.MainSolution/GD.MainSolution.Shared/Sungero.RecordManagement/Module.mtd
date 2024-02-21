@@ -357,6 +357,34 @@
           "ParameterType": "String"
         }
       ]
+    },
+    {
+      "NameGuid": "14221959-6697-4d56-9285-1821d45ec9c0",
+      "Name": "UpdateDocumentDataInActionItemGD",
+      "DelayPeriod": 15,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsHandlerGenerated": true,
+      "Parameters": [
+        {
+          "NameGuid": "f884a4e3-29a3-4f94-bec4-6cf5acfaecda",
+          "Name": "DocumentId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    },
+    {
+      "NameGuid": "109cffdb-2ac5-4e20-8702-646cf13977b0",
+      "Name": "UpdateDocumentDataInActionItemAssignmentGD",
+      "DelayPeriod": 15,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsHandlerGenerated": true,
+      "Parameters": [
+        {
+          "NameGuid": "a31b0bf7-b1d7-422d-b502-364ce83193f4",
+          "Name": "DocumentId",
+          "ParameterType": "LongInteger"
+        }
+      ]
     }
   ],
   "BaseGuid": "8a870bb6-d668-4266-b9ce-23257d878a30",
@@ -551,7 +579,6 @@
       "Versions": []
     }
   ],
-  "Version": "4.8.34.0",
   "Widgets": [],
   "Versions": [
     {
