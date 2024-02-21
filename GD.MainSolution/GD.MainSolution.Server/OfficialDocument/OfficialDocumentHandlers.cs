@@ -14,6 +14,8 @@ namespace GD.MainSolution
     {
       base.AfterSave(e);
       
+      // Проверяем был ли изменены свойства документа и стартуем АО
+      // Который изменит свойства и темы задачи и заданий на исполнение поручений по которым он был отправлен.
       var needUpdateActionItems = false;
       if (e.Params.TryGetValue(Constants.Docflow.OfficialDocument.NeedUpdateActionItemsParamName, out needUpdateActionItems))
         e.Params.Remove(Constants.Docflow.OfficialDocument.NeedUpdateActionItemsParamName);

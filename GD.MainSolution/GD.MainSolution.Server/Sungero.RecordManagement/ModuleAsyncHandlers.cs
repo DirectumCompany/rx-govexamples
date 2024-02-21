@@ -115,15 +115,14 @@ namespace GD.MainSolution.Module.RecordManagement.Server
         {
           Locks.Unlock(actionItem);
         }
-        
-        var updateInAssignmentsAsyncHandler = AsyncHandlers.UpdateDocumentDataInActionItemAssignmentGD.Create();
-        updateInAssignmentsAsyncHandler.DocumentId = document.Id;
-        updateInAssignmentsAsyncHandler.ExecuteAsync();
-
-        args.Retry = needRetry;
-        Logger.DebugFormat("UpdateDocumentDataInActionItem({0}). Finish. NeedRetry - {1}", args.DocumentId, args.Retry);
       }
+      
+      var updateInAssignmentsAsyncHandler = AsyncHandlers.UpdateDocumentDataInActionItemAssignmentGD.Create();
+      updateInAssignmentsAsyncHandler.DocumentId = document.Id;
+      updateInAssignmentsAsyncHandler.ExecuteAsync();
 
+      args.Retry = needRetry;
+      Logger.DebugFormat("UpdateDocumentDataInActionItem({0}). Finish. NeedRetry - {1}", args.DocumentId, args.Retry);
     }
   }
 }
