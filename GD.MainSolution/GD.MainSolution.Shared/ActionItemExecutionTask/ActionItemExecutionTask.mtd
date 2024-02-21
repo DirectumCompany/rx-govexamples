@@ -165,26 +165,7 @@
       "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
       "NameGuid": "02fae1ba-d7a8-4205-ace1-b3b605572b4c",
       "Name": "Card",
-      "Controls": [
-        {
-          "$type": "Sungero.Metadata.ControlGroupMetadata, Sungero.Metadata",
-          "NameGuid": "ae98972b-4d86-49b4-b20b-0e940962659b",
-          "Name": "TaskGroup",
-          "ColumnDefinitions": [
-            {
-              "Percentage": 66.68
-            },
-            {
-              "Percentage": 33.33
-            }
-          ],
-          "IsAncestorMetadata": true,
-          "Overridden": [
-            "ColumnDefinitions"
-          ],
-          "Versions": []
-        }
-      ],
+      "Controls": [],
       "IsAncestorMetadata": true,
       "Overridden": [
         "UseAncestorControls",
@@ -194,7 +175,6 @@
     }
   ],
   "HandledEvents": [
-    "BeforeStartServer",
     "RefreshClient",
     "BeforeSaveServer"
   ],

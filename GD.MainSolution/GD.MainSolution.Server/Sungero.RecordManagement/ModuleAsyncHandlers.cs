@@ -23,7 +23,8 @@ namespace GD.MainSolution.Module.RecordManagement.Server
 
       var needRetry = false;
       var taskDocumentGroupId = Sungero.Docflow.PublicConstants.Module.TaskMainGroup.ActionItemExecutionTask;
-      var tasksIds = ActionItemExecutionTasks.GetAll(t => t.AttachmentDetails.Any(ad => ad.GroupId == taskDocumentGroupId && ad.EntityId == document.Id))
+      var tasksIds = ActionItemExecutionTasks.GetAll(t => t.AttachmentDetails
+                                                     .Any(ad => ad.GroupId == taskDocumentGroupId && ad.EntityId == document.Id))
         .Select(t => t.Id)
         .ToList();
 
@@ -78,16 +79,7 @@ namespace GD.MainSolution.Module.RecordManagement.Server
         return;
       }
 
-      var actionItems = new List<IActionItemExecutionTask>();
-      foreach (var actionItem in ActionItemExecutionTasks.GetAll())
-      {
-        foreach (IOfficialDocument doc in actionItem.DocumentsGroup.All)
-        {
-          if (Equals(doc, document))
-            actionItems.Add(actionItem);
-        }
-      }
-      
+      var actionItems = ActionItemExecutionTasks.GetAll(ai => Equals(ai.DocumentGD, document)).ToList();
       Logger.DebugFormat("UpdateDocumentDataInActionItem({0}). ActionItems to update - {1}", args.DocumentId, actionItems.Count);
 
       var needRetry = false;
