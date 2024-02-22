@@ -12,6 +12,15 @@ namespace GD.MainSolution.Server
   {
 
     /// <summary>
+    /// Создать поручение из открытого задания.
+    /// </summary>
+    [Remote(PackResultEntityEagerly = true)]
+    public override Sungero.RecordManagement.IActionItemExecutionTask CreateActionItemExecutionFromExecution(Sungero.RecordManagement.IActionItemExecutionAssignment actionItemAssignment)
+    {
+      return base.CreateActionItemExecutionFromExecution(actionItemAssignment);
+    }
+
+    /// <summary>
     /// Обновление Исполнителей и соисполнителей в задаче на рассмотрение поручения.
     /// </summary>
     [Public]
@@ -28,6 +37,7 @@ namespace GD.MainSolution.Server
       }
       if (!string.IsNullOrEmpty(performers) && performers.Length > 250)
         performers = performers.Substring(0, 250);
+      
       _obj.PerformersGD = performers;
     }
     

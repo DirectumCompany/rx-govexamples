@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -41,8 +41,15 @@ namespace GD.MainSolution.Client
 
     public override void CreateChildActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
     {
-      e.CloseFormAfterAction = true;
-      base.CreateChildActionItem(e);
+      if (_obj.State.IsChanged)
+        _obj.Save();
+      // base.CreateChildActionItem(e);
+      Logger.DebugFormat("ActionItemExecutionAssignment (ID={0}). Start CreateChildActionItem.", _obj.Id);
+      var subTask = Functions.ActionItemExecutionTask.Remote.CreateActionItemExecutionFromExecution(ActionItemExecutionTasks.As(_obj.Task), _obj);
+      subTask.ShowModal();
+      Logger.DebugFormat("ActionItemExecutionAssignment (ID={0}). End CreateChildActionItem.", _obj.Id);
+      if (subTask.Status == Sungero.Workflow.Task.Status.InProcess)
+        e.CloseFormAfterAction = true;
     }
 
     public override bool CanCreateChildActionItem(Sungero.Domain.Client.CanExecuteActionArgs e)
@@ -51,5 +58,5 @@ namespace GD.MainSolution.Client
     }
 
   }
-
+  
 }
