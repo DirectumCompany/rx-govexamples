@@ -4,5 +4,15 @@
     "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
     "default": "Простое поручение тест с помощником",
     "ru-RU": "Простое поручение с помощником"
+  },
+  "Name_d2544f15-640f-44e2-a3d0-18e30f7a9a06": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Автор поручения",
+    "ru-RU": "Автор поручения"
+  },
+  "Description_d2544f15-640f-44e2-a3d0-18e30f7a9a06": {
+    "$type": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+    "default": "Сотрудник, от имени которого подготовлен проект резолюции",
+    "ru-RU": "Сотрудник, от имени которого подготовлен проект резолюции"
   }
 }
