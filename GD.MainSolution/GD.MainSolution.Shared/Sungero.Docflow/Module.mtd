@@ -311,7 +311,7 @@
       ]
     }
   ],
-  "BaseGuid": "df83a2ea-8d43-4ec4-a34a-2e61863014df",
+  "BaseGuid": "396f86bf-ab4c-46b7-b02c-a0c5f0627680",
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.Docflow.ClientBase",
   "Code": "Docflow",

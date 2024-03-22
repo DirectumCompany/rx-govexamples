@@ -344,13 +344,13 @@
       ]
     }
   ],
-  "BaseGuid": "4e25caec-c722-4740-bcfd-c4f803840ac6",
+  "BaseGuid": "8a870bb6-d668-4266-b9ce-23257d878a30",
   "Blocks": [
     {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
       "NameGuid": "9f8f547f-4587-4994-a92a-fff3576f0e48",
       "Name": "DocumentReviewBlock",
-      "BaseGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
+      "BaseGuid": "ff989722-6e21-4c23-a908-ba23467a15a8",
       "EntityType": "50e39d87-4fc6-4847-8bad-20847b9ba020",
       "HandledEvents": [
         "DocumentReviewBlockCompleteAssignment",
