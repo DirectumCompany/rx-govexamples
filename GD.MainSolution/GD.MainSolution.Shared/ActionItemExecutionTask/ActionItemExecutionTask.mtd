@@ -98,8 +98,7 @@
         "IsAncestorMetadata",
         "LayeredFromGuid",
         "IsGenerated"
-      ],
-      "Properties": []
+      ]
     },
     {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
@@ -112,8 +111,7 @@
         "PrepareDraftActionItemAssignmentGDStartAssignment",
         "PrepareDraftActionItemAssignmentGDCompleteAssignment",
         "PrepareDraftActionItemAssignmentGDEnd"
-      ],
-      "Properties": []
+      ]
     },
     {
       "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",

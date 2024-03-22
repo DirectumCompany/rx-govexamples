@@ -407,8 +407,7 @@
         "IsAncestorMetadata",
         "LayeredFromGuid",
         "IsGenerated"
-      ],
-      "Properties": []
+      ]
     }
   ],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
@@ -579,6 +578,7 @@
       "Versions": []
     }
   ],
+  "Version": "4.9.37.0",
   "Widgets": [],
   "Versions": [
     {

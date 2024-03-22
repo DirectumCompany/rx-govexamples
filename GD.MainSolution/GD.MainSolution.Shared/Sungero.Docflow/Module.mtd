@@ -391,6 +391,7 @@
   "IconResourcesKeys": [],
   "Importance": "Low",
   "IsolatedAreas": [],
+  "IsVisible": false,
   "Jobs": [
     {
       "NameGuid": "91cb2efd-0ef2-4073-b1d0-fce8bec52690",
@@ -466,7 +467,7 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.8.34.0",
+  "Version": "4.9.37.0",
   "Widgets": [],
   "Versions": [
     {

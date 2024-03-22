@@ -20,8 +20,7 @@
         "HandledEvents",
         "LayeredFromGuid",
         "IsGenerated"
-      ],
-      "Properties": []
+      ]
     }
   ],
   "CanBeNavigationPropertyType": true,

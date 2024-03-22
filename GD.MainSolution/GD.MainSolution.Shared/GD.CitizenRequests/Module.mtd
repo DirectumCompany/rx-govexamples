@@ -33,6 +33,7 @@
   "IconResourcesKeys": [],
   "Importance": "High",
   "IsLicensed": true,
+  "IsVisible": false,
   "Jobs": [
     {
       "NameGuid": "5a943f1d-a706-49b0-ac05-8107f3913987",
@@ -103,7 +104,7 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.8.2.0",
+  "Version": "4.9.1.0",
   "Widgets": [],
   "Versions": [
     {
