@@ -28,10 +28,10 @@ namespace GD.MainSolution.Server
     {
       var performers = string.Empty;
       if (_obj.IsCompoundActionItem == true)
-        performers = string.Join("; ", _obj.ActionItemParts.Select(x => x.Assignee.Person.ShortName).ToArray());
+        performers = string.Join("; ", _obj.ActionItemParts.Select(x => x.Assignee?.Person.ShortName).ToArray());
       else
       {
-        performers = _obj.Assignee.Person.ShortName + "; ";
+        performers = _obj.Assignee?.Person.ShortName + "; ";
         if (_obj.CoAssignees.Any())
           performers += string.Join("; ", _obj.CoAssignees.Select(x => x.Assignee.Person.ShortName).ToArray());
       }
