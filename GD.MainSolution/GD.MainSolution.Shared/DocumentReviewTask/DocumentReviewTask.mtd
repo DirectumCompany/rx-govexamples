@@ -7,6 +7,7 @@
     {
       "NameGuid": "88ec82fb-d8a8-4a36-a0d8-5c0bf42ff820",
       "Name": "DocumentForReviewGroup",
+      "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "HandledEvents": [
         "AddedShared",
@@ -25,6 +26,7 @@
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "IsAncestorMetadata": true,
+      "NeedLoadFromParent": true,
       "Overridden": [
         "PreviousGroupId"
       ],
@@ -37,6 +39,7 @@
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "IsAncestorMetadata": true,
+      "NeedLoadFromParent": true,
       "Overridden": [
         "PreviousGroupId"
       ],

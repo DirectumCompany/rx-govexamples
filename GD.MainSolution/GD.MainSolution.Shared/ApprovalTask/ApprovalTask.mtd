@@ -7,6 +7,7 @@
     {
       "NameGuid": "08e1ef90-521f-41a1-a13f-c6f175007e54",
       "Name": "DocumentGroup",
+      "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "IsAncestorMetadata": true,
       "IsRequired": true,

@@ -7,6 +7,7 @@
     {
       "NameGuid": "804f50fe-f3da-411b-bb2e-e5373936e029",
       "Name": "DocumentsGroup",
+      "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "HandledEvents": [
         "DeletedShared",
@@ -26,6 +27,7 @@
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "IsAncestorMetadata": true,
+      "NeedLoadFromParent": true,
       "Overridden": [
         "PreviousGroupId",
         "Title",
@@ -40,6 +42,7 @@
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
       "IsAncestorMetadata": true,
+      "NeedLoadFromParent": true,
       "Overridden": [
         "PreviousGroupId",
         "Title",

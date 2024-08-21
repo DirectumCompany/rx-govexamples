@@ -28,16 +28,6 @@
       },
       {
         "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
-        "NameGuid": "f7dc9826-59cb-430d-b876-820545a55de9",
-        "Name": "GroupPeriod",
-        "IsAncestorMetadata": true,
-        "Overridden": [
-          "PreviousGuid"
-        ],
-        "PreviousGuid": "61762b96-5b39-4987-828f-52d059688db9"
-      },
-      {
-        "$type": "Sungero.Metadata.FilterGroupMetadata, Sungero.Metadata",
         "NameGuid": "61762b96-5b39-4987-828f-52d059688db9",
         "Name": "YearsPeriod",
         "IsAncestorMetadata": true,
