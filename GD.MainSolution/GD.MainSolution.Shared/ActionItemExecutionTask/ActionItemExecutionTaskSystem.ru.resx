@@ -85,4 +85,88 @@
   <data name="Block_8b0f5a4f55d84b8481617365d6c0149e_Property_a5230eec28a14f55a5861eaeaf67d697" xml:space="preserve">
     <value>Кроме подготовленного от имени адресата</value>
   </data>
+  <data name="ControlGroup_ae98972b4d8649b4b20b0e940962659b" xml:space="preserve">
+    <value>Основное</value>
+  </data>
+  <data name="ControlGroup_98a172a9a570491997904531d4d2a0b1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ControlGroup_271b6cd2e08b496499e1b000129b04e6" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ControlGroup_10fe4c39fce04669b73266e53f481a2e" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ControlGroup_e1db87baea3949bf934a7768427cb801" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_b7fdf314105d448795e50d73e9b1dd54" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_b7fdf314105d448795e50d73e9b1dd54_EmptyText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_737819299ac84aa08feb4f9daf6d093b" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_737819299ac84aa08feb4f9daf6d093b_EmptyText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_f5723f2218ff4015b9a4fcb6c5165d82" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_f5723f2218ff4015b9a4fcb6c5165d82_EmptyText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_e9a3535401354b798bc5ed66f76e8c98" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_6a18edc7814b41ebb67822399ba94b74" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_6a18edc7814b41ebb67822399ba94b74_EmptyText" xml:space="preserve">
+    <value>Укажите соисполнителей поручения…</value>
+  </data>
+  <data name="Resource_2f904bfc2608442bb136fafa445cf119" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_2f904bfc2608442bb136fafa445cf119_EmptyText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_838fb0be8b2245e5a063ba4e88eb3890" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_487f3300511c42328f4e7e26adb51307" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_487f3300511c42328f4e7e26adb51307_EmptyText" xml:space="preserve">
+    <value>Для прекращения задачи укажите причину</value>
+  </data>
+  <data name="Resource_502cbd3b8e1f404aac92dd0da2651d5e" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_3da2f8487d124bf28d5fbfb6c8773ef9" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_3da2f8487d124bf28d5fbfb6c8773ef9_EmptyText" xml:space="preserve">
+    <value>Укажите наблюдателей…</value>
+  </data>
+  <data name="Resource_ab7485f5c6234582bb681e83cf50c9f6" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_7dd2c2d889dd4a44948fe8f837f0415d" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_4655a7e754b54da5a7e5dd2b504fceb9" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_65b1c066a7214f4fb4b92d2e702301bd" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Resource_8b959147b6ac440cbc2b21a5353fa5d9" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Property_AssignmentClassificationGD" xml:space="preserve">
+    <value>Классификация поручения</value>
+  </data>
 </root>
