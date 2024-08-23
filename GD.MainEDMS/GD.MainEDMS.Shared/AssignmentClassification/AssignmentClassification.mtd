@@ -2,6 +2,7 @@
   "$type": "Sungero.Metadata.EntityMetadata, Sungero.Metadata",
   "NameGuid": "6f1a8f60-a3c4-44af-b400-a4927fcd4ade",
   "Name": "AssignmentClassification",
+  "AccessRightsMode": "Both",
   "BaseGuid": "04581d26-0780-4cfd-b3cd-c2cafc5798b0",
   "CanBeNavigationPropertyType": true,
   "CanBeSearch": true,
@@ -91,7 +92,8 @@
     }
   ],
   "HandledEvents": [
-    "FilteringServer"
+    "FilteringServer",
+    "BeforeSaveServer"
   ],
   "IconResourcesKeys": [],
   "IntegrationServiceName": "MainEDMSRequestClassification",
@@ -100,7 +102,8 @@
   "Overridden": [
     "CanBeSearch",
     "CanBeUsedInIntegration",
-    "IsStatusEnabled"
+    "IsStatusEnabled",
+    "AccessRightsMode"
   ],
   "Properties": [
     {
