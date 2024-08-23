@@ -10,9 +10,9 @@ namespace GD.MainEDMS
   partial class AssignmentClassificationServerHandlers
   {
 
-    public override void BeforeSave(Sungero.Domain.BeforeSaveEventArgs e)
+    public override void Created(Sungero.Domain.CreatedEventArgs e)
     {
-      _obj.AccessRights.Grant(Sungero.Company.Employees.Current, DefaultAccessRightsTypes.FullAccess);
+      _obj.AccessRights.Grant(Users.Current, DefaultAccessRightsTypes.FullAccess);
     }
   }
 
