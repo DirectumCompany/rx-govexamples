@@ -1,0 +1,75 @@
+{
+  "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
+  "NameGuid": "25c18f1c-e409-4bd5-a677-e8e16670184e",
+  "Name": "MainEDMS",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "GD.MainEDMS.Client",
+  "ClientBaseAssemblyName": "GD.MainEDMS.ClientBase",
+  "ClientBaseNamespace": "GD.MainEDMS.ClientBase",
+  "ClientNamespace": "GD.MainEDMS.Client",
+  "Code": "MainEDM",
+  "CompanyCode": "GD",
+  "Cover": {
+    "NameGuid": "8e86c636-1102-44fb-8b91-73fcd3ef0c2a",
+    "Actions": [],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "4ac5ccab-40ad-4827-9f7d-ad7c8c43579f",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [],
+    "Header": {
+      "NameGuid": "a3283c94-0599-4d31-97fc-38d9815489c6",
+      "BackgroundPosition": "Stretch"
+    },
+    "RemoteControls": [],
+    "Tabs": []
+  },
+  "Dependencies": [
+    {
+      "Id": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+      "IsSolutionModule": true,
+      "MaxVersion": "",
+      "MinVersion": ""
+    }
+  ],
+  "ExplorerTreeOrder": [
+    {
+      "ItemId": "6f1a8f60-a3c4-44af-b400-a4927fcd4ade"
+    }
+  ],
+  "HandledEvents": [
+    "InitializingServer"
+  ],
+  "IconResourcesKeys": [],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "GD.MainEDMS",
+  "IsolatedAssemblyName": "GD.MainEDMS.Isolated",
+  "IsolatedNamespace": "GD.MainEDMS.Isolated",
+  "IsVisible": false,
+  "Overridden": [
+    "IsVisible"
+  ],
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainEDMS",
+  "ResourcesKeys": [],
+  "ServerAssemblyName": "GD.MainEDMS.Server",
+  "ServerNamespace": "GD.MainEDMS.Server",
+  "SharedAssemblyName": "GD.MainEDMS.Shared",
+  "SharedNamespace": "GD.MainEDMS.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "ModuleMetadata",
+      "Number": 8
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}
