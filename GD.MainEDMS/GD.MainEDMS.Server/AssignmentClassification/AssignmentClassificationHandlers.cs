@@ -16,7 +16,6 @@ namespace GD.MainEDMS
     }
   }
 
-
   partial class AssignmentClassificationFilteringServerHandler<T>
   {
 
