@@ -10,6 +10,15 @@ namespace GD.MainSolution
   partial class ActionItemExecutionTaskServerHandlers
   {
 
+    public override void BeforeStart(Sungero.Workflow.Server.BeforeStartEventArgs e)
+    {
+      // Заглушка для обхода падения при отправке в работу проекта, подготовленного в рамках задачи на исполнение поручения.
+      if (_obj.IsDraftResolution == true && !_obj.DocumentsGroup.OfficialDocuments.Any() && ActionItemExecutionTasks.Is(_obj.ParentAssignment.Task))
+        _obj.IsDraftResolution = false;
+      
+      base.BeforeStart(e);
+    }
+
     public override void Created(Sungero.Domain.CreatedEventArgs e)
     {
       base.Created(e);

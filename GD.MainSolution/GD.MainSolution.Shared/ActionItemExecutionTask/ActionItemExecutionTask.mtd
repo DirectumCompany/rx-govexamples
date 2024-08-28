@@ -492,7 +492,8 @@
   "HandledEvents": [
     "RefreshClient",
     "BeforeSaveServer",
-    "CreatedServer"
+    "CreatedServer",
+    "BeforeStartServer"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
