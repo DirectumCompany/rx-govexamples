@@ -3,6 +3,7 @@
   "NameGuid": "9ee07b99-fa73-400b-911f-2e24be6cfa71",
   "Name": "RegisterAndSendTransferDocumentsAssignment",
   "AccessRightsMode": "Instance",
+  "AllowAddExecutionResults": true,
   "AssociatedGuid": "914d67ad-4ea1-4cf3-acbe-0a3c36cc90f9",
   "BaseGuid": "70b4bad9-604f-46f2-b438-0cc6ec594484",
   "CanBeNavigationPropertyType": true,
