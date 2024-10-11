@@ -13,7 +13,7 @@ namespace GD.MainSolution.Client
     {
       #region Копия base.SendForApproval(e), но вместо Show() используется ShowModal()
       // Если по документу ранее были запущены задачи, то вывести соответствующий диалог.
-      if (!Docflow.PublicFunctions.OfficialDocument.NeedCreateApprovalTask(_obj))
+      if (!Sungero.Docflow.PublicFunctions.OfficialDocument.NeedCreateApprovalTask(_obj))
         return;
       
       // Принудительно сохранить документ, чтобы сохранились связи. Иначе они не попадут в задачу.
