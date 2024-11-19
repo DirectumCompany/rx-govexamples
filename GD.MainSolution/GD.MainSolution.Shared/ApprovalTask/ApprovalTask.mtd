@@ -82,7 +82,7 @@
         {
           "$type": "Sungero.Metadata.ControlGroupMetadata, Sungero.Metadata",
           "NameGuid": "21c21d99-7a5d-4f98-a4a4-cf07b9ff27f2",
-          "Name": "ControlGroup1",
+          "Name": "Approvers",
           "ColumnDefinitions": [
             {
               "Percentage": 66.66
