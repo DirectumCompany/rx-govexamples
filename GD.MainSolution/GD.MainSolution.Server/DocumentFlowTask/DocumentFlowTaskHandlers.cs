@@ -7,4 +7,14 @@ using GD.MainSolution.DocumentFlowTask;
 
 namespace GD.MainSolution
 {
+  partial class DocumentFlowTaskServerHandlers
+  {
+
+    public override void Created(Sungero.Domain.CreatedEventArgs e)
+    {
+      base.Created(e);
+      _obj.IsParallelGD = false;
+    }
+  }
+
 }
