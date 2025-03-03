@@ -65,10 +65,10 @@
           "Name": "Approvers",
           "ColumnDefinitions": [
             {
-              "Percentage": 68.46
+              "Percentage": 69.75
             },
             {
-              "Percentage": 29.69
+              "Percentage": 30.25
             }
           ],
           "GroupType": "WithTitleNoBorder",
@@ -121,7 +121,8 @@
     }
   ],
   "HandledEvents": [
-    "CreatedServer"
+    "CreatedServer",
+    "BeforeStartServer"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
