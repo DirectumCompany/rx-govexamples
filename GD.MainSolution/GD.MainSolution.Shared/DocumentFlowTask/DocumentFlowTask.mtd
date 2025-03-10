@@ -3,6 +3,40 @@
   "NameGuid": "ef57461e-edd8-4ca7-860f-3fcdeff2e98a",
   "Name": "DocumentFlowTask",
   "AccessRightsMode": "Both",
+  "AttachmentGroups": [
+    {
+      "NameGuid": "29cf286f-d756-44e4-a688-bff2999e0368",
+      "Name": "AddendaGroup",
+      "CanDeleteTaskFamilyAttachments": true,
+      "Constraints": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "Title",
+        "Description"
+      ]
+    },
+    {
+      "NameGuid": "4d26f724-46d5-44fa-83dc-d31375ab67bf",
+      "Name": "OtherGroup",
+      "Constraints": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "Title",
+        "Description"
+      ]
+    },
+    {
+      "NameGuid": "4195347f-2ca3-4fdc-9460-c22609cc3abf",
+      "Name": "DocumentGroup",
+      "Constraints": [],
+      "IsAncestorMetadata": true,
+      "IsRequired": true,
+      "Overridden": [
+        "Title",
+        "Description"
+      ]
+    }
+  ],
   "BaseGuid": "c51a9c15-4449-4411-b17b-2ea3ce891ab6",
   "BlockIds": [],
   "CanBeNavigationPropertyType": true,
@@ -19,6 +53,77 @@
     "Controls": [],
     "IsAncestorMetadata": true
   },
+  "Forms": [
+    {
+      "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "a4d6d92a-261a-4c7e-826d-742b7d4062ee",
+      "Name": "Card",
+      "Controls": [
+        {
+          "$type": "Sungero.Metadata.ControlGroupMetadata, Sungero.Metadata",
+          "NameGuid": "9d4733fa-937d-4cb1-9085-07a06672b7c4",
+          "Name": "Approvers",
+          "ColumnDefinitions": [
+            {
+              "Percentage": 69.75
+            },
+            {
+              "Percentage": 30.25
+            }
+          ],
+          "GroupType": "WithTitleNoBorder",
+          "IsAncestorMetadata": true,
+          "Overridden": [
+            "Controls",
+            "ColumnDefinitions"
+          ]
+        },
+        {
+          "$type": "Sungero.Metadata.ControlMetadata, Sungero.Metadata",
+          "NameGuid": "35b1e426-9503-4fa1-93dd-eb08014aa549",
+          "Name": "AddApproversGD",
+          "ColumnNumber": 0,
+          "ColumnSpan": 1,
+          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.MultiLikeEditorToCollectionBinder",
+          "ParentGuid": "9d4733fa-937d-4cb1-9085-07a06672b7c4",
+          "PropertyGuid": "9e8d589c-50c6-4802-926d-296229b38fbc",
+          "RowNumber": 0,
+          "RowSpan": 1,
+          "Settings": [
+            {
+              "Name": "NavigationPropertyGuid",
+              "Value": "dff0028f-baf5-420f-8ec8-9b14ce7751e2"
+            },
+            {
+              "Name": "IsDuplicatesAllowed",
+              "Value": false
+            }
+          ]
+        },
+        {
+          "$type": "Sungero.Metadata.ControlMetadata, Sungero.Metadata",
+          "NameGuid": "f828478e-d680-4772-9ea7-9d8599560aae",
+          "Name": "IsParallelGDGD",
+          "ColumnNumber": 1,
+          "ColumnSpan": 1,
+          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.BooleanEditorToBooleanBinder",
+          "ParentGuid": "9d4733fa-937d-4cb1-9085-07a06672b7c4",
+          "PropertyGuid": "100c774d-e030-4059-9874-bc4fb4f74b0c",
+          "RowNumber": 0,
+          "RowSpan": 1,
+          "Settings": []
+        }
+      ],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ]
+    }
+  ],
+  "HandledEvents": [
+    "CreatedServer",
+    "BeforeStartServer"
+  ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "c51a9c15-4449-4411-b17b-2ea3ce891ab6",
@@ -68,6 +173,15 @@
       "Overridden": [
         "EntityGuid"
       ]
+    },
+    {
+      "$type": "Sungero.Metadata.BooleanPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "100c774d-e030-4059-9874-bc4fb4f74b0c",
+      "Name": "IsParallelGD",
+      "CanBeSearch": false,
+      "Code": "IsParallel",
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.BooleanEditorToBooleanBinder",
+      "PreviousPropertyGuid": "2b149fa6-0b49-416d-a9e0-ece1142d591a"
     }
   ],
   "PublicStructures": [],

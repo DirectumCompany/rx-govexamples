@@ -58,4 +58,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Property_IsParallelGD" xml:space="preserve">
+    <value>Параллельное согласование</value>
+  </data>
+  <data name="Resource_35b1e42695034fa193ddeb08014aa549" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Control_35b1e42695034fa193ddeb08014aa549_EmptyText" xml:space="preserve">
+    <value>Укажите дополнительных согласующих…</value>
+  </data>
 </root>
