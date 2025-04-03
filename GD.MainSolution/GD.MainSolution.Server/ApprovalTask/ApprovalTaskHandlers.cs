@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -14,12 +14,13 @@ namespace GD.MainSolution
     {
       base.BeforeStart(e);
       
-      if (Functions.ApprovalTask.ContainsRegisterStage(_obj) && !Functions.ApprovalTask.ExistsRegistrationSetting(_obj))
+      var document = OfficialDocuments.As(_obj.DocumentGroup.OfficialDocuments.FirstOrDefault());
+      if (Functions.ApprovalTask.ContainsRegisterStage(_obj) && !PublicFunctions.OfficialDocument.ExistsRegistrationSetting(document))
       {
         e.AddError(GD.MainSolution.ApprovalTasks.Resources.RegistrationSettingNotFoundError);
       }
       
-      var actionItem = Functions.ApprovalTask.GetActionItemFromIncomingLetter(_obj);
+      var actionItem = PublicFunctions.OfficialDocument.GetActionItemFromIncomingLetter(document);
       if (actionItem != null)
         _obj.ActiveText = ApprovalTasks.Resources.ApprovalTextWithActionItemFormat(Sungero.Core.Hyperlinks.Get(actionItem));
     }

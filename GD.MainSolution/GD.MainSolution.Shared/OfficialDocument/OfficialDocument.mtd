@@ -78,6 +78,32 @@
       "Versions": []
     }
   ],
+  "PublicFunctions": [
+    {
+      "Name": "ExistsRegistrationSetting",
+      "Parameters": [
+        {
+          "Name": "officialDocument",
+          "ParameterType": "global::GD.MainSolution.IOfficialDocument",
+          "ParameterTypeFullName": "GD.MainSolution.IOfficialDocument, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "GetActionItemFromIncomingLetter",
+      "Parameters": [
+        {
+          "Name": "officialDocument",
+          "ParameterType": "global::GD.MainSolution.IOfficialDocument",
+          "ParameterTypeFullName": "GD.MainSolution.IOfficialDocument, Sungero.Domain.Interfaces"
+        }
+      ],
+      "ReturnType": "global::GD.MainSolution.IActionItemExecutionAssignment",
+      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionAssignment, Sungero.Domain.Interfaces"
+    }
+  ],
   "PublicStructures": [],
   "ResourcesKeys": [],
   "RibbonCardMetadata": {
