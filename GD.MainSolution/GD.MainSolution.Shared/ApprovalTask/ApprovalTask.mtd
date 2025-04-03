@@ -272,22 +272,6 @@
       "PreviousPropertyGuid": "cf4b7cca-a1d3-42ba-a620-ae8577333b8e"
     }
   ],
-  "PublicFunctions": [
-    {
-      "Name": "GetActionItemFromIncomingLetter",
-      "IsRemote": true,
-      "Parameters": [
-        {
-          "Name": "approvalTask",
-          "ParameterType": "global::GD.MainSolution.IApprovalTask",
-          "ParameterTypeFullName": "GD.MainSolution.IApprovalTask, Sungero.Domain.Interfaces"
-        }
-      ],
-      "Placement": "Shared",
-      "ReturnType": "global::GD.MainSolution.IActionItemExecutionAssignment",
-      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionAssignment, Sungero.Domain.Interfaces"
-    }
-  ],
   "PublicStructures": [],
   "ResourcesKeys": [
     "ApprovalTextWithActionItem",
