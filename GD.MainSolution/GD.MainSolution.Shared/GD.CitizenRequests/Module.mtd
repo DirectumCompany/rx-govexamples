@@ -5,6 +5,20 @@
   "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
   "AsyncHandlers": [
     {
+      "NameGuid": "68b637f8-075e-4ef5-a6f2-2666fa16befd",
+      "Name": "AddRequestExecutionStatusToPosRegister",
+      "DelayPeriod": 15,
+      "DelayStrategy": "RegularDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "89dd4e30-c027-4cc2-a621-a544dc9ccdfb",
+          "Name": "RequestId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    },
+    {
       "NameGuid": "1f747f23-afef-46fb-b20b-bd0fe3d61c86",
       "Name": "SynchronizeResolutionToRequest",
       "DelayPeriod": 15,
@@ -25,6 +39,31 @@
     }
   ],
   "BaseGuid": "011a7117-3db8-44ae-963a-74568896c47f",
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "0291ac7b-4541-4f07-b57f-3954a752dfe4",
+      "Name": "RegisterPosRequest",
+      "BaseGuid": "5e576db2-acf6-44ad-b003-1fdc97295cf0",
+      "EntityType": "953ad22a-bf8f-48ab-b9d7-98e5ed1fa5cc",
+      "LayeredFromGuid": "5e576db2-acf6-44ad-b003-1fdc97295cf0",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "4e0ac209-c2e3-4720-b1b3-e0c3ab74639d",
+      "Name": "SendingAnswerWithRefusalPos",
+      "BaseGuid": "0dd65da9-d550-4a46-bc60-165df37bfa16",
+      "LayeredFromGuid": "0dd65da9-d550-4a46-bc60-165df37bfa16",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    }
+  ],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.CitizenRequests.ClientBase",
   "Code": "Citizen",
@@ -104,7 +143,7 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.11.1.0",
+  "Version": "4.12.1.0",
   "Widgets": [],
   "Versions": [
     {
