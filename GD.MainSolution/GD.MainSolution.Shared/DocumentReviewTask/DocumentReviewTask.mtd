@@ -51,6 +51,124 @@
   "BlockIds": [
     "23"
   ],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "14414e93-6dd1-4cf2-bbc0-68d819bf2097",
+      "Name": "PrepareDraftResolutionBlock",
+      "BaseGuid": "8d257f1b-8df7-4ffd-9a3f-128fb7571534",
+      "EntityType": "7cca016a-80f0-4562-9042-57bb748d5b30",
+      "LayeredFromGuid": "383ec871-742d-4b89-b955-07ebcde770e7",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "50a60b64-1794-4796-a4f7-1509c040adeb",
+      "Name": "ProcessResolutionBlock",
+      "BaseGuid": "17c4733a-b0ae-49bd-b451-54296b702325",
+      "EntityType": "018e582e-5b0e-4e4f-af57-be1e0a468efa",
+      "LayeredFromGuid": "ab0b2981-43e0-46f6-a03f-d96e100d4615",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "6fa2cb30-c894-44f0-9ef2-49a738026679",
+      "Name": "ReviewReworkBlock",
+      "BaseGuid": "afd23ba8-1abd-4293-b819-a922719ffc62",
+      "EntityType": "1d5433e5-b285-4310-9a63-fc4e76f0a9b7",
+      "LayeredFromGuid": "3ec91932-536d-4a76-96fb-97db86b8248c",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "86569aad-da6c-43c0-89bc-59112ccee27d",
+      "Name": "SendReviewToAddresseeBlock",
+      "BaseGuid": "669e34e1-ffe3-4942-b439-6379ec319bb7",
+      "LayeredFromGuid": "50196cf4-8372-4d6a-8434-b2bf72fcb8bc",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "44baa5ac-3099-41ea-a5d4-3d371b876a44",
+      "Name": "DeleteObsoleteDraftResolutionsBlock",
+      "BaseGuid": "9426f96c-f7b6-47ef-8f88-a0f24e628293",
+      "LayeredFromGuid": "3911b2c7-bbde-42e5-aad0-49bbfd560363",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    },
+    {
+      "$type": "Sungero.Metadata.MonitoringBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "47823244-4e81-4728-a702-469309e5d8b3",
+      "Name": "WaitForAddresseesReviewBlock",
+      "BaseGuid": "dca8ab1c-478e-4e1e-8d30-7fd227907925",
+      "LayeredFromGuid": "cfb9a901-06fb-463a-9165-b1ba26ba9ac7",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "2d5219db-bc18-4b92-a012-fc6067e07ec9",
+      "Name": "SetNewAddresseeBlock",
+      "BaseGuid": "43370592-7f12-4f6f-8ffc-e56efb267b06",
+      "LayeredFromGuid": "941083ca-dd92-4a1d-98fe-8df3a6b96767",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "af359a03-97ac-48d4-a341-8437cd3a2a66",
+      "Name": "GrantAccessRightsToDocumentsBlock",
+      "BaseGuid": "377f2b0c-b547-441a-b3fe-8fbed735d79b",
+      "LayeredFromGuid": "57ac112f-4eff-4ab1-8616-5706c2686195",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    },
+    {
+      "$type": "Sungero.Metadata.TaskBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "8a585421-3da8-408d-ad3e-20c4b021b0ba",
+      "Name": "SendReviewTasksToAddresseesBlock",
+      "BaseGuid": "4debf6ae-d7dc-4886-b828-a22a41cde103",
+      "EntityType": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
+      "IsMultipleSubtasks": true,
+      "LayeredFromGuid": "ef068982-d75b-4f39-b7ba-4166fefb671e",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show",
+      "TaskCreationSourceTypeId": "1390396c-7066-44cc-b667-0802d43305d3"
+    },
+    {
+      "$type": "Sungero.Metadata.MonitoringBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "4987ce45-e772-4b0a-a2c4-52ecfd8688fa",
+      "Name": "WaitForPrepareDraftResolution",
+      "BaseGuid": "dc871cb0-1eea-46a9-8e9f-3983d5e82370",
+      "LayeredFromGuid": "87d7a4b0-0984-4872-ae48-a0d72f5ee7c4",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    }
+  ],
   "CanBeNavigationPropertyType": true,
   "CreationAreaMetadata": {
     "NameGuid": "4ad90e92-6238-41e2-a503-898aa29aec15",
@@ -163,7 +281,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 12
+      "Number": 13
     }
   ]
 }

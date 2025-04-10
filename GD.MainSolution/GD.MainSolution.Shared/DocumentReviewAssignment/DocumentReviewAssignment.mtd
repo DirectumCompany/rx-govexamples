@@ -12,7 +12,8 @@
       "IsAncestorMetadata": true,
       "Overridden": [
         "GenerateHandler"
-      ]
+      ],
+      "PreviousExecutionResultActionGuid": "15a894ef-15aa-4bae-a5d2-7d25aee7dbaf"
     },
     {
       "NameGuid": "c52d5a6e-5b80-437a-b1f5-0f60d968a54b",
@@ -31,7 +32,8 @@
       "IsAncestorMetadata": true,
       "Overridden": [
         "GenerateHandler"
-      ]
+      ],
+      "PreviousExecutionResultActionGuid": "e828e833-64a4-4460-8582-922497b89ed9"
     },
     {
       "$type": "Sungero.Workflow.Shared.ExecutionResultActionMetadata, Sungero.Workflow.Shared",
@@ -41,7 +43,8 @@
       "IsAncestorMetadata": true,
       "Overridden": [
         "GenerateHandler"
-      ]
+      ],
+      "PreviousExecutionResultActionGuid": "69ab8bfc-19dd-4a4b-879e-18e41946a47f"
     },
     {
       "$type": "Sungero.Workflow.Shared.ExecutionResultActionMetadata, Sungero.Workflow.Shared",
@@ -51,7 +54,8 @@
       "IsAncestorMetadata": true,
       "Overridden": [
         "GenerateHandler"
-      ]
+      ],
+      "PreviousExecutionResultActionGuid": "efd122c4-9bde-4e54-a053-c1e87a044416"
     },
     {
       "NameGuid": "0471bfd3-d6f4-4423-b0bc-41a1c4de6fd7",
@@ -194,7 +198,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 12
+      "Number": 13
     }
   ]
 }

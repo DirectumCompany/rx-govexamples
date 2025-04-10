@@ -5,6 +5,20 @@
   "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
   "AsyncHandlers": [
     {
+      "NameGuid": "91e037c0-0ac9-412a-a283-1567d122af49",
+      "Name": "PrepareDocumentBodyForMarkEditor",
+      "DelayPeriod": 15,
+      "DelayStrategy": "ExponentialDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "f29a4db6-2032-4e69-b9e8-ad31b48d483e",
+          "Name": "MarkEditorSessionId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    },
+    {
       "NameGuid": "8d3ccc00-7327-4fc4-b055-781286f29e0e",
       "Name": "SetFPoARegistrationState",
       "DelayPeriod": 15,
@@ -394,6 +408,13 @@
   "IsVisible": false,
   "Jobs": [
     {
+      "NameGuid": "bd4d35ec-198e-4868-9240-305c00653785",
+      "Name": "DeleteMarkEditorSessions",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "StartAt": "1753-01-01T22:00:00"
+    },
+    {
       "NameGuid": "91cb2efd-0ef2-4073-b1d0-fce8bec52690",
       "Name": "SyncFormalizedPowerOfAttorneyState",
       "IsAncestorMetadata": true,
@@ -467,7 +488,7 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.11.37.0",
+  "Version": "4.12.44.0",
   "Widgets": [],
   "Versions": [
     {

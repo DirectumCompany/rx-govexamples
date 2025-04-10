@@ -435,13 +435,28 @@
         "DocumentReviewBlockStart",
         "DocumentReviewBlockEnd"
       ],
+      "IconName": "DocumentReviewBlock.ico",
       "LayeredFromGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
       "Overridden": [
         "HandledEvents",
         "IsAncestorMetadata",
         "LayeredFromGuid",
         "IsGenerated"
-      ]
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.TaskBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "60794ec7-6370-448d-a202-048c17def15a",
+      "Name": "DocumentMultipleAddresseeReviewBlock",
+      "BaseGuid": "2b26de32-65be-4744-b217-d283bd39e3f9",
+      "EntityType": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
+      "IconName": "DocumentMultipleAddresseeReviewBlock.ico",
+      "LayeredFromGuid": "5447efc8-e0f0-4981-8e9c-39c877f9a5f7",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Show"
     }
   ],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
@@ -612,7 +627,7 @@
       "Versions": []
     }
   ],
-  "Version": "4.11.37.0",
+  "Version": "4.12.44.0",
   "Widgets": [],
   "Versions": [
     {

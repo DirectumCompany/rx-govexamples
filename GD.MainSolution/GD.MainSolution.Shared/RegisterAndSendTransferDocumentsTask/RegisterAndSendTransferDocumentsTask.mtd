@@ -7,6 +7,17 @@
   "BlockIds": [],
   "Blocks": [
     {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "c30515e0-85e8-4637-96f4-00949bdf9bff",
+      "Name": "SearchForCoordinates",
+      "BaseGuid": "f84a1e3b-4bb6-4aab-8ce2-d2cdc5322867",
+      "LayeredFromGuid": "f84a1e3b-4bb6-4aab-8ce2-d2cdc5322867",
+      "Overridden": [
+        "LayeredFromGuid"
+      ],
+      "ProcessStagesDisplayMode": "Hide"
+    },
+    {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
       "NameGuid": "dc733ea1-f7df-4951-9ba7-dbc1b0478a17",
       "Name": "RegisterAndSend",
@@ -20,7 +31,8 @@
         "HandledEvents",
         "LayeredFromGuid",
         "IsGenerated"
-      ]
+      ],
+      "ProcessStagesDisplayMode": "Show"
     }
   ],
   "CanBeNavigationPropertyType": true,
@@ -99,7 +111,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 12
+      "Number": 13
     }
   ]
 }
