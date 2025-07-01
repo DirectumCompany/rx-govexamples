@@ -488,16 +488,16 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.12.44.0",
+  "Version": "25.1.0.52",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 8
+      "Number": 9
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 8
+      "Number": 9
     }
   ]
 }
