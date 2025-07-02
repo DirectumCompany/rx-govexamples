@@ -9,7 +9,13 @@
   "ClientBaseNamespace": "GD.MainSolution.Module.Shell.ClientBase",
   "Code": "Shell",
   "CompanyCode": "Sungero",
-  "ExplorerTreeOrder": [],
+  "ExplorerTreeOrder": [
+    {
+      "IsAncestorMetadata": true,
+      "ItemId": "471e68ad-7f9d-43d7-b4db-93eb660cde7f",
+      "PreviousItemId": "28ac3be4-cce2-42e3-8fc8-413ff7afaade"
+    }
+  ],
   "IconResourcesKeys": [],
   "Importance": "Low",
   "LayeredFromGuid": "fcc573ab-5f4e-4b20-88e8-7b1e11a7a59a",
@@ -38,16 +44,16 @@
       "Versions": []
     }
   ],
-  "Version": "4.12.44.0",
+  "Version": "25.1.0.52",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 8
+      "Number": 9
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 8
+      "Number": 9
     }
   ]
 }

@@ -463,7 +463,13 @@
   "ClientBaseNamespace": "GD.MainSolution.Module.RecordManagement.ClientBase",
   "Code": "RecMan",
   "CompanyCode": "Sungero",
-  "ExplorerTreeOrder": [],
+  "ExplorerTreeOrder": [
+    {
+      "IsAncestorMetadata": true,
+      "ItemId": "fc31fa8b-3d56-477a-84c4-1b29b82f72c3",
+      "PreviousItemId": "50e39d87-4fc6-4847-8bad-20847b9ba020"
+    }
+  ],
   "IconResourcesKeys": [],
   "Importance": "High",
   "IsVisible": false,
@@ -627,16 +633,16 @@
       "Versions": []
     }
   ],
-  "Version": "4.12.44.0",
+  "Version": "25.1.0.52",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 8
+      "Number": 9
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 8
+      "Number": 9
     }
   ]
 }

@@ -143,16 +143,16 @@
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
   "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "4.12.1.0",
+  "Version": "25.1.1.0",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 8
+      "Number": 9
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 8
+      "Number": 9
     }
   ]
 }
