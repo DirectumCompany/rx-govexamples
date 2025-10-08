@@ -87,7 +87,7 @@ namespace GD.MainSolution.Client
         eventArgs.AddError(errorText);
         return null;
       }
-      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(actionItemExecution, letter);
+      var coverLetter = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateCoverLetter(actionItemExecution, letter, null);
       if (coverLetter != null)
         Dialogs.NotifyMessage(GD.CitizenRequests.Resources.TransferCoverLetterGeneratedSuccessfully);
       
@@ -113,7 +113,7 @@ namespace GD.MainSolution.Client
         return null;
       }
       
-      var notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification);
+      var notificationTransfer = CitizenRequests.PublicFunctions.Module.Remote.CreateOrUpdateTransferNotification(actionItemExecution, notification, null);
       if (notificationTransfer != null)
         Dialogs.NotifyMessage(GD.CitizenRequests.Resources.NotificationTransferSuccessfullyGenerated);
       
