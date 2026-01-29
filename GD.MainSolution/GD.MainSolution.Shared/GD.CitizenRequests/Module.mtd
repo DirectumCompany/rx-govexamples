@@ -94,6 +94,19 @@
       "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
     },
     {
+      "Name": "GetCoverLetterAndTransferNotificationTemplatesByActionItem",
+      "Parameters": [
+        {
+          "Name": "actionItem",
+          "ParameterType": "global::GD.GovernmentSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.GovernmentSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::GD.CitizenRequests.Structures.Module.ICoverLetterAndTransferNotificationTemplates",
+      "ReturnTypeFullName": "GD.CitizenRequests.Structures.Module.ICoverLetterAndTransferNotificationTemplates"
+    },
+    {
       "Name": "SignatureTransferDocumentsForExecution",
       "Parameters": [
         {

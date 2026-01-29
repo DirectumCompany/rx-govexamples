@@ -37,13 +37,17 @@ namespace GD.MainSolution.Client
       var result = dialog.Show();
       if (result == onReviewButton)
       {
+        var coverLetterAndTransferNotificationTemplates = MainSolution.Module.CitizenRequests.PublicFunctions.Module.GetCoverLetterAndTransferNotificationTemplatesByActionItem(actionItemExecution);
+        if (coverLetterAndTransferNotificationTemplates == null)
+          return false;
+        
         var isProblemCreatingCoverLetter = false;
         var isProblemCreatingNotification = false;
         
         // Сформировать/переформировать сопроводительное письмо и уведомление.
         if (!string.IsNullOrEmpty(errorCoverLetter))
         {
-          var coverLetter = CreateCoverLetterForExecution(actionItemExecution, eventArgs);
+          var coverLetter = CreateCoverLetterForExecution(actionItemExecution, eventArgs, coverLetterAndTransferNotificationTemplates.CoverLetterTemplate);
           if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
           {
             _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
@@ -54,7 +58,7 @@ namespace GD.MainSolution.Client
         
         if (!string.IsNullOrEmpty(errorNotification))
         {
-          var notificationTransfer = CreateTransferNotificationForExecution(actionItemExecution, eventArgs);
+          var notificationTransfer = CreateTransferNotificationForExecution(actionItemExecution, eventArgs, coverLetterAndTransferNotificationTemplates.TransferNotificationTemplate);
           if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
           {
             _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
@@ -75,13 +79,13 @@ namespace GD.MainSolution.Client
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>Сопроводительное письмо.</returns>
-    public virtual CitizenRequests.IOutgoingRequestLetter CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual CitizenRequests.IOutgoingRequestLetter CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs, Sungero.Docflow.IDocumentTemplate template)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var letter = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, coveringLetterKind)).FirstOrDefault());
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, actionItemExecution);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateCoverLetter(letter, request, actionItemExecution, template);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
@@ -100,13 +104,13 @@ namespace GD.MainSolution.Client
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>Уведомление заявителю.</returns>
-    public virtual CitizenRequests.IOutgoingRequestLetter CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual CitizenRequests.IOutgoingRequestLetter CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs, Sungero.Docflow.IDocumentTemplate template)
     {
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.TransferNotificationKind);
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
       
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
-      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, actionItemExecution);
+      var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, actionItemExecution, template);
       if (!string.IsNullOrEmpty(errorText))
       {
         eventArgs.AddError(errorText);
