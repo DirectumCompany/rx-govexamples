@@ -129,12 +129,14 @@
       ]
     }
   ],
+  "FormViewUuid": "39f7c2ad-8758-4788-9d86-f2c4392cb5bd",
   "HandledEvents": [
     "FilteringServer"
   ],
   "IconResourcesKeys": [],
   "IsAbstract": true,
   "LayeredFromGuid": "4e7bf176-40b2-4e5d-b10b-af81ad7c62c3",
+  "ListViewUuid": "dbcb6cb6-6241-4751-ae95-cd0cb4b79fcf",
   "OpenCardByDefaultInCollection": true,
   "OperationsClass": "",
   "Properties": [

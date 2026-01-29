@@ -9,14 +9,7 @@
   "ClientBaseNamespace": "GD.MainSolution.Module.Shell.ClientBase",
   "Code": "Shell",
   "CompanyCode": "Sungero",
-  "ExplorerTreeOrder": [
-    {
-      "IsAncestorMetadata": true,
-      "ItemId": "471e68ad-7f9d-43d7-b4db-93eb660cde7f",
-      "PreviousItemId": "28ac3be4-cce2-42e3-8fc8-413ff7afaade"
-    }
-  ],
-  "IconResourcesKeys": [],
+  "ExplorerTreeOrder": [],
   "Importance": "Low",
   "LayeredFromGuid": "fcc573ab-5f4e-4b20-88e8-7b1e11a7a59a",
   "NeedResetAppliedCache": true,
@@ -24,7 +17,6 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Shell",
-  "ResourcesKeys": [],
   "SpecialFolders": [
     {
       "NameGuid": "1ead1abe-1b7e-4833-9e01-ee7f8404537a",
@@ -44,16 +36,16 @@
       "Versions": []
     }
   ],
-  "Version": "25.1.0.52",
+  "Version": "25.3.0.56",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     }
   ]
 }

@@ -290,11 +290,13 @@
       "Versions": []
     }
   ],
+  "FormViewUuid": "ac60b7cd-16c4-4cd1-a07f-7a64303c0477",
   "HandledEvents": [
     "CreatedServer"
   ],
   "IconResourcesKeys": [],
   "LayeredFromGuid": "8dd00491-8fd0-4a7a-9cf3-8b6dc2e6455d",
+  "ListViewUuid": "6d5ff296-af46-4590-897e-be5852718fca",
   "OpenCardByDefaultInCollection": true,
   "OperationsClass": "",
   "Properties": [

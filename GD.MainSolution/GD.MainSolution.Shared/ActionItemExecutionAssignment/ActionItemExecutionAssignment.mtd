@@ -63,12 +63,14 @@
       "Versions": []
     }
   ],
+  "FormViewUuid": "79597dbf-ab94-4e41-9406-c77e08bc240c",
   "HandledEvents": [
     "ShowingClient"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "d238ef51-607e-46a5-b86a-ede4482f7f19",
+  "ListViewUuid": "381d8e92-7aa8-4065-b2c7-7564553052d1",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Overridden": [

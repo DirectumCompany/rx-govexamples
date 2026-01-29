@@ -113,8 +113,10 @@
       ]
     }
   ],
+  "FormViewUuid": "3a41312a-c66a-4f1f-a0be-c5973a022a0b",
   "IconResourcesKeys": [],
   "LayeredFromGuid": "77300c65-4db1-4baf-9321-7e8efb7805cb",
+  "ListViewUuid": "07261d9f-f235-4847-9cdb-0cfa1ed78930",
   "OpenCardByDefaultInCollection": true,
   "OperationsClass": "",
   "Properties": [

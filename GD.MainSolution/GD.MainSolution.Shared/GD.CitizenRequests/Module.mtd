@@ -39,37 +39,11 @@
     }
   ],
   "BaseGuid": "011a7117-3db8-44ae-963a-74568896c47f",
-  "Blocks": [
-    {
-      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "0291ac7b-4541-4f07-b57f-3954a752dfe4",
-      "Name": "RegisterPosRequest",
-      "BaseGuid": "5e576db2-acf6-44ad-b003-1fdc97295cf0",
-      "EntityType": "953ad22a-bf8f-48ab-b9d7-98e5ed1fa5cc",
-      "LayeredFromGuid": "5e576db2-acf6-44ad-b003-1fdc97295cf0",
-      "Overridden": [
-        "LayeredFromGuid"
-      ],
-      "ProcessStagesDisplayMode": "Show"
-    },
-    {
-      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "4e0ac209-c2e3-4720-b1b3-e0c3ab74639d",
-      "Name": "SendingAnswerWithRefusalPos",
-      "BaseGuid": "0dd65da9-d550-4a46-bc60-165df37bfa16",
-      "LayeredFromGuid": "0dd65da9-d550-4a46-bc60-165df37bfa16",
-      "Overridden": [
-        "LayeredFromGuid"
-      ],
-      "ProcessStagesDisplayMode": "Hide"
-    }
-  ],
   "ClientBaseAssemblyName": "GD.MainSolution.ClientBase",
   "ClientBaseNamespace": "GD.MainSolution.Module.CitizenRequests.ClientBase",
   "Code": "Citizen",
   "CompanyCode": "GD",
   "ExplorerTreeOrder": [],
-  "IconResourcesKeys": [],
   "Importance": "High",
   "IsLicensed": true,
   "IsVisible": false,
@@ -141,18 +115,17 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
-  "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "25.1.1.0",
+  "Version": "25.3.1.0",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     }
   ]
 }

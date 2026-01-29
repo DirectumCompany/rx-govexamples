@@ -194,7 +194,6 @@
       "PreviousItemId": "56579bc9-0503-4dba-b931-c0c99064541d"
     }
   ],
-  "IconResourcesKeys": [],
   "Importance": "Medium",
   "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "InterfaceNamespace": "GD.MainSolution",
@@ -223,7 +222,6 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution",
-  "ResourcesKeys": [],
   "ServerAssemblyName": "GD.MainSolution.Server",
   "ServerNamespace": "GD.MainSolution.Server",
   "SharedAssemblyName": "GD.MainSolution.Shared",
@@ -234,11 +232,11 @@
   "Versions": [
     {
       "Type": "SolutionMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "DomainApi",

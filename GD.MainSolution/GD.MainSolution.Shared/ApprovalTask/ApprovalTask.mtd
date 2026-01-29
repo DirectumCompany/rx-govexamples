@@ -166,6 +166,7 @@
       "Versions": []
     }
   ],
+  "FormViewUuid": "adddb169-8404-4156-a2c5-825c661b3a1c",
   "HandledEvents": [
     "RefreshClient",
     "CreatedServer",
@@ -175,6 +176,7 @@
   "IsCreateVersionsOnLayerForbidden": true,
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "100950d0-03d2-44f0-9e31-f9c8dfdf3829",
+  "ListViewUuid": "1449ca74-05fe-4604-89d4-da7d8f101a28",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Overridden": [
@@ -306,7 +308,7 @@
   "Versions": [
     {
       "Type": "TaskMetadata",
-      "Number": 3
+      "Number": 4
     },
     {
       "Type": "WorkflowEntityMetadata",
