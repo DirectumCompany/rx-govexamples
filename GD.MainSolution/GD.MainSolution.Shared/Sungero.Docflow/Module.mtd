@@ -402,7 +402,6 @@
   "Code": "Docflow",
   "CompanyCode": "Sungero",
   "ExplorerTreeOrder": [],
-  "IconResourcesKeys": [],
   "Importance": "Low",
   "IsolatedAreas": [],
   "IsVisible": false,
@@ -486,18 +485,17 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
-  "ResourcesKeys": [],
   "SpecialFolders": [],
-  "Version": "25.1.0.52",
+  "Version": "25.3.0.56",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     }
   ]
 }

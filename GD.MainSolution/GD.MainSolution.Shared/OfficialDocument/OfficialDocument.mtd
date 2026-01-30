@@ -45,6 +45,7 @@
       "Versions": []
     }
   ],
+  "FormViewUuid": "c12f3abe-80fd-4f3b-a639-db76678aae1e",
   "HandledEvents": [
     "BeforeSaveServer",
     "AfterSaveServer"
@@ -52,6 +53,7 @@
   "IconResourcesKeys": [],
   "IsAbstract": true,
   "LayeredFromGuid": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1",
+  "ListViewUuid": "77b87aa3-3403-4299-8f19-fb8cbd995c04",
   "OpenCardByDefaultInCollection": true,
   "OperationsClass": "",
   "Properties": [

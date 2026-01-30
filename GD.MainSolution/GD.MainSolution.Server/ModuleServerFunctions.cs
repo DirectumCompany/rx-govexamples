@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -6,7 +6,7 @@ using Sungero.CoreEntities;
 
 namespace GD.MainSolution.Server
 {
-  public class ModuleFunctions
+  public partial class ModuleFunctions
   {
     /// <summary>
     /// Получить документы, связанные типом связи кроме "Приложение", если текущий документ - источник и документы, связанные типом связи "Основание", "Отмена" и "Прочие", если текущий документ - связанный.

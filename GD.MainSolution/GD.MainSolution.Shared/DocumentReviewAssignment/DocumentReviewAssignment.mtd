@@ -136,9 +136,11 @@
       ]
     }
   ],
+  "FormViewUuid": "c17ea92b-b352-43ac-ab86-ae3634d6258c",
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "50e39d87-4fc6-4847-8bad-20847b9ba020",
+  "ListViewUuid": "fd3a2f79-75fe-484f-8ea5-f3aae6547cd5",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Overridden": [

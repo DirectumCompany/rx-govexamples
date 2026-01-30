@@ -425,9 +425,8 @@
   "Blocks": [
     {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "9f8f547f-4587-4994-a92a-fff3576f0e48",
+      "NameGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
       "Name": "DocumentReviewBlock",
-      "BaseGuid": "ff989722-6e21-4c23-a908-ba23467a15a8",
       "EntityType": "50e39d87-4fc6-4847-8bad-20847b9ba020",
       "HandledEvents": [
         "DocumentReviewBlockCompleteAssignment",
@@ -435,26 +434,11 @@
         "DocumentReviewBlockStart",
         "DocumentReviewBlockEnd"
       ],
-      "IconName": "DocumentReviewBlock.ico",
-      "LayeredFromGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
+      "IsAncestorMetadata": true,
       "Overridden": [
         "HandledEvents",
         "IsAncestorMetadata",
-        "LayeredFromGuid",
         "IsGenerated"
-      ],
-      "ProcessStagesDisplayMode": "Show"
-    },
-    {
-      "$type": "Sungero.Metadata.TaskBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "60794ec7-6370-448d-a202-048c17def15a",
-      "Name": "DocumentMultipleAddresseeReviewBlock",
-      "BaseGuid": "2b26de32-65be-4744-b217-d283bd39e3f9",
-      "EntityType": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
-      "IconName": "DocumentMultipleAddresseeReviewBlock.ico",
-      "LayeredFromGuid": "5447efc8-e0f0-4981-8e9c-39c877f9a5f7",
-      "Overridden": [
-        "LayeredFromGuid"
       ],
       "ProcessStagesDisplayMode": "Show"
     }
@@ -463,14 +447,7 @@
   "ClientBaseNamespace": "GD.MainSolution.Module.RecordManagement.ClientBase",
   "Code": "RecMan",
   "CompanyCode": "Sungero",
-  "ExplorerTreeOrder": [
-    {
-      "IsAncestorMetadata": true,
-      "ItemId": "fc31fa8b-3d56-477a-84c4-1b29b82f72c3",
-      "PreviousItemId": "50e39d87-4fc6-4847-8bad-20847b9ba020"
-    }
-  ],
-  "IconResourcesKeys": [],
+  "ExplorerTreeOrder": [],
   "Importance": "High",
   "IsVisible": false,
   "Jobs": [
@@ -582,7 +559,6 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.RecordManagement",
-  "ResourcesKeys": [],
   "SpecialFolders": [
     {
       "NameGuid": "c21fa108-1570-4155-8a0c-0d04957bc72b",
@@ -633,16 +609,16 @@
       "Versions": []
     }
   ],
-  "Version": "25.1.0.52",
+  "Version": "25.3.0.56",
   "Widgets": [],
   "Versions": [
     {
       "Type": "LayerModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     }
   ]
 }

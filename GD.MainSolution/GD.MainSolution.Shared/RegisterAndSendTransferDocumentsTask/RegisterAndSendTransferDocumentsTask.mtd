@@ -7,29 +7,16 @@
   "BlockIds": [],
   "Blocks": [
     {
-      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "c30515e0-85e8-4637-96f4-00949bdf9bff",
-      "Name": "SearchForCoordinates",
-      "BaseGuid": "f84a1e3b-4bb6-4aab-8ce2-d2cdc5322867",
-      "LayeredFromGuid": "f84a1e3b-4bb6-4aab-8ce2-d2cdc5322867",
-      "Overridden": [
-        "LayeredFromGuid"
-      ],
-      "ProcessStagesDisplayMode": "Hide"
-    },
-    {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
-      "NameGuid": "dc733ea1-f7df-4951-9ba7-dbc1b0478a17",
+      "NameGuid": "f1a373f8-1f22-4e0f-b37b-e19221a4e13b",
       "Name": "RegisterAndSend",
-      "BaseGuid": "f1a373f8-1f22-4e0f-b37b-e19221a4e13b",
       "EntityType": "70b4bad9-604f-46f2-b438-0cc6ec594484",
       "HandledEvents": [
         "RegisterAndSendEnd"
       ],
-      "LayeredFromGuid": "f1a373f8-1f22-4e0f-b37b-e19221a4e13b",
+      "IsAncestorMetadata": true,
       "Overridden": [
         "HandledEvents",
-        "LayeredFromGuid",
         "IsGenerated"
       ],
       "ProcessStagesDisplayMode": "Show"
@@ -49,10 +36,12 @@
     "Controls": [],
     "IsAncestorMetadata": true
   },
+  "FormViewUuid": "180d7cb6-35be-42e7-9f4d-3e50ea802f1f",
   "IconResourcesKeys": [],
   "IntegrationServiceName": "CitizenRequestsRegisterAndSendTransferDocumentsTask",
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "8caf9507-03d4-4afb-bd49-73cc6fb14d19",
+  "ListViewUuid": "39e6b9e8-b16c-4da4-b40c-92396a64705b",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Overridden": [
@@ -103,7 +92,7 @@
   "Versions": [
     {
       "Type": "TaskMetadata",
-      "Number": 3
+      "Number": 4
     },
     {
       "Type": "WorkflowEntityMetadata",

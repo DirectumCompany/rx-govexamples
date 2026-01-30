@@ -15,15 +15,19 @@ namespace GD.MainSolution.Client
       var resolution = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
       if (resolution != null)
       {
+        var coverLetterAndTransferNotificationTemplates = MainSolution.Module.CitizenRequests.PublicFunctions.Module.GetCoverLetterAndTransferNotificationTemplatesByActionItem(resolution);
+        if (coverLetterAndTransferNotificationTemplates == null)
+          return;
+        
         var actionItem = MainSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault());
-        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e);
+        var coverLetter = MainSolution.Functions.ActionItemExecutionTask.CreateCoverLetterForExecution(resolution, actionItem, e, coverLetterAndTransferNotificationTemplates.CoverLetterTemplate);
         if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
         {
           _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
           _obj.Save();
         }
         
-        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e);
+        var notificationTransfer = MainSolution.Functions.ActionItemExecutionTask.CreateTransferNotificationForExecution(resolution, actionItem, e, coverLetterAndTransferNotificationTemplates.TransferNotificationTemplate);
         if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
         {
           _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);

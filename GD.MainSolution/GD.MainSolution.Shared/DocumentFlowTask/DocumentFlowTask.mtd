@@ -120,6 +120,7 @@
       ]
     }
   ],
+  "FormViewUuid": "62618515-5882-4d66-849b-8772d32daa3b",
   "HandledEvents": [
     "CreatedServer",
     "BeforeStartServer"
@@ -127,6 +128,7 @@
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
   "LayeredFromGuid": "c51a9c15-4449-4411-b17b-2ea3ce891ab6",
+  "ListViewUuid": "110ed425-a6b0-437f-b1d2-310c532eb217",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Overridden": [
@@ -216,7 +218,7 @@
   "Versions": [
     {
       "Type": "TaskMetadata",
-      "Number": 3
+      "Number": 4
     },
     {
       "Type": "WorkflowEntityMetadata",

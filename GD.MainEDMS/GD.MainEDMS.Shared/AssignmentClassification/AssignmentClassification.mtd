@@ -91,6 +91,7 @@
       ]
     }
   ],
+  "FormViewUuid": "6539649c-d7c4-43d7-b912-8c6c96af4023",
   "HandledEvents": [
     "FilteringServer",
     "CreatedServer"
@@ -98,6 +99,7 @@
   "IconResourcesKeys": [],
   "IntegrationServiceName": "MainEDMSRequestClassification",
   "IsStatusEnabled": true,
+  "ListViewUuid": "47bfcfde-3923-4e69-a737-317d4a41d5cb",
   "OperationsClass": "",
   "Overridden": [
     "CanBeSearch",

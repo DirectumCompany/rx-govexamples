@@ -176,9 +176,11 @@
       ]
     }
   ],
+  "FormViewUuid": "5fac5d21-8046-436d-8303-5c95a3fcf15f",
   "IconResourcesKeys": [],
   "IntegrationServiceName": "MainSolutionAssignment",
   "IsVisibleThreadText": true,
+  "ListViewUuid": "021b6fd4-405c-4ec4-80e5-3e717266746b",
   "NeverLinkToParentWhenCreated": true,
   "OperationsClass": "",
   "Properties": [

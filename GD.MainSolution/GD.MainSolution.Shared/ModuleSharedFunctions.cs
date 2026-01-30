@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sungero.Core;
@@ -6,7 +6,7 @@ using Sungero.CoreEntities;
 
 namespace GD.MainSolution.Shared
 {
-  public class ModuleFunctions
+  public partial class ModuleFunctions
   {
     /// <summary>
     /// Добавить в задачу все документы по связям кроме "Приложение" и документы с типом связи "Основание", "Отмена" и "Прочие".

@@ -41,7 +41,6 @@
   "HandledEvents": [
     "InitializingServer"
   ],
-  "IconResourcesKeys": [],
   "Importance": "Medium",
   "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "InterfaceNamespace": "GD.MainEDMS",
@@ -54,7 +53,6 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainEDMS",
-  "ResourcesKeys": [],
   "ServerAssemblyName": "GD.MainEDMS.Server",
   "ServerNamespace": "GD.MainEDMS.Server",
   "SharedAssemblyName": "GD.MainEDMS.Shared",
@@ -65,7 +63,7 @@
   "Versions": [
     {
       "Type": "ModuleMetadata",
-      "Number": 9
+      "Number": 12
     },
     {
       "Type": "DomainApi",
