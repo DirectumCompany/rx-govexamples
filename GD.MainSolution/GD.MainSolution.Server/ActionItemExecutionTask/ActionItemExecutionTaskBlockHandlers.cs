@@ -9,6 +9,23 @@ using GD.MainSolution.ActionItemExecutionTask;
 
 namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
 {
+  partial class AcceptWorkBySupervisorBlockHandlers
+  {
+
+    public override void AcceptWorkBySupervisorBlockEnd(System.Collections.Generic.IEnumerable<Sungero.RecordManagement.IActionItemSupervisorAssignment> createdAssignments)
+    {
+      base.AcceptWorkBySupervisorBlockEnd(createdAssignments);
+      
+      // Если контроллер отправил на доработку, а проект поручения уже не в состоянии "Черновик", то очищаем свойство с проектом поручения.
+      var assignment = createdAssignments.OrderByDescending(a => a.Created).FirstOrDefault();
+      if (assignment != null && assignment.Result == Sungero.RecordManagement.ActionItemSupervisorAssignment.Result.ForRework &&
+         _obj.DraftActionItemGD != null && _obj.DraftActionItemGD.Status !=  Sungero.RecordManagement.ActionItemExecutionTask.Status.Draft)
+      {
+        _obj.DraftActionItemGD = null;
+      }
+    }
+  }
+
   partial class DeleteDraftResolutionsBlockGDHandlers
   {
 

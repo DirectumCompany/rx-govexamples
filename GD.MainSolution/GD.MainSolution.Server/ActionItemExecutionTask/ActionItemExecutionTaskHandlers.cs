@@ -7,6 +7,16 @@ using GD.MainSolution.ActionItemExecutionTask;
 
 namespace GD.MainSolution
 {
+  partial class ActionItemExecutionTaskCreatingFromServerHandler
+  {
+
+    public override void CreatingFrom(Sungero.Domain.CreatingFromEventArgs e)
+    {
+      base.CreatingFrom(e);
+      e.Without(_info.Properties.DraftActionItemGD);
+    }
+  }
+
   partial class ActionItemExecutionTaskServerHandlers
   {
 
