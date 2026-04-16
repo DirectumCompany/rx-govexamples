@@ -11,7 +11,7 @@
       "ActionArea": "Card",
       "AllowUserDisableConfirmation": true,
       "GenerateHandler": true,
-      "LargeIconName": null,
+      "LargeIconName": "Action_SendForReview_large_11b8852152544a599a9598cd19c5715e.png",
       "NeedConfirmation": true,
       "SmallIconName": "Action_SendForReview_small_11b8852152544a599a9598cd19c5715e.png"
     },
@@ -22,7 +22,7 @@
       "ActionArea": "Card",
       "AllowUserDisableConfirmation": true,
       "GenerateHandler": true,
-      "LargeIconName": null,
+      "LargeIconName": "Action_Explored_large_4959f59eb52548db85b67d52272c1ee1.png",
       "NeedConfirmation": true,
       "SmallIconName": "Action_Explored_small_4959f59eb52548db85b67d52272c1ee1.png"
     },
@@ -33,7 +33,7 @@
       "ActionArea": "Card",
       "AllowUserDisableConfirmation": true,
       "GenerateHandler": true,
-      "LargeIconName": null,
+      "LargeIconName": "Action_SendForExecute_large_d58f58d5174a4e3f8382debd5c5a663e.png",
       "NeedConfirmation": true,
       "SmallIconName": "Action_SendForExecute_small_d58f58d5174a4e3f8382debd5c5a663e.png"
     },

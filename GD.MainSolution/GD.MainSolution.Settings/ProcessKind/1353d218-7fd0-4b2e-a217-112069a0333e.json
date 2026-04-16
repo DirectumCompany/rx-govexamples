@@ -18,7 +18,7 @@
               "BlockId": "SE_29",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 0.0,
+                "X": 240.0,
                 "Y": -1120.0
               }
             },
@@ -27,7 +27,7 @@
               "BlockId": "1",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 0.0,
+                "X": 240.0,
                 "Y": -1520.0
               }
             },
@@ -36,7 +36,7 @@
               "BlockId": "SE_46",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 0.0,
+                "X": 240.0,
                 "Y": -930.0
               }
             },
@@ -45,7 +45,7 @@
               "BlockId": "SE_31",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 130.0,
+                "X": 370.0,
                 "Y": -1040.0
               }
             },
@@ -54,7 +54,7 @@
               "BlockId": "SE_2",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -100.0,
+                "X": 140.0,
                 "Y": -1450.0
               }
             },
@@ -63,7 +63,7 @@
               "BlockId": "SE_22",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -100.0,
+                "X": 140.0,
                 "Y": -1340.0
               }
             },
@@ -72,7 +72,7 @@
               "BlockId": "SE_32",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -140.0,
+                "X": 100.0,
                 "Y": -840.0
               }
             },
@@ -81,7 +81,7 @@
               "BlockId": "SE_25",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -100.0,
+                "X": 140.0,
                 "Y": -1230.0
               }
             },
@@ -90,7 +90,7 @@
               "BlockId": "SE_27",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -100.0,
+                "X": 140.0,
                 "Y": -720.0
               }
             },
@@ -216,8 +216,8 @@
               "BlockId": "SE_30",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 0.0,
-                "Y": -590.0
+                "X": 240.0,
+                "Y": -600.0
               }
             },
             {
@@ -225,8 +225,8 @@
               "BlockId": "SE_54",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 0.0,
-                "Y": 20.0
+                "X": 180.0,
+                "Y": 10.0
               }
             },
             {
@@ -235,7 +235,7 @@
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                 "X": -280.0,
-                "Y": 20.0
+                "Y": 10.0
               }
             },
             {
@@ -243,7 +243,7 @@
               "BlockId": "SE_6",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -470.0,
+                "X": -490.0,
                 "Y": 800.0
               }
             },
@@ -307,7 +307,7 @@
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                 "X": 290.0,
-                "Y": 190.0
+                "Y": 0.0
               }
             },
             {
@@ -351,7 +351,7 @@
               "BlockId": "SE_66",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -280.0,
+                "X": -120.0,
                 "Y": -450.0
               }
             },
@@ -360,7 +360,7 @@
               "BlockId": "SE_67",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -540.0,
+                "X": -380.0,
                 "Y": -340.0
               }
             },
@@ -369,8 +369,26 @@
               "BlockId": "SE_69",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": -540.0,
+                "X": -380.0,
                 "Y": -230.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_70",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 20.0,
+                "Y": -120.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_71",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 240.0,
+                "Y": -490.0
               }
             }
           ]
@@ -393,12 +411,12 @@
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -345.0,
+                    "X": -365.0,
                     "Y": 715.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -345.0,
+                    "X": -365.0,
                     "Y": 800.0
                   }
                 ]
@@ -414,27 +432,27 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": -240.0,
+                    "Y": 835.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -220.0,
                     "Y": 835.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -200.0,
-                    "Y": 835.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -200.0,
+                    "X": -220.0,
                     "Y": 780.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -315.0,
+                    "X": -335.0,
                     "Y": 780.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -315.0,
+                    "X": -335.0,
                     "Y": 800.0
                   }
                 ]
@@ -528,13 +546,13 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 50.0,
-                    "Y": -565.0
+                    "X": 290.0,
+                    "Y": -575.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 1215.0,
-                    "Y": -565.0
+                    "Y": -575.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
@@ -554,12 +572,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -345.0,
+                    "X": -365.0,
                     "Y": 870.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -345.0,
+                    "X": -365.0,
                     "Y": 905.0
                   },
                   {
@@ -1016,13 +1034,13 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -650.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -590.0
+                    "X": 265.0,
+                    "Y": -600.0
                   }
                 ]
               }
@@ -1037,17 +1055,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 130.0,
+                    "X": 370.0,
                     "Y": -1015.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1015.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -930.0
                   }
                 ]
@@ -1063,17 +1081,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 0.0,
+                    "X": 240.0,
                     "Y": -905.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -115.0,
+                    "X": 125.0,
                     "Y": -905.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -115.0,
+                    "X": 125.0,
                     "Y": -840.0
                   }
                 ]
@@ -1089,12 +1107,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1470.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1450.0
                   }
                 ]
@@ -1110,12 +1128,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1270.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1230.0
                   }
                 ]
@@ -1131,12 +1149,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1380.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1340.0
                   }
                 ]
@@ -1152,12 +1170,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1160.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -1120.0
                   }
                 ]
@@ -1173,28 +1191,28 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 180.0,
+                    "X": 420.0,
                     "Y": -1015.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 200.0,
+                    "X": 440.0,
                     "Y": -1015.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 200.0,
-                    "Y": -610.0
+                    "X": 440.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -610.0
+                    "X": 265.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -590.0
+                    "X": 265.0,
+                    "Y": -600.0
                   }
                 ]
               }
@@ -1209,17 +1227,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 50.0,
+                    "X": 290.0,
                     "Y": -1095.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 155.0,
+                    "X": 395.0,
                     "Y": -1095.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 155.0,
+                    "X": 395.0,
                     "Y": -1040.0
                   }
                 ]
@@ -1235,17 +1253,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -90.0,
+                    "X": 150.0,
                     "Y": -815.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -815.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
+                    "X": 265.0,
                     "Y": -720.0
                   }
                 ]
@@ -1261,38 +1279,38 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 0.0,
+                    "X": 240.0,
                     "Y": -1095.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -70.0,
+                    "X": 170.0,
                     "Y": -1095.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -70.0,
+                    "X": 170.0,
                     "Y": -740.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -120.0,
+                    "X": 120.0,
                     "Y": -740.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -120.0,
-                    "Y": -610.0
+                    "X": 120.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -610.0
+                    "X": 265.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -590.0
+                    "X": 265.0,
+                    "Y": -600.0
                   }
                 ]
               }
@@ -1307,28 +1325,28 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -140.0,
+                    "X": 100.0,
                     "Y": -815.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -160.0,
+                    "X": 80.0,
                     "Y": -815.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -160.0,
-                    "Y": -610.0
+                    "X": 80.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -610.0
+                    "X": 265.0,
+                    "Y": -620.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -590.0
+                    "X": 265.0,
+                    "Y": -600.0
                   }
                 ]
               }
@@ -1343,17 +1361,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 50.0,
+                    "X": 290.0,
                     "Y": -905.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 85.0,
+                    "X": 325.0,
                     "Y": -905.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 85.0,
+                    "X": 325.0,
                     "Y": -720.0
                   }
                 ]
@@ -1369,13 +1387,13 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 0.0,
-                    "Y": 45.0
+                    "X": 180.0,
+                    "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -230.0,
-                    "Y": 45.0
+                    "Y": 35.0
                   }
                 ]
               }
@@ -1391,7 +1409,7 @@
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -255.0,
-                    "Y": 70.0
+                    "Y": 60.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
@@ -1469,12 +1487,12 @@
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 810.0,
-                    "Y": 225.0
+                    "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 540.0,
-                    "Y": 225.0
+                    "Y": 35.0
                   }
                 ]
               }
@@ -1490,43 +1508,12 @@
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 415.0,
-                    "Y": 260.0
+                    "Y": 70.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 415.0,
                     "Y": 400.0
-                  }
-                ]
-              }
-            },
-            {
-              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
-              "DestinationAnchor": 0,
-              "EdgeId": 129,
-              "OriginAnchor": 15,
-              "PathPoints": {
-                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
-                "$values": [
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -470.0,
-                    "Y": 835.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -490.0,
-                    "Y": 835.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -490.0,
-                    "Y": 45.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -280.0,
-                    "Y": 45.0
                   }
                 ]
               }
@@ -1553,32 +1540,6 @@
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -145.0,
                     "Y": 690.0
-                  }
-                ]
-              }
-            },
-            {
-              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
-              "DestinationAnchor": 3,
-              "EdgeId": 132,
-              "OriginAnchor": 2,
-              "PathPoints": {
-                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
-                "$values": [
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -60.0,
-                    "Y": 555.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": 555.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": 70.0
                   }
                 ]
               }
@@ -1653,32 +1614,6 @@
             },
             {
               "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
-              "DestinationAnchor": 3,
-              "EdgeId": 136,
-              "OriginAnchor": 2,
-              "PathPoints": {
-                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
-                "$values": [
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 50.0,
-                    "Y": 45.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 415.0,
-                    "Y": 45.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 415.0,
-                    "Y": 190.0
-                  }
-                ]
-              }
-            },
-            {
-              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
               "DestinationAnchor": 1,
               "EdgeId": 124,
               "OriginAnchor": 18,
@@ -1688,12 +1623,12 @@
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 540.0,
-                    "Y": 225.0
+                    "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 615.0,
-                    "Y": 225.0
+                    "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
@@ -1807,17 +1742,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 0.0,
-                    "Y": -565.0
+                    "X": 240.0,
+                    "Y": -575.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -255.0,
-                    "Y": -565.0
+                    "X": -95.0,
+                    "Y": -575.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -255.0,
+                    "X": -95.0,
                     "Y": -450.0
                   }
                 ]
@@ -1833,17 +1768,17 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -280.0,
+                    "X": -120.0,
                     "Y": -425.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
+                    "X": -255.0,
                     "Y": -425.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
+                    "X": -255.0,
                     "Y": -340.0
                   }
                 ]
@@ -1859,12 +1794,12 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
+                    "X": -255.0,
                     "Y": -270.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
+                    "X": -255.0,
                     "Y": -230.0
                   }
                 ]
@@ -1880,22 +1815,22 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -290.0,
+                    "X": -130.0,
                     "Y": -305.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -270.0,
+                    "X": -110.0,
                     "Y": -305.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -270.0,
+                    "X": -110.0,
                     "Y": -195.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -290.0,
+                    "X": -130.0,
                     "Y": -195.0
                   }
                 ]
@@ -1911,23 +1846,13 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
+                    "X": -255.0,
                     "Y": -160.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -415.0,
-                    "Y": 0.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -255.0,
-                    "Y": 0.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -255.0,
-                    "Y": 20.0
+                    "Y": 10.0
                   }
                 ]
               }
@@ -1936,19 +1861,24 @@
               "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
               "DestinationAnchor": 1,
               "EdgeId": 147,
-              "OriginAnchor": 3,
+              "OriginAnchor": 2,
               "PathPoints": {
                 "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": -540.0
+                    "X": -70.0,
+                    "Y": -425.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 25.0,
-                    "Y": 20.0
+                    "X": 45.0,
+                    "Y": -425.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 45.0,
+                    "Y": -120.0
                   }
                 ]
               }
@@ -1957,34 +1887,24 @@
               "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
               "DestinationAnchor": 1,
               "EdgeId": 148,
-              "OriginAnchor": 2,
+              "OriginAnchor": 0,
               "PathPoints": {
                 "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -230.0,
-                    "Y": -425.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -210.0,
-                    "Y": -425.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -210.0,
-                    "Y": 0.0
+                    "X": 20.0,
+                    "Y": -95.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -255.0,
-                    "Y": 0.0
+                    "Y": -95.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": -255.0,
-                    "Y": 20.0
+                    "Y": 10.0
                   }
                 ]
               }
@@ -1993,34 +1913,175 @@
               "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
               "DestinationAnchor": 1,
               "EdgeId": 149,
-              "OriginAnchor": 18,
+              "OriginAnchor": 2,
               "PathPoints": {
                 "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -130.0,
-                    "Y": 195.0
+                    "X": 70.0,
+                    "Y": -95.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -110.0,
-                    "Y": 195.0
+                    "X": 205.0,
+                    "Y": -95.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -110.0,
-                    "Y": -470.0
+                    "X": 205.0,
+                    "Y": 10.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 15,
+              "EdgeId": 151,
+              "OriginAnchor": 2,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 230.0,
+                    "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -255.0,
-                    "Y": -470.0
+                    "X": 290.0,
+                    "Y": 35.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 3,
+              "EdgeId": 152,
+              "OriginAnchor": 1,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 265.0,
+                    "Y": -490.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": -255.0,
-                    "Y": -450.0
+                    "X": 265.0,
+                    "Y": -550.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 2,
+              "EdgeId": 153,
+              "OriginAnchor": 3,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 415.0,
+                    "Y": 0.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 415.0,
+                    "Y": -465.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 290.0,
+                    "Y": -465.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 3,
+              "EdgeId": 154,
+              "OriginAnchor": 2,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": -60.0,
+                    "Y": 555.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 265.0,
+                    "Y": 555.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 265.0,
+                    "Y": -440.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 0,
+              "EdgeId": 155,
+              "OriginAnchor": 15,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": -490.0,
+                    "Y": 835.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": -510.0,
+                    "Y": 835.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": -510.0,
+                    "Y": -575.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 240.0,
+                    "Y": -575.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 2,
+              "EdgeId": 156,
+              "OriginAnchor": 10,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 665.0,
+                    "Y": 630.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 665.0,
+                    "Y": 1475.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 170.0,
+                    "Y": 1475.0
                   }
                 ]
               }
@@ -6745,7 +6806,7 @@
             "BlockTypeId": "28e7cdc6-a9a9-423b-84ff-f27d006ac548",
             "CreatedInTaskGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
             "VersionId": "1353d218-7fd0-4b2e-a217-112069a0333e",
-            "Title": "Подготовка проекта поручения",
+            "Title": "Подготовка подчиненного поручения",
             "Description": null,
             "ProcessStagesDisplayMode": null,
             "PropertyExpressions": {
@@ -6949,7 +7010,40 @@
             },
             "CustomExecutionResults": {
               "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces]], System.Private.CoreLib",
-              "$values": []
+              "$values": [
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "DocsRework",
+                  "FromMetadata": true,
+                  "ActionGuid": "69ab8bfc-19dd-4a4b-879e-18e41946a47f",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "Forward",
+                  "FromMetadata": true,
+                  "ActionGuid": "15a894ef-15aa-4bae-a5d2-7d25aee7dbaf",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "ResPassed",
+                  "FromMetadata": true,
+                  "ActionGuid": "e828e833-64a4-4460-8582-922497b89ed9",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "ActionItemsSent",
+                  "FromMetadata": true,
+                  "ActionGuid": "efd122c4-9bde-4e54-a053-c1e87a044416",
+                  "IconName": null,
+                  "IsHidden": true
+                }
+              ]
             },
             "StopResults": {
               "$type": "System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
@@ -7236,7 +7330,7 @@
             "BlockTypeId": "d016139a-f237-4d19-b086-3950dfeeb47a",
             "CreatedInTaskGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
             "VersionId": "1353d218-7fd0-4b2e-a217-112069a0333e",
-            "Title": "Рассмотрение",
+            "Title": "Рассмотрение исполнителем-адресатом",
             "Description": null,
             "ProcessStagesDisplayMode": null,
             "PropertyExpressions": {
@@ -7803,6 +7897,130 @@
               "$values": []
             },
             "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.DecisionBlock, Sungero.Workflow.Blocks",
+            "ConditionExpressions": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.ConditionExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "Sungero.NoCode.Expression.ConditionExpression, Sungero.NoCode.Expression",
+                  "LeftExpression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                          "Id": "c290b098-12c7-487d-bb38-73e2c98f9789"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                          "Id": "30ff1aee-de08-4e86-9265-a28d8916a4f7",
+                          "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                          "Name": "GetAssistantWhoPreparesDraftResolution",
+                          "ParentTypeId": "b7905516-2be5-4931-961c-cb38d5677565",
+                          "Parameters": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Name": "employee",
+                                "Type": "Sungero.Company.IEmployee, Sungero.Domain.Interfaces"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "Operator": {
+                    "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                    "Name": "IsNotEqual",
+                    "ParentTypeId": "04608308-d517-4988-93b4-4312c3ed0c4c",
+                    "Parameters": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                          "Name": "object1",
+                          "Type": "System.Object, System.Private.CoreLib"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                          "Name": "object2",
+                          "Type": "System.Object, System.Private.CoreLib"
+                        }
+                      ]
+                    }
+                  },
+                  "RightExpression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.ValueToken, Sungero.NoCode.Expression",
+                          "Value": null,
+                          "ValueType": "System.Collections.Generic.List`1[[Sungero.CoreEntities.IRecipient, Sungero.Domain.Shared]], System.Private.CoreLib"
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "LogicalOperator": null,
+                  "Version": 3
+                }
+              ]
+            },
+            "ResultVariableName": "DecisionSE_70Result",
+            "Id": "SE_70",
+            "BlockTypeId": "eae8df1d-534f-4a06-b47c-466005dae4df",
+            "CreatedInTaskGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
+            "VersionId": "1353d218-7fd0-4b2e-a217-112069a0333e",
+            "Title": "У исполнителя есть помощник?",
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.OrBlock, Sungero.Workflow.Blocks",
+            "Id": "SE_71",
+            "BlockTypeId": "14c3bc98-5df9-4b54-8af6-7ce08f942816",
+            "CreatedInTaskGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
+            "VersionId": "1353d218-7fd0-4b2e-a217-112069a0333e",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
           }
         ]
       },
@@ -8101,14 +8319,7 @@
             "Id": 120,
             "Source": "SE_55",
             "Target": "SE_56",
-            "Value": ""
-          },
-          {
-            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
-            "Id": 129,
-            "Source": "SE_6",
-            "Target": "SE_57",
-            "Value": "ForRework"
+            "Value": "Explored"
           },
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
@@ -8119,17 +8330,10 @@
           },
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
-            "Id": 132,
-            "Source": "SE_61",
-            "Target": "SE_54",
-            "Value": "True"
-          },
-          {
-            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
             "Id": 133,
             "Source": "SE_1",
             "Target": "SE_62",
-            "Value": "Done"
+            "Value": null
           },
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
@@ -8143,13 +8347,6 @@
             "Id": 135,
             "Source": "SE_62",
             "Target": "SE_61",
-            "Value": null
-          },
-          {
-            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
-            "Id": 136,
-            "Source": "SE_54",
-            "Target": "SE_55",
             "Value": null
           },
           {
@@ -8225,27 +8422,69 @@
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
             "Id": 147,
-            "Source": "SE_30",
-            "Target": "SE_54",
-            "Value": null
+            "Source": "SE_66",
+            "Target": "SE_70",
+            "Value": "False"
           },
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
             "Id": 148,
-            "Source": "SE_66",
+            "Source": "SE_70",
             "Target": "SE_57",
             "Value": "False"
           },
           {
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
             "Id": 149,
-            "Source": "SE_1",
-            "Target": "SE_66",
-            "Value": "Forwarded"
+            "Source": "SE_70",
+            "Target": "SE_54",
+            "Value": "True"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 151,
+            "Source": "SE_54",
+            "Target": "SE_55",
+            "Value": null
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 152,
+            "Source": "SE_71",
+            "Target": "SE_30",
+            "Value": null
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 153,
+            "Source": "SE_55",
+            "Target": "SE_71",
+            "Value": "SendForExecute"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 154,
+            "Source": "SE_61",
+            "Target": "SE_71",
+            "Value": "True"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 155,
+            "Source": "SE_6",
+            "Target": "SE_30",
+            "Value": "ForRework"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 156,
+            "Source": "SE_60",
+            "Target": "2",
+            "Value": "DraftResApprove"
           }
         ]
       },
-      "MaxBlockId": 69
+      "MaxBlockId": 73
     }
   },
   "Operations": {

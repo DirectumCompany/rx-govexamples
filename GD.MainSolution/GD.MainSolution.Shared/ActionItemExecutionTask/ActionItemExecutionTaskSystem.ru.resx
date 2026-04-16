@@ -169,4 +169,7 @@
   <data name="Property_AssignmentClassificationGD" xml:space="preserve">
     <value>Классификация поручения</value>
   </data>
+  <data name="Property_DraftActionItemGD" xml:space="preserve">
+    <value>Проект резолюции</value>
+  </data>
 </root>
