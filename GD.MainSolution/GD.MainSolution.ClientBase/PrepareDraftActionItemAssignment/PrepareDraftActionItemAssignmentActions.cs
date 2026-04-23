@@ -38,9 +38,10 @@ namespace GD.MainSolution.Client
 
     public virtual bool CanCreateCoverLettersForTransfer(Sungero.Domain.Client.CanExecuteActionArgs e)
     {
-      return _obj.DraftActionItemGroup.ActionItemExecutionTasks.Any() &&
-        MainSolution.Requests.Is(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
-
+      // Проверить, что у поручения есть перенаправление по компетенции.
+      var needCoverLetters = GovernmentSolution.PublicFunctions.DocumentReviewTask.NeedCoverLetters(GovernmentSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()),
+                                                                                                   _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+      return needCoverLetters && _obj.Status == PrepareDraftActionItemAssignment.Status.InProcess;
     }
 
     public virtual void OpenActionItem(Sungero.Domain.Client.ExecuteActionArgs e)
