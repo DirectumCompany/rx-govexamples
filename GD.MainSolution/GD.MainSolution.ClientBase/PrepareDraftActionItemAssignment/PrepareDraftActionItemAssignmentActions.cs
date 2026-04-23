@@ -177,6 +177,8 @@ namespace GD.MainSolution.Client
             e.Cancel();
         }
       }
+      
+      PublicFunctions.OfficialDocument.Remote.MarkDocumentsAsObsolete(_obj.CoverDocumentsGroup.OfficialDocuments.ToList());
     }
 
     public virtual bool CanExplored(Sungero.Workflow.Client.CanExecuteResultActionArgs e)

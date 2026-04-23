@@ -104,6 +104,20 @@
       ],
       "ReturnType": "global::GD.MainSolution.IActionItemExecutionAssignment",
       "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionAssignment, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "MarkDocumentsAsObsolete",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "documents",
+          "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Docflow.IOfficialDocument>",
+          "ParameterTypeFullName": "System.Collections.Generic.List"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
     }
   ],
   "PublicStructures": [],
