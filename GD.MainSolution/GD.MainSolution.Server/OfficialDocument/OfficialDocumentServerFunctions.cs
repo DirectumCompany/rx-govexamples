@@ -71,5 +71,23 @@ namespace GD.MainSolution.Server
         .Select(s => s.DocumentRegister.RegistrationGroup)
         .Any(s => !s.Departments.Any() || s.Departments.Any(d => Equals(d.Department, _obj.Department)));
     }
+    
+    /// <summary>
+    /// Отметить документы устаревшими.
+    /// </summary>
+    /// <param name="documents">Список документов.</param>
+    [Public, Remote]
+    public static void MarkDocumentsAsObsolete(List<Sungero.Docflow.IOfficialDocument> documents)
+    {
+      foreach (var document in documents)
+      {
+        AccessRights.AllowRead(
+          () =>
+          {
+            document.LifeCycleState = Sungero.Docflow.OfficialDocument.LifeCycleState.Obsolete;
+            document.Save();
+          });
+      }
+    }
   }
 }

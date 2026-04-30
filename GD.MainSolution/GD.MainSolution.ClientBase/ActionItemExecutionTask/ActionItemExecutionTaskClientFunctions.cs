@@ -110,6 +110,9 @@ namespace GD.MainSolution.Client
       var notification = CitizenRequests.OutgoingRequestLetters.As(_obj.CoverDocumentsGroup.OfficialDocuments.Where(d => Equals(d.DocumentKind, notificationKind)).FirstOrDefault());
       
       var request = CitizenRequests.Requests.As(_obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+      if (request.RequestType == CitizenRequests.Request.RequestType.Anonymous)
+        return null;
+      
       var errorText = CitizenRequests.PublicFunctions.Module.CheckCreateNotification(notification, request, actionItemExecution, template);
       if (!string.IsNullOrEmpty(errorText))
       {

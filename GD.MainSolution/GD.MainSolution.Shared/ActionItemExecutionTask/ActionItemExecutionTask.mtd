@@ -86,6 +86,20 @@
   "Blocks": [
     {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "78f5cfbb-ac33-4781-ad76-92398ce0521d",
+      "Name": "AcceptWorkBySupervisorBlock",
+      "EntityType": "f44faafc-cd55-4c5b-b16d-93b6fc966ffb",
+      "HandledEvents": [
+        "AcceptWorkBySupervisorBlockEnd"
+      ],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "HandledEvents"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
       "NameGuid": "d7933064-9ea2-4fd1-861d-bb5ec9ae8487",
       "Name": "ExecuteActionItemBlock",
       "EntityType": "d238ef51-607e-46a5-b86a-ede4482f7f19",
@@ -493,7 +507,8 @@
     "RefreshClient",
     "BeforeSaveServer",
     "CreatedServer",
-    "BeforeStartServer"
+    "BeforeStartServer",
+    "CreatingFromServer"
   ],
   "IconResourcesKeys": [],
   "IsVisibleThreadText": true,
