@@ -297,7 +297,7 @@
               "BlockId": "SE_59",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 590.0,
+                "X": 630.0,
                 "Y": 400.0
               }
             },
@@ -315,8 +315,8 @@
               "BlockId": "SE_60",
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                "X": 540.0,
-                "Y": 560.0
+                "X": 640.0,
+                "Y": 720.0
               }
             },
             {
@@ -325,7 +325,7 @@
               "Bounds": {
                 "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                 "X": 290.0,
-                "Y": 480.0
+                "Y": 720.0
               }
             },
             {
@@ -1420,7 +1420,7 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 590.0,
+                    "X": 630.0,
                     "Y": 425.0
                   },
                   {
@@ -1441,18 +1441,18 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 640.0,
+                    "X": 680.0,
                     "Y": 425.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 665.0,
+                    "X": 765.0,
                     "Y": 425.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 665.0,
-                    "Y": 560.0
+                    "X": 765.0,
+                    "Y": 720.0
                   }
                 ]
               }
@@ -1467,17 +1467,27 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 790.0,
-                    "Y": 595.0
+                    "X": 890.0,
+                    "Y": 755.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 810.0,
-                    "Y": 595.0
+                    "X": 910.0,
+                    "Y": 755.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 810.0,
+                    "X": 910.0,
+                    "Y": 350.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 560.0,
+                    "Y": 350.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 560.0,
                     "Y": 35.0
                   },
                   {
@@ -1618,12 +1628,12 @@
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 615.0,
+                    "X": 655.0,
                     "Y": 35.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 615.0,
+                    "X": 655.0,
                     "Y": 400.0
                   }
                 ]
@@ -1631,7 +1641,7 @@
             },
             {
               "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
-              "DestinationAnchor": 10,
+              "DestinationAnchor": 18,
               "EdgeId": 128,
               "OriginAnchor": 15,
               "PathPoints": {
@@ -1639,18 +1649,13 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 640.0,
+                    "Y": 755.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 540.0,
-                    "Y": 595.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 415.0,
-                    "Y": 595.0
-                  },
-                  {
-                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 415.0,
-                    "Y": 550.0
+                    "Y": 755.0
                   }
                 ]
               }
@@ -1666,7 +1671,7 @@
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
                     "X": 415.0,
-                    "Y": 480.0
+                    "Y": 720.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
@@ -1988,18 +1993,28 @@
                 "$values": [
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 665.0,
-                    "Y": 630.0
+                    "X": 765.0,
+                    "Y": 790.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 665.0,
-                    "Y": 1475.0
+                    "X": 765.0,
+                    "Y": 810.0
                   },
                   {
                     "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
-                    "X": 170.0,
-                    "Y": 1475.0
+                    "X": 560.0,
+                    "Y": 810.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 560.0,
+                    "Y": 425.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 440.0,
+                    "Y": 425.0
                   }
                 ]
               }
@@ -8379,7 +8394,7 @@
             "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
             "Id": 156,
             "Source": "SE_60",
-            "Target": "2",
+            "Target": "SE_56",
             "Value": "DraftResApprove"
           },
           {
