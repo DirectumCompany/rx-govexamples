@@ -485,7 +485,47 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.Docflow",
-  "SpecialFolders": [],
+  "SpecialFolders": [
+    {
+      "NameGuid": "113427f5-1683-4bb8-980c-ba4bcef50e66",
+      "Name": "ApprovalRules",
+      "DisplayType": "Module",
+      "FolderViewUuid": "d40cbb90-6103-4d0c-b6c1-c02f38f97710",
+      "IconPath": "ApprovalRules_113427f516834bb8980cba4bcef50e66.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "371c81c3-d2c8-4bfb-8e86-39470d456c62",
+      "Name": "StoragePolicy",
+      "DisplayType": "Module",
+      "FolderViewUuid": "241c1254-9ba9-41b0-9d16-b84d29bfede2",
+      "IconPath": "StoragePolicy_371c81c3d2c84bfb8e8639470d456c62.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "4edf28d5-32e2-440d-9f5c-138d99ad0324",
+      "Name": "PowerOfAttorneyList",
+      "DisplayType": "Module",
+      "FolderViewUuid": "7bbe8789-14e4-4f50-b749-c8d4da5b6718",
+      "IconPath": "PowerOfAttorneyList_4edf28d532e2440d9f5c138d99ad0324.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    }
+  ],
   "Version": "25.3.0.56",
   "Widgets": [],
   "Versions": [

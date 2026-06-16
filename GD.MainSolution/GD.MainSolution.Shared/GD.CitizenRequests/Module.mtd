@@ -5,6 +5,65 @@
   "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
   "AsyncHandlers": [
     {
+      "NameGuid": "566e7492-0cab-404e-8fc9-b60d12efacad",
+      "Name": "UpdatePersonRequisitesInRequest",
+      "DelayPeriod": 15,
+      "DelayStrategy": "ExponentialDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "235220d8-2cfc-4c51-99be-3e2a1fa2212b",
+          "Name": "INILA",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "53cf9e40-4081-4b1b-8fe7-a95328091289",
+          "Name": "Email",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "5cf7a79d-a1a1-49a6-8741-d221c317b4fe",
+          "Name": "PostalAddress",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "724e61ba-0613-4d86-96fb-4abd5d8f1f06",
+          "Name": "MiddleName",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "767d2a59-775a-487f-bab8-4ea7d19b85a9",
+          "Name": "BenefitCategoryField",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "9feb8bcf-8ab0-453d-a6c9-cc94291e6398",
+          "Name": "SocialPositionField",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "aaf4d393-ae26-4ce2-90de-75fdf3a46af3",
+          "Name": "PersonID",
+          "ParameterType": "LongInteger"
+        },
+        {
+          "NameGuid": "c09ccd74-2ae7-4932-a85c-14abd622eb25",
+          "Name": "FirstName",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "d186c7f2-970d-41c8-ad4b-44805df63947",
+          "Name": "Phone",
+          "ParameterType": "String"
+        },
+        {
+          "NameGuid": "ff425547-c0a3-4e96-ac45-e47bee17d5dc",
+          "Name": "LastName",
+          "ParameterType": "String"
+        }
+      ]
+    },
+    {
       "NameGuid": "68b637f8-075e-4ef5-a6f2-2666fa16befd",
       "Name": "AddRequestExecutionStatusToPosRegister",
       "DelayPeriod": 15,
@@ -128,7 +187,45 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
-  "SpecialFolders": [],
+  "SpecialFolders": [
+    {
+      "NameGuid": "773c9ebe-31da-4780-a803-ac4402a23a40",
+      "Name": "ExpiringRequests",
+      "DisplayType": "Module",
+      "FolderViewUuid": "21697479-abeb-4124-aa3d-405676367392",
+      "IconPath": "ExpiringRequests_773c9ebe31da4780a803ac4402a23a40.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "a66d7126-7106-4066-9394-b9716ba0b07e",
+      "Name": "ErrorRequests",
+      "DisplayType": "Module",
+      "FolderViewUuid": "a1cd747d-a260-49da-b4f5-17441cff9f04",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "bdff8865-71f7-4fe3-84e8-3abd29f39036",
+      "Name": "RequestForExport",
+      "DisplayType": "Module",
+      "FolderViewUuid": "e08e7101-b69b-4685-8970-3f0544ecbb56",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    }
+  ],
   "Version": "25.3.1.0",
   "Widgets": [],
   "Versions": [
