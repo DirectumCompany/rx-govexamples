@@ -11,6 +11,7 @@
   "CompanyCode": "Sungero",
   "ExplorerTreeOrder": [],
   "Importance": "Low",
+  "IsVisible": false,
   "LayeredFromGuid": "fcc573ab-5f4e-4b20-88e8-7b1e11a7a59a",
   "NeedResetAppliedCache": true,
   "NeedResetTags": true,
@@ -204,7 +205,7 @@
       ]
     }
   ],
-  "Version": "25.3.0.56",
+  "Version": "26.1.1.1",
   "Widgets": [],
   "Versions": [
     {

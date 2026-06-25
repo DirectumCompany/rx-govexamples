@@ -5,6 +5,34 @@
   "AssociatedGuid": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
   "AsyncHandlers": [
     {
+      "NameGuid": "fd406838-77d8-4e99-a7e0-afe5b80c95ca",
+      "Name": "DownloadCounterpartyFPoA",
+      "DelayPeriod": 15,
+      "DelayStrategy": "ExponentialDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "c694c25f-7c0c-4e33-af38-358a5a747fa5",
+          "Name": "QueueItemId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    },
+    {
+      "NameGuid": "9ff9056c-d30f-4a18-a15f-d2cbbaae35f0",
+      "Name": "GrantAccessRightsResilient",
+      "DelayPeriod": 15,
+      "DelayStrategy": "ExponentialDelayStrategy",
+      "IsAncestorMetadata": true,
+      "Parameters": [
+        {
+          "NameGuid": "bd679b47-6be1-41f4-b250-f90ca1fd8221",
+          "Name": "QueueItemId",
+          "ParameterType": "LongInteger"
+        }
+      ]
+    },
+    {
       "NameGuid": "91e037c0-0ac9-412a-a283-1567d122af49",
       "Name": "PrepareDocumentBodyForMarkEditor",
       "DelayPeriod": 15,
@@ -407,6 +435,13 @@
   "IsVisible": false,
   "Jobs": [
     {
+      "NameGuid": "486eaff5-ffe2-44ae-b5eb-256b8a4a7197",
+      "Name": "PrepareIndexingDataForFullTextSearch",
+      "IsAncestorMetadata": true,
+      "MonthSchedule": "Monthly",
+      "StartAt": "1753-01-01T20:00:00"
+    },
+    {
       "NameGuid": "bd4d35ec-198e-4868-9240-305c00653785",
       "Name": "DeleteMarkEditorSessions",
       "IsAncestorMetadata": true,
@@ -526,7 +561,7 @@
       ]
     }
   ],
-  "Version": "25.3.0.56",
+  "Version": "26.1.1.1",
   "Widgets": [],
   "Versions": [
     {

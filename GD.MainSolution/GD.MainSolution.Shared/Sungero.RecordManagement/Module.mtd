@@ -511,7 +511,7 @@
         {
           "Name": "actionItems",
           "ParameterType": "global::System.Collections.Generic.List<global::GD.MainSolution.IActionItemExecutionTask>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces]]"
         }
       ],
       "ReturnType": "void",
@@ -528,22 +528,22 @@
         {
           "Name": "addenda",
           "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Content.IElectronicDocument>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Content.IElectronicDocument, Sungero.Content.Shared]]"
         },
         {
           "Name": "addedAddendaIds",
           "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
         },
         {
           "Name": "removedAddendaIds",
           "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
         },
         {
           "Name": "otherAttachments",
           "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Domain.Shared.IEntity>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Domain.Shared.IEntity, Sungero.Domain.Shared]]"
         },
         {
           "Name": "actionItem",
@@ -666,7 +666,7 @@
       ]
     }
   ],
-  "Version": "25.3.0.56",
+  "Version": "26.1.1.1",
   "Widgets": [],
   "Versions": [
     {

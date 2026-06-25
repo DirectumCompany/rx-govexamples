@@ -46,9 +46,29 @@
     }
   ],
   "FormViewUuid": "c12f3abe-80fd-4f3b-a639-db76678aae1e",
-  "HandledEvents": [
-    "BeforeSaveServer",
-    "AfterSaveServer"
+  "Functions": [
+    {
+      "Name": "ExistsRegistrationSetting",
+      "ClassFullName": "GD.MainSolution.Server.OfficialDocumentFunctions",
+      "IsClrPublic": true,
+      "ReturnType": "global::System.Boolean",
+      "ReturnTypeFullName": "System.Boolean"
+    },
+    {
+      "Name": "MarkDocumentsAsObsolete",
+      "ClassFullName": "GD.MainSolution.Server.OfficialDocumentFunctions",
+      "IsClrPublic": true,
+      "IsStatic": true,
+      "Parameters": [
+        {
+          "Name": "documents",
+          "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Docflow.IOfficialDocument>",
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces]]"
+        }
+      ],
+      "ReturnType": "void",
+      "ReturnTypeFullName": "System.Void"
+    }
   ],
   "IconResourcesKeys": [],
   "IsAbstract": true,
@@ -94,25 +114,13 @@
       "ReturnTypeFullName": "System.Boolean"
     },
     {
-      "Name": "GetActionItemFromIncomingLetter",
-      "Parameters": [
-        {
-          "Name": "officialDocument",
-          "ParameterType": "global::GD.MainSolution.IOfficialDocument",
-          "ParameterTypeFullName": "GD.MainSolution.IOfficialDocument, Sungero.Domain.Interfaces"
-        }
-      ],
-      "ReturnType": "global::GD.MainSolution.IActionItemExecutionAssignment",
-      "ReturnTypeFullName": "GD.MainSolution.IActionItemExecutionAssignment, Sungero.Domain.Interfaces"
-    },
-    {
       "Name": "MarkDocumentsAsObsolete",
       "IsRemote": true,
       "Parameters": [
         {
           "Name": "documents",
           "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Docflow.IOfficialDocument>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces]]"
         }
       ],
       "Placement": "Shared",

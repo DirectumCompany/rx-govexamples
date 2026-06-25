@@ -10,49 +10,6 @@ namespace GD.MainSolution.Server
   partial class OfficialDocumentFunctions
   {
     /// <summary>
-    /// Получить поручение, связанное с исходным вх.письмом/обращением.
-    /// </summary>
-    /// <returns>Поручение.</returns>
-    [Public]
-    public IActionItemExecutionAssignment GetActionItemFromIncomingLetter()
-    {
-      // Для исходящх писем.
-      var outLetter = Sungero.RecordManagement.OutgoingLetters.As(_obj);
-      if (outLetter != null && outLetter.InResponseTo != null)
-      {
-        var incLetter = Sungero.RecordManagement.IncomingLetters.As(outLetter.InResponseTo);
-        var requestInResponse = GD.CitizenRequests.Requests.As(outLetter.InResponseTo);
-        if (incLetter != null)
-        {
-          var actionItem = incLetter.ActionItemGD;
-          if (actionItem != null && actionItem.ResultGroup.OfficialDocuments.Contains(outLetter))
-            return actionItem;
-        }
-        else if (requestInResponse != null)
-        {
-          var actionItem = requestInResponse.ActionItemGD;
-          if (actionItem != null && actionItem.OtherGroup.All.Any(x => x.Id == outLetter.Id))
-            return actionItem;
-        }
-      }
-      
-      // Для исходящих писем по обращениям.
-      var outgoingRequestLetter = GD.CitizenRequests.OutgoingRequestLetters.As(_obj);
-      if (outgoingRequestLetter != null)
-      {
-        var request = GD.CitizenRequests.Requests.As(outgoingRequestLetter.Request);
-        if (request != null)
-        {
-          var actionItem = request.ActionItemGD;
-          if (actionItem != null && actionItem.ResultGroup.OfficialDocuments.Contains(outgoingRequestLetter))
-            return actionItem;
-        }
-      }
-      
-      return null;
-    }
-    
-    /// <summary>
     /// Проверить, есть ли подходящие настройки регистрации для определения исполнителя на этапе регистрации.
     /// </summary>
     /// <returns>true, если есть. Иначе - false.</returns>
