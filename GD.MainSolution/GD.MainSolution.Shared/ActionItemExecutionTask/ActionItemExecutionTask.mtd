@@ -585,17 +585,6 @@
       ]
     },
     {
-      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "7306abac-0b49-4213-919a-37f70ccecdf4",
-      "Name": "DocumentGD",
-      "Code": "DocumentGD",
-      "EntityGuid": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1",
-      "FlatListInStandaloneLookup": true,
-      "IsVisibility": false,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "87c7b81a-77d7-4859-941c-4606a5723675"
-    },
-    {
       "$type": "Sungero.Metadata.StringPropertyMetadata, Sungero.Metadata",
       "NameGuid": "2101b217-f9ba-4e40-9e91-273a854777de",
       "Name": "PerformersGD",
@@ -603,27 +592,7 @@
       "Code": "PerformersGD",
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.StringEditorToStringBinder",
-      "PreviousPropertyGuid": "7306abac-0b49-4213-919a-37f70ccecdf4"
-    },
-    {
-      "$type": "Sungero.Metadata.StringPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "5e45f27d-cb42-4f69-aaf1-c86e6c58beb9",
-      "Name": "RegNumberGD",
-      "CanBeSearch": false,
-      "Code": "RegNumberGD",
-      "IsVisibility": false,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.StringEditorToStringBinder",
-      "PreviousPropertyGuid": "2101b217-f9ba-4e40-9e91-273a854777de"
-    },
-    {
-      "$type": "Sungero.Metadata.DateTimePropertyMetadata, Sungero.Metadata",
-      "NameGuid": "7224e0f9-5545-460c-bcb8-f13e8a44e470",
-      "Name": "RegDateGD",
-      "CanBeSearch": false,
-      "Code": "RegDateGD",
-      "IsVisibility": false,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DateTimeEditorToDateTimeBinder",
-      "PreviousPropertyGuid": "5e45f27d-cb42-4f69-aaf1-c86e6c58beb9"
+      "PreviousPropertyGuid": "15466ee9-48e9-414f-b6e4-7d70c225c582"
     },
     {
       "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
@@ -637,7 +606,7 @@
       "IsShowedInList": false,
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "7224e0f9-5545-460c-bcb8-f13e8a44e470"
+      "PreviousPropertyGuid": "2101b217-f9ba-4e40-9e91-273a854777de"
     },
     {
       "$type": "Sungero.Metadata.BooleanPropertyMetadata, Sungero.Metadata",
@@ -791,7 +760,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 13
+      "Number": 14
     }
   ]
 }

@@ -511,7 +511,7 @@
         {
           "Name": "actionItems",
           "ParameterType": "global::System.Collections.Generic.List<global::GD.MainSolution.IActionItemExecutionTask>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces]]"
         }
       ],
       "ReturnType": "void",
@@ -528,22 +528,22 @@
         {
           "Name": "addenda",
           "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Content.IElectronicDocument>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Content.IElectronicDocument, Sungero.Content.Shared]]"
         },
         {
           "Name": "addedAddendaIds",
           "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
         },
         {
           "Name": "removedAddendaIds",
           "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
         },
         {
           "Name": "otherAttachments",
           "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Domain.Shared.IEntity>",
-          "ParameterTypeFullName": "System.Collections.Generic.List"
+          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Domain.Shared.IEntity, Sungero.Domain.Shared]]"
         },
         {
           "Name": "actionItem",
@@ -594,6 +594,7 @@
         ],
         "Versions": []
       },
+      "FolderViewUuid": "dcc8f39a-d11e-470d-8119-a54829b8a6c7",
       "HandledEvents": [
         "DataQueryServer"
       ],
@@ -604,12 +605,68 @@
       "NeedShowMarkedCount": true,
       "Overridden": [
         "FilterPanel",
-        "HandledEvents"
+        "HandledEvents",
+        "FolderViewUuid"
       ],
       "Versions": []
+    },
+    {
+      "NameGuid": "4b30b2be-330e-42bd-833c-7ecf19b32e12",
+      "Name": "ActionItems",
+      "DisplayType": "Outbox",
+      "FolderViewUuid": "d1aa61b2-fb9c-44e5-8aa4-feafadbbfd98",
+      "IconPath": "ActionItems_4b30b2be330e42bd833c7ecf19b32e12.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "7d737a2b-cfc1-47d4-b475-01ed57f69bc0",
+      "Name": "DocumentsToReturn",
+      "DisplayType": "Module",
+      "FolderViewUuid": "50807aef-3141-441f-bf22-f074ea2518c3",
+      "IconPath": "DocumentsToReturn_7d737a2bcfc147d4b47501ed57f69bc0.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "fa95afab-924d-4bb3-b9cd-9cf1836fa272",
+      "Name": "OrdersCompanyDirectives",
+      "DisplayType": "Module",
+      "FolderViewUuid": "07c0b754-5234-4191-b8a9-9a082efa9a23",
+      "IconPath": "OrdersCompanyDirectives_fa95afab924d4bb3b9cd9cf1836fa272.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "a25a4fae-7bcf-4a52-99ad-f0392b5266cd",
+      "Name": "ActionItemsHierarchy",
+      "DisplayType": "Module",
+      "FolderViewUuid": "0c28d34c-c3b6-455d-b01b-d63ffb20a5b8",
+      "HierarchyDisplayPropertyId": "11f0499b-7583-4f3e-9975-ee4eb9d7f61b",
+      "HierarchyParentPropertyId": "bd39f96d-8ad1-4a56-a384-ba7adbb0f343",
+      "IsAncestorMetadata": true,
+      "IsHierarchicalView": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
     }
   ],
-  "Version": "25.3.0.56",
+  "Version": "26.1.1.1",
   "Widgets": [],
   "Versions": [
     {

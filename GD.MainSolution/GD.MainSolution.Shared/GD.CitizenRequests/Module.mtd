@@ -128,8 +128,46 @@
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution.Module.CitizenRequests",
-  "SpecialFolders": [],
-  "Version": "25.3.1.0",
+  "SpecialFolders": [
+    {
+      "NameGuid": "773c9ebe-31da-4780-a803-ac4402a23a40",
+      "Name": "ExpiringRequests",
+      "DisplayType": "Module",
+      "FolderViewUuid": "21697479-abeb-4124-aa3d-405676367392",
+      "IconPath": "ExpiringRequests_773c9ebe31da4780a803ac4402a23a40.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "a66d7126-7106-4066-9394-b9716ba0b07e",
+      "Name": "ErrorRequests",
+      "DisplayType": "Module",
+      "FolderViewUuid": "a1cd747d-a260-49da-b4f5-17441cff9f04",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "bdff8865-71f7-4fe3-84e8-3abd29f39036",
+      "Name": "RequestForExport",
+      "DisplayType": "Module",
+      "FolderViewUuid": "e08e7101-b69b-4685-8970-3f0544ecbb56",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    }
+  ],
+  "Version": "26.1.1.0",
   "Widgets": [],
   "Versions": [
     {

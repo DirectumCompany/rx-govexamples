@@ -11,6 +11,7 @@
   "CompanyCode": "Sungero",
   "ExplorerTreeOrder": [],
   "Importance": "Low",
+  "IsVisible": false,
   "LayeredFromGuid": "fcc573ab-5f4e-4b20-88e8-7b1e11a7a59a",
   "NeedResetAppliedCache": true,
   "NeedResetTags": true,
@@ -22,6 +23,7 @@
       "NameGuid": "1ead1abe-1b7e-4833-9e01-ee7f8404537a",
       "Name": "OnDocumentProcessing",
       "DisplayType": "Inbox",
+      "FolderViewUuid": "7a09ad55-57ae-4896-881f-13a509a2f846",
       "HandledEvents": [
         "DataQueryServer"
       ],
@@ -31,12 +33,179 @@
       "IsViewSettingsByFolder": true,
       "NeedShowMarkedCount": true,
       "Overridden": [
-        "HandledEvents"
+        "HandledEvents",
+        "FolderViewUuid"
       ],
       "Versions": []
+    },
+    {
+      "NameGuid": "0d61168d-1ae5-4570-a42e-bdd5f3b07b02",
+      "Name": "OnReview",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "36a2a60f-1a71-4489-b8b6-76e80341c54d",
+      "IconPath": "OnReview_0d61168d1ae54570a42ebdd5f3b07b02.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "669ff039-2f05-4eb3-9d6a-049dafee948f",
+      "Name": "OnSigning",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "00e6d77c-2eba-47de-a055-a67d389c0c60",
+      "IconPath": "OnSigning_669ff0392f054eb39d6a049dafee948f.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "852ea6a2-304e-48d1-88e5-1bcbb1fb69a2",
+      "Name": "OnApproval",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "38e50147-ad03-4a90-a091-b2160619ff4e",
+      "IconPath": "OnApproval_852ea6a2304e48d188e51bcbb1fb69a2.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "a353a121-f96e-4842-8b80-bf77d074a0c2",
+      "Name": "OnCheking",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "0205763e-8dfb-414e-a781-f687de5a7c40",
+      "IconPath": "OnCheking_a353a121f96e48428b80bf77d074a0c2.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "35d23c5e-9106-4068-bc3a-46b471928fa0",
+      "Name": "OnPrint",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "c986236d-6a19-40a8-9dd6-3cb09e39cd54",
+      "IconPath": "OnPrint_35d23c5e91064068bc3a46b471928fa0.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "a584ebf5-f9b3-4e41-b7cf-15d8c2f96844",
+      "Name": "OnRework",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "dffaeca3-c283-498b-b35d-bfdc442367dd",
+      "IconPath": "OnRework_a584ebf5f9b34e41b7cf15d8c2f96844.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "aee5f0a0-8a5f-422f-bc40-e98db38e94ca",
+      "Name": "OnRegister",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "5fb8ab69-2147-449b-b3b6-4e8647ad0aa2",
+      "IconPath": "OnRegister_aee5f0a08a5f422fbc40e98db38e94ca.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "ae3b3ff0-73ac-4590-961c-adf4579d59de",
+      "Name": "Notices",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "d42be8df-bca4-4d11-8ec7-8e285466e572",
+      "IconPath": "Notices_ae3b3ff073ac4590961cadf4579d59de.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": false,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "1440d1dc-6746-434a-908d-e596c2a1f849",
+      "Name": "Approval",
+      "DisplayType": "Outbox",
+      "FolderViewUuid": "02018d25-f82f-4477-8109-a738bef9da04",
+      "IconPath": "Approval_1440d1dc6746434a908de596c2a1f849.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": false,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "1031e40e-2c3a-4964-92ce-92036cdcb3b9",
+      "Name": "ExchangeDocumentProcessing",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "e9de5ecd-801b-426d-a95a-8e2cde0f77be",
+      "IconPath": "ExchangeDocumentProcessing_1031e40e2c3a496492ce92036cdcb3b9.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "83d1dcdf-fb2c-4cd9-9246-e57d641b0a48",
+      "Name": "OnVerification",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "a582886c-71e3-41da-835a-60c7be7d0dd7",
+      "IconPath": "OnVerification_83d1dcdffb2c4cd99246e57d641b0a48.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
+    },
+    {
+      "NameGuid": "471e68ad-7f9d-43d7-b4db-93eb660cde7f",
+      "Name": "OnAcquaintance",
+      "DisplayType": "Inbox",
+      "FolderViewUuid": "4097f6cb-e91a-4489-bfa0-8bf68a5b0453",
+      "IconPath": "OnAcquaintance_471e68ad7f9d43d7b4db93eb660cde7f.ico",
+      "IsAncestorMetadata": true,
+      "IsShow": true,
+      "IsViewSettingsByFolder": true,
+      "NeedShowMarkedCount": true,
+      "Overridden": [
+        "FolderViewUuid"
+      ]
     }
   ],
-  "Version": "25.3.0.56",
+  "Version": "26.1.1.1",
   "Widgets": [],
   "Versions": [
     {

@@ -5,25 +5,6 @@
   "AccessRightsMode": "Instance",
   "Actions": [
     {
-      "NameGuid": "bf0608fa-af4f-454c-81e3-ae446cdd16cd",
-      "Name": "CreateCoverLetterGD",
-      "GenerateHandler": true,
-      "IsAncestorMetadata": true,
-      "Overridden": [
-        "GenerateHandler"
-      ]
-    },
-    {
-      "NameGuid": "f48ab832-ec61-4044-b1b5-8366c4348568",
-      "Name": "CreateReplyLetter",
-      "GenerateHandler": true,
-      "IsAncestorMetadata": true,
-      "Overridden": [
-        "GenerateHandler"
-      ],
-      "Versions": []
-    },
-    {
       "NameGuid": "331ce81d-0e6d-465e-9228-bab46e3bbbbe",
       "Name": "CreateChildActionItem",
       "GenerateHandler": true,
@@ -142,7 +123,7 @@
     },
     {
       "Type": "EntityMetadata",
-      "Number": 13
+      "Number": 14
     }
   ]
 }
