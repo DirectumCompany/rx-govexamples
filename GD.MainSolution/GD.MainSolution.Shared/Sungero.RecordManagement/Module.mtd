@@ -424,6 +424,20 @@
   "BaseGuid": "8a870bb6-d668-4266-b9ce-23257d878a30",
   "Blocks": [
     {
+      "$type": "Sungero.Metadata.TaskBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "5447efc8-e0f0-4981-8e9c-39c877f9a5f7",
+      "Name": "DocumentMultipleAddresseeReviewBlock",
+      "EntityType": "4ef03457-8b42-4239-a3c5-d4d05e61f0b6",
+      "HandledEvents": [
+        "DocumentMultipleAddresseeReviewBlockStartTask"
+      ],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "HandledEvents"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
       "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
       "NameGuid": "d016139a-f237-4d19-b086-3950dfeeb47a",
       "Name": "DocumentReviewBlock",

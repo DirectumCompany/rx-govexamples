@@ -7,6 +7,32 @@ using Sungero.Workflow;
 
 namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
 {
+  partial class DocumentMultipleAddresseeReviewBlockHandlers
+  {
+
+    public override void DocumentMultipleAddresseeReviewBlockStartTask(Sungero.RecordManagement.IDocumentReviewTask task)
+    {
+      var verificationTask = TestSolution.VerificationTasks.As(_obj);
+      if (verificationTask != null)
+      {
+        task.DocumentForReviewGroup.All.Clear();
+        task.AddendaGroup.All.Clear();
+        task.OtherGroup.All.Clear();
+        
+        var leadingDocument = verificationTask.LeadingDocumentGD;
+        task.DocumentForReviewGroup.All.Add(leadingDocument);
+        
+        var documentAddendas = task.AddendaGroup.All;
+        
+        var otherDocuments = _obj.AllAttachments.Where(x => Sungero.Content.ElectronicDocuments.Is(x) && !Equals(x, leadingDocument) && !documentAddendas.Contains(x));
+        foreach (var document in otherDocuments)
+          task.OtherGroup.All.Add(document);
+      }
+      
+      base.DocumentMultipleAddresseeReviewBlockStartTask(task);
+    }
+  }
+
   partial class DocumentReviewBlockHandlers
   {
 
