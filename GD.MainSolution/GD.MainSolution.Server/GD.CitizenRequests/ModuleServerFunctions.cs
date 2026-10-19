@@ -16,7 +16,7 @@ namespace GD.MainSolution.Module.CitizenRequests.Server
     public virtual void AddDraftResolutionDocumentForExecution(Sungero.RecordManagement.IDocumentReviewAssignment assignment)
     {
       var documentForReview = assignment.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault();
-      if (MainSolution.Requests.Is(documentForReview))
+      if (GD.CitizenRequests.Requests.Is(documentForReview))
       {
         var actionItem = GD.GovernmentSolution.ActionItemExecutionTasks.As(assignment.ResolutionGroup.ActionItemExecutionTasks.FirstOrDefault());
         var currentReport = Sungero.Docflow.OfficialDocuments.As(assignment.OtherGroup.All.FirstOrDefault());

@@ -50,7 +50,7 @@ namespace GD.MainSolution.Client
     {
       var callBaseAction = true;
       var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-      if (task != null && MainSolution.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
+      if (task != null && GD.CitizenRequests.Requests.Is(_obj.DocumentForReviewGroup.OfficialDocuments.FirstOrDefault()))
       {
         var actionItemTasks = _obj.ResolutionGroup.ActionItemExecutionTasks;
         var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
@@ -135,7 +135,7 @@ namespace GD.MainSolution.Client
           e.Cancel();
         }
         var task = MainSolution.ActionItemExecutionTasks.As(_obj.Task);
-        if (MainSolution.Requests.Is(task.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
+        if (GD.CitizenRequests.Requests.Is(task.DocumentsGroup.OfficialDocuments.FirstOrDefault()))
         {
           var actionItem = GD.MainSolution.ActionItemExecutionTasks.As(draftActionItem);
           if (actionItem != null)
