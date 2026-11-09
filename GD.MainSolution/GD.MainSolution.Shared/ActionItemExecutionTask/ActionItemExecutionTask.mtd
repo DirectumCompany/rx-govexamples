@@ -499,8 +499,6 @@
   "FormViewUuid": "4edfa549-e3ab-4bbd-b8f9-f5d242fea372",
   "HandledEvents": [
     "RefreshClient",
-    "BeforeSaveServer",
-    "CreatedServer",
     "BeforeStartServer",
     "CreatingFromServer"
   ],
@@ -579,16 +577,6 @@
       ]
     },
     {
-      "$type": "Sungero.Metadata.StringPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "2101b217-f9ba-4e40-9e91-273a854777de",
-      "Name": "PerformersGD",
-      "CanBeSearch": false,
-      "Code": "PerformersGD",
-      "IsVisibility": false,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.StringEditorToStringBinder",
-      "PreviousPropertyGuid": "15466ee9-48e9-414f-b6e4-7d70c225c582"
-    },
-    {
       "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
       "NameGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81",
       "Name": "DraftActionItemGD",
@@ -600,7 +588,7 @@
       "IsShowedInList": false,
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "2101b217-f9ba-4e40-9e91-273a854777de"
+      "PreviousPropertyGuid": "15466ee9-48e9-414f-b6e4-7d70c225c582"
     },
     {
       "$type": "Sungero.Metadata.BooleanPropertyMetadata, Sungero.Metadata",
@@ -628,18 +616,6 @@
       "Placement": "Shared",
       "ReturnType": "global::System.String",
       "ReturnTypeFullName": "System.String"
-    },
-    {
-      "Name": "PerformersUpdate",
-      "Parameters": [
-        {
-          "Name": "actionItemExecutionTask",
-          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
-          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
-        }
-      ],
-      "ReturnType": "void",
-      "ReturnTypeFullName": "System.Void"
     },
     {
       "Name": "SetCompletedByInParentAssignment",
