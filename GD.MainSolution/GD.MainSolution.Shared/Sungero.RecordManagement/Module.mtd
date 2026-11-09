@@ -516,44 +516,6 @@
       ],
       "ReturnType": "void",
       "ReturnTypeFullName": "System.Void"
-    },
-    {
-      "Name": "SynchronizeAttachmentsToActionItem",
-      "Parameters": [
-        {
-          "Name": "primaryDocument",
-          "ParameterType": "global::Sungero.Docflow.IOfficialDocument",
-          "ParameterTypeFullName": "Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces"
-        },
-        {
-          "Name": "addenda",
-          "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Content.IElectronicDocument>",
-          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Content.IElectronicDocument, Sungero.Content.Shared]]"
-        },
-        {
-          "Name": "addedAddendaIds",
-          "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
-        },
-        {
-          "Name": "removedAddendaIds",
-          "ParameterType": "global::System.Collections.Generic.List<global::System.Int64>",
-          "ParameterTypeFullName": "System.Collections.Generic.List`1[[System.Int64]]"
-        },
-        {
-          "Name": "otherAttachments",
-          "ParameterType": "global::System.Collections.Generic.List<global::Sungero.Domain.Shared.IEntity>",
-          "ParameterTypeFullName": "System.Collections.Generic.List`1[[Sungero.Domain.Shared.IEntity, Sungero.Domain.Shared]]"
-        },
-        {
-          "Name": "actionItem",
-          "ParameterType": "global::Sungero.RecordManagement.IActionItemExecutionTask",
-          "ParameterTypeFullName": "Sungero.RecordManagement.IActionItemExecutionTask, Sungero.Domain.Interfaces"
-        }
-      ],
-      "Placement": "Shared",
-      "ReturnType": "void",
-      "ReturnTypeFullName": "System.Void"
     }
   ],
   "PublicStructures": [],
@@ -666,7 +628,7 @@
       ]
     }
   ],
-  "Version": "26.2.1.3",
+  "Version": "26.2.1.4",
   "Widgets": [],
   "Versions": [
     {

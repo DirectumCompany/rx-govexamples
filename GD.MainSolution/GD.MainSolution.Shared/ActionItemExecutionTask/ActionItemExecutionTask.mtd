@@ -9,10 +9,6 @@
       "Name": "DocumentsGroup",
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
-      "HandledEvents": [
-        "DeletedShared",
-        "AddedShared"
-      ],
       "IsAncestorMetadata": true,
       "Overridden": [
         "HandledEvents",

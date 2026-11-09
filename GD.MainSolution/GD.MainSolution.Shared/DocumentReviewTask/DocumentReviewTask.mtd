@@ -9,10 +9,6 @@
       "Name": "DocumentForReviewGroup",
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
-      "HandledEvents": [
-        "AddedShared",
-        "DeletedShared"
-      ],
       "IsAncestorMetadata": true,
       "IsRequired": true,
       "Overridden": [

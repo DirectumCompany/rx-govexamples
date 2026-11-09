@@ -39,12 +39,8 @@
       "PreviousItemId": "b412d2d4-5956-4668-a0d8-8e803440a35f"
     },
     {
-      "ItemId": "e332c611-d9dd-4600-b002-71c07f823611",
-      "PreviousItemId": "16123ea5-aa04-4980-b750-cd406379dac4"
-    },
-    {
       "ItemId": "7274a71a-9d64-4618-bacf-b886b295fb48",
-      "PreviousItemId": "e332c611-d9dd-4600-b002-71c07f823611"
+      "PreviousItemId": "16123ea5-aa04-4980-b750-cd406379dac4"
     },
     {
       "ItemId": "07c72bfa-1f0d-4aa5-8cbc-86bfdb005d62",
@@ -129,25 +125,6 @@
   "IsolatedAssemblyName": "GD.MainSolution.Isolated",
   "IsolatedNamespace": "GD.MainSolution.Isolated",
   "OrderedSpecialFolders": [],
-  "PublicFunctions": [
-    {
-      "Name": "AddRelationToAddendum",
-      "Parameters": [
-        {
-          "Name": "groupAttachments",
-          "ParameterType": "Sungero.Workflow.Interfaces.IWorkflowEntityAttachmentGroup"
-        },
-        {
-          "Name": "document",
-          "ParameterType": "global::Sungero.Docflow.IOfficialDocument",
-          "ParameterTypeFullName": "Sungero.Docflow.IOfficialDocument, Sungero.Domain.Interfaces"
-        }
-      ],
-      "Placement": "Shared",
-      "ReturnType": "void",
-      "ReturnTypeFullName": "System.Void"
-    }
-  ],
   "PublicStructures": [],
   "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
   "ResourceInterfaceNamespace": "GD.MainSolution",
