@@ -157,9 +157,6 @@
   <data name="Resource_8b959147b6ac440cbc2b21a5353fa5d9" xml:space="preserve">
     <value />
   </data>
-  <data name="Property_AssignmentClassificationGD" xml:space="preserve">
-    <value>Классификация поручения</value>
-  </data>
   <data name="Property_DraftActionItemGD" xml:space="preserve">
     <value>Проект резолюции</value>
   </data>

@@ -485,9 +485,7 @@
           "Name": "AssignmentClassificationGDGD",
           "ColumnNumber": 0,
           "ColumnSpan": 1,
-          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
           "ParentGuid": "ae98972b-4d86-49b4-b20b-0e940962659b",
-          "PropertyGuid": "90733786-43be-48ca-9d88-2290fcf149c8",
           "RowNumber": 6,
           "RowSpan": 1,
           "Settings": []
@@ -618,16 +616,6 @@
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.BooleanEditorToBooleanBinder",
       "PreviousPropertyGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81"
-    },
-    {
-      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "90733786-43be-48ca-9d88-2290fcf149c8",
-      "Name": "AssignmentClassificationGD",
-      "Code": "AssignmentClas",
-      "EntityGuid": "6f1a8f60-a3c4-44af-b400-a4927fcd4ade",
-      "FlatListInStandaloneLookup": true,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "ef6c6222-ca60-48bf-853b-82a35e5f3607"
     }
   ],
   "PublicFunctions": [
