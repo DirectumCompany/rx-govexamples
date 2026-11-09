@@ -11,7 +11,7 @@ namespace GD.MainSolution.Module.Shell.Server
 
     public override IQueryable<Sungero.Workflow.IAssignmentBase> OnDocumentProcessingDataQuery(IQueryable<Sungero.Workflow.IAssignmentBase> query)
     {
-      // Фильтр по типу.
+      // Р¤РёР»СЊС‚СЂ РїРѕ С‚РёРїСѓ.
       var typeFilterEnabled = _filter != null && (_filter.ProcessResolution ||
                                                   _filter.ConfirmSigning ||
                                                   _filter.SendActionItem ||
@@ -34,33 +34,33 @@ namespace GD.MainSolution.Module.Shell.Server
       var showOther = !typeFilterEnabled || _filter.Other;
       
       var result = query.Where(q =>
-                               // Рассмотрение.
-                               ApprovalReviewAssignments.Is(q) && ApprovalReviewAssignments.As(q).CollapsedStagesTypesRe.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                               // Подписание.
-                               ApprovalSigningAssignments.Is(q) && ApprovalSigningAssignments.As(q).CollapsedStagesTypesSig.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                               // Создание поручений.
-                               (ApprovalExecutionAssignments.Is(q) && ApprovalExecutionAssignments.As(q).CollapsedStagesTypesExe.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // Р Р°СЃСЃРјРѕС‚СЂРµРЅРёРµ.
+                               Sungero.Docflow.ApprovalReviewAssignments.Is(q) && Sungero.Docflow.ApprovalReviewAssignments.As(q).CollapsedStagesTypesRe.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // РџРѕРґРїРёСЃР°РЅРёРµ.
+                               Sungero.Docflow.ApprovalSigningAssignments.Is(q) && Sungero.Docflow.ApprovalSigningAssignments.As(q).CollapsedStagesTypesSig.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // РЎРѕР·РґР°РЅРёРµ РїРѕСЂСѓС‡РµРЅРёР№.
+                               (Sungero.Docflow.ApprovalExecutionAssignments.Is(q) && Sungero.Docflow.ApprovalExecutionAssignments.As(q).CollapsedStagesTypesExe.Any(s => stageTypes.Contains(s.StageType.Value)) ||
                                 showExecution && ReviewResolutionAssignments.Is(q)) ||
-                               // Подготовка проекта резолюции.
+                               // РџРѕРґРіРѕС‚РѕРІРєР° РїСЂРѕРµРєС‚Р° СЂРµР·РѕР»СЋС†РёРё.
                                showExecution && PreparingDraftResolutionAssignments.Is(q) ||
-                               // Регистрация.
-                               ApprovalRegistrationAssignments.Is(q) && ApprovalRegistrationAssignments.As(q).CollapsedStagesTypesReg.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                               // Печать.
-                               ApprovalPrintingAssignments.Is(q) && ApprovalPrintingAssignments.As(q).CollapsedStagesTypesPr.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                               // Отправка контрагенту.
-                               ApprovalSendingAssignments.Is(q) && ApprovalSendingAssignments.As(q).CollapsedStagesTypesSen.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                               // Контроль возврата.
-                               showCheckReturn && ApprovalCheckReturnAssignments.Is(q) ||
-                               // Прочие задания.
-                               showOther && (ApprovalSimpleAssignments.Is(q) || ApprovalCheckingAssignments.Is(q) || ReviewReworkAssignments.Is(q)) ||
-                               // Задания на подготовку проекта поручения.
+                               // Р РµРіРёСЃС‚СЂР°С†РёСЏ.
+                               Sungero.Docflow.ApprovalRegistrationAssignments.Is(q) && Sungero.Docflow.ApprovalRegistrationAssignments.As(q).CollapsedStagesTypesReg.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // РџРµС‡Р°С‚СЊ.
+                               Sungero.Docflow.ApprovalPrintingAssignments.Is(q) && Sungero.Docflow.ApprovalPrintingAssignments.As(q).CollapsedStagesTypesPr.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // РћС‚РїСЂР°РІРєР° РєРѕРЅС‚СЂР°РіРµРЅС‚Сѓ.
+                               Sungero.Docflow.ApprovalSendingAssignments.Is(q) && Sungero.Docflow.ApprovalSendingAssignments.As(q).CollapsedStagesTypesSen.Any(s => stageTypes.Contains(s.StageType.Value)) ||
+                               // РљРѕРЅС‚СЂРѕР»СЊ РІРѕР·РІСЂР°С‚Р°.
+                               showCheckReturn && Sungero.Docflow.ApprovalCheckReturnAssignments.Is(q) ||
+                               // РџСЂРѕС‡РёРµ Р·Р°РґР°РЅРёСЏ.
+                               showOther && (Sungero.Docflow.ApprovalSimpleAssignments.Is(q) || Sungero.Docflow.ApprovalCheckingAssignments.Is(q) || ReviewReworkAssignments.Is(q)) ||
+                               // Р—Р°РґР°РЅРёСЏ РЅР° РїРѕРґРіРѕС‚РѕРІРєСѓ РїСЂРѕРµРєС‚Р° РїРѕСЂСѓС‡РµРЅРёСЏ.
                                PrepareDraftActionItemAssignments.Is(q));
       
-      // Запрос непрочитанных без фильтра.
+      // Р—Р°РїСЂРѕСЃ РЅРµРїСЂРѕС‡РёС‚Р°РЅРЅС‹С… Р±РµР· С„РёР»СЊС‚СЂР°.
       if (_filter == null)
         return Sungero.RecordManagement.PublicFunctions.Module.ApplyCommonSubfolderFilters(result);
       
-      // Фильтры по статусу, замещению и периоду.
+      // Р¤РёР»СЊС‚СЂС‹ РїРѕ СЃС‚Р°С‚СѓСЃСѓ, Р·Р°РјРµС‰РµРЅРёСЋ Рё РїРµСЂРёРѕРґСѓ.
       result = Sungero.RecordManagement.PublicFunctions.Module.ApplyCommonSubfolderFilters(result, _filter.InProcess,
                                                                                    _filter.Last30Days, _filter.Last90Days, _filter.Last180Days, false);
       return result;
