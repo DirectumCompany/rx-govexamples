@@ -10,15 +10,6 @@ namespace GD.MainSolution.Server
 {
   partial class ActionItemExecutionTaskFunctions
   {
-
-    /// <summary>
-    /// Создать поручение из открытого задания.
-    /// </summary>
-    [Remote(PackResultEntityEagerly = true)]
-    public override Sungero.RecordManagement.IActionItemExecutionTask CreateActionItemExecutionFromExecution(Sungero.RecordManagement.IActionItemExecutionAssignment actionItemAssignment)
-    {
-      return base.CreateActionItemExecutionFromExecution(actionItemAssignment);
-    }
     
     /// <summary>
     /// После выполнения ведущего задания на исполнение поручения заполнить в нем свойство "Выполнил" исполнителем задания.
