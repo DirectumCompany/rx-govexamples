@@ -11,7 +11,7 @@ namespace GD.MainSolution.Client
   {
     public override void CreateCoverLettersForTransferGD(Sungero.Domain.Client.ExecuteActionArgs e)
     {
-      if (MainSolution.DocumentReviewTasks.Is(_obj.Task))
+      if (Sungero.RecordManagement.DocumentReviewTasks.Is(_obj.Task))
       {
         base.CreateCoverLettersForTransferGD(e);
         return;

@@ -40,9 +40,9 @@ namespace GD.MainSolution.Module.Shell.Server
                                Sungero.Docflow.ApprovalSigningAssignments.Is(q) && Sungero.Docflow.ApprovalSigningAssignments.As(q).CollapsedStagesTypesSig.Any(s => stageTypes.Contains(s.StageType.Value)) ||
                                // Создание поручений.
                                (Sungero.Docflow.ApprovalExecutionAssignments.Is(q) && Sungero.Docflow.ApprovalExecutionAssignments.As(q).CollapsedStagesTypesExe.Any(s => stageTypes.Contains(s.StageType.Value)) ||
-                                showExecution && ReviewResolutionAssignments.Is(q)) ||
+                                showExecution && Sungero.RecordManagement.ReviewResolutionAssignments.Is(q)) ||
                                // Подготовка проекта резолюции.
-                               showExecution && PreparingDraftResolutionAssignments.Is(q) ||
+                               showExecution && Sungero.RecordManagement.PreparingDraftResolutionAssignments.Is(q) ||
                                // Регистрация.
                                Sungero.Docflow.ApprovalRegistrationAssignments.Is(q) && Sungero.Docflow.ApprovalRegistrationAssignments.As(q).CollapsedStagesTypesReg.Any(s => stageTypes.Contains(s.StageType.Value)) ||
                                // Печать.
@@ -52,7 +52,7 @@ namespace GD.MainSolution.Module.Shell.Server
                                // Контроль возврата.
                                showCheckReturn && Sungero.Docflow.ApprovalCheckReturnAssignments.Is(q) ||
                                // Прочие задания.
-                               showOther && (Sungero.Docflow.ApprovalSimpleAssignments.Is(q) || Sungero.Docflow.ApprovalCheckingAssignments.Is(q) || ReviewReworkAssignments.Is(q)) ||
+                               showOther && (Sungero.Docflow.ApprovalSimpleAssignments.Is(q) || Sungero.Docflow.ApprovalCheckingAssignments.Is(q) || Sungero.RecordManagement.ReviewReworkAssignments.Is(q)) ||
                                // Задания на подготовку проекта поручения.
                                PrepareDraftActionItemAssignments.Is(q));
       
