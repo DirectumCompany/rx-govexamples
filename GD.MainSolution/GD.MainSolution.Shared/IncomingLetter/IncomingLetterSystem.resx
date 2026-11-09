@@ -58,9 +58,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Property_UrgentlyGD" xml:space="preserve">
-    <value>Urgently</value>
-  </data>
   <data name="Resource_fc50c88831554ff196e8ff7064894ead" xml:space="preserve">
     <value />
   </data>
