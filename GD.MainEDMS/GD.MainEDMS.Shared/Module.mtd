@@ -1,0 +1,71 @@
+{
+  "$type": "Sungero.Metadata.ModuleMetadata, Sungero.Metadata",
+  "NameGuid": "a69309b4-c006-4c8a-afb1-12153dc19e3d",
+  "Name": "MainEDMS",
+  "AsyncHandlers": [],
+  "ClientAssemblyName": "GD.MainEDMS.Client",
+  "ClientBaseAssemblyName": "GD.MainEDMS.ClientBase",
+  "ClientBaseNamespace": "GD.MainEDMS.ClientBase",
+  "ClientNamespace": "GD.MainEDMS.Client",
+  "Code": "MainEDM",
+  "CompanyCode": "GD",
+  "Cover": {
+    "NameGuid": "dee6856a-9d05-4a87-a3de-305376b8634e",
+    "Actions": [],
+    "Background": null,
+    "Footer": {
+      "NameGuid": "56805f31-32f5-48e7-8675-407901003517",
+      "BackgroundPosition": "Stretch"
+    },
+    "Groups": [],
+    "Header": {
+      "NameGuid": "b715aec1-bc12-4cf5-a821-8d2d6f2cc191",
+      "BackgroundPosition": "Stretch"
+    },
+    "RemoteControls": [],
+    "Tabs": []
+  },
+  "Dependencies": [
+    {
+      "Id": "86482c5c-c494-4b9b-9999-3c18b8ca7a40",
+      "IsSolutionModule": true,
+      "MaxVersion": "",
+      "MinVersion": ""
+    }
+  ],
+  "ExplorerTreeOrder": [
+    {
+      "ItemId": "6612c40d-21b4-4141-9365-53bad0270059"
+    },
+    {
+      "ItemId": "0e937e80-aa73-474f-bdb9-c8e2793e087b",
+      "PreviousItemId": "6612c40d-21b4-4141-9365-53bad0270059"
+    }
+  ],
+  "Importance": "Medium",
+  "InterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "InterfaceNamespace": "GD.MainEDMS",
+  "IsolatedAssemblyName": "GD.MainEDMS.Isolated",
+  "IsolatedNamespace": "GD.MainEDMS.Isolated",
+  "IsVisible": false,
+  "PublicStructures": [],
+  "ResourceInterfaceAssemblyName": "Sungero.Domain.Interfaces",
+  "ResourceInterfaceNamespace": "GD.MainEDMS",
+  "ServerAssemblyName": "GD.MainEDMS.Server",
+  "ServerNamespace": "GD.MainEDMS.Server",
+  "SharedAssemblyName": "GD.MainEDMS.Shared",
+  "SharedNamespace": "GD.MainEDMS.Shared",
+  "SpecialFolders": [],
+  "Version": "0.0.1.0",
+  "Widgets": [],
+  "Versions": [
+    {
+      "Type": "ModuleMetadata",
+      "Number": 12
+    },
+    {
+      "Type": "DomainApi",
+      "Number": 3
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "$type": "Sungero.Metadata.TaskMetadata, Sungero.Workflow.Shared",
+  "NameGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+  "Name": "PrepareDraftActionItemTask",
+  "AccessRightsMode": "Both",
+  "AttachmentGroups": [
+    {
+      "NameGuid": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+      "Name": "MainDocumentGroup",
+      "Constraints": [
+        {
+          "NameGuid": "1b41cffa-be9e-4843-95ff-263889a6ba9e",
+          "Name": "OfficialDocuments",
+          "ConstraintTypeId": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1",
+          "Limit": 1
+        }
+      ]
+    },
+    {
+      "NameGuid": "95143723-f729-46c3-a0db-f4848bd1899f",
+      "Name": "AddendumGroup",
+      "Constraints": [
+        {
+          "NameGuid": "13e0e571-5c5d-44df-af8f-4025cb49dbe5",
+          "Name": "OfficialDocuments",
+          "ConstraintTypeId": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1"
+        }
+      ],
+      "PreviousGroupId": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5"
+    },
+    {
+      "NameGuid": "5577cec9-7abc-4023-844c-9d4a833701e6",
+      "Name": "OtherGroup",
+      "Constraints": [],
+      "PreviousGroupId": "95143723-f729-46c3-a0db-f4848bd1899f"
+    },
+    {
+      "NameGuid": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+      "Name": "DraftActionItemGroup",
+      "Constraints": [
+        {
+          "NameGuid": "c742870b-9322-4083-9899-74aa167718e3",
+          "Name": "ActionItemExecutionTasks",
+          "ConstraintTypeId": "7274a71a-9d64-4618-bacf-b886b295fb48",
+          "Limit": 1
+        }
+      ],
+      "PreviousGroupId": "5577cec9-7abc-4023-844c-9d4a833701e6"
+    },
+    {
+      "NameGuid": "bacb1deb-4441-4e75-85e0-0c9e898b04eb",
+      "Name": "CoverDocumentsGroup",
+      "Constraints": [
+        {
+          "NameGuid": "66ad20cd-dfa0-47e3-940c-d3dd1ada241e",
+          "Name": "OfficialDocuments",
+          "ConstraintTypeId": "58cca102-1e97-4f07-b6ac-fd866a8b7cb1"
+        }
+      ],
+      "PreviousGroupId": "29de4f09-7d9c-4215-b6e3-cad216a25264"
+    }
+  ],
+  "BaseGuid": "d795d1f6-45c1-4e5e-9677-b53fb7280c7e",
+  "BlockIds": [],
+  "CanBeNavigationPropertyType": true,
+  "CanBeSearch": true,
+  "CreationAreaMetadata": {
+    "NameGuid": "8d829390-c6cf-4b00-b846-412f2d086650",
+    "Name": "CreationArea",
+    "Buttons": [],
+    "IsAncestorMetadata": true
+  },
+  "ExtraSearchProperties": [],
+  "FilterPanel": {
+    "NameGuid": "bd0a4ce3-3467-48ad-b905-3820bf6b9da6",
+    "Name": "FilterPanel",
+    "Controls": [],
+    "IsAncestorMetadata": true
+  },
+  "Forms": [
+    {
+      "$type": "Sungero.Metadata.WorkflowEntityStandaloneFormMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "a4d6d92a-261a-4c7e-826d-742b7d4062ee",
+      "Name": "Card",
+      "Controls": [],
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "SettingsResourceKey"
+      ]
+    }
+  ],
+  "FormViewUuid": "1a051e31-4cac-4622-aeb5-416dff4d63a2",
+  "HideFromCreationArea": true,
+  "HideFromNavigationEditorCreationArea": true,
+  "IconResourcesKeys": [],
+  "IntegrationServiceName": "MainEDMSPrepareDraftActionItemTask",
+  "IsAutoCreated": true,
+  "IsVisibleThreadText": true,
+  "ListViewUuid": "35b50af4-d7aa-4a16-ab77-9510592bc7d4",
+  "NeverLinkToParentWhenCreated": true,
+  "OperationsClass": "",
+  "Overridden": [
+    "CanBeSearch",
+    "UseSchemeFromSettings",
+    "IsAutoCreated",
+    "HideFromNavigationEditorCreationArea",
+    "HideFromCreationArea"
+  ],
+  "Properties": [
+    {
+      "$type": "Sungero.Metadata.CollectionPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "3364c324-c4c4-4ccb-a81c-53653255a022",
+      "Name": "Observers",
+      "EntityGuid": "8d2da18f-3a00-41b2-909e-07f376750bbd",
+      "IsAncestorMetadata": true,
+      "Overridden": [
+        "EntityGuid"
+      ]
+    }
+  ],
+  "PublicStructures": [],
+  "ResourcesKeys": [],
+  "RibbonCardMetadata": {
+    "NameGuid": "89b02c57-69f3-49e0-9272-512e30eab098",
+    "Name": "RibbonCard",
+    "Categories": [],
+    "Elements": [],
+    "Groups": [],
+    "IsAncestorMetadata": true,
+    "Pages": [],
+    "RibbonKind": "Card"
+  },
+  "RibbonCollectionMetadata": {
+    "NameGuid": "2e6200a8-b522-483e-a670-01d2286b7733",
+    "Name": "RibbonCollection",
+    "Categories": [],
+    "Elements": [],
+    "Groups": [],
+    "IsAncestorMetadata": true,
+    "Pages": []
+  },
+  "Scheme": {
+    "NameGuid": "c7ae4ee8-f2a6-4784-8e61-7f7f642dbcd1",
+    "Name": "RouteScheme",
+    "IsAncestorMetadata": true,
+    "VersionsCounter": 1
+  },
+  "UseSchemeFromSettings": true,
+  "Versions": [
+    {
+      "Type": "TaskMetadata",
+      "Number": 4
+    },
+    {
+      "Type": "WorkflowEntityMetadata",
+      "Number": 2
+    },
+    {
+      "Type": "EntityMetadata",
+      "Number": 14
+    }
+  ]
+}
