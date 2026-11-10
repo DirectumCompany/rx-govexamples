@@ -191,7 +191,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
       }
       
       // Выдать права на основную задачу на рассмотрение.
-      if (DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(performer))
+      if (Sungero.RecordManagement.DocumentReviewTasks.Is(_obj.MainTask) && !_obj.MainTask.AccessRights.CanUpdate(performer))
       {
         _obj.MainTask.AccessRights.Grant(performer, DefaultAccessRightsTypes.Change);
         
@@ -208,7 +208,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
         {
           currentTask = currentTask.ParentTask ?? currentTask.ParentAssignment.Task;
           
-          if (DocumentReviewTasks.Is(currentTask) && !currentTask.AccessRights.CanUpdate(performer))
+          if (Sungero.RecordManagement.DocumentReviewTasks.Is(currentTask) && !currentTask.AccessRights.CanUpdate(performer))
           {
             currentTask.AccessRights.Grant(performer, DefaultAccessRightsTypes.Change);
             currentTask.AccessRights.Save();
