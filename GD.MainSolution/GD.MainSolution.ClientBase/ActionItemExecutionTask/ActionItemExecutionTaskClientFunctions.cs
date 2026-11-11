@@ -79,6 +79,7 @@ namespace GD.MainSolution.Client
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>Сопроводительное письмо.</returns>
+    [Public]
     public virtual CitizenRequests.IOutgoingRequestLetter CreateCoverLetterForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs, Sungero.Docflow.IDocumentTemplate template)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.CoveringLetterKind);
@@ -104,6 +105,7 @@ namespace GD.MainSolution.Client
     /// <param name="actionItemExecution">Поручение.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>Уведомление заявителю.</returns>
+    [Public]
     public virtual CitizenRequests.IOutgoingRequestLetter CreateTransferNotificationForExecution(MainSolution.IActionItemExecutionTask actionItemExecution, Sungero.Domain.Client.ExecuteActionArgs eventArgs, Sungero.Docflow.IDocumentTemplate template)
     {
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(CitizenRequests.PublicConstants.Module.TransferNotificationKind);
@@ -133,6 +135,7 @@ namespace GD.MainSolution.Client
     /// <param name="resolution">Задача на исполнение поручений.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>True, если нет ошибок или документы перегенерили, иначе false.</returns>
+    [Public]
     public virtual GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.ICoverDocuments CheckActualityLettersForExecution(MainSolution.IActionItemExecutionTask resolution,
                                                                                                                                           Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {

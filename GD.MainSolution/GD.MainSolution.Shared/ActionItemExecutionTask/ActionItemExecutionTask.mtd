@@ -604,6 +604,28 @@
   ],
   "PublicFunctions": [
     {
+      "Name": "CheckActualityLettersForExecution",
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "resolution",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "eventArgs",
+          "ParameterType": "Sungero.Domain.Client.ExecuteActionArgs"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.ICoverDocuments",
+      "ReturnTypeFullName": "GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.ICoverDocuments"
+    },
+    {
       "Name": "CheckDeadlineInResolution",
       "IsRemote": true,
       "Parameters": [
@@ -616,6 +638,74 @@
       "Placement": "Shared",
       "ReturnType": "global::System.String",
       "ReturnTypeFullName": "System.String"
+    },
+    {
+      "Name": "CreateCoverLetterForExecution",
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "actionItemExecution",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "eventArgs",
+          "ParameterType": "Sungero.Domain.Client.ExecuteActionArgs"
+        },
+        {
+          "Name": "template",
+          "ParameterType": "global::Sungero.Docflow.IDocumentTemplate",
+          "ParameterTypeFullName": "Sungero.Docflow.IDocumentTemplate, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::GD.CitizenRequests.IOutgoingRequestLetter",
+      "ReturnTypeFullName": "GD.CitizenRequests.IOutgoingRequestLetter, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "CreateTransferNotificationForExecution",
+      "Parameters": [
+        {
+          "Name": "actionItemExecutionTask",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "actionItemExecution",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+        },
+        {
+          "Name": "eventArgs",
+          "ParameterType": "Sungero.Domain.Client.ExecuteActionArgs"
+        },
+        {
+          "Name": "template",
+          "ParameterType": "global::Sungero.Docflow.IDocumentTemplate",
+          "ParameterTypeFullName": "Sungero.Docflow.IDocumentTemplate, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Client",
+      "ReturnType": "global::GD.CitizenRequests.IOutgoingRequestLetter",
+      "ReturnTypeFullName": "GD.CitizenRequests.IOutgoingRequestLetter, Sungero.Domain.Interfaces"
+    },
+    {
+      "Name": "GetSubActionItemExecutions",
+      "IsRemote": true,
+      "Parameters": [
+        {
+          "Name": "entity",
+          "ParameterType": "global::GD.MainSolution.IActionItemExecutionAssignment",
+          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionAssignment, Sungero.Domain.Interfaces"
+        }
+      ],
+      "Placement": "Shared",
+      "ReturnType": "global::System.Collections.Generic.List<global::GD.MainSolution.IActionItemExecutionTask>",
+      "ReturnTypeFullName": "System.Collections.Generic.List`1[[GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces]]"
     },
     {
       "Name": "SetCompletedByInParentAssignment",

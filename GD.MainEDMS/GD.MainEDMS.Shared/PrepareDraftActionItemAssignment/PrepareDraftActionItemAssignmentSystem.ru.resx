@@ -58,20 +58,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Enum_Result_Complete" xml:space="preserve">
-    <value>Выполнить</value>
+  <data name="Enum_Result_Explored" xml:space="preserve">
+    <value>Принято к сведению</value>
   </data>
-  <data name="Action_Complete" xml:space="preserve">
-    <value>Выполнить</value>
+  <data name="Action_ExploredDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "Принято к сведению"</value>
   </data>
-  <data name="Action_CompleteHint" xml:space="preserve">
-    <value>Выполнить с результатом "Выполнить"</value>
+  <data name="Action_ExploredConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "Принято к сведению"?</value>
   </data>
-  <data name="Action_CompleteConfirmationMessage" xml:space="preserve">
-    <value>Выполнить задание с результатом "Выполнить"?</value>
+  <data name="Action_Explored" xml:space="preserve">
+    <value>Принято к сведению</value>
   </data>
-  <data name="Action_CompleteDescription" xml:space="preserve">
-    <value>Выполнение задания с результатом "Выполнить"</value>
+  <data name="Action_ExploredHint" xml:space="preserve">
+    <value>Выполнить с результатом "Принято к сведению"</value>
   </data>
   <data name="DisplayName" xml:space="preserve">
     <value>Подготовка проекта поручения</value>
@@ -81,5 +81,69 @@
   </data>
   <data name="CollectionDisplayName" xml:space="preserve">
     <value>Задания на подготовку проекта поручения</value>
+  </data>
+  <data name="Enum_Result_SendForReview" xml:space="preserve">
+    <value>Отправить на рассмотрение</value>
+  </data>
+  <data name="Action_SendForReview" xml:space="preserve">
+    <value>Отправить на рассмотрение</value>
+  </data>
+  <data name="Action_SendForReviewHint" xml:space="preserve">
+    <value>Выполнить с результатом "Отправить на рассмотрение"</value>
+  </data>
+  <data name="Action_SendForReviewConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "Отправить на рассмотрение"?</value>
+  </data>
+  <data name="Action_SendForReviewDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "Отправить на рассмотрение"</value>
+  </data>
+  <data name="Property_NeedAbortChildActionItems" xml:space="preserve">
+    <value>Необходимо прекратить подчиненные поручения</value>
+  </data>
+  <data name="Enum_Result_SendForExecute" xml:space="preserve">
+    <value>Отправить на исполнение</value>
+  </data>
+  <data name="Action_SendForExecute" xml:space="preserve">
+    <value>Отправить на исполнение</value>
+  </data>
+  <data name="Action_SendForExecuteHint" xml:space="preserve">
+    <value>Выполнить с результатом "Отправить на исполнение"</value>
+  </data>
+  <data name="Action_SendForExecuteConfirmationMessage" xml:space="preserve">
+    <value>Выполнить задание с результатом "Отправить на исполнение"?</value>
+  </data>
+  <data name="Action_SendForExecuteDescription" xml:space="preserve">
+    <value>Выполнение задания с результатом "Отправить на исполнение"</value>
+  </data>
+  <data name="Action_OpenActionItem" xml:space="preserve">
+    <value>Открыть поручение</value>
+  </data>
+  <data name="Action_OpenActionItemHint" xml:space="preserve">
+    <value>Открыть поручение</value>
+  </data>
+  <data name="Action_OpenActionItemDescription" xml:space="preserve">
+    <value>Открыть поручение</value>
+  </data>
+  <data name="Action_AddActionItemDescription" xml:space="preserve">
+    <value>Добавление проекта поручения.
+
+Все созданные поручения будут отправлены на рассмотрение руководителю.</value>
+  </data>
+  <data name="Action_AddActionItem" xml:space="preserve">
+    <value>Создать подчиненное поручение</value>
+  </data>
+  <data name="Action_AddActionItemHint" xml:space="preserve">
+    <value>Создать проект подчиненного поручения</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferDescription" xml:space="preserve">
+    <value>Формирование сопроводительного письма для направления по компетенции вопросов обращения в другую организацию и уведомления о направлении по компетенции заявителю.
+
+Повторное нажате переформирует сопроводительные документы, если были изменения.</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransfer" xml:space="preserve">
+    <value>Сформировать сопр. документы</value>
+  </data>
+  <data name="Action_CreateCoverLettersForTransferHint" xml:space="preserve">
+    <value>Сформировать сопроводительные документы</value>
   </data>
 </root>

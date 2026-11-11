@@ -141,7 +141,7 @@ namespace GD.MainSolution.Server
     /// </summary>
     /// <param name="entity"> Поручение, для которого требуется получить незавершенные.</param>
     /// <returns>Список незавершенных подчиненных поручений.</returns>
-    [Remote(IsPure = true)]
+    [Public, Remote(IsPure = true)]
     public static List<IActionItemExecutionTask> GetSubActionItemExecutions(IActionItemExecutionAssignment entity)
     {
       // TODO Котегов: есть бага платформы 19850.
