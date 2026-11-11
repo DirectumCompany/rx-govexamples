@@ -84,7 +84,7 @@ namespace GD.MainSolution.Module.RecordManagement.Server.RecordManagementBlocks
           
           if (assignment.Result == DocumentReviewAssignment.Result.DraftResApprove)
           {
-            GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(ActionItemExecutionTasks.As(_obj), executionAssignment);
+            GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(ActionItemExecutionTasks.As(_obj).DraftActionItemGD, executionAssignment);
             executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.InWorkGD;
           }
         }

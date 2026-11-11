@@ -3,6 +3,47 @@
   "NameGuid": "a69309b4-c006-4c8a-afb1-12153dc19e3d",
   "Name": "MainEDMS",
   "AsyncHandlers": [],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.TaskBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "9168fea1-2603-4bae-8a2e-e38b9e02b67b",
+      "Name": "PrepareDraftActionItemTaskBlock",
+      "EntityType": "6612c40d-21b4-4141-9365-53bad0270059",
+      "HandledEvents": [
+        "PrepareDraftActionItemTaskBlockStartTask",
+        "PrepareDraftActionItemTaskBlockEnd"
+      ],
+      "OutProperties": [
+        {
+          "$type": "Sungero.Metadata.NavigationBlockPropertyMetadata, Sungero.Metadata",
+          "NameGuid": "a4a2222f-79eb-406b-bf4f-aee7c84b5ff7",
+          "Name": "OutDraftActionItemTask",
+          "EntityGuid": "7274a71a-9d64-4618-bacf-b886b295fb48"
+        }
+      ],
+      "Overridden": [
+        "EntityType"
+      ],
+      "ProcessStagesDisplayMode": "Show",
+      "Properties": [
+        {
+          "$type": "Sungero.Metadata.NavigationBlockPropertyMetadata, Sungero.Metadata",
+          "NameGuid": "b4bf0c79-bb27-47dd-93bf-bb4f45c65953",
+          "Name": "ParentActionItemTask",
+          "EntityGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
+          "IsRequired": true,
+          "PreviousPropertyGuid": "b14bdc41-fe86-4ff7-b96b-73b08273f904"
+        },
+        {
+          "$type": "Sungero.Metadata.NavigationBlockPropertyMetadata, Sungero.Metadata",
+          "NameGuid": "ef5c9384-a74a-4371-a67f-d1f9fee0c755",
+          "Name": "InDraftActionItemTask",
+          "EntityGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
+          "PreviousPropertyGuid": "b4bf0c79-bb27-47dd-93bf-bb4f45c65953"
+        }
+      ]
+    }
+  ],
   "ClientAssemblyName": "GD.MainEDMS.Client",
   "ClientBaseAssemblyName": "GD.MainEDMS.ClientBase",
   "ClientBaseNamespace": "GD.MainEDMS.ClientBase",

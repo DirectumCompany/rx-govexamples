@@ -30,9 +30,9 @@ namespace GD.MainEDMS.Server.PrepareDraftActionItemTaskBlocks
   {
     public virtual void PrepareDraftActionItemAssignmentBlockStartAssignment(GD.MainEDMS.IPrepareDraftActionItemAssignment assignment)
     {
-      var executionAssignment = GD.MainSolution.ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj.ParentTask) &&
+      var executionAssignment = GD.MainSolution.ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj.ParentActionItemTask) &&
                                                                                                        j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                                       Equals(j.Performer, Sungero.RecordManagement.ActionItemExecutionTasks.As(_obj.ParentTask).Assignee));
+                                                                                                       Equals(j.Performer, _obj.ParentActionItemTask.Assignee));
       if (executionAssignment != null)
         executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.ReviewDraftGD;
       
@@ -63,7 +63,7 @@ namespace GD.MainEDMS.Server.PrepareDraftActionItemTaskBlocks
       }
       else
       {
-        Sungero.Workflow.ITask actionItemTask = _obj.ParentTask;
+        Sungero.Workflow.ITask actionItemTask = _obj.ParentActionItemTask;
         
         while (actionItemTask.ParentTask != null || actionItemTask.ParentAssignment != null)
         {
@@ -82,9 +82,9 @@ namespace GD.MainEDMS.Server.PrepareDraftActionItemTaskBlocks
     {
       _obj.DraftActionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
       
-      var executionAssignment =  GD.MainSolution.ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj.ParentTask) &&
+      var executionAssignment =  GD.MainSolution.ActionItemExecutionAssignments.GetAll().FirstOrDefault(j => Equals(j.Task, _obj.ParentActionItemTask) &&
                                                                                                         j.Status == Sungero.Workflow.AssignmentBase.Status.InProcess &&
-                                                                                                        Equals(j.Performer, Sungero.RecordManagement.ActionItemExecutionTasks.As(_obj.ParentTask).Assignee));
+                                                                                                        Equals(j.Performer, _obj.ParentActionItemTask.Assignee));
       
       if (executionAssignment != null && assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.Explored)
         executionAssignment.Complete(Sungero.RecordManagement.ActionItemExecutionAssignment.Result.Done);
@@ -92,11 +92,11 @@ namespace GD.MainEDMS.Server.PrepareDraftActionItemTaskBlocks
         executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.InWorkGD;
       
       if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
-        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(GD.MainSolution.ActionItemExecutionTasks.As(_obj.ParentTask), assignment);
+        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(_obj.DraftActionItem, assignment);
       
       // Рекурсивно прекратить подзадачи.
       if (assignment.NeedAbortChildActionItems ?? false)
-        GD.MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(GD.MainSolution.ActionItemExecutionTasks.As(_obj.ParentTask), assignment.Performer, GD.MainSolution.ActionItemExecutionTasks.Resources.AutoAbortingReason);
+        GD.MainSolution.Module.RecordManagement.PublicFunctions.Module.AbortSubtasksAndSendNoticesGD(GD.MainSolution.ActionItemExecutionTasks.As(_obj.ParentActionItemTask), assignment.Performer, GD.MainSolution.ActionItemExecutionTasks.Resources.AutoAbortingReason);
     }
 
     public virtual void PrepareDraftActionItemAssignmentBlockEnd(System.Collections.Generic.IEnumerable<GD.MainEDMS.IPrepareDraftActionItemAssignment> createdAssignments)
@@ -105,7 +105,7 @@ namespace GD.MainEDMS.Server.PrepareDraftActionItemTaskBlocks
       if (assignment != null && assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
       {
         var actionItem = assignment.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault() ?? _obj.DraftActionItem;
-        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.TransferEndBlockActionForExecution(GD.MainSolution.ActionItemExecutionTasks.As(_obj.ParentTask), MainSolution.ActionItemExecutionTasks.As(actionItem));
+        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.TransferEndBlockActionForExecution(_obj.ParentActionItemTask, MainSolution.ActionItemExecutionTasks.As(actionItem));
       }
     }
   }

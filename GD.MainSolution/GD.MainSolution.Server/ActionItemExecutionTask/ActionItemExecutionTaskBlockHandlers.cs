@@ -160,7 +160,7 @@ namespace GD.MainSolution.Server.ActionItemExecutionTaskBlocks
         executionAssignment.AssignmentStatusGD = GD.MainSolution.ActionItemExecutionAssignment.AssignmentStatusGD.InWorkGD;
       
       if (assignment.Result == MainSolution.PrepareDraftActionItemAssignment.Result.SendForExecute)
-        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(ActionItemExecutionTasks.As(assignment.Task), assignment);
+        GD.MainSolution.PublicFunctions.ActionItemExecutionTask.Remote.StartActionItemsFromDraft(ActionItemExecutionTasks.As(assignment.Task).DraftActionItemGD, assignment);
       
       // Рекурсивно прекратить подзадачи.
       if (assignment.NeedAbortChildActionItems ?? false)

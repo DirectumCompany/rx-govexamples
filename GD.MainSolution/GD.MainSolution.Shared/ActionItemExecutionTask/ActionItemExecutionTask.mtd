@@ -726,9 +726,9 @@
       "IsRemote": true,
       "Parameters": [
         {
-          "Name": "actionItemExecutionTask",
-          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
-          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+          "Name": "draftResolution",
+          "ParameterType": "global::Sungero.RecordManagement.IActionItemExecutionTask",
+          "ParameterTypeFullName": "Sungero.RecordManagement.IActionItemExecutionTask, Sungero.Domain.Interfaces"
         },
         {
           "Name": "parentAssignment",

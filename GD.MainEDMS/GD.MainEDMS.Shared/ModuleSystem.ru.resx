@@ -58,4 +58,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Block_9168fea126034bae8a2ee38b9e02b67b" xml:space="preserve">
+    <value>Задача на подготовку проекта поручения</value>
+  </data>
+  <data name="Block_9168fea126034bae8a2ee38b9e02b67b_Property_b4bf0c79bb2747dd93bfbb4f45c65953" xml:space="preserve">
+    <value>Вышестоящее поручение</value>
+  </data>
+  <data name="Block_9168fea126034bae8a2ee38b9e02b67b_Property_a4a2222f79eb406bbf4faee7c84b5ff7" xml:space="preserve">
+    <value>Проект резолюции</value>
+  </data>
+  <data name="Block_9168fea126034bae8a2ee38b9e02b67b_Property_ef5c9384a74a4371a67fd1f9fee0c755" xml:space="preserve">
+    <value>Проект резолюции</value>
+  </data>
 </root>

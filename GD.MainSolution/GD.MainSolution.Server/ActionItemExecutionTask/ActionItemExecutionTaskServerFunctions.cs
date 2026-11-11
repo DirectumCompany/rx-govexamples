@@ -270,9 +270,8 @@ namespace GD.MainSolution.Server
     /// </summary>
     /// <param name="parentAssignment">Задание на рассмотрение.</param>
     [Remote, Public]
-    public void StartActionItemsFromDraft(Sungero.Workflow.IAssignment parentAssignment)
+    public static void StartActionItemsFromDraft(Sungero.RecordManagement.IActionItemExecutionTask draftResolution, Sungero.Workflow.IAssignment parentAssignment)
     {
-      var draftResolution = _obj.DraftActionItemGD;
       if (draftResolution == null && PrepareDraftActionItemAssignments.Is(parentAssignment))
         draftResolution = PrepareDraftActionItemAssignments.As(parentAssignment).DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault();
       
