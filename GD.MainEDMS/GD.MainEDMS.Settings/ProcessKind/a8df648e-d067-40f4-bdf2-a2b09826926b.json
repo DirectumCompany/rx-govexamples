@@ -1,0 +1,1492 @@
+{
+  "$type": "Sungero.DataExport.ExportingObject, Sungero.DataExport",
+  "TaskType": "6612c40d-21b4-4141-9365-53bad0270059",
+  "Criteria": null,
+  "Priority": 1,
+  "Scheme": {
+    "$type": "Sungero.Workflow.Server.NoCode.ExportingRouteScheme, Sungero.Workflow.Server",
+    "Scheme": null,
+    "RouteScheme": {
+      "$type": "Sungero.Workflow.Layout.RouteSchemeWithLayout, Sungero.Workflow.Blocks",
+      "Layout": {
+        "$type": "Sungero.Workflow.Layout.LayoutSettings, Sungero.Workflow.Blocks",
+        "BlocksLayout": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "1",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 0.0,
+                "Y": -170.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "2",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 0.0,
+                "Y": 630.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_1",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": -100.0,
+                "Y": -70.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_2",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 250.0,
+                "Y": 180.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_3",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 0.0,
+                "Y": 530.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_4",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 310.0,
+                "Y": 380.0
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.BlockLayout, Sungero.Workflow.Blocks",
+              "BlockId": "SE_5",
+              "Bounds": {
+                "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                "X": 310.0,
+                "Y": 520.0
+              }
+            }
+          ]
+        },
+        "EdgesLayout": {
+          "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+          "$values": [
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 3,
+              "EdgeId": 1,
+              "OriginAnchor": 3,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": -120.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": -70.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 1,
+              "EdgeId": 2,
+              "OriginAnchor": 18,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 150.0,
+                    "Y": -35.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 275.0,
+                    "Y": -35.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 275.0,
+                    "Y": 180.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 1,
+              "EdgeId": 3,
+              "OriginAnchor": 10,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 0.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 530.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 3,
+              "EdgeId": 6,
+              "OriginAnchor": 2,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 300.0,
+                    "Y": 205.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 435.0,
+                    "Y": 205.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 435.0,
+                    "Y": 380.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 18,
+              "EdgeId": 7,
+              "OriginAnchor": 18,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 560.0,
+                    "Y": 415.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 580.0,
+                    "Y": 415.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 580.0,
+                    "Y": -35.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 150.0,
+                    "Y": -35.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 1,
+              "EdgeId": 8,
+              "OriginAnchor": 3,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 580.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 630.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 1,
+              "EdgeId": 9,
+              "OriginAnchor": 0,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 250.0,
+                    "Y": 205.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 205.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 530.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 1,
+              "EdgeId": 10,
+              "OriginAnchor": 15,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 310.0,
+                    "Y": 415.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 415.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 25.0,
+                    "Y": 530.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 3,
+              "EdgeId": 11,
+              "OriginAnchor": 10,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 435.0,
+                    "Y": 450.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 435.0,
+                    "Y": 520.0
+                  }
+                ]
+              }
+            },
+            {
+              "$type": "Sungero.Workflow.Layout.EdgeLayout, Sungero.Workflow.Blocks",
+              "DestinationAnchor": 2,
+              "EdgeId": 12,
+              "OriginAnchor": 15,
+              "PathPoints": {
+                "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+                "$values": [
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 310.0,
+                    "Y": 555.0
+                  },
+                  {
+                    "$type": "Sungero.Workflow.Layout.Point, Sungero.Workflow.Blocks",
+                    "X": 50.0,
+                    "Y": 555.0
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "HandlerClassName": null,
+      "Blocks": {
+        "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.BlockBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$type": "Sungero.Workflow.StartBlock, Sungero.Workflow.Blocks",
+            "Id": "1",
+            "BlockTypeId": "f56a32e0-9193-4022-8b38-9feff22f282c",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.FinishBlock, Sungero.Workflow.Blocks",
+            "UnderReview": false,
+            "ReviewAssignmentId": 0,
+            "Id": "2",
+            "BlockTypeId": "b4d34513-99d2-40bd-826a-487c7545fe3b",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.AssignmentBlock, Sungero.Workflow.Blocks",
+            "ResultVariableName": "AssignmentSE_1Result",
+            "Result": null,
+            "NoPerformersResult": null,
+            "Instruction": null,
+            "IsStopped": false,
+            "IsParallel": false,
+            "IsCompetitive": false,
+            "IsWithAbsences": false,
+            "AbsoluteDeadline": "0001-01-01T00:00:00",
+            "RelativeDeadline": "04:00:00",
+            "RelativeDeadlineDays": null,
+            "RelativeDeadlineHours": 4.0,
+            "RelativeDeadlineTimeBase": null,
+            "AbsoluteDeadlineInternal": "0001-01-01T00:00:00",
+            "HasStopDeadline": false,
+            "AbsoluteStopAssignmentsDeadline": "0001-01-01T00:00:00",
+            "RelativeStopAssignmentsDeadline": "00:00:00",
+            "RelativeStopDeadlineDays": null,
+            "RelativeStopDeadlineHours": null,
+            "AbsoluteStopAssignmentsDeadlineInternal": "0001-01-01T00:00:00",
+            "ExecutionResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "SendForReview",
+                "Explored",
+                "SendForExecute"
+              ]
+            },
+            "CustomExecutionResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces]], System.Private.CoreLib",
+              "$values": []
+            },
+            "StopResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "SidsOfPerformers": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+              "$values": []
+            },
+            "Text": null,
+            "Author": "00000000-0000-0000-0000-000000000000",
+            "GroupsAttachmentsRights": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks]], System.ObjectModel",
+              "$values": []
+            },
+            "AttachmentGroupsSettings": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces]], System.ObjectModel",
+              "$values": [
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "PreviousGroupId": "00000000-0000-0000-0000-000000000000",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "PreviousGroupId": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "PreviousGroupId": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": true,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "PreviousGroupId": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "bacb1deb-4441-4e75-85e0-0c9e898b04eb",
+                  "PreviousGroupId": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "bacb1deb-4441-4e75-85e0-0c9e898b04eb",
+                  "IsRequired": false
+                }
+              ]
+            },
+            "Subject": null,
+            "ThreadSubject": null,
+            "TypeName": null,
+            "ModuleServerAssemblyName": null,
+            "TypeGuid": "0e937e80-aa73-474f-bdb9-c8e2793e087b",
+            "CreatedEntitiesIds": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Int64, System.Private.CoreLib]], System.ObjectModel",
+              "$values": []
+            },
+            "DefaultViewForm": null,
+            "EmbeddedViewForm": null,
+            "Id": "SE_1",
+            "BlockTypeId": "c0e4486e-0509-43aa-8b21-6dd435a9cb97",
+            "CreatedInTaskGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "PropertyExpressions": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression",
+                  "PropertyName": "SidsOfPerformers",
+                  "PropertyId": "ef35d829-3db7-4f11-acb3-1b833fd49234",
+                  "Expression": {
+                    "$type": "Sungero.NoCode.Expression.UnionExpression, Sungero.NoCode.Expression",
+                    "Expressions": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.BaseExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                          "Description": "Задача → Вышестоящее поручение → Помощник готовит проект поручения",
+                          "Tokens": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                                "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                                "Id": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+                                "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                                "Name": "GetAssistantsWhoPrepareDraftResolution",
+                                "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789",
+                                "Parameters": {
+                                  "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                  "$values": [
+                                    {
+                                      "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                      "Name": "task",
+                                      "Type": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                                    }
+                                  ]
+                                }
+                              }
+                            ]
+                          },
+                          "Version": 3
+                        }
+                      ]
+                    },
+                    "Version": 0
+                  },
+                  "Version": 0
+                },
+                {
+                  "$type": "Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression",
+                  "PropertyName": "Subject",
+                  "PropertyId": "2e5159c1-1033-4fa9-aacf-51e656b797bb",
+                  "Expression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Description": "Задача → Получить локализованную строку схемы маршрута(Subject_SE_1) → Формат(Задача → Вышестоящее поручение → Тема задания подготовки проекта поручения)",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                          "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                          "Name": "GetRouteSchemeLocalizedString",
+                          "ParentTypeId": "92491aa6-c4df-4f46-a807-ebdd337bda74",
+                          "Parameters": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Name": "task",
+                                "Type": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Expression": {
+                                  "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                  "$values": [
+                                    {
+                                      "$type": "Sungero.NoCode.Expression.Tokens.ValueToken, Sungero.NoCode.Expression",
+                                      "Value": "Subject_SE_1",
+                                      "ValueType": "System.String, System.Private.CoreLib"
+                                    }
+                                  ]
+                                },
+                                "Name": "localizationStringId",
+                                "Type": "System.String, System.Private.CoreLib"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                          "Name": "Format",
+                          "ParentTypeId": "04608308-d517-4988-93b4-4312c3ed0c4c",
+                          "Parameters": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Name": "template",
+                                "Type": "System.String, System.Private.CoreLib"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParamsParameter, Sungero.NoCode.Expression",
+                                "Parameters": {
+                                  "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                  "$values": [
+                                    {
+                                      "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                      "Expression": {
+                                        "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                        "$values": [
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                                            "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                                          },
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                                            "Id": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+                                            "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                                          },
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                                            "Name": "GetPrepareDraftActionItemAssignmentDefaultSubject",
+                                            "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789",
+                                            "Parameters": {
+                                              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                              "$values": [
+                                                {
+                                                  "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                                  "Name": "task",
+                                                  "Type": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "Name": "Subject",
+                                      "Type": "System.Object, System.Private.CoreLib"
+                                    }
+                                  ]
+                                },
+                                "Name": "args",
+                                "Type": "System.Object[], System.Private.CoreLib"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "Version": 0
+                }
+              ]
+            },
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.DecisionBlock, Sungero.Workflow.Blocks",
+            "ConditionExpressions": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.ConditionExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "Sungero.NoCode.Expression.ConditionExpression, Sungero.NoCode.Expression",
+                  "LeftExpression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Description": "Задача → Проект резолюции",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                          "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                          "Id": "d445f857-895d-49b1-a684-b5a24d1dac3d",
+                          "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "Operator": {
+                    "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                    "Name": "IsNotEqual",
+                    "ParentTypeId": "04608308-d517-4988-93b4-4312c3ed0c4c",
+                    "Parameters": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                          "Name": "object1",
+                          "Type": "Sungero.RecordManagement.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                          "Name": "object2",
+                          "Type": "Sungero.RecordManagement.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                        }
+                      ]
+                    }
+                  },
+                  "RightExpression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.ValueToken, Sungero.NoCode.Expression",
+                          "Value": null,
+                          "ValueType": "Sungero.RecordManagement.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "LogicalOperator": null,
+                  "Version": 3
+                }
+              ]
+            },
+            "ResultVariableName": "DecisionSE_2Result",
+            "Id": "SE_2",
+            "BlockTypeId": "eae8df1d-534f-4a06-b47c-466005dae4df",
+            "CreatedInTaskGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": "Создан проект поручения?",
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.OrBlock, Sungero.Workflow.Blocks",
+            "Id": "SE_3",
+            "BlockTypeId": "14c3bc98-5df9-4b54-8af6-7ce08f942816",
+            "CreatedInTaskGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.AssignmentBlock, Sungero.Workflow.Blocks",
+            "ResultVariableName": "AssignmentSE_4Result",
+            "Result": null,
+            "NoPerformersResult": null,
+            "Instruction": null,
+            "IsStopped": false,
+            "IsParallel": false,
+            "IsCompetitive": false,
+            "IsWithAbsences": false,
+            "AbsoluteDeadline": "0001-01-01T00:00:00",
+            "RelativeDeadline": "00:00:00",
+            "RelativeDeadlineDays": null,
+            "RelativeDeadlineHours": null,
+            "RelativeDeadlineTimeBase": null,
+            "AbsoluteDeadlineInternal": "0001-01-01T00:00:00",
+            "HasStopDeadline": false,
+            "AbsoluteStopAssignmentsDeadline": "0001-01-01T00:00:00",
+            "RelativeStopAssignmentsDeadline": "00:00:00",
+            "RelativeStopDeadlineDays": null,
+            "RelativeStopDeadlineHours": null,
+            "AbsoluteStopAssignmentsDeadlineInternal": "0001-01-01T00:00:00",
+            "ExecutionResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": [
+                "Informed",
+                "DocsRework",
+                "DraftResRework",
+                "Forward",
+                "ResPassed",
+                "ActionItemsSent",
+                "DraftResApprove"
+              ]
+            },
+            "CustomExecutionResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "DocsRework",
+                  "FromMetadata": true,
+                  "ActionGuid": "69ab8bfc-19dd-4a4b-879e-18e41946a47f",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "Forward",
+                  "FromMetadata": true,
+                  "ActionGuid": "15a894ef-15aa-4bae-a5d2-7d25aee7dbaf",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "ResPassed",
+                  "FromMetadata": true,
+                  "ActionGuid": "e828e833-64a4-4460-8582-922497b89ed9",
+                  "IconName": null,
+                  "IsHidden": true
+                },
+                {
+                  "$type": "Sungero.Workflow.BlockCustomExecutionResult.CustomExecutionResult, Sungero.Workflow.Interfaces",
+                  "Name": "ActionItemsSent",
+                  "FromMetadata": true,
+                  "ActionGuid": "efd122c4-9bde-4e54-a053-c1e87a044416",
+                  "IconName": null,
+                  "IsHidden": true
+                }
+              ]
+            },
+            "StopResults": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[System.String, System.Private.CoreLib]], System.Private.CoreLib",
+              "$values": []
+            },
+            "SidsOfPerformers": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+              "$values": []
+            },
+            "Text": null,
+            "Author": "00000000-0000-0000-0000-000000000000",
+            "GroupsAttachmentsRights": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks]], System.ObjectModel",
+              "$values": [
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "bc61466b-2554-46ed-9aa9-c9e32986a0b6",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "179af257-a60f-44b8-97b5-1d5bbd06716b",
+                  "AttachmentsRightsTypeString": "179af257-a60f-44b8-97b5-1d5bbd06716b",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "804f50fe-f3da-411b-bb2e-e5373936e029",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "d44a8df5-3fe9-4a1b-a5a0-e8aaa65820da",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "13a98dcd-c5ec-4fd0-a682-424613f615d4",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "93aafc3c-80cf-4f4b-a038-23b9c9fd45e5",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "5bda572c-3956-4860-91dd-a4a984b268af",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "2806119c-9cda-4d09-8014-f0f5a05e45fb",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "AttachmentsRightsTypeString": "676a7c2d-f883-4528-b190-84fa0e3cc0f3",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                },
+                {
+                  "$type": "Sungero.Workflow.GroupAttachmentsRights, Sungero.Workflow.Blocks",
+                  "GroupId": "2bd6a352-e46c-4381-9345-f6ef6a17e0b3",
+                  "AttachmentsRights": "AllPerformersAllAttachments",
+                  "AttachmentsRightsType": "179af257-a60f-44b8-97b5-1d5bbd06716b",
+                  "AttachmentsRightsTypeString": "179af257-a60f-44b8-97b5-1d5bbd06716b",
+                  "IsNotGreaterInitiatorRights": true,
+                  "IsDowngradeRights": false
+                }
+              ]
+            },
+            "AttachmentGroupsSettings": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces]], System.ObjectModel",
+              "$values": [
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "PreviousGroupId": "00000000-0000-0000-0000-000000000000",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "PreviousGroupId": "b6cb5de4-e47e-440d-b9bd-87027e32c4e5",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "PreviousGroupId": "95143723-f729-46c3-a0db-f4848bd1899f",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "PreviousGroupId": "5577cec9-7abc-4023-844c-9d4a833701e6",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "bacb1deb-4441-4e75-85e0-0c9e898b04eb",
+                  "PreviousGroupId": "29de4f09-7d9c-4215-b6e3-cad216a25264",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": true,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "bacb1deb-4441-4e75-85e0-0c9e898b04eb",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "2806119c-9cda-4d09-8014-f0f5a05e45fb",
+                  "PreviousGroupId": "00000000-0000-0000-0000-000000000000",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": false,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": [
+                      "804f50fe-f3da-411b-bb2e-e5373936e029"
+                    ]
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "2806119c-9cda-4d09-8014-f0f5a05e45fb",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "5bda572c-3956-4860-91dd-a4a984b268af",
+                  "PreviousGroupId": "2806119c-9cda-4d09-8014-f0f5a05e45fb",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": false,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": [
+                      "d44a8df5-3fe9-4a1b-a5a0-e8aaa65820da"
+                    ]
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "5bda572c-3956-4860-91dd-a4a984b268af",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "93aafc3c-80cf-4f4b-a038-23b9c9fd45e5",
+                  "PreviousGroupId": "5bda572c-3956-4860-91dd-a4a984b268af",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": false,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": [
+                      "13a98dcd-c5ec-4fd0-a682-424613f615d4"
+                    ]
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "93aafc3c-80cf-4f4b-a038-23b9c9fd45e5",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "bc61466b-2554-46ed-9aa9-c9e32986a0b6",
+                  "PreviousGroupId": "93aafc3c-80cf-4f4b-a038-23b9c9fd45e5",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": false,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": []
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "bc61466b-2554-46ed-9aa9-c9e32986a0b6",
+                  "IsRequired": false
+                },
+                {
+                  "$type": "Sungero.Workflow.AttachmentGroupSettings, Sungero.Workflow.Interfaces",
+                  "GroupId": "2bd6a352-e46c-4381-9345-f6ef6a17e0b3",
+                  "PreviousGroupId": "bc61466b-2554-46ed-9aa9-c9e32986a0b6",
+                  "IsHidden": false,
+                  "IsEnabled": true,
+                  "IsAttachmentsRemoveEnabled": false,
+                  "IsParentTaskGroup": false,
+                  "RelatedGroups": {
+                    "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Guid, System.Private.CoreLib]], System.ObjectModel",
+                    "$values": [
+                      "38e4a888-02f2-4b2f-8e74-87ca88c7ada4"
+                    ]
+                  },
+                  "HasGroupPopulatingEvent": false,
+                  "NeedLoadFromParent": false,
+                  "Id": "2bd6a352-e46c-4381-9345-f6ef6a17e0b3",
+                  "IsRequired": false
+                }
+              ]
+            },
+            "Subject": null,
+            "ThreadSubject": null,
+            "TypeName": null,
+            "ModuleServerAssemblyName": null,
+            "TypeGuid": "50e39d87-4fc6-4847-8bad-20847b9ba020",
+            "CreatedEntitiesIds": {
+              "$type": "System.Collections.ObjectModel.ObservableCollection`1[[System.Int64, System.Private.CoreLib]], System.ObjectModel",
+              "$values": []
+            },
+            "DefaultViewForm": null,
+            "EmbeddedViewForm": null,
+            "Id": "SE_4",
+            "BlockTypeId": "d016139a-f237-4d19-b086-3950dfeeb47a",
+            "CreatedInTaskGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": "Рассмотрение исполнителем-адресатом",
+            "Description": null,
+            "ProcessStagesDisplayMode": null,
+            "PropertyExpressions": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+              "$values": [
+                {
+                  "$type": "Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression",
+                  "PropertyName": "SidsOfPerformers",
+                  "PropertyId": "ef35d829-3db7-4f11-acb3-1b833fd49234",
+                  "Expression": {
+                    "$type": "Sungero.NoCode.Expression.UnionExpression, Sungero.NoCode.Expression",
+                    "Expressions": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.BaseExpression, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                          "Description": "Задача → Вышестоящее поручение → Исполнитель",
+                          "Tokens": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                                "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                                "Id": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+                                "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                                "Id": "30ff1aee-de08-4e86-9265-a28d8916a4f7",
+                                "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789"
+                              }
+                            ]
+                          },
+                          "Version": 3
+                        }
+                      ]
+                    },
+                    "Version": 0
+                  },
+                  "Version": 0
+                },
+                {
+                  "$type": "Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression",
+                  "PropertyName": "Subject",
+                  "PropertyId": "2e5159c1-1033-4fa9-aacf-51e656b797bb",
+                  "Expression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Description": "Задача → Получить локализованную строку схемы маршрута(Subject_SE_4) → Формат(Задача → Вышестоящее поручение → Тема задания на рассмотрение проект поручения)",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                          "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                          "Name": "GetRouteSchemeLocalizedString",
+                          "ParentTypeId": "92491aa6-c4df-4f46-a807-ebdd337bda74",
+                          "Parameters": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Name": "task",
+                                "Type": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Expression": {
+                                  "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                  "$values": [
+                                    {
+                                      "$type": "Sungero.NoCode.Expression.Tokens.ValueToken, Sungero.NoCode.Expression",
+                                      "Value": "Subject_SE_4",
+                                      "ValueType": "System.String, System.Private.CoreLib"
+                                    }
+                                  ]
+                                },
+                                "Name": "localizationStringId",
+                                "Type": "System.String, System.Private.CoreLib"
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                          "Name": "Format",
+                          "ParentTypeId": "04608308-d517-4988-93b4-4312c3ed0c4c",
+                          "Parameters": {
+                            "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                            "$values": [
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                "Name": "template",
+                                "Type": "System.String, System.Private.CoreLib"
+                              },
+                              {
+                                "$type": "Sungero.NoCode.Expression.Tokens.FunctionParamsParameter, Sungero.NoCode.Expression",
+                                "Parameters": {
+                                  "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                  "$values": [
+                                    {
+                                      "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                      "Expression": {
+                                        "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                        "$values": [
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                                            "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                                          },
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                                            "Id": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+                                            "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                                          },
+                                          {
+                                            "$type": "Sungero.NoCode.Expression.Tokens.FunctionToken, Sungero.NoCode.Expression",
+                                            "Name": "GetDocumentReviewAssignmentDefaultSubject",
+                                            "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789",
+                                            "Parameters": {
+                                              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseFunctionParameter, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                                              "$values": [
+                                                {
+                                                  "$type": "Sungero.NoCode.Expression.Tokens.FunctionParameter, Sungero.NoCode.Expression",
+                                                  "Name": "task",
+                                                  "Type": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
+                                                }
+                                              ]
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      "Name": "Subject",
+                                      "Type": "System.Object, System.Private.CoreLib"
+                                    }
+                                  ]
+                                },
+                                "Name": "args",
+                                "Type": "System.Object[], System.Private.CoreLib"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "Version": 0
+                },
+                {
+                  "$type": "Sungero.NoCode.Expression.PropertyExpression, Sungero.NoCode.Expression",
+                  "PropertyName": "AbsoluteDeadline",
+                  "PropertyId": "c662748c-23dd-4e17-984e-decd4a5ed92b",
+                  "Expression": {
+                    "$type": "Sungero.NoCode.Expression.SimpleExpression, Sungero.NoCode.Expression",
+                    "Description": "Задача → Вышестоящее поручение → Срок",
+                    "Tokens": {
+                      "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.NoCode.Expression.Tokens.BaseToken, Sungero.NoCode.Expression]], System.Private.CoreLib",
+                      "$values": [
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.EntityTypeToken, Sungero.NoCode.Expression",
+                          "Id": "6612c40d-21b4-4141-9365-53bad0270059"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                          "Id": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+                          "ParentTypeId": "6612c40d-21b4-4141-9365-53bad0270059"
+                        },
+                        {
+                          "$type": "Sungero.NoCode.Expression.Tokens.MetadataPropertyToken, Sungero.NoCode.Expression",
+                          "Id": "41571905-242e-4646-a28a-d8cbd4f6bc8a",
+                          "ParentTypeId": "c290b098-12c7-487d-bb38-73e2c98f9789"
+                        }
+                      ]
+                    },
+                    "Version": 3
+                  },
+                  "Version": 0
+                }
+              ]
+            },
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          },
+          {
+            "$type": "Sungero.Workflow.ScriptBlock, Sungero.Workflow.Blocks",
+            "Id": "SE_5",
+            "BlockTypeId": "a9c4fc9a-2125-45b4-bb04-2c326df7fdf9",
+            "CreatedInTaskGuid": "6612c40d-21b4-4141-9365-53bad0270059",
+            "VersionId": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+            "Title": null,
+            "Description": null,
+            "ProcessStagesDisplayMode": "Hide",
+            "CustomTypeProperties": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.CustomTypeProperty, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "ParameterOperations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.ParameterOperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "Operations": {
+              "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+              "$values": []
+            },
+            "TimeoutErrorsCount": 0
+          }
+        ]
+      },
+      "Edges": {
+        "$type": "System.Collections.ObjectModel.Collection`1[[Sungero.Workflow.Edge, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+        "$values": [
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 1,
+            "Source": "1",
+            "Target": "SE_1",
+            "Value": null
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 2,
+            "Source": "SE_1",
+            "Target": "SE_2",
+            "Value": "SendForReview"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 3,
+            "Source": "SE_1",
+            "Target": "SE_3",
+            "Value": ""
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 6,
+            "Source": "SE_2",
+            "Target": "SE_4",
+            "Value": "True"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 7,
+            "Source": "SE_4",
+            "Target": "SE_1",
+            "Value": "DraftResRework"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 8,
+            "Source": "SE_3",
+            "Target": "2",
+            "Value": null
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 9,
+            "Source": "SE_2",
+            "Target": "SE_3",
+            "Value": "False"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 10,
+            "Source": "SE_4",
+            "Target": "SE_3",
+            "Value": "DraftResApprove"
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 11,
+            "Source": "SE_4",
+            "Target": "SE_5",
+            "Value": ""
+          },
+          {
+            "$type": "Sungero.Workflow.Edge, Sungero.Workflow.Blocks",
+            "Id": 12,
+            "Source": "SE_5",
+            "Target": "SE_3",
+            "Value": null
+          }
+        ]
+      },
+      "MaxBlockId": 5
+    }
+  },
+  "Operations": {
+    "$type": "System.Collections.Generic.List`1[[Sungero.Workflow.Operations.OperationBase, Sungero.Workflow.Blocks]], System.Private.CoreLib",
+    "$values": []
+  },
+  "Parameters": {
+    "$type": "Sungero.DataExport.ExportingObject[], Sungero.DataExport",
+    "$values": []
+  },
+  "ShowProcessStages": false,
+  "Uuid": "a8df648e-d067-40f4-bdf2-a2b09826926b",
+  "ModuleNameGuid": "a69309b4-c006-4c8a-afb1-12153dc19e3d",
+  "StoreAsDefaultSetting": true,
+  "Status": "Active"
+}

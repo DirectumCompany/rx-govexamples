@@ -97,4 +97,19 @@
   <data name="AttachmentGroup_CoverDocumentsGroupInformationMessage" xml:space="preserve">
     <value />
   </data>
+  <data name="Block_c0e4486e050943aa8b216dd435a9cb97" xml:space="preserve">
+    <value>Prepare draft action item assignment</value>
+  </data>
+  <data name="Property_DraftActionItem" xml:space="preserve">
+    <value>Draft action item</value>
+  </data>
+  <data name="Block_a9c4fc9a212545b4bb042c326df7fdf9" xml:space="preserve">
+    <value>Delete draft resolution</value>
+  </data>
+  <data name="Block_a9c4fc9a212545b4bb042c326df7fdf9_Property_ec178989ff694d01953364958d1c9b0a" xml:space="preserve">
+    <value>Except for prepared on behalf of the addressee</value>
+  </data>
+  <data name="Property_ParentActionItemTask" xml:space="preserve">
+    <value>Parent action item</value>
+  </data>
 </root>

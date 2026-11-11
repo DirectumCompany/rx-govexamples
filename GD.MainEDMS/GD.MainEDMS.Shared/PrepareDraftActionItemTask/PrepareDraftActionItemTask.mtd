@@ -62,6 +62,42 @@
   ],
   "BaseGuid": "d795d1f6-45c1-4e5e-9677-b53fb7280c7e",
   "BlockIds": [],
+  "Blocks": [
+    {
+      "$type": "Sungero.Metadata.AssignmentBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "c0e4486e-0509-43aa-8b21-6dd435a9cb97",
+      "Name": "PrepareDraftActionItemAssignmentBlock",
+      "EntityType": "0e937e80-aa73-474f-bdb9-c8e2793e087b",
+      "HandledEvents": [
+        "PrepareDraftActionItemAssignmentBlockEnd",
+        "PrepareDraftActionItemAssignmentBlockCompleteAssignment",
+        "PrepareDraftActionItemAssignmentBlockStartAssignment"
+      ],
+      "Overridden": [
+        "EntityType"
+      ],
+      "ProcessStagesDisplayMode": "Show"
+    },
+    {
+      "$type": "Sungero.Metadata.ScriptBlockMetadata, Sungero.Workflow.Shared",
+      "NameGuid": "a9c4fc9a-2125-45b4-bb04-2c326df7fdf9",
+      "Name": "DeleteDraftResolutionsBlock",
+      "HandledEvents": [
+        "DeleteDraftResolutionsBlockExecute"
+      ],
+      "ProcessStagesDisplayMode": "Hide",
+      "Properties": [
+        {
+          "$type": "Sungero.Metadata.NavigationBlockPropertyMetadata, Sungero.Metadata",
+          "NameGuid": "ec178989-ff69-4d01-9533-64958d1c9b0a",
+          "Name": "ActualFromAddresseesGD",
+          "EntityGuid": "b7905516-2be5-4931-961c-cb38d5677565",
+          "IsCollection": true,
+          "PreviousPropertyGuid": "4750b044-d69b-4098-b9b2-f1be7e62176a"
+        }
+      ]
+    }
+  ],
   "CanBeNavigationPropertyType": true,
   "CanBeSearch": true,
   "CreationAreaMetadata": {
@@ -116,6 +152,32 @@
       "Overridden": [
         "EntityGuid"
       ]
+    },
+    {
+      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "d445f857-895d-49b1-a684-b5a24d1dac3d",
+      "Name": "DraftActionItem",
+      "CanBeSearch": false,
+      "Code": "DraftActionIte",
+      "EntityGuid": "c290b098-12c7-487d-bb38-73e2c98f9789",
+      "IsEnabled": false,
+      "IsShowedInList": false,
+      "IsVisibility": false,
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
+      "PreviousPropertyGuid": "3364c324-c4c4-4ccb-a81c-53653255a022"
+    },
+    {
+      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
+      "NameGuid": "40263689-95eb-45f8-b1b2-78fc4c69ffbf",
+      "Name": "ParentActionItemTask",
+      "CanBeSearch": false,
+      "Code": "ParActionItem",
+      "EntityGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
+      "IsEnabled": false,
+      "IsShowedInList": false,
+      "IsVisibility": false,
+      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
+      "PreviousPropertyGuid": "d445f857-895d-49b1-a684-b5a24d1dac3d"
     }
   ],
   "PublicStructures": [],
@@ -142,7 +204,11 @@
   "Scheme": {
     "NameGuid": "c7ae4ee8-f2a6-4784-8e61-7f7f642dbcd1",
     "Name": "RouteScheme",
+    "CurrentVersionGuid": "0745199f-eaac-4875-8563-40ed1e5ce317",
     "IsAncestorMetadata": true,
+    "Overridden": [
+      "CurrentVersionGuid"
+    ],
     "VersionsCounter": 1
   },
   "UseSchemeFromSettings": true,
