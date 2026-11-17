@@ -9,10 +9,6 @@
       "Name": "DocumentsGroup",
       "CanDeleteTaskFamilyAttachments": true,
       "Constraints": [],
-      "HandledEvents": [
-        "DeletedShared",
-        "AddedShared"
-      ],
       "IsAncestorMetadata": true,
       "Overridden": [
         "HandledEvents",
@@ -485,9 +481,7 @@
           "Name": "AssignmentClassificationGDGD",
           "ColumnNumber": 0,
           "ColumnSpan": 1,
-          "DataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
           "ParentGuid": "ae98972b-4d86-49b4-b20b-0e940962659b",
-          "PropertyGuid": "90733786-43be-48ca-9d88-2290fcf149c8",
           "RowNumber": 6,
           "RowSpan": 1,
           "Settings": []
@@ -505,8 +499,6 @@
   "FormViewUuid": "4edfa549-e3ab-4bbd-b8f9-f5d242fea372",
   "HandledEvents": [
     "RefreshClient",
-    "BeforeSaveServer",
-    "CreatedServer",
     "BeforeStartServer",
     "CreatingFromServer"
   ],
@@ -585,16 +577,6 @@
       ]
     },
     {
-      "$type": "Sungero.Metadata.StringPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "2101b217-f9ba-4e40-9e91-273a854777de",
-      "Name": "PerformersGD",
-      "CanBeSearch": false,
-      "Code": "PerformersGD",
-      "IsVisibility": false,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.StringEditorToStringBinder",
-      "PreviousPropertyGuid": "15466ee9-48e9-414f-b6e4-7d70c225c582"
-    },
-    {
       "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
       "NameGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81",
       "Name": "DraftActionItemGD",
@@ -606,7 +588,7 @@
       "IsShowedInList": false,
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "2101b217-f9ba-4e40-9e91-273a854777de"
+      "PreviousPropertyGuid": "15466ee9-48e9-414f-b6e4-7d70c225c582"
     },
     {
       "$type": "Sungero.Metadata.BooleanPropertyMetadata, Sungero.Metadata",
@@ -618,16 +600,6 @@
       "IsVisibility": false,
       "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.BooleanEditorToBooleanBinder",
       "PreviousPropertyGuid": "fe5465e9-2f3c-4026-8ce7-d26dffa70c81"
-    },
-    {
-      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "90733786-43be-48ca-9d88-2290fcf149c8",
-      "Name": "AssignmentClassificationGD",
-      "Code": "AssignmentClas",
-      "EntityGuid": "6f1a8f60-a3c4-44af-b400-a4927fcd4ade",
-      "FlatListInStandaloneLookup": true,
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "ef6c6222-ca60-48bf-853b-82a35e5f3607"
     }
   ],
   "PublicFunctions": [
@@ -644,18 +616,6 @@
       "Placement": "Shared",
       "ReturnType": "global::System.String",
       "ReturnTypeFullName": "System.String"
-    },
-    {
-      "Name": "PerformersUpdate",
-      "Parameters": [
-        {
-          "Name": "actionItemExecutionTask",
-          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
-          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
-        }
-      ],
-      "ReturnType": "void",
-      "ReturnTypeFullName": "System.Void"
     },
     {
       "Name": "SetCompletedByInParentAssignment",

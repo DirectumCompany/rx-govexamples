@@ -40,7 +40,7 @@ namespace GD.MainSolution.Client
     {
       // Проверить, что у поручения есть перенаправление по компетенции.
       var needCoverLetters = GovernmentSolution.PublicFunctions.DocumentReviewTask.NeedCoverLetters(GovernmentSolution.ActionItemExecutionTasks.As(_obj.DraftActionItemGroup.ActionItemExecutionTasks.FirstOrDefault()),
-                                                                                                   _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
+                                                                                                    _obj.DocumentsGroup.OfficialDocuments.FirstOrDefault());
       return needCoverLetters && _obj.Status == PrepareDraftActionItemAssignment.Status.InProcess;
     }
 
@@ -112,12 +112,20 @@ namespace GD.MainSolution.Client
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
         if (resolution != null)
         {
+          var documents = MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e);
           // Выполнить проверки для перенаправления.
-          if (!MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+          if (!documents.SuccessfullyChecked)
             e.Cancel();
           
+          if (documents.CoverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(documents.CoverLetter))
+            _obj.CoverDocumentsGroup.OfficialDocuments.Add(documents.CoverLetter);
+          if (documents.CoverNotification != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(documents.CoverNotification))
+            _obj.CoverDocumentsGroup.OfficialDocuments.Add(documents.CoverNotification);
+          
           // Подписать документы.
-          var errorText = MainSolution.Module.CitizenRequests.PublicFunctions.Module.SignatureTransferDocumentsForExecution(task, resolution);
+          var errorText = CitizenRequests.PublicFunctions.Module.SignatureTransferDocuments(documents.CoverLetter,
+                                                                                            documents.CoverNotification,
+                                                                                            task.Assignee);
           if (!string.IsNullOrEmpty(errorText))
           {
             e.AddError(errorText);
@@ -205,8 +213,9 @@ namespace GD.MainSolution.Client
         var actionItemTasks = _obj.DraftActionItemGroup.ActionItemExecutionTasks;
         var resolution = actionItemTasks.Any() ? MainSolution.ActionItemExecutionTasks.As(actionItemTasks.FirstOrDefault()) :
           MainSolution.Module.CitizenRequests.PublicFunctions.Module.Remote.GetActualActionItemExecutionTask(task);
+        var documents = MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e);
         
-        if (resolution != null && !MainSolution.Functions.ActionItemExecutionTask.CheckActualityLettersForExecution(task, resolution, e))
+        if (resolution != null && !documents.SuccessfullyChecked)
           e.Cancel();
       }
       

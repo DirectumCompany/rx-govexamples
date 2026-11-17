@@ -23,19 +23,6 @@
   "Properties": [
     {
       "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "1342581d-3cf5-4de6-adb1-476483722bf0",
-      "Name": "Assignee",
-      "HandledEvents": [
-        "ValueInputClient"
-      ],
-      "IsAncestorMetadata": true,
-      "Overridden": [
-        "HandledEvents"
-      ],
-      "Versions": []
-    },
-    {
-      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
       "NameGuid": "8687446d-81fe-43f8-8dbe-b699a240a9c9",
       "Name": "ActionItemExecutionTask",
       "EntityGuid": "7274a71a-9d64-4618-bacf-b886b295fb48",
@@ -44,20 +31,6 @@
       "Overridden": [
         "EntityGuid"
       ]
-    },
-    {
-      "$type": "Sungero.Metadata.NavigationPropertyMetadata, Sungero.Metadata",
-      "NameGuid": "8207794a-ecfb-4bcb-ab40-9b80c0191e1a",
-      "Name": "BusinessUnitGD",
-      "CanBeSearch": false,
-      "Code": "BusinessUnitGD",
-      "EntityGuid": "eff95720-181f-4f7d-892d-dec034c7b2ab",
-      "FlatListInStandaloneLookup": true,
-      "HandledEvents": [
-        "ValueInputClient"
-      ],
-      "ListDataBinderTypeName": "Sungero.Presentation.CommonDataBinders.DropDownEditorToNavigationBinder",
-      "PreviousPropertyGuid": "8687446d-81fe-43f8-8dbe-b699a240a9c9"
     }
   ],
   "PublicStructures": [],

@@ -28,20 +28,6 @@ namespace GD.MainSolution
       
       base.BeforeStart(e);
     }
-
-    public override void Created(Sungero.Domain.CreatedEventArgs e)
-    {
-      base.Created(e);
-      if (!_obj.State.IsCopied)
-        _obj.ActiveText = Sungero.RecordManagement.ActionItemExecutionTasks.Resources.DefaultActionItem;
-    }
-
-    public override void BeforeSave(Sungero.Domain.BeforeSaveEventArgs e)
-    {
-      base.BeforeSave(e);
-      
-      PublicFunctions.ActionItemExecutionTask.PerformersUpdate(_obj);
-    }
   }
 
 }

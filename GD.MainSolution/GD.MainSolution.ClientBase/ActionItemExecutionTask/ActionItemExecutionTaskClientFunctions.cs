@@ -18,8 +18,13 @@ namespace GD.MainSolution.Client
     /// <param name="errorNotice">Ошибки для уведомления.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>True, если диалог был, иначе false.</returns>
-    public virtual bool CreateTransferDocumentsForExecution(IActionItemExecutionTask actionItemExecution, string errorCoverLetter, string errorNotification,  Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.ICoverDocuments CreateTransferDocumentsForExecution(IActionItemExecutionTask actionItemExecution,
+                                                                                                                                            string errorCoverLetter,
+                                                                                                                                            string errorNotification,
+                                                                                                                                            Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
+      var coverDocuments = GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.CoverDocuments.Create();
+      coverDocuments.SuccessfullyChecked = false;
       // Сформировать текст диалога.
       var dialogText = new StringBuilder();
       if (!string.IsNullOrEmpty(errorCoverLetter))
@@ -39,7 +44,7 @@ namespace GD.MainSolution.Client
       {
         var coverLetterAndTransferNotificationTemplates = MainSolution.Module.CitizenRequests.PublicFunctions.Module.GetCoverLetterAndTransferNotificationTemplatesByActionItem(actionItemExecution);
         if (coverLetterAndTransferNotificationTemplates == null)
-          return false;
+          return coverDocuments;
         
         var isProblemCreatingCoverLetter = false;
         var isProblemCreatingNotification = false;
@@ -49,28 +54,23 @@ namespace GD.MainSolution.Client
         {
           var coverLetter = CreateCoverLetterForExecution(actionItemExecution, eventArgs, coverLetterAndTransferNotificationTemplates.CoverLetterTemplate);
           if (coverLetter != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(coverLetter))
-          {
-            _obj.CoverDocumentsGroup.OfficialDocuments.Add(coverLetter);
-            _obj.Save();
-          }
+            coverDocuments.CoverLetter = coverLetter;
+          
           isProblemCreatingCoverLetter = coverLetter == null;
         }
-        
         if (!string.IsNullOrEmpty(errorNotification))
         {
           var notificationTransfer = CreateTransferNotificationForExecution(actionItemExecution, eventArgs, coverLetterAndTransferNotificationTemplates.TransferNotificationTemplate);
           if (notificationTransfer != null && !_obj.CoverDocumentsGroup.OfficialDocuments.Contains(notificationTransfer))
-          {
-            _obj.CoverDocumentsGroup.OfficialDocuments.Add(notificationTransfer);
-            _obj.Save();
-          }
+            coverDocuments.CoverNotification = notificationTransfer;
+          
           isProblemCreatingNotification = notificationTransfer == null;
         }
-        return !isProblemCreatingCoverLetter && !isProblemCreatingNotification;
+        
+        coverDocuments.SuccessfullyChecked = !isProblemCreatingCoverLetter && !isProblemCreatingNotification;
       }
       
-      else
-        return false;
+      return coverDocuments;
     }
     
     /// <summary>
@@ -133,7 +133,8 @@ namespace GD.MainSolution.Client
     /// <param name="resolution">Задача на исполнение поручений.</param>
     /// <param name="eventArgs">Аргумент обработчика вызова.</param>
     /// <returns>True, если нет ошибок или документы перегенерили, иначе false.</returns>
-    public virtual bool CheckActualityLettersForExecution(MainSolution.IActionItemExecutionTask resolution, Sungero.Domain.Client.ExecuteActionArgs eventArgs)
+    public virtual GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.ICoverDocuments CheckActualityLettersForExecution(MainSolution.IActionItemExecutionTask resolution,
+                                                                                                                                          Sungero.Domain.Client.ExecuteActionArgs eventArgs)
     {
       var coveringLetterKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(GD.CitizenRequests.PublicConstants.Module.CoveringLetterKind);
       var notificationKind = Sungero.Docflow.PublicFunctions.DocumentKind.Remote.GetNativeDocumentKindRemote(GD.CitizenRequests.PublicConstants.Module.TransferNotificationKind);
@@ -147,11 +148,9 @@ namespace GD.MainSolution.Client
       var errorNotification = CitizenRequests.PublicFunctions.Module.CheckActualityNotification(resolution, notification);
       
       // Вызвать диалог.
-      if (!string.IsNullOrEmpty(errorCoverLetter) || !string.IsNullOrEmpty(errorNotification))
-        return CreateTransferDocumentsForExecution(resolution, errorCoverLetter, errorNotification, eventArgs);
-      else
-        return true;
-      
+      return !string.IsNullOrEmpty(errorCoverLetter) || !string.IsNullOrEmpty(errorNotification) ?
+        CreateTransferDocumentsForExecution(resolution, errorCoverLetter, errorNotification, eventArgs) :
+        GD.GovernmentSolution.Structures.RecordManagement.DocumentReviewTask.CoverDocuments.Create(true, letter, notification);
     }
   }
 }

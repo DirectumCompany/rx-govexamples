@@ -105,24 +105,6 @@
       "Placement": "Client",
       "ReturnType": "global::GD.CitizenRequests.Structures.Module.ICoverLetterAndTransferNotificationTemplates",
       "ReturnTypeFullName": "GD.CitizenRequests.Structures.Module.ICoverLetterAndTransferNotificationTemplates"
-    },
-    {
-      "Name": "SignatureTransferDocumentsForExecution",
-      "Parameters": [
-        {
-          "Name": "task",
-          "ParameterType": "global::Sungero.Workflow.ITask",
-          "ParameterTypeFullName": "Sungero.Workflow.ITask, Sungero.Workflow.Interfaces"
-        },
-        {
-          "Name": "actionItemExecution",
-          "ParameterType": "global::GD.MainSolution.IActionItemExecutionTask",
-          "ParameterTypeFullName": "GD.MainSolution.IActionItemExecutionTask, Sungero.Domain.Interfaces"
-        }
-      ],
-      "Placement": "Client",
-      "ReturnType": "global::System.String",
-      "ReturnTypeFullName": "System.String"
     }
   ],
   "PublicStructures": [],

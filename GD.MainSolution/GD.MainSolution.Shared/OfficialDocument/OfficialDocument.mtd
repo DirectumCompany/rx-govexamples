@@ -48,13 +48,6 @@
   "FormViewUuid": "c12f3abe-80fd-4f3b-a639-db76678aae1e",
   "Functions": [
     {
-      "Name": "ExistsRegistrationSetting",
-      "ClassFullName": "GD.MainSolution.Server.OfficialDocumentFunctions",
-      "IsClrPublic": true,
-      "ReturnType": "global::System.Boolean",
-      "ReturnTypeFullName": "System.Boolean"
-    },
-    {
       "Name": "MarkDocumentsAsObsolete",
       "ClassFullName": "GD.MainSolution.Server.OfficialDocumentFunctions",
       "IsClrPublic": true,
@@ -101,18 +94,6 @@
     }
   ],
   "PublicFunctions": [
-    {
-      "Name": "ExistsRegistrationSetting",
-      "Parameters": [
-        {
-          "Name": "officialDocument",
-          "ParameterType": "global::GD.MainSolution.IOfficialDocument",
-          "ParameterTypeFullName": "GD.MainSolution.IOfficialDocument, Sungero.Domain.Interfaces"
-        }
-      ],
-      "ReturnType": "global::System.Boolean",
-      "ReturnTypeFullName": "System.Boolean"
-    },
     {
       "Name": "MarkDocumentsAsObsolete",
       "IsRemote": true,
